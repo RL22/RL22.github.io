@@ -1,0 +1,47 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 10px;
+  color: black;
+  
+}
+
+h1, h2, h3, h4, p {
+	color: charcoal;
+}
+
+.navbar-inverse {
+	background-color: rgba(15, 15, 15, 0.9);
+}
+
+label {
+	color: black;
+}
+
+
+img {
+	border:1px solid #;
+	-webkit-border-radius: 60px;
+	-moz-border-radius: 60px;
+	border-radius: 60px;  
+}
+
+.centered{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.panel {
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
+.skills{
+	padding-right: 10px;
+}
+
+.projects{
+	padding-top: 20px;
+	padding-right: 10px;
+}
+
