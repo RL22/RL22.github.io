@@ -24,8 +24,17 @@ img {
 }
 
 .profile-image{
-	max-width: 100px;
-	max-height: 100px;
+	max-width: 150px;
+	max-height: 150px;
+}
+
+.profile-content{
+	padding-top: 40px;
+	float: right;
+}
+
+.media-object{
+	max-width: 120px;
 }
 
 .container{
