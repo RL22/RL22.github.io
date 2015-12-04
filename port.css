@@ -23,6 +23,11 @@ img {
 	border-radius: 0px;  
 }
 
+a.thumbnail{
+	max-width: 200px;
+	display: inline-block;
+}
+
 .profile-image{
 	max-width: 150px;
 	max-height: 150px;
@@ -49,8 +54,7 @@ img {
 
 .panel {
 	background-color: transparent;
-	padding-left: 10px;
-	padding-bottom: 10px;
+	padding: 5px;
 }
 
 .skills{
