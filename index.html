@@ -1,206 +1,198 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>: Rodney Lewis' Portfolio</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/simplex/bootstrap.min.css">
-    <link href='port.css' rel='stylesheet' type='text/css'>
-  
-  </head>
-  
-  <body>
-    <!-- Header -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-3"></div>
-      
-        <div class="col-lg-8 col-md-8 col-sm-12">
-          
-          <div class="col-lg-3 col-md-4 col-sm-4">
-            <img class="profile-image img-responsive pull-left" src="assets/img/camo_greens.png" alt="Rodney Lewis" />
-          </div>
-          
-          <div class="profile-content pull-left">
-            <h1 class="text-primary">Rodney L. Lewis</h1>
-            <h3 class="desc">Front-End Web Developer</h3>
-            <ul class="social list-inline">
-              <li>
-                <i class="fa fa-map-marker"></i> Oakland, Ca
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/pub/rodney-lewis/73/11b/abb">
-                <i class="fa fa-linkedin"></i></a>
-              </li>
-              <li>
-                <a href="https://github.com/RL22"> 
-                <i class="fa fa-github-alt"></i></a> 
-              </li>
-            </ul>
-          </div> 
-        </div>
-      
+<head>
+	<meta charset="utf-8">
+	<title>Rodney Lewis' - Front-end Web Development</title>
+	<meta name="description" content="Portfolio Website">
+	<meta name="author" content="Rodney L. Lewis">
+	
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- FONT -->
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="images/favicon.png" />
+
+</head>
+<body>
+
+<!-- Menu -->
+<nav class="navigation">
+	<a href="#" class="menu-icon">
+		<i class="fa fa-bars"></i>
+	</a>
+	<ul class="main-navigation" role="navigation">
+		<li> <a href="#hero">Home</a> </li>
+		<li> <a href="#introduction">Introduction</a> </li>
+		<li> <a href="#work">Work</a> </li>
+	</ul>
+</nav>
+
+<!-- Hero -->
+<section id="hero" class="hero u-full-width">
+  <div class="hero-image"> </div>
+   <div class="container centered">
+   	<div class="twelve columns"> 
+   		<img class="hero_img" src="assets/imgs/camo_greens.png">
+		<h1 class="separtor">Rodney L. Lewis</h1>
+		<h2>Front-end Developer based in the Bay Area.</h2>
+				<ul class="social-links">
+					<li>
+						<a href="https://www.linkedin.com/pub/rodney-lewis/73/11b/abb" target="_blank">
+							<i class="fa fa-linkedin"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.behance.net/l_rodneyl" target="_blank">
+							<i class="fa fa-behance"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://github.com/RL22" target="_blank">
+							<i class="fa fa-github"></i>
+						</a>
+					</li>
+				</ul>
+   	</div>
+   </div>     
+  </div>
+</section>
+
+<!-- Introduction -->
+<section id="introduction" class="introduction u-full-width">
+	<div class="container">
+		<div class="row">
+			<div class="twelve columns">
+				<h3 class="separator">About Me</h3>
+				<h4>An Oakland native with a passion for creating digital media. I have experience coding in html, css, javascript and a handful of popular frameworks such as Bootstrap, Foundation, AngularJS, ExpressJS, underscore, etc. As a designer I tend to favor the Adobe products (ie. Photoshop, Illustrator, InDesign).</h4>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Work -->
+<section data-sr id="work" class="work u-full-width">
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns">
+        <h3 class="separator">Some of my work</h3>
       </div>
     </div>
-   
-    <!-- Tabs -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-12"></div>
-          <div class="col-lg-8 col-md-8 col-sm-12">
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a href="#bio" aria-controls="bio" role="tab" data-toggle="tab">Bio</a></li>
-              <li role="presentation"><a href="#skills" aria-controls="skills" role="tab" data-toggle="tab">Skills</a></li>
-              <li role="presentation"><a href="#education" aria-controls="education" role="tab" data-toggle="tab">Education</a></li>
-              <li role="presentation"><a href="#experience" aria-controls="experience" role="tab" data-toggle="tab">Work Experience</a></li>
-            </ul>
-
-            <!-- Tab panes -->
-            <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="bio">
-                    <br>
-                    <p class="centered">A 24 year old, Oakland native with a passion for creating digital media. While fine tuning my design skills, learning to code and networking I've gained work experience in tech sales. I have experience coding in html, css, javascript and a handful of popular frameworks such as Bootstrap, Foundation, AngularJS, ExpressJS, underscore, etc. As a designer I tend to favor the Adobe products (ie. Photoshop, Illustrator, InDesign) to create and edit photos.
-                    </p>
-              </div>
-              <div role="tabpanel" class="tab-pane" id="skills">
-                
-                <div class="col-lg-6 col-md-6">
-                  <h4>Javascript</h4>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                      <span class="sr-only">70% Complete (success)</span>
-                    </div>
-                  </div>
-
-                  <h4>HTML5</h4>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                      <span class="sr-only">90% Complete (success)</span>
-                    </div>
-                  </div>
-
-                  <h4>CSS3</h4>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                      <span class="sr-only">90% Complete (success)</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                  <h4>JQuery</h4>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                      <span class="sr-only">70% Complete (success)</span>
-                    </div>
-                  </div>
-
-                  <h4>Wordpress</h4>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
-                      <span class="sr-only">85% Complete (success)</span>
-                    </div>
-                  </div>
-
-                  <h4>Photoshop</h4>
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
-                      <span class="sr-only">95% Complete (success)</span>
-                    </div>
-                  </div>
-                </div>
-              
-              </div>
-              <div role="tabpanel" class="tab-pane" id="education">
-                  <h5 class="text-primary">Telegraph Prep (June '15)</h5>
-                  <p>A partner program of Hack Reactor focused on Javascript, I was taught key skills such as appropriate work flow, paired programming, and functional programming. Working with instructors and fellow classmates on problem solving and mock applications. Telegraph Academy has been a big part of my education. I now serve as a teacher’s assistant.</p>
-              </div>
-              <div role="tabpanel" class="tab-pane" id="experience">
-                  <h5 class="text-primary">Freelance Web Design (Oct. '14 - present)</h5>
-                  <p>During my time freelancing I focused primarily on developing and deploying custom websites in HTML, CSS, and Javascript. In addition using popular frameworks like bootstrap and foundation. Developing on the node environment.</p>
-
-                  <h5 class="text-primary">Womply: Account Executive (Aug. '15 - Oct. '15)</h5>
-                  <p>At Womply my primary focus was acquiring and managing new accounts. During weekly meetings I'd help strategize with the Dev team about improvements and features clients would like to implemented. </p>
-              </div>
+    <div class="row">
+      <ul class="work-filters u-full-width">
+        <li class="active">
+          <a href="#" data-filter="*">All</a>
+        </li>
+        <li>
+          <a href="#" data-filter=".web-design">Web design</a>
+        </li>
+        <li>
+          <a href="#" data-filter=".mobile">Mobile</a>
+        </li>
+        <li>
+          <a href="#" data-filter=".ui">UI</a>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <ul class="work-items isotope js-isotope u-cf">
+        <li class="four columns isotope-item web-design ui">
+           <img src="assets/imgs/portfolio/behanceport.jpg">
+          <div class="work-detail">
+            <div class="vertical-centered">
+            <a href="http://rl22.github.io/behanceport/" target="_blank">
+              <h3>Web Design</h3>
+              <p class="separator orange">Behance Portfolio built with HTML, CSS, JS, jquery plugins, Behance API</p>
+            </a>
             </div>
           </div>
-      </div>
-    </div>
-
-    <!-- Behance Port -->
-    <div class="container">
-      <div class="row">
-        
-        <div class="container col-lg-2 col-md-2 col-sm-2"></div>
-            
-          <div class="col-lg-8 col-md-8 col-sm-12">
-            <div class="panel"> <h2>Mock Ups</h2> </div>
-          
-            
-            <!-- <div class="container col-lg-2 col-md-2 col-sm-2"></div> -->
-
-            <div class="container col-lg-12 col-md-12 col-sm-12">
-              <a href="https://www.behance.net/gallery/31729065/InstaPort-A-portfolio-site-with-Instagram-feed" class="thumbnail">
-                <img src="https://mir-s3-cdn-cf.behance.net/projects/202/57a83831729065.Y3JvcCwxMzY5LDEwNzEsMzE1LDE2.jpg" alt="InstaPort">
-              </a>
-              <a href="https://www.behance.net/gallery/31725835/Vagabound-Travel-Agency-Landing-Page" class="thumbnail">
-                <img src="https://mir-s3-cdn-cf.behance.net/projects/202/f0cbf731725835.Y3JvcCw5NTgsNzQ5LDE2MSw2NA.jpg" alt="Vagabound">
-              </a>
-              <a href="https://www.behance.net/gallery/31699283/Artisia-Craft-Shop-One-Page-Mock-Up" class="thumbnail">
-                <img src="https://mir-s3-cdn-cf.behance.net/projects/202/0fed8c31699283.Y3JvcCwxMzY5LDEwNzEsMzE1LDEyOA.jpg" alt="Artisia">
-              </a>     
-            </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Projects -->
-    <div class="container">
-      <div class="row">
-
-        <div class="container col-lg-2 col-md-2 col-sm-2"></div>
-
-        <div class="col-lg-8 col-md-8 col-sm-12">
-          <div class="panel"> <h2>Projects</h2> </div>
-
-          <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="panel projects">
-              <div class="media"></div>
-              <div class="media-left media-middle"><a href="http://rl22.github.io/todoapp/"><img src="assets/img/todoapp.png" alt="To Do App" class="media-object"/></a></div>
-              <div class="media-body">
-                <h4 class="media-heading">To Do App</h4>    To Do App created using HTML, CSS, & JQuery. 
-              </div>
-              <div class="media"></div>
-              <div class="media-left media-middle"><a href="http://rl22.github.io/theblog/"><img src="assets/img/theBlog.png" alt="the blog" class="media-object"/></a></div>
-              <div class="media-body">
-                <h4 class="media-heading">The Blog</h4>   Blog site created with Bootstrap CSS.
-              </div>
+        </li>
+        <li class="four columns isotope-item web-design ui">
+           <img src="assets/imgs/portfolio/instaport.jpg">
+          <div class="work-detail">
+            <div class="vertical-centered">
+            <a href="http://rl22.github.io/instaport/" target="_blank">
+              <h3>Web Design</h3>
+              <p class="separator orange">Portfolio Site built w/ HTML, CSS, JS, Instagram API</p>
+            </a>
             </div>
           </div>
-          <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="panel projects">
-              <div class="media"></div>
-              <div class="media-left media-middle"><a href="http://rl22.github.io/theGallery/"><img src="assets/img/theGallery.png" alt="..." class="media-object"/></a></div>
-              <div class="media-body">
-                <h4 class="media-heading">theGallery</h4>   Photo Gallery featuring Bootstrap, HTML, CSS, Lightbox and JQuery.  
-              </div>
-              <div class="media"></div>
-              <div class="media-left media-middle"><a href="#"><img src="http://placehold.it/150x150" alt="..." class="media-object"/></a></div>
-              <div class="media-body">
-                <h4 class="media-heading">Example site</h4>   Description of the Project...
-              </div>
+        </li>
+        <li class="four columns isotope-item mobile ui">
+           <img src="assets/imgs/portfolio/todoapp.png">
+          <div class="work-detail">
+            <div class="vertical-centered">
+            <a href="http://rl22.github.io/todoapp/" target="_blank">            
+              <h3>CSS Animation</h3>
+              <p class="separator orange">To Do List featuring CSS3 animations</p>
+            </a>
             </div>
           </div>
-        </div>
-
-      </div>
+        </li>
+        <li class="four columns isotope-item mobile ui">
+           <img src="assets/imgs/portfolio/theblog.jpg">
+          <div class="work-detail">
+            <div class="vertical-centered">
+            <a href="http://rl22.github.io/theblog/" target="_blank">
+              <h3>Ui Design</h3>
+              <p class="separator orange">Blog Example ft. Bootstrap, custom slider</p>
+            </a>
+            </div>
+          </div>
+        </li>
+        <li class="four columns isotope-item web-design ui">
+           <img src="assets/imgs/portfolio/thegallery.jpg">
+          <div class="work-detail">
+            <div class="vertical-centered">
+            <a href="http://rl22.github.io/thegallery/" target="_blank">
+              <h3>Web design</h3>
+              <p class="separator orange">Photo gallery example ft. custom slider, lightbox, Bootstrap</p>
+            </a>
+            </div>
+          </div>
+        </li>
+        <li class="four columns isotope-item ui web-design">
+           <img src="assets/imgs/portfolio/ridemag.jpg">
+          <div class="work-detail">
+            <div class="vertical-centered">
+            <a href="http://rl22.github.io/" target="_blank">
+              <h3>UI/UX Design</h3>
+              <p class="separator orange">Mag</p>
+            </a>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
+  </div>
+</section>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  </body>
+<!-- Footer -->
+<section class="footer u-full-width">
+	<div class="container">
+		<div class="row">
+			<div class="twelve columns">
+				<h5>&copy 2015 Rodney Lewis. All Rights Reserved. Oakland, Ca</h5>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Javascript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/2.3.2/scrollReveal.min.js"></script>
+<script type="text/javascript" src="assets/js/singlenav.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="assets/js/scripts.js"></script>
+
+</body>
 </html>
