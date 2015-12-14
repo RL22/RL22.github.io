@@ -353,7 +353,7 @@ section {
   color: white;
 }
 .hero-image {
-  background: url("../imgs/thelab.jpg") no-repeat;
+  background: url("../imgs/theLab.jpg") no-repeat;
   background-size: cover;
   background-position: 50% 50%;
   position: absolute;
