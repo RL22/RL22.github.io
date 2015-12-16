@@ -157,91 +157,12 @@ h3 {
   }
 
 
-/* Button inverted */
-
-.button.inverted {
-  font-size: inherit;
-  padding: 25px 70px;
-  color: white;
-  height: auto;
-  border: 3px solid white;
-  text-transform: none;
-  font-size: 26px;
-  font-family: "ambleregular";
-}
-
-.button.inverted:hover {
-  background: white;
-  color: #222;
-}
-
-.button.circle {
-  padding: 0;
-  width: 2.5em;
-  height: 2.5em;
-  line-height: 2.5em;
-  border-radius: 50%;
-  text-align: center;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  -ms-box-sizing: content-box;
-  box-sizing: content-box;
-}
-
 /* =Section general styling
 -------- */
 
 section {
   text-align: center;
-  padding: 80px 0;
-}
-
-/*
-
-  Section with featured background image. Every section which will have this
-  class will get the effect with a background cover.
-
-*/
-
-.help:before {
-  background: url("../images/help_bg_image.jpg");
-}
-.creativity:before {
-  background: url("../images/creativity_bg_image.jpg");
-  background-position: 50% 0;
-}
-.quote:before {
-  background: url("../images/quote_bg_image.jpg");
-}
-.video-iframe{
-  position: absolute;
-  left: 0; top: 0; bottom: 0; right: 0;
-  height: 100%;
-  width: 100%;
-  display: none;
-}
-.video:before {
-  background: url("../images/video_bg_image.jpg");
-}
-
-.featured-bg-image {
-  position: relative;
-  background-color: #222222;
-  color: white;
-  min-height: 500px;
-}
-.featured-bg-image:before {
-  content: '';
-  position: absolute;
-  top: 0; right: 0; left: 0; bottom: 0;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  opacity: .35;
-}
-
-.clients {
-  background-color: #f4f4f4;
+  padding: 30px 0;
 }
 
 .footer {
@@ -308,7 +229,6 @@ section {
 
 .navigation ul {
   list-style: none;
-  position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
@@ -377,7 +297,7 @@ section {
 .hero p {
   padding: 0 15%;
 }
-.hero .img{
+.hero_img{
   padding-bottom: 20px;
 }
 
@@ -397,43 +317,8 @@ section {
   font-size: 30px;
 }
 
-/*Contact*/
-
-.contact-us {
-  background-color: #f2f2f2;
-  text-align: left;
-}
-.contact-us-details {
-  padding: 70px;
-}
-.contact-us-details h5 {
-  font-size: 2rem;
-}
-.contact-us-details .social-links a {
-  color: #222;
-  display: block;
-}
-
-.contact-us-details .social-links li {
-  list-style: none;
-  float: left;
-  font-size: 24px;
-  margin-right: 10px;
-}
-.contact-us-details .social-links li:last-child {
-  margin-right: 0;
-}
-.contact-us-form {
-  padding: 70px;
-  background-color: #e4e4e4;
-}
-.contact-us .row {
-  margin: 0;
-}
 
 /* Work */
-
-
 /* Work Filters */
 
 .work-filters {
@@ -514,127 +399,6 @@ section {
   box-shadow: inset 0 0 0 10px #222;
 }
 
-/* Clients */
-.clients {
-  list-style: none;
-}
-.clients li {
-  display: inline-block;
-  width: 18%;
-  margin-right: 2%;
-}
-.clients li:last-child {
-  margin-right: 0;
-}
-.clients li img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  -webkit-filter: greyscale(100%);
-  -moz-filter: greyscale(100%);
-  filter: greyscale(100%);
-}
-
-/* About */
-.people-list {
-  list-style: none;
-  margin: 70px 0;
-  width: 100%;
-}
-.people-list li {
-  position: relative;
-  height: 300px;
-  overflow: hidden;
-}
-.people-list li img {
-  width: auto;
-  height: 100%;
-  display: block;
-}
-
-.people-list .people-hover {
-  position: absolute;
-  top: 0; bottom: 0; left: 0; right: 0;
-  background: rgba(0,0,0,.45);
-
-  opacity: 0;
-
-  -webkit-transition: all .3s ease-in-out;
-  -moz-transition: all .3s ease-in-out;
-  -ms-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-
-.people-list .people-hover a {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: white;
-}
-
-/* About people details */
-
-.people-list .people-detail {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  padding: 0 20px;
-  z-index: 1;
-  color: white;
-}
-.people-list .people-detail h3 {
-  font-size: 22px;
-  margin-bottom: 0;
-}
-.people-list .people-detail p {
-  font-size: 16px;
-}
-
-/* Feature people hiring */
-
-.people-list li.blank-feature{
-  box-shadow: inset 0 0 0 3px #222;
-}
-.people-list li.blank-feature img {
-  visibility: hidden;
-}
-.people-list li.blank-feature h3 {
-  font-size: 26px;
-}
-
-
-.people-list li:hover .people-hover{
-  opacity: 1;
-  box-shadow: inset 0 0 0 5px #222;
-}
-
-
-/* Services */
-.services {
-  list-style: none;
-  margin: 70px 0;
-}
-.services .service-image {
-  height: 150px;
-  margin-bottom: 20px;
-}
-.services .service-image img{
-  display: table-cell;
-  display: block;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-
-}
-.services h5 {
-
-}
-.services p {
-  font-size: 16px;
-  letter-spacing: 0;
-}
 
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -647,12 +411,7 @@ there.
 
 
 /* Larger than mobile */
-@media (max-width: 400px) {
-  .button.inverted {
-    padding: 15px;
-  }
-}
-@media (min-width: 400px)  and (max-width: 750px) {
+@media (min-width: 200px)  and (max-width: 750px) {
   .work-items li.isotope-item.columns {
     width: 100%;
   }
