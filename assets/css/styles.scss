@@ -8,6 +8,7 @@ body, html {
   padding-bottom: 13%;
   margin-bottom: 50px;
   background: #FFFFFF url('/assets/img/callout.jpg') center top fixed;
+  overflow: hidden;
   h1 {
     z-index: 2;
     font-size: 4em;
@@ -25,26 +26,6 @@ body, html {
     width: 60%;
     line-height: 1.5;
   }
-  // .typewriter{
-  //   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  //   border-right: .15em solid orange; /* The typwriter cursor */
-  //   white-space: nowrap; /* Keeps the content on a single line */
-  //   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  //   animation: 
-  //     typing 3.5s steps(140, end),
-  //     blink-caret .75s step-end infinite;
-  // }
-  // /* The typing effect */
-  // @keyframes typing {
-  //   from { width: 0 }
-  //   to { width: 100% }
-  // }
-
-  // /*  The typewriter cursor effect */
-  // @keyframes blink-caret {
-  //   from, to { border-color: transparent }
-  //   50% { border-color: orange; }
-  // }
 }
 
 .about {
@@ -53,7 +34,7 @@ body, html {
     margin-bottom: 24px;
   }
   img{
-    height: 60px;
+    height: 80px;
     text-align: center;
   }
   h5 {
@@ -78,13 +59,14 @@ body, html {
   }
 }
 .callout{
-  background: #FFFFFF url('/assets/img/onTheup.jpg') no-repeat center center fixed;
+  background: #FFFFFF url('/assets/img/onTheup.jpg') center center fixed;
   height: 230px;
   width: 100%;
   padding: 50px 0;
   text-align: center;
   display: table;
   color: #ffffff;
+  overflow: hidden;
   .vert-text{
     display: table-cell;
     vertical-align: middle;
@@ -97,7 +79,7 @@ body, html {
   }
 }
 .callout2{
-  background: #FFFFFF url('/assets/img/yosemite1.jpg') no-repeat 60% 20% fixed;
+  background: #FFFFFF url('/assets/img/yosemite1.jpg') 75% 20% fixed;
   height: 300px;
   width: 100%;
   padding: 50px 0;
