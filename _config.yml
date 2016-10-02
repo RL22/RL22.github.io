@@ -1,0 +1,29 @@
+# Site settings
+name: Rodney L. Lewis
+title: Rodney Lewis | Web Design & Development
+email: lewis.rodneyl@gmail.com
+url: https://rl22.github.io/
+description: Rodney Lewis, web designer & developer based in the San Francisco Bay Area creating beautifully designed website & apps that produce results. Available for hire!
+keywords: Rodney Lewis, web design, web development, San Francisco, Oakland, Bay Area
+# Footer settings
+footer: Your Website
+
+#Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+social:
+  # - title: twitter
+  #   url: https://twitter.com/RNS_Rodney
+  # - title: instagram
+  #   url: https://www.instagram.com/_rl_91_/
+  - title: behance
+    url: https://www.behance.net/l_rodneyl
+  - title: github
+    url: https://github.com/RL22
+  - title: linkedin
+    url: https://www.linkedin.com/in/rodney-lewis-abb11b73
+
+# Build Settings
+markdown: Kramdown
+permalink: pretty
+
+# API settings
+google_api_key: 

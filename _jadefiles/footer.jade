@@ -1,0 +1,14 @@
+footer.container
+  .row
+    .col.s12.m12.l12
+      ul.list-inline.banner-social-buttons
+        | {% for network in site.social %}
+        li
+          a.btn.btn-default.btn-lg(href='{{ network.url }}' target='_blank')
+            i.fa.fa-fw(class='fa-{{ network.title }}')
+            //- span.network-name {{ network.title }}
+        |                     {% endfor %}
+      .footer-copyright
+        .container
+          | © 2016 From Oakland w/ 
+          i.fa.fa-heart  Rodney L. Lewis

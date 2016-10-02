@@ -1,0 +1,30 @@
+.container.contact
+  h5 contact
+  h6 get in touch with me
+  hr
+  .row
+    .col.s12.m6.l6
+      .row
+        form.col.s12
+          .row
+            .input-field.col.s6
+              input#first_name.validate(type='text')
+              label(for='first_name') First Name
+            .input-field.col.s6
+              input#last_name.validate(type='text')
+              label(for='last_name') Last Name
+          .row
+            .input-field.col.s12
+              input#email.validate(type='email')
+              label(for='email') E-Mail
+          textarea.materialize-textarea(placeholder='Your Message', required='')
+          button.btn.waves-effect.waves-light(type='submit', name='action')
+            | Submit
+            i.mdi-content-send.right
+    .col.s12.m6.l6.contact-holder
+      h6.fa.fa-map-marker Location
+      p Oakland, Ca
+      h6.fa.fa-envelope Email
+      p lewis.rodneyl@gmail.com
+      h6.fa.fa-globe Website
+      a(href='https://rl22.github.io') Rodney L. Lewis
