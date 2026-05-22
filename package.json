@@ -1,41 +1,27 @@
 {
-  "name": "jekyll-gulp-autoprefixer-concat-jshint-sass-bourbon-jade-browser-sync",
-  "version": "1.0.0",
-  "description": "A starter project for Jekyll, GulpJS, Autoprefixer, SASS, Bourbon, Jade, JShint & BrowserSync",
-  "main": "gulpfile.js",
+  "name": "portfolio",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
-  "author": "WebDesign Master",
-  "license": "ISC",
+  "dependencies": {
+    "framer-motion": "^12.39.0",
+    "lucide-react": "^0.475.0",
+    "next": "^16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tech-stack-icons": "^3.7.1"
+  },
   "devDependencies": {
-    "bourbon": "^4.2.6",
-    "browser-sync": "^2.11.0",
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^2.3.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-jade": "^1.1.0",
-    "gulp-jshint": "^2.0.0",
-    "gulp-minify-css": "^1.2.3",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.1.0",
-    "gulp-uglify": "^1.5.1",
-    "jshint": "^2.9.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/agragregra/jekyll-gulp-autoprefixer-sass-bourbon-jade-browser-sync"
-  },
-  "keywords": [
-    "jekyll",
-    "gulp",
-    "sass",
-    "browsersync",
-    "bourbon",
-    "jade"
-  ],
-  "bugs": {
-    "url": "https://github.com/agragregra/jekyll-gulp-autoprefixer-sass-bourbon-jade-browser-sync/issues"
-  },
-  "homepage": "https://github.com/agragregra/jekyll-gulp-autoprefixer-sass-bourbon-jade-browser-sync"
+    "@types/node": "^20",
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
 }
