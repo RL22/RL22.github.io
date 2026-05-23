@@ -7,10 +7,22 @@
 html { scroll-behavior: smooth; }
 body { background-color: #F5EFE6; color: #1a1a1a; font-family: 'Inter', system-ui, sans-serif; }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+@keyframes float-b {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
 @layer components {
   .btn-primary { @apply bg-brand text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-dark transition-colors duration-200; }
   .btn-outline { @apply border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:border-brand hover:text-brand transition-colors duration-200; }
   .tag { @apply inline-block bg-cream-dark text-gray-700 text-xs font-medium px-3 py-1 rounded-full; }
   .section-badge { @apply inline-block border border-gray-300 text-gray-600 text-sm px-4 py-1 rounded-full mb-4; }
   .card { @apply bg-white rounded-2xl p-6 shadow-sm; }
+  .float-card { animation: float 4s ease-in-out infinite 1.8s; }
+  .float-card--delay-1 { animation: float-b 4.5s ease-in-out infinite 2.1s; }
+  .float-card--delay-2 { animation: float 5s ease-in-out infinite 2.4s; }
 }

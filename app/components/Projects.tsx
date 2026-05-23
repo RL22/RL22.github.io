@@ -1,4 +1,6 @@
+"use client";
 import { Globe, Github } from "lucide-react";
+import { motion } from "framer-motion";
 import Reveal from "./Reveal";
 
 type Cover = { label: string; bg: string; fg?: string };
@@ -90,8 +92,12 @@ export default function Projects() {
         </Reveal>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((p, i) => (
-            <Reveal key={p.title} delay={i * 0.08}>
-              <article className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
+            <Reveal key={p.title} delay={i * 0.09}>
+              <motion.article
+                className="bg-white rounded-2xl overflow-hidden shadow-sm h-full flex flex-col"
+                whileHover={{ y: -5, boxShadow: "0 16px 40px rgba(0,0,0,0.10)" }}
+                transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+              >
                 <div className="relative h-48 overflow-hidden">
                   {p.image ? (
                     <img src={p.image} alt={p.title} className="w-full h-full object-cover" />
@@ -127,7 +133,7 @@ export default function Projects() {
                     )}
                   </div>
                 </div>
-              </article>
+              </motion.article>
             </Reveal>
           ))}
         </div>

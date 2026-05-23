@@ -1,4 +1,6 @@
+"use client";
 import { Code2, Database, Megaphone, Palette, Gauge, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 import Reveal from "./Reveal";
 
 const skillGroups = [
@@ -65,8 +67,12 @@ export default function Skills() {
         </Reveal>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillGroups.map((g, i) => (
-            <Reveal key={g.title} delay={i * 0.06}>
-              <div className="card hover:shadow-md transition-shadow h-full">
+            <Reveal key={g.title} delay={i * 0.08}>
+              <motion.div
+                className="card h-full"
+                whileHover={{ y: -4, boxShadow: "0 12px 32px rgba(0,0,0,0.08)" }}
+                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              >
                 <div className={`w-12 h-12 rounded-xl ${g.bg} flex items-center justify-center mb-4`}>
                   <g.Icon className={`w-6 h-6 ${g.color}`} />
                 </div>
@@ -75,7 +81,7 @@ export default function Skills() {
                 <div className="flex flex-wrap gap-2">
                   {g.tags.map(t => <span key={t} className="tag">{t}</span>)}
                 </div>
-              </div>
+              </motion.div>
             </Reveal>
           ))}
         </div>

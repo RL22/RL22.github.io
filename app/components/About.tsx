@@ -82,10 +82,10 @@ export default function About() {
             {ownership.map((o, i) => (
               <motion.div
                 key={o.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.45, ease: "easeOut", delay: i * 0.06 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
                 className="card flex gap-4"
               >
                 <span className="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center shrink-0">
@@ -117,10 +117,10 @@ export default function About() {
               {process.map((t, i) => (
                 <motion.li
                   key={t.num}
-                  initial={{ opacity: 0, x: -16 }}
+                  initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.08 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
                   className="relative"
                 >
                   <span className="absolute -left-[2.85rem] w-9 h-9 rounded-full bg-brand/10 border-2 border-brand text-brand text-xs font-bold flex items-center justify-center">
@@ -138,10 +138,10 @@ export default function About() {
               {principles.map((p, i) => (
                 <motion.li
                   key={p.axiom}
-                  initial={{ opacity: 0, x: 16 }}
+                  initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.45, ease: "easeOut", delay: i * 0.07 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: i * 0.09 }}
                   className="flex gap-3 items-start"
                 >
                   <span className="mt-1 w-6 h-6 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center shrink-0">
