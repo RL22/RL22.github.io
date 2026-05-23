@@ -96,7 +96,7 @@ export default function Hero() {
           {/* Photo */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/img/rod-transparent.png"
+            src="/img/portfolio-hero-chmd-lifestyle-gen.webp"
             alt="Rodney L. Lewis"
             className="absolute bottom-0 inset-x-0 h-full w-full object-contain object-bottom z-10 select-none pointer-events-none"
             draggable={false}
