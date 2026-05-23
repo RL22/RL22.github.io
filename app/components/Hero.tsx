@@ -90,17 +90,16 @@ export default function Hero() {
 
         {/* Right: photo + floating stat cards */}
         <div className="relative h-[520px] md:h-[600px] hidden md:block">
-          {/* Brand background block */}
-          <div className="absolute bottom-0 right-0 w-[84%] h-[90%] bg-brand rounded-3xl" />
-
-          {/* Photo */}
+          {/* Brand background block — contains + clips the photo */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/img/portfolio-hero-chmd-lifestyle-gen.webp"
-            alt="Rodney L. Lewis"
-            className="absolute bottom-0 inset-x-0 h-full w-full object-contain object-bottom z-10 select-none pointer-events-none rounded-3xl"
-            draggable={false}
-          />
+          <div className="absolute bottom-0 right-0 w-[84%] h-[90%] bg-brand rounded-3xl overflow-hidden">
+            <img
+              src="/img/portfolio-hero-chmd-lifestyle-gen.webp"
+              alt="Rodney L. Lewis"
+              className="absolute bottom-0 right-0 h-full w-full object-cover object-top select-none pointer-events-none"
+              draggable={false}
+            />
+          </div>
 
           {/* Card 1 — top left — Years */}
           <motion.div
