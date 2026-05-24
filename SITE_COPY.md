@@ -95,63 +95,16 @@ A/B testing with demand gen at Pendo. Iteration loops at Carrot grounded in perf
 #### 6. Site + mar-tech migrations
 Rancher IO (Marketo to HubSpot) and Revel Systems (standard WordPress to headless WordPress, Marketo to HubSpot), both delivered at Andersen.
 
-### Who I Am
-
-I'm Rodney L. Lewis, a senior web platform lead based in Oakland, CA. The last eight years have been the same job at different logos: take an inherited marketing site, treat it like product, and make the team faster.
-
-At Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems that meant reusable component systems, modular templates, Core Web Vitals work, A/B testing, technical SEO, and the publishing workflows that let marketing ship without an engineering ticket. At **Carrot, that work cut marketing dev requests by 30%**.
-
-I work across the stack marketing actually touches: HTML, CSS, JavaScript, PHP, REST APIs, React, WordPress and Webflow on the CMS side, Marketo, HubSpot, Mutiny, Salesforce, and Mailchimp on the mar-tech side. Beyond the day job I run [Sprintz](https://sprintz.agency), a hybrid practice that pairs high-converting websites with AI-native delivery systems.
-
-### How I Work
-
-1. **Discover**
-   Discover
-   I partner with demand gen, design, and data to map the funnel, finding the pages, components, and flows where small wins compound into real revenue.
-
-2. **Build**
-   Build
-   I ship reusable modules and templates (WordPress, Webflow, React) so marketing can launch campaigns without an engineering ticket. At Carrot this cut dev requests by 30%.
-
-3. **Measure**
-   Measure
-   A/B tests, technical SEO, and Lighthouse-driven refactors. Every page ships with a hypothesis and a metric. The next iteration is grounded in what the data said.
-
-### How I Think
+### Core Principles
 
 1. **Platforms compound or decay.**
-   Every architecture decision either adds to the foundation or chips away at it. I build systems that grow in value over time.
+   Every architecture decision either adds to the foundation or chips away at it.
 
 2. **Marketing self-serve is the measure.**
-   The goal is not a successful launch. It is how long the team operates without filing a ticket. At Carrot that hit 30%.
+   Not the launch—how long the team operates without filing a ticket. At Carrot, we hit 30%.
 
 3. **Every page is a hypothesis.**
-   Ship with a metric attached. Instrument it, run the test, iterate. Good platforms have experimentation baked in at the component level.
-
-4. **AI amplifies good architecture.**
-   Agents write boilerplate fast, which means sloppy systems break faster too. The architecture underneath is the differentiator.
-
-### What Drives Me
-
-The moment a page goes live, the experiment turns green, and the marketing team realizes they can ship the next one without me in the loop. The best web platforms make the people around them faster. That's the work.
-
-### Key Traits
-- Reusable Components
-- Conversion Optimization
-- Technical SEO
-- Cross-functional Partnership
-
-### Closing Quote
-"Success is the sum of small efforts repeated day-in & day-out."
-— A principle I work by
-
-### Let's Connect
-
-Hiring a platform owner, or want to talk shop? Either works.
-
-- [Email Me](mailto:lewis.rodneyl@gmail.com)
-- [GitHub](https://github.com/RL22)
-- [LinkedIn](https://www.linkedin.com/in/rodney-lewis-abb11b73)
+   Ship with a metric. Test. Iterate. Experimentation is baked into components from day one.
 
 ---
 
