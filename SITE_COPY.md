@@ -19,22 +19,22 @@
 ## Hero Section
 
 ### Badge
-Senior Web Platform Lead
+Principal Web Platform Lead
 
 ### Main Headline (Line-by-line)
-Web platforms built
-like **product**,
-run for growth.
+Scale marketing web
+platforms. Lead
+cross-functional teams.
 
 ### Description
-Eight years owning marketing-site lifecycles at Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems. Architecture, performance, reusable components, and the publishing workflows that let marketing ship without an engineering ticket.
+Eight years leading platform initiatives at Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems. Built platform ownership models that scaled teams across demand gen, product, and engineering. Established CMS architecture, component systems, and performance standards adopted org-wide. Cut time-to-market by 30% and reduced marketing dev requests by the same. Partnered with leadership on revenue-critical platform decisions.
 
 ### Call-to-Action Buttons
-- Primary: "Book a 20-min intro"
+- Primary: "Let's discuss the role"
 - Secondary: "See the work →"
 
 ### Stats Bar
-- **8 yrs** · **5 senior roles** · **30%** fewer marketing dev tickets at Carrot
+- **8+ yrs** · **5 orgs** · **Led platform teams** · **30%** faster delivery
 
 ### Floating Cards (Desktop)
 1. **8+** Years
