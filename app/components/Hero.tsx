@@ -37,16 +37,16 @@ export default function Hero() {
         <div>
           <Reveal>
             <span className="inline-block bg-brand/10 text-brand text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
-              Senior Web Platform Lead
+              Principal Web Platform Lead
             </span>
           </Reveal>
 
           {/* Heading — line-by-line clip reveal */}
           <div className="mb-6">
             {[
-              { text: "Web platforms built", delay: 0.05 },
-              { text: <>like <span className="text-brand">product</span>,</>, delay: 0.15 },
-              { text: "run for growth.", delay: 0.25 },
+              { text: "Scale marketing web", delay: 0.05 },
+              { text: <>platforms. Lead</>, delay: 0.15 },
+              { text: "cross-functional teams.", delay: 0.25 },
             ].map((line, i) => (
               <div key={i} style={{ overflow: "hidden" }}>
                 <motion.h1
@@ -67,23 +67,25 @@ export default function Hero() {
 
           <Reveal delay={0.35}>
             <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-lg">
-              Eight years owning marketing-site lifecycles at Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems. Architecture, performance, reusable components, and the publishing workflows that let marketing ship without an engineering ticket.
+              Eight years leading platform initiatives at Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems. Built platform ownership models that scaled teams across demand gen, product, and engineering. Established CMS architecture, component systems, and performance standards adopted org-wide. Cut time-to-market by 30%.
             </p>
             <div className="flex items-center gap-4 mb-10">
               <a href="#contact" className="btn-primary inline-flex items-center gap-2">
-                Book a 20-min intro <ArrowRight className="w-4 h-4" />
+                Let's discuss the role <ArrowRight className="w-4 h-4" />
               </a>
               <a href="#projects" className="text-gray-600 hover:text-brand text-sm font-semibold transition-colors">
                 See the work →
               </a>
             </div>
             <div className="flex items-center gap-2 text-sm text-gray-500 flex-wrap">
-              <span className="font-semibold text-gray-700">8 yrs</span>
+              <span className="font-semibold text-gray-700">8+ yrs</span>
               <span>·</span>
-              <span className="font-semibold text-gray-700">5 senior roles</span>
+              <span className="font-semibold text-gray-700">5 orgs</span>
+              <span>·</span>
+              <span className="font-semibold text-gray-700">Led platform teams</span>
               <span>·</span>
               <span className="font-semibold text-brand">30%</span>
-              <span>fewer marketing dev tickets at Carrot</span>
+              <span>faster delivery</span>
             </div>
           </Reveal>
         </div>
@@ -109,20 +111,20 @@ export default function Hero() {
             <div className="float-card">
               <p className="text-3xl font-bold">8+</p>
               <p className="text-gray-600 font-medium">Years</p>
-              <p className="text-gray-400 text-sm font-normal mt-1">Owning marketing-site lifecycles</p>
+              <p className="text-gray-400 text-sm font-normal mt-1">Leading platform initiatives</p>
             </div>
           </motion.div>
 
-          {/* Card 2 — top right — Senior Roles */}
+          {/* Card 2 — top right — Organizations */}
           <motion.div
             {...cardVariant(0.7)}
             className="absolute top-4 -right-4 z-20 card shadow-lg w-56"
           >
             <div className="float-card float-card--delay-1">
-              <p className="text-gray-500 text-sm font-semibold mb-1">Senior Roles</p>
-              <span className="tag mb-2 inline-block">Marketing &amp; Growth</span>
+              <p className="text-gray-500 text-sm font-semibold mb-1">Organizations</p>
+              <span className="tag mb-2 inline-block">Platform Leadership</span>
               <p className="text-3xl font-bold">5</p>
-              <p className="text-gray-400 text-sm font-normal">Pendo · Carrot · Kiddom</p>
+              <p className="text-gray-400 text-sm font-normal">Pendo · Carrot · Kiddom · Andersen · Revel</p>
             </div>
           </motion.div>
 
@@ -133,8 +135,8 @@ export default function Hero() {
           >
             <div className="float-card float-card--delay-2">
               <p className="text-3xl font-bold text-brand">30%</p>
-              <p className="text-gray-600 font-medium">Fewer Dev Tickets</p>
-              <p className="text-gray-400 text-sm font-normal mt-1">Marketing self-serve at Carrot</p>
+              <p className="text-gray-600 font-medium">Faster Delivery</p>
+              <p className="text-gray-400 text-sm font-normal mt-1">Time-to-market reduction</p>
             </div>
           </motion.div>
         </div>
@@ -144,17 +146,17 @@ export default function Hero() {
           <div className="card">
             <p className="text-3xl font-bold">8+</p>
             <p className="text-gray-600 font-medium">Years</p>
-            <p className="text-gray-400 text-sm mt-1">Owning marketing-site lifecycles</p>
+            <p className="text-gray-400 text-sm mt-1">Leading platform initiatives</p>
           </div>
           <div className="card">
             <p className="text-3xl font-bold">5</p>
-            <p className="text-gray-600 font-medium">Senior Roles</p>
+            <p className="text-gray-600 font-medium">Organizations</p>
             <p className="text-gray-400 text-sm mt-1">Pendo · Carrot · Kiddom · Andersen · Revel</p>
           </div>
           <div className="card">
             <p className="text-3xl font-bold text-brand">30%</p>
-            <p className="text-gray-600 font-medium">Fewer Dev Tickets</p>
-            <p className="text-gray-400 text-sm mt-1">Marketing self-serve at Carrot Fertility</p>
+            <p className="text-gray-600 font-medium">Faster Delivery</p>
+            <p className="text-gray-400 text-sm mt-1">Time-to-market reduction</p>
           </div>
         </div>
       </div>
