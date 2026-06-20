@@ -12,7 +12,7 @@ const ownership = [
   {
     icon: Database,
     title: "Headless CMS in production",
-    desc: "Headless WordPress at Pendo. WordPress to headless migration at Revel Systems (via Andersen). Sanity at Sprintz today.",
+    desc: "Headless WordPress at Pendo. WordPress to headless migration at Revel Systems. Sanity at Sprintz today.",
   },
   {
     icon: Boxes,
