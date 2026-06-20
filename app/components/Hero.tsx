@@ -44,9 +44,8 @@ export default function Hero() {
           {/* Heading — line-by-line clip reveal */}
           <div className="mb-6">
             {[
-              { text: "Scale marketing web", delay: 0.05 },
-              { text: <>platforms. Lead</>, delay: 0.15 },
-              { text: "cross-functional teams.", delay: 0.25 },
+              { text: "Build platforms.", delay: 0.05 },
+              { text: "Scale marketing impact.", delay: 0.15 },
             ].map((line, i) => (
               <div key={i} style={{ overflow: "hidden" }}>
                 <motion.h1
