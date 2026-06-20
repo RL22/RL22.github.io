@@ -123,7 +123,7 @@ export default function About() {
                   transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
                   className="relative"
                 >
-                  <span className="absolute -left-[2.85rem] w-9 h-9 rounded-full bg-brand/10 border-2 border-brand text-brand text-xs font-bold flex items-center justify-center">
+                  <span className="absolute -left-[2.85rem] w-9 h-9 rounded-full bg-brand/10 border-2 border-brand text-brand text-xs font-bold flex items-center justify-center z-10">
                     {t.num}
                   </span>
                   <h4 className="font-semibold text-lg">{t.title}</h4>
@@ -144,7 +144,7 @@ export default function About() {
                   transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: i * 0.09 }}
                   className="flex gap-3 items-start"
                 >
-                  <span className="mt-1 w-6 h-6 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center shrink-0">
+                  <span className="mt-1 w-6 h-6 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center shrink-0 z-10">
                     {i + 1}
                   </span>
                   <div>
