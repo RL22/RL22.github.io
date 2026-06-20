@@ -81,7 +81,7 @@ Most marketing websites get refactored from the inside every time the brand pivo
 Marketing-site lifecycles at Carrot and Pendo ran as multi-quarter platform work: components, publishing workflows, architecture, and performance sequenced by impact.
 
 #### 2. Headless CMS in production
-Headless WordPress at Pendo. WordPress to headless migration at Revel Systems (via Andersen). Sanity at Sprintz today.
+Headless WordPress at Pendo. WordPress to headless migration at Revel Systems. Sanity at Sprintz today.
 
 #### 3. Reusable component systems
 Modular templates at Carrot Fertility reduced marketing dev requests by 30%. Component systems at Pendo wired in for personalization and analytics.
