@@ -22,9 +22,8 @@
 Principal Web Platform Lead
 
 ### Main Headline (Line-by-line)
-Scale marketing web
-platforms. Lead
-cross-functional teams.
+Build platforms.
+Scale marketing impact.
 
 ### Description
 Eight years leading platform initiatives at Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems. Built platform ownership models that scaled teams across demand gen, product, and engineering. Established CMS architecture, component systems, and performance standards adopted org-wide. Cut time-to-market by 30% and reduced marketing dev requests by the same. Partnered with leadership on revenue-critical platform decisions.
