@@ -26,7 +26,7 @@ Build platforms.
 Scale marketing impact.
 
 ### Description
-Eight years leading platform initiatives at Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems. Built platform ownership models that scaled teams across demand gen, product, and engineering. Established CMS architecture, component systems, and performance standards adopted org-wide. Cut time-to-market by 30% and reduced marketing dev requests by the same. Partnered with leadership on revenue-critical platform decisions.
+I build marketing platforms that scale by working across design, dev, and marketing fluidly. Most people don't. My hybrid perspective allows me to see where teams get stuck, what connections matter, and how systems should actually work. CMS architecture, reusable components, performance that sustains growth. AI is accelerating everything; the architecture is what enables 10x results.
 
 ### Call-to-Action Buttons
 - Primary: "Let's discuss the role"
