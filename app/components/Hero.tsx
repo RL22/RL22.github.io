@@ -66,7 +66,7 @@ export default function Hero() {
 
           <Reveal delay={0.35}>
             <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-lg">
-              Eight years leading platform initiatives at Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems. Built platform ownership models that scaled teams across demand gen, product, and engineering. Established CMS architecture, component systems, and performance standards adopted org-wide. Cut time-to-market by 30%.
+              I build marketing platforms that scale by working across design, dev, and marketing fluidly. Most people don't. My hybrid perspective allows me to see where teams get stuck, what connections matter, and how systems should actually work. CMS architecture, reusable components, performance that sustains growth. AI is accelerating everything; the architecture is what enables 10x results.
             </p>
             <div className="flex items-center gap-4 mb-10">
               <a href="#contact" className="btn-primary inline-flex items-center gap-2">
