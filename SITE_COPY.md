@@ -68,73 +68,43 @@ TypeScript, React, Next.js, Tailwind CSS, Sanity, WordPress, Vercel
 ### Section Badge
 About
 
-### Main Heading
-I treat marketing sites like product.
+### Block 1 — Claim (heading + narrative)
 
-### Subheading
-Most marketing websites get refactored from the inside every time the brand pivots. The platform underneath erodes. I've spent eight years owning marketing-site lifecycles: architecture, performance, components, and the publishing workflows underneath, so the platform compounds instead of decays.
+**Main Heading:** I treat marketing sites like product.
 
-### Areas of Ownership
+**Narrative P1:**
+Most marketing websites get refactored from the inside every time the brand pivots, and the platform underneath erodes. For eight years at Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems, my job has been the same at every logo: take an inherited marketing site, treat it like product, and make the team faster. At **Carrot, that work cut marketing dev requests by 30%**.
 
-#### 1. Platform lifecycle ownership
-Marketing-site lifecycles at Carrot and Pendo ran as multi-quarter platform work: components, publishing workflows, architecture, and performance sequenced by impact.
+**Narrative P2:**
+I'm based in Oakland, CA. Today I build at [Sprintz](https://sprintz.agency): Next.js, Sanity, and an AI-native delivery workflow.
 
-#### 2. Headless CMS in production
-Headless WordPress at Pendo. WordPress to headless migration at Revel Systems. Sanity at Sprintz today.
+### Block 2 — Proof ("WHERE I'VE OWNED IT", indexed list 01–06)
 
-#### 3. Reusable component systems
-Modular templates at Carrot Fertility reduced marketing dev requests by 30%. Component systems at Pendo wired in for personalization and analytics.
+1. **Platform lifecycle ownership** — Multi-quarter platform work at Carrot and Pendo: components, publishing workflows, architecture, and performance sequenced by impact.
+2. **Headless CMS in production** — Headless WordPress at Pendo. WordPress-to-headless migration at Revel Systems. Sanity at Sprintz today.
+3. **Reusable component systems** — Modular templates at Carrot and data-integrated components at Pendo, wired for personalization and analytics.
+4. **Performance & technical SEO** — Core Web Vitals at Carrot. Lighthouse-driven refactors at Kiddom. SEO-optimized components across every senior role.
+5. **Experimentation & partnership** — A/B testing with demand gen at Pendo. Iteration loops grounded in performance data, alongside design, UX, and content.
+6. **Site + mar-tech migrations** — Marketo-to-HubSpot for Rancher. Standard WordPress to headless WordPress at Revel Systems.
 
-#### 4. Performance & technical SEO
-Core Web Vitals work at Carrot. Lighthouse-driven refactors at Kiddom. SEO-optimized components and structured A/B plans across Pendo, Kiddom, and Andersen.
-
-#### 5. Experimentation & partnership
-A/B testing with demand gen at Pendo. Iteration loops at Carrot grounded in performance insights. Partnered with design, UX, data, and content teams across every senior role.
-
-#### 6. Site + mar-tech migrations
-Rancher IO (Marketo to HubSpot) and Revel Systems (standard WordPress to headless WordPress, Marketo to HubSpot), both delivered at Andersen.
-
-### Who I Am
-I'm Rodney L. Lewis, a senior web platform lead based in Oakland, CA. The last eight years have been the same job at different logos: take an inherited marketing site, treat it like product, and make the team faster.
-
-At Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems that meant reusable component systems, modular templates, Core Web Vitals work, A/B testing, technical SEO, and the publishing workflows that let marketing ship without an engineering ticket. At **Carrot, that work cut marketing dev requests by 30%**.
-
-I work across the stack marketing actually touches: HTML, CSS, JavaScript, PHP, REST APIs, React, WordPress and Webflow on the CMS side, Marketo, HubSpot, Mutiny, Salesforce, and Mailchimp on the mar-tech side. Beyond the day job I run [Sprintz](https://sprintz.agency), a hybrid practice that pairs high-converting websites with AI-native delivery systems.
-
-### How I Work
-
-1. **Discover** — I partner with demand gen, design, and data to map the funnel, finding the pages, components, and flows where small wins compound into real revenue.
-2. **Build** — I ship reusable modules and templates (WordPress, Webflow, React) so marketing can launch campaigns without an engineering ticket. At Carrot this cut dev requests by 30%.
-3. **Measure** — A/B tests, technical SEO, and Lighthouse-driven refactors. Every page ships with a hypothesis and a metric. The next iteration is grounded in what the data said.
-
-### How I Think (Core Principles)
+### Block 3 — Beliefs ("HOW I THINK", oversized numerals)
 
 1. **Platforms compound or decay.**
    Every architecture decision either adds to the foundation or chips away at it. I build systems that grow in value over time.
 
 2. **Marketing self-serve is the measure.**
-   The goal is not a successful launch. It is how long the team operates without filing a ticket. At Carrot that hit 30%.
+   Not the launch: how long the team operates without filing a ticket.
 
 3. **Every page is a hypothesis.**
-   Ship with a metric attached. Instrument it, run the test, iterate. Good platforms have experimentation baked in at the component level.
+   Ship with a metric attached. Instrument it, run the test, iterate. Experimentation is baked in at the component level.
 
 4. **AI amplifies good architecture.**
    Agents write boilerplate fast, which means sloppy systems break faster too. The architecture underneath is the differentiator.
 
-### What Drives Me
-The moment a page goes live, the experiment turns green, and the marketing team realizes they can ship the next one without me in the loop. The best web platforms make the people around them faster. That's the work.
+### Closing statement
+The best web platforms make the people around them faster. **That's the work.**
 
-### Traits / Tags
-Reusable Components, Conversion Optimization, Technical SEO, Cross-functional Partnership
-
-### Quote
-"Success is the sum of small efforts repeated day-in & day-out."
-— A principle I work by
-
-### Let's Connect
-**Heading:** Let's Connect
-**Copy:** Hiring a platform owner, or want to talk shop? Either works.
-**Buttons:** Email Me · GitHub · LinkedIn
+*(Removed in the 2026-07 restructure: "How I Work" timeline, traits/tags row, quote block, and the "Let's Connect" sub-section — all redundant with Skills, Projects, or Contact.)*
 
 ---
 

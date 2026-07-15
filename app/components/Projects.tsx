@@ -21,7 +21,7 @@ const projects: Project[] = [
     title: "Sprintz",
     role: "Founder · 2023–present",
     category: "Studio + AI Systems",
-    desc: "My daily production environment: designing, building, and shipping high-converting marketing sites on Next.js 16, Sanity CMS, Supabase, Cal.com, and Playwright — with an AI-native, agent-driven delivery workflow.",
+    desc: "My daily production environment: designing, building, and shipping high-converting marketing sites on Next.js 16, Sanity CMS, Supabase, Cal.com, and Playwright, with an AI-native, agent-driven delivery workflow.",
     tags: ["Next.js 16", "Sanity", "Supabase", "AI-Native"],
     liveUrl: "https://sprintz.agency",
     sourceUrl: "https://github.com/RL22",

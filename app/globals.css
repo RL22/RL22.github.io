@@ -16,6 +16,11 @@ body { background-color: #F5EFE6; color: #1a1a1a; font-family: 'Inter', system-u
   50% { transform: translateY(-5px); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .float-card, .float-card--delay-1, .float-card--delay-2 { animation: none; }
+}
+
 @layer components {
   .btn-primary { @apply bg-brand text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-dark transition-colors duration-200; }
   .btn-outline { @apply border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:border-brand hover:text-brand transition-colors duration-200; }
