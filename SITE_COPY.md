@@ -19,7 +19,7 @@
 ## Hero Section
 
 ### Badge
-Principal Web Platform Lead
+Senior Web Platform Engineer
 
 ### Main Headline (Line-by-line)
 Build platforms.
@@ -29,37 +29,37 @@ Scale marketing impact.
 I build marketing platforms that scale by working across design, dev, and marketing fluidly. Most people don't. My hybrid perspective allows me to see where teams get stuck, what connections matter, and how systems should actually work. CMS architecture, reusable components, performance that sustains growth. AI is accelerating everything; the architecture is what enables 10x results.
 
 ### Call-to-Action Buttons
-- Primary: "Let's discuss the role"
+- Primary: "Let's talk" (with arrow icon)
 - Secondary: "See the work →"
 
 ### Stats Bar
-- **8+ yrs** · **5 orgs** · **Led platform teams** · **30%** faster delivery
+- **8+ yrs** · **5 orgs** · **Owned site lifecycles end-to-end** · **30%** fewer dev requests
 
 ### Floating Cards (Desktop)
 1. **8+** Years
    - Owning marketing-site lifecycles
 
-2. **Senior Roles**: **5**
-   - Pendo · Carrot · Kiddom
+2. **Organizations**: **5**
+   - Pendo · Carrot · Kiddom · Andersen · Revel
 
-3. **30%** Fewer Dev Tickets
-   - Marketing self-serve at Carrot
+3. **30%** Fewer Dev Requests
+   - Marketing self-serve at Carrot Fertility
 
 ### Mobile Stats Cards
 1. **8+** Years
    - Owning marketing-site lifecycles
 
-2. **5** Senior Roles
+2. **5** Organizations
    - Pendo · Carrot · Kiddom · Andersen · Revel
 
-3. **30%** Fewer Dev Tickets
+3. **30%** Fewer Dev Requests
    - Marketing self-serve at Carrot Fertility
 
 ### Tech Stack Label
 Stack I work in
 
 ### Tech Stack Icons
-HTML5, CSS3, JavaScript, React, PHP, WordPress, Next.js
+TypeScript, React, Next.js, Tailwind CSS, Sanity, WordPress, Vercel
 
 ---
 
@@ -94,16 +94,47 @@ A/B testing with demand gen at Pendo. Iteration loops at Carrot grounded in perf
 #### 6. Site + mar-tech migrations
 Rancher IO (Marketo to HubSpot) and Revel Systems (standard WordPress to headless WordPress, Marketo to HubSpot), both delivered at Andersen.
 
-### Core Principles
+### Who I Am
+I'm Rodney L. Lewis, a senior web platform lead based in Oakland, CA. The last eight years have been the same job at different logos: take an inherited marketing site, treat it like product, and make the team faster.
+
+At Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems that meant reusable component systems, modular templates, Core Web Vitals work, A/B testing, technical SEO, and the publishing workflows that let marketing ship without an engineering ticket. At **Carrot, that work cut marketing dev requests by 30%**.
+
+I work across the stack marketing actually touches: HTML, CSS, JavaScript, PHP, REST APIs, React, WordPress and Webflow on the CMS side, Marketo, HubSpot, Mutiny, Salesforce, and Mailchimp on the mar-tech side. Beyond the day job I run [Sprintz](https://sprintz.agency), a hybrid practice that pairs high-converting websites with AI-native delivery systems.
+
+### How I Work
+
+1. **Discover** — I partner with demand gen, design, and data to map the funnel, finding the pages, components, and flows where small wins compound into real revenue.
+2. **Build** — I ship reusable modules and templates (WordPress, Webflow, React) so marketing can launch campaigns without an engineering ticket. At Carrot this cut dev requests by 30%.
+3. **Measure** — A/B tests, technical SEO, and Lighthouse-driven refactors. Every page ships with a hypothesis and a metric. The next iteration is grounded in what the data said.
+
+### How I Think (Core Principles)
 
 1. **Platforms compound or decay.**
-   Every architecture decision either adds to the foundation or chips away at it.
+   Every architecture decision either adds to the foundation or chips away at it. I build systems that grow in value over time.
 
 2. **Marketing self-serve is the measure.**
-   Not the launch—how long the team operates without filing a ticket. At Carrot, we hit 30%.
+   The goal is not a successful launch. It is how long the team operates without filing a ticket. At Carrot that hit 30%.
 
 3. **Every page is a hypothesis.**
-   Ship with a metric. Test. Iterate. Experimentation is baked into components from day one.
+   Ship with a metric attached. Instrument it, run the test, iterate. Good platforms have experimentation baked in at the component level.
+
+4. **AI amplifies good architecture.**
+   Agents write boilerplate fast, which means sloppy systems break faster too. The architecture underneath is the differentiator.
+
+### What Drives Me
+The moment a page goes live, the experiment turns green, and the marketing team realizes they can ship the next one without me in the loop. The best web platforms make the people around them faster. That's the work.
+
+### Traits / Tags
+Reusable Components, Conversion Optimization, Technical SEO, Cross-functional Partnership
+
+### Quote
+"Success is the sum of small efforts repeated day-in & day-out."
+— A principle I work by
+
+### Let's Connect
+**Heading:** Let's Connect
+**Copy:** Hiring a platform owner, or want to talk shop? Either works.
+**Buttons:** Email Me · GitHub · LinkedIn
 
 ---
 
@@ -123,8 +154,8 @@ One card per role. Each follows the same arc: an inherited site, a platform rese
 **Title:** Sprintz  
 **Role:** Founder · 2023–present  
 **Category:** Studio + AI Systems  
-**Description:** Hybrid studio pairing high-converting marketing sites with AI-native delivery systems. Built on Next.js 16, Sanity CMS, Supabase, Cal.com, and Playwright. Drives the open-source work that sits next to it: the BMAD-OpenCode Engine, readworthy, character.md, and antenna-os.  
-**Tags:** Next.js 16, Sanity, Supabase, BMAD  
+**Description:** My daily production environment: designing, building, and shipping high-converting marketing sites on Next.js 16, Sanity CMS, Supabase, Cal.com, and Playwright — with an AI-native, agent-driven delivery workflow.  
+**Tags:** Next.js 16, Sanity, Supabase, AI-Native  
 **Links:**
 - Live: https://sprintz.agency
 - Source: https://github.com/RL22
@@ -205,7 +236,7 @@ Six categories, drawn straight from the work, not aspirational. Tools are table 
 **Title:** Frontend & Backend  
 **Icon:** Code2  
 **Description:** The web layer I own, from markup to API. Agents write the boilerplate; I own the architecture.  
-**Tags:** HTML, CSS, JavaScript, TypeScript, React, TailwindCSS, Next.js, PHP, REST APIs
+**Tags:** HTML, CSS, JavaScript, TypeScript, React, TailwindCSS, Next.js, PHP, REST APIs, Vercel, Netlify, Supabase, GraphQL
 
 ### Skill Group 2: CMS
 
@@ -226,7 +257,7 @@ Six categories, drawn straight from the work, not aspirational. Tools are table 
 **Title:** Design  
 **Icon:** Palette  
 **Description:** Building with designers, not handing off to them. Pixel-accurate production from Figma to browser.  
-**Tags:** Figma, Sketch, Photoshop, Illustrator, Lightroom, Claude Design
+**Tags:** Figma, Sketch, Photoshop, Illustrator, Lightroom
 
 ### Skill Group 5: Conversion
 
@@ -239,8 +270,8 @@ Six categories, drawn straight from the work, not aspirational. Tools are table 
 
 **Title:** AI-Native Stack  
 **Icon:** Sparkles  
-**Description:** The production stack at Sprintz, and how I think about building for a world where velocity is a given.  
-**Tags:** Next.js 16, TypeScript, Sanity, Supabase, Claude Code, Codex, Antigravity, PaperClip, BMAD, Vercel, Netlify, GraphQL
+**Description:** How I build now: agents, orchestration, and AI-assisted delivery as defaults — the production workflow at Sprintz.  
+**Tags:** Claude Code, Codex, Gemini, MCP, Agentic Workflows, AI-Assisted Development, LLM Integration, Image Generation, Automations
 
 ---
 
@@ -253,7 +284,7 @@ Hire / Collaborate
 If you're hiring a platform owner, let's talk.
 
 ### Section Description
-Currently open to senior and principal roles owning marketing web platforms, Bay Area or remote, and select [Sprintz](https://sprintz.agency) studio engagements. I reply within one business day.
+Currently open to senior roles owning marketing web platforms — Bay Area or remote. I reply within one business day.
 
 ### Contact Info
 
@@ -298,7 +329,7 @@ Currently open to senior and principal roles owning marketing web platforms, Bay
 - Email — lewis.rodneyl@gmail.com
 
 ### Copyright
-© 2024 **Rodney L. Lewis**. Oakland, CA.
+© 2026 **Rodney L. Lewis**. Oakland, CA.
 
 ---
 

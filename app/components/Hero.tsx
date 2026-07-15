@@ -5,13 +5,13 @@ import StackIcon, { type IconName } from "tech-stack-icons";
 import Reveal from "./Reveal";
 
 const techIcons: { name: IconName; alt: string }[] = [
-  { name: "html5", alt: "HTML5" },
-  { name: "css3", alt: "CSS3" },
-  { name: "js", alt: "JavaScript" },
+  { name: "typescript", alt: "TypeScript" },
   { name: "react", alt: "React" },
-  { name: "php", alt: "PHP" },
-  { name: "wordpress", alt: "WordPress" },
   { name: "nextjs", alt: "Next.js" },
+  { name: "tailwindcss", alt: "Tailwind CSS" },
+  { name: "sanity", alt: "Sanity" },
+  { name: "wordpress", alt: "WordPress" },
+  { name: "vercel", alt: "Vercel" },
 ];
 
 const cardVariant = (delay: number) => ({
@@ -37,7 +37,7 @@ export default function Hero() {
         <div>
           <Reveal>
             <span className="inline-block bg-brand/10 text-brand text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
-              Principal Web Platform Lead
+              Senior Web Platform Engineer
             </span>
           </Reveal>
 
@@ -70,7 +70,7 @@ export default function Hero() {
             </p>
             <div className="flex items-center gap-4 mb-10">
               <a href="#contact" className="btn-primary inline-flex items-center gap-2">
-                Let's discuss the role <ArrowRight className="w-4 h-4" />
+                Let's talk <ArrowRight className="w-4 h-4" />
               </a>
               <a href="#projects" className="text-gray-600 hover:text-brand text-sm font-semibold transition-colors">
                 See the work →
@@ -81,10 +81,10 @@ export default function Hero() {
               <span>·</span>
               <span className="font-semibold text-gray-700">5 orgs</span>
               <span>·</span>
-              <span className="font-semibold text-gray-700">Led platform teams</span>
+              <span className="font-semibold text-gray-700">Owned site lifecycles end-to-end</span>
               <span>·</span>
               <span className="font-semibold text-brand">30%</span>
-              <span>faster delivery</span>
+              <span>fewer dev requests</span>
             </div>
           </Reveal>
         </div>
@@ -110,7 +110,7 @@ export default function Hero() {
             <div className="float-card">
               <p className="text-3xl font-bold">8+</p>
               <p className="text-gray-600 font-medium">Years</p>
-              <p className="text-gray-400 text-sm font-normal mt-1">Leading platform initiatives</p>
+              <p className="text-gray-400 text-sm font-normal mt-1">Owning marketing-site lifecycles</p>
             </div>
           </motion.div>
 
@@ -121,7 +121,6 @@ export default function Hero() {
           >
             <div className="float-card float-card--delay-1">
               <p className="text-gray-500 text-sm font-semibold mb-1">Organizations</p>
-              <span className="tag mb-2 inline-block">Platform Leadership</span>
               <p className="text-3xl font-bold">5</p>
               <p className="text-gray-400 text-sm font-normal">Pendo · Carrot · Kiddom · Andersen · Revel</p>
             </div>
@@ -134,8 +133,8 @@ export default function Hero() {
           >
             <div className="float-card float-card--delay-2">
               <p className="text-3xl font-bold text-brand">30%</p>
-              <p className="text-gray-600 font-medium">Faster Delivery</p>
-              <p className="text-gray-400 text-sm font-normal mt-1">Time-to-market reduction</p>
+              <p className="text-gray-600 font-medium">Fewer Dev Requests</p>
+              <p className="text-gray-400 text-sm font-normal mt-1">Marketing self-serve at Carrot Fertility</p>
             </div>
           </motion.div>
         </div>
@@ -145,7 +144,7 @@ export default function Hero() {
           <div className="card">
             <p className="text-3xl font-bold">8+</p>
             <p className="text-gray-600 font-medium">Years</p>
-            <p className="text-gray-400 text-sm mt-1">Leading platform initiatives</p>
+            <p className="text-gray-400 text-sm mt-1">Owning marketing-site lifecycles</p>
           </div>
           <div className="card">
             <p className="text-3xl font-bold">5</p>
@@ -154,8 +153,8 @@ export default function Hero() {
           </div>
           <div className="card">
             <p className="text-3xl font-bold text-brand">30%</p>
-            <p className="text-gray-600 font-medium">Faster Delivery</p>
-            <p className="text-gray-400 text-sm mt-1">Time-to-market reduction</p>
+            <p className="text-gray-600 font-medium">Fewer Dev Requests</p>
+            <p className="text-gray-400 text-sm mt-1">Marketing self-serve at Carrot Fertility</p>
           </div>
         </div>
       </div>

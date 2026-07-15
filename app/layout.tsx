@@ -4,7 +4,7 @@ import { LenisProvider } from "./providers/LenisProvider";
 import { PageLoader } from "./components/PageLoader";
 
 export const metadata: Metadata = {
-  title: "Rodney L. Lewis | Senior Web Platform Lead",
+  title: "Rodney L. Lewis | Senior Web Platform Engineer",
   description: "Eight years owning marketing-site lifecycles for Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems. Architecture, performance, reusable components, and the publishing workflows that let marketing ship without an engineering ticket.",
 };
 

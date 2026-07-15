@@ -4,19 +4,21 @@ This file is the canonical product/audience/positioning context for the portfoli
 at `rl22.github.io`. The `copywriting`, `copy-editing`, `cro`, `popups`, and
 `emails` skills all read it before asking the user clarifying questions.
 
-The "product" being marketed is **Rodney L. Lewis as a Principal Web Platform &
-Experience candidate.** The "page" is his personal portfolio. Every copy
+The "product" being marketed is **Rodney L. Lewis as a Senior IC Web Platform
+Engineer candidate.** The "page" is his personal portfolio. Every copy
 decision should ladder up to one objective.
 
 ---
 
 ## 1. The Goal
 
-**One primary action:** a recruiter, hiring manager, or executive sponsor at a
-target company (primarily Chime) reads the page and books an intro call — or at
-minimum walks away convinced Rodney is operating at Principal level.
+**One primary action:** a recruiter or hiring manager at a marketing-web
+target company reads the page and books an intro call — or at minimum walks
+away convinced Rodney is a hands-on senior IC who owns marketing-site
+lifecycles end-to-end.
 
-Conversion event: form submission OR a "book a 20-min intro" click.
+Conversion event: form submission OR a "book a 20-min intro" / intro call
+click. (Unchanged.)
 
 **Stretch goal:** the page also functions as a Sprintz studio business card —
 agency leads should feel they're hiring a senior operator, not a freelancer.
@@ -25,58 +27,59 @@ agency leads should feel they're hiring a senior operator, not a freelancer.
 
 ## 2. Target Audiences (in priority order)
 
-### Primary — Chime "Principal, Web Platform & Experience Manager"
+The primary audience is now the broader pool of Senior IC marketing-web
+hiring managers. Rodney is not currently pursuing management-track roles —
+he is not interested in people management at this time — so those postings
+are deprioritized regardless of seniority or comp.
 
-- **Role JD:** `~/Downloads/chime-research/source-10_job_description.md`
-- **Comp range:** $173K–$240K base + bonus + equity
-- **What they own:** Chime.com as a growth channel. Connects Marketing,
-  Product, and Engineering. Owns a 12–24 month roadmap for headless CMS
-  (**Contentful**), reusable components, Core Web Vitals, SEO, experimentation.
-- **Required:** 8+ years owning large-scale or headless CMS platforms
-  (Contentful / Storyblok / Sanity / equivalent). Hands-on CWV, technical SEO,
-  structured data, accessibility. PRD writing, sprint execution. GA4, Looker,
-  GSC. Translating technical complexity for non-technical stakeholders.
-- **Who's reading:** likely a Marketing Director / VP of Brand, with a
-  cross-functional panel including Engineering Director(s), SEO Lead, Content
-  Strategy. Fintech — values rigor, trust, compliance awareness.
+### Active targets — Senior IC marketing-web roles
 
-### Secondary — OpenAI "Growth — SEO, CRO and Web Strategy"
+- **Vanta — "Senior Web Developer"**
+- **Hightouch — "Web Engineer"**
+- **PandaDoc — "Senior Web Developer"**
+- **DoorDash — "Front-End Web Developer, B2B MarTech"**
 
-- **Role JD:** `openAI-job-web-growth.md` in the repo root
-- **Comp:** $265K + equity
-- **What they own:** Full-funnel growth across ChatGPT consumer + business.
-  SEO, CRO, web strategy, site migrations (OpenAI.com → ChatGPT.com),
-  experimentation infrastructure, AI-native growth workflows.
-- **Required:** 8+ years growth. Technical SEO, migrations, schema, keyword
-  portfolio management. CRO tools (Optimizely / Statsig). GA4, GSC, Looker.
-  AI workflows for programmatic SEO.
+These four are hands-on IC roles: own the marketing site (CMS, components,
+performance, experimentation), no direct reports. Positioning should speak
+directly to this shape of role — a builder who owns the lifecycle personally,
+not someone managing a team that does.
 
-### Tertiary — Similar Principal/Sr. Web Platform roles at fintech, SaaS,
-or AI companies in SF Bay Area or remote.
+### Deprioritized — management-track roles
+
+- **Chime "Principal, Web Platform & Experience Manager"** — no longer the
+  primary target. Historical JD reference (kept for context only):
+  `~/Downloads/chime-research/source-10_job_description.md` (historical —
+  role was management/cross-functional-lead flavored and is off-strategy now).
+- **Everlaw** and similar management-track web platform roles — deprioritized.
+  Rodney is not currently interested in people management, so roles requiring
+  team leadership/direct reports are not being pursued even when senior in
+  scope or comp.
+
+### Tertiary — similar Senior IC web platform/engineer roles at SaaS,
+fintech, or AI companies in the SF Bay Area or remote.
 
 ---
 
 ## 3. Positioning Pillars (what every page must convey)
 
-1. **Platform owner, not page-builder.** Eight years owning marketing-site
-   *lifecycles* — architecture, performance, components, publishing
-   workflows — not just shipping pages.
+1. **Hands-on Senior IC, not a manager.** Owns marketing-site *lifecycles*
+   end-to-end — architecture, performance, components, publishing
+   workflows — himself, not through a team of reports. No people-management
+   ambitions right now; the pitch is depth of ownership, not span of control.
 2. **Headless CMS at scale.** Headless WordPress in production at Pendo and
-   Revel (post-migration). Sanity in production at Sprintz. Contentful is the
-   same architecture with a different SDK.
+   Revel (post-migration). Sanity in production at Sprintz.
 3. **Core Web Vitals + technical SEO ownership.** CWV ownership at Carrot
    Fertility. Lighthouse-driven refactors. Technical SEO baked into every
    build.
 4. **Reusable component systems that ship business outcomes.** Modular
-   templates at Carrot reduced marketing dev requests by **40%**. The work
-   makes other people faster.
+   templates at Carrot reduced marketing dev requests by **30%**. The work
+   makes other people faster. Standardized metric — always phrase as "30%
+   fewer marketing dev requests at Carrot," never "faster delivery."
 5. **Migration leadership.** WordPress → headless WP migrations and Marketo →
    HubSpot mar-tech migrations at Andersen, for enterprise clients (Rancher
    IO, Revel Systems).
 6. **AI-native operator.** Runs Sprintz on Next.js 16 + Sanity + Supabase +
-   Tailwind v4. Built the BMAD-OpenCode Engine, an open-source multi-agent
-   framework for growth marketing workflows. Co-hosts the Push to Prod
-   podcast.
+   Tailwind v4, with agents/orchestration/AI-assisted delivery as defaults.
 7. **Builder AND strategist.** Solo studio founder who sells, designs,
    engineers, and ships. Most candidates at this level are one or the other.
 
@@ -106,8 +109,10 @@ or AI companies in SF Bay Area or remote.
   GitHub profile, the user's stated facts, or prior site content. Must be
   flagged for user review before publishing.
 - **Never** fabricate numbers, testimonials, or company names.
-- The only specific revenue/outcome number we can claim publicly is the 40%
-  marketing-dev-request reduction at Carrot Fertility (resume-verified).
+- The only specific revenue/outcome number we can claim publicly is the
+  **30% fewer marketing dev requests** reduction at Carrot Fertility
+  (resume-verified). Standardized phrasing — never say "30% faster
+  delivery"; that variant was wrong and should not reappear anywhere.
 
 ---
 
@@ -117,7 +122,7 @@ or AI companies in SF Bay Area or remote.
 |---|---|---|
 | 8+ years senior web roles | Resume | ✅ Verified |
 | 5 companies: Pendo · Carrot · Kiddom · Andersen · Revel | Resume | ✅ Verified |
-| 40% reduction in marketing dev requests at Carrot | Resume | ✅ Verified |
+| 30% fewer marketing dev requests at Carrot (never "faster delivery") | Resume | ✅ Verified |
 | Lighthouse score improvements at Kiddom | Resume | ✅ Verified |
 | WordPress + Webflow CMS ownership | Resume | ✅ Verified |
 | Mar-tech fluency: Marketo, HubSpot, Mutiny, SFMC, Mailchimp, Salesforce | Resume | ✅ Verified |
@@ -126,8 +131,6 @@ or AI companies in SF Bay Area or remote.
 | Core Web Vitals ownership at Carrot | User-asserted | ⚡ Italic |
 | Migrations specialty at Andersen (Rancher mkto→hubspot, Revel WP→headless WP + mkto→hubspot) | User-asserted | ⚡ Italic |
 | Sprintz: Next.js 16 + Sanity + Supabase + Cal.com + Playwright | Chat history + sprintz repo | ⚡ Italic |
-| BMAD-OpenCode Engine (Go, 3⭐) | GitHub | ⚡ Italic |
-| Push to Prod podcast | GitHub `push-to-prod-animations` repo | ⚡ Italic |
 | General Assembly UX Immersive (Aug 2019), Free Code Camp Full Stack (2015) | Resume | ✅ Verified |
 | Bay Area Black Designers Workshop Host (3 years) | Resume | ✅ Verified |
 
@@ -137,11 +140,11 @@ or AI companies in SF Bay Area or remote.
 
 | Objection | Where it lives | How to address |
 |---|---|---|
-| "Has he worked on Contentful specifically?" | Hiring panel | Frame Sanity + headless WP as the *same architecture pattern*. Lead with "8+ years owning headless CMS platforms." |
-| "Has he managed a roadmap, or just shipped tickets?" | Eng Director | Use ownership verbs. Position Sprintz as multi-quarter platform work. Mention OKRs explicitly. |
-| "Can he influence cross-functionally?" | VP Marketing | Show partnerships with demand gen, data, SEO, and content teams at every role. Sprintz = solo cross-functional. |
-| "Is he too hands-on for a Principal role?" | Hiring panel | Distinguish *builder + strategist* — most candidates are one. Hands-on is the differentiator, not a downgrade. |
-| "Where are the numbers?" | Everyone | Lean on the 40% Carrot number. Use it more than once. |
+| "Has he worked on our specific CMS?" | Hiring panel | Frame Sanity + headless WordPress as the *same architecture pattern* transferable to any headless CMS. Lead with "8+ years owning headless CMS platforms." |
+| "Has he actually owned a roadmap, or just shipped tickets?" | Eng lead | Use ownership verbs. Position Sprintz and Carrot as multi-quarter platform work, not one-off tickets. |
+| "Can he influence cross-functionally without formal authority?" | Hiring manager | Show partnerships with demand gen, data, SEO, and content teams at every role. Sprintz = solo cross-functional. |
+| "Does he want to manage people eventually?" | Hiring manager | Don't oversell trajectory. He's not currently interested in people management — position as a durable IC preference, not a stepping stone. |
+| "Where are the numbers?" | Everyone | Lean on the 30% Carrot number ("fewer marketing dev requests"). Use it more than once, always the same phrasing. |
 
 ---
 
@@ -165,10 +168,9 @@ or AI companies in SF Bay Area or remote.
 
 ## 9. Related Files
 
-- Live content draft: `app/content/revised.md`
+- Canonical copy document: `SITE_COPY.md` (superseded `app/content/revised.md`,
+  which now just points here).
 - Resume source: `~/Library/Mobile Documents/com~apple~CloudDocs/Rodney Lewis Resume 2025.pdf.md`
-- Chime JD: `~/Downloads/chime-research/source-10_job_description.md`
-- OpenAI JD: `openAI-job-web-growth.md`
+- Chime JD (historical — no longer the active target): `~/Downloads/chime-research/source-10_job_description.md`
 - Positioning research: `~/Downloads/chime-research/research-07_rodney_positioning.md`
 - Sprintz workspace: `~/Sprintz/brands/sprintz/`
-- BMAD repo: `~/Sprintz/Internal/bmad-opencode-engine/`

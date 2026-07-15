@@ -36,9 +36,7 @@ export default function Contact() {
             If you&apos;re hiring a platform owner, let&apos;s talk.
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
-            Currently open to senior and principal roles owning marketing web platforms, Bay Area or remote, and select{" "}
-            <a href="https://sprintz.agency" target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">Sprintz</a>{" "}
-            studio engagements. I reply within one business day.
+            Currently open to senior roles owning marketing web platforms — Bay Area or remote. I reply within one business day.
           </p>
         </Reveal>
 
