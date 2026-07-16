@@ -2,17 +2,35 @@
 
 ## Navigation
 
-### Main Navigation Links
+### Main Navigation Links (desktop)
 - Home
 - Projects
+- Skills
 - About
-- Contact
+- Resume (downloads `/resume.pdf`)
+- Contact (separate CTA button, not in the link list)
 
 ### Mobile Menu
 - Home
 - Projects
+- Skills
 - About
-- Contact
+- Resume (downloads `/resume.pdf`)
+- Contact (CTA button at the bottom of the menu)
+
+---
+
+## Page Metadata (`app/layout.tsx`)
+
+**Title:** Rodney L. Lewis | Senior Web Platform Engineer  
+**Description:** Eight years owning marketing-site lifecycles for Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems. Architecture, performance, reusable components, and the publishing workflows that let marketing ship without an engineering ticket.
+
+## Page Loader (`PageLoader.tsx`)
+
+Animated curtain shown on first load (skipped entirely for reduced-motion users).
+
+- **Monogram:** RL
+- **Tagline:** Senior Web Platform Engineer
 
 ---
 
@@ -119,71 +137,68 @@ Marketing-site lifecycles, owned end-to-end.
 ### Section Subheading
 One card per role. Each follows the same arc: an inherited site, a platform reset, a team that ships faster afterward.
 
-### Project 1: Sprintz
+Cards render in two tiers: a **Featured** tier (full case-study cards with description, tags, and links) and an **Earlier roles** tier (compact rows: title, role, one-line outcome).
+
+### Featured Tier
+
+#### Featured 1: Sprintz
 
 **Title:** Sprintz  
 **Role:** Founder · 2023–present  
 **Category:** Studio + AI Systems  
-**Description:** My daily production environment: designing, building, and shipping high-converting marketing sites on Next.js 16, Sanity CMS, Supabase, Cal.com, and Playwright — with an AI-native, agent-driven delivery workflow.  
+**Description:** My daily production environment: designing, building, and shipping high-converting marketing sites on Next.js 16, Sanity CMS, Supabase, Cal.com, and Playwright, with an AI-native, agent-driven delivery workflow.  
+**Outcome:** An AI-native delivery workflow that ships production marketing sites end-to-end.  
 **Tags:** Next.js 16, Sanity, Supabase, AI-Native  
 **Links:**
 - Live: https://sprintz.agency
 - Source: https://github.com/RL22
 
-### Project 2: Pendo.io
-
-**Title:** Pendo.io  
-**Role:** Sr. Web Developer · 2022–2023  
-**Category:** Reusable Components  
-**Description:** Built reusable landing-page modules and marketing templates on a headless WordPress stack. Partnered with demand gen on A/B tests and SEO; shipped data-integrated components for personalization and analytics. Marketing launched campaigns without an engineering ticket.  
-**Tags:** Headless WordPress, A/B Testing, SEO, Personalization  
-**Links:**
-- Live: https://pendo.io
-- Source: —
-
-### Project 3: Carrot Fertility
+#### Featured 2: Carrot Fertility
 
 **Title:** Carrot Fertility  
 **Role:** Sr. Web Developer · 2021–2022  
 **Category:** CMS Architecture & Performance  
-**Description:** Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance. Modular WordPress and Webflow templates reduced marketing dev requests by 30%. Marketing self-served; engineering got their roadmap back.  
+**Description:** Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance. Modular WordPress and Webflow templates let marketing self-serve; engineering got their roadmap back.  
+**Outcome:** Cut marketing dev requests by 30%.  
 **Tags:** WordPress, Webflow, Core Web Vitals, Mobile-First  
 **Links:**
 - Live: https://www.get-carrot.com
 - Source: —
 
-### Project 4: Kiddom
+#### Featured 3: Pendo.io
+
+**Title:** Pendo.io  
+**Role:** Sr. Web Developer · 2022–2023  
+**Category:** Reusable Components  
+**Description:** Built reusable landing-page modules and marketing templates on a headless WordPress stack. Partnered with demand gen on A/B tests and SEO; shipped data-integrated components for personalization and analytics.  
+**Outcome:** Marketing launched campaigns without an engineering ticket.  
+**Tags:** Headless WordPress, A/B Testing, SEO, Personalization  
+**Links:**
+- Live: https://pendo.io
+- Source: —
+
+### Earlier Roles Tier
+
+#### Earlier 1: Kiddom
 
 **Title:** Kiddom  
 **Role:** Sr. Web Developer · 2021  
-**Category:** SEO + Performance  
-**Description:** Built SEO-optimized page components and conversion tooling aligned to growth KPIs. Partnered with UX and data teams on behavioral testing. Front-end refactors lifted Lighthouse scores and gave the marketing team a base they could iterate on.  
-**Tags:** SEO, Conversion, Lighthouse, UX  
-**Links:**
-- Live: https://www.kiddom.co
-- Source: —
+**Outcome:** SEO-optimized components and front-end refactors that lifted Lighthouse scores and gave marketing a base to iterate on.  
+**Live:** https://www.kiddom.co
 
-### Project 5: Andersen Digital
+#### Earlier 2: Andersen Digital
 
 **Title:** Andersen Digital  
 **Role:** Web Developer · 2020–2021  
-**Category:** CMS & Mar-Tech Migrations  
-**Description:** Led CMS and mar-tech migrations for enterprise clients: Rancher IO (Marketo to HubSpot). Also shipped WordPress themes, HubSpot landing pages, and lead-gen components for AppZen and Illumio.  
-**Tags:** Marketo to HubSpot, A/B Testing, Lead Gen, WordPress  
-**Links:**
-- Live: —
-- Source: —
+**Outcome:** Led CMS and mar-tech migrations for enterprise clients, including Rancher IO from Marketo to HubSpot.  
+**Live:** — (no link)
 
-### Project 6: Revel Systems
+#### Earlier 3: Revel Systems
 
 **Title:** Revel Systems  
 **Role:** Web Designer · 2016–2020  
-**Category:** Marketing CMS  
-**Description:** Built and maintained WordPress sites and custom templates for marketing and client education. Led optimization of training pages and the knowledge center to reduce bounce and improve retention, the foundation that was later migrated to headless WordPress.  
-**Tags:** WordPress, Templates, UX, Retention  
-**Links:**
-- Live: https://revelsystems.com
-- Source: —
+**Outcome:** Built and maintained WordPress sites and templates; the foundation later migrated to headless WordPress.  
+**Live:** https://revelsystems.com
 
 ### CTA
 More work on GitHub — https://github.com/RL22
@@ -201,47 +216,43 @@ What I work in.
 ### Section Subheading
 Six categories, drawn straight from the work, not aspirational. Tools are table stakes; the principles behind them are what compound.
 
+Each group renders as a curated 5-tag list (no icons in the current component; tags are capped, not exhaustive).
+
 ### Skill Group 1: Frontend & Backend
 
 **Title:** Frontend & Backend  
-**Icon:** Code2  
 **Description:** The web layer I own, from markup to API. Agents write the boilerplate; I own the architecture.  
-**Tags:** HTML, CSS, JavaScript, TypeScript, React, TailwindCSS, Next.js, PHP, REST APIs, Vercel, Netlify, Supabase, GraphQL
+**Tags:** TypeScript, React, Next.js, Tailwind, Supabase
 
-### Skill Group 2: CMS
+### Skill Group 2: CMS Platforms
 
-**Title:** CMS  
-**Icon:** Database  
+**Title:** CMS Platforms  
 **Description:** Headless and traditional. The publishing system is a product: templates, components, and editorial workflows that let marketing move without a ticket.  
-**Tags:** WordPress, Headless WordPress, Webflow, Sanity
+**Tags:** Sanity, Headless WordPress, WordPress, Webflow, GraphQL
 
-### Skill Group 3: Growth Stack
+### Skill Group 3: Mar-Tech & Data
 
-**Title:** Growth Stack  
-**Icon:** Megaphone  
+**Title:** Mar-Tech & Data  
 **Description:** The tools demand gen, lifecycle, and CRM teams live in. I connect the marketing site to the revenue motion.  
-**Tags:** Marketo, HubSpot, Instapage, SFMC, Mailchimp, Salesforce, Mutiny
+**Tags:** HubSpot, Marketo, Salesforce, GA4, Vercel
 
-### Skill Group 4: Design
+### Skill Group 4: Conversion & SEO
+
+**Title:** Conversion & SEO  
+**Description:** The practice that turns a marketing site into a compounding asset. Every page ships with a metric.  
+**Tags:** A/B Testing, Technical SEO, Core Web Vitals, Lighthouse, Reusable Components
+
+### Skill Group 5: Design
 
 **Title:** Design  
-**Icon:** Palette  
 **Description:** Building with designers, not handing off to them. Pixel-accurate production from Figma to browser.  
 **Tags:** Figma, Sketch, Photoshop, Illustrator, Lightroom
-
-### Skill Group 5: Conversion
-
-**Title:** Conversion  
-**Icon:** Gauge  
-**Description:** The practice that turns a marketing site into a compounding asset. Every page ships with a metric.  
-**Tags:** A/B Testing, Technical SEO, Conversion Optimization, Core Web Vitals, Lighthouse, Reusable Components, CMS & Mar-Tech Migrations
 
 ### Skill Group 6: AI-Native Stack
 
 **Title:** AI-Native Stack  
-**Icon:** Sparkles  
-**Description:** How I build now: agents, orchestration, and AI-assisted delivery as defaults — the production workflow at Sprintz.  
-**Tags:** Claude Code, Codex, Gemini, MCP, Agentic Workflows, AI-Assisted Development, LLM Integration, Image Generation, Automations
+**Description:** How I build now: agents, orchestration, and AI-assisted delivery as defaults, the production workflow at Sprintz.  
+**Tags:** Claude Code, Codex, Gemini, MCP, Agentic Workflows
 
 ---
 
@@ -256,13 +267,19 @@ If you're hiring a platform owner, let's talk.
 ### Section Description
 Currently open to senior roles owning marketing web platforms — Bay Area or remote. I reply within one business day.
 
-### Contact Info
+### Contact Info ("Where to find me")
+
+**Section Title:** Where to find me
 
 **Location:** Oakland, CA (Bay Area)  
 **Email:** lewis.rodneyl@gmail.com  
 **Studio:** sprintz.agency  
 **GitHub:** github.com/RL22  
 **LinkedIn:** in/rodney-lewis-abb11b73
+
+**Buttons below the info list:**
+- "Email me" (mailto:lewis.rodneyl@gmail.com)
+- "Download resume" (downloads `/resume.pdf`)
 
 ### Contact Form Fields
 
@@ -277,21 +294,26 @@ Currently open to senior roles owning marketing web platforms — Bay Area or re
 - **Message** (required)
   Placeholder: "What's the role, project, or problem?"
 
-**Submit Button:**
-- Default: "Send message"
-- After submit: "Thanks, opening your email client…"
+**Submit button behavior:**
+- No live form endpoint is configured yet, so the form currently falls back to a `mailto:` submission.
+  - Button label in this state: **"Send via email"**
+  - Helper text shown under the button: **"This opens your email client with your message pre-filled."**
+- Once a real endpoint is wired up, the button will read **"Send message"**, and on success the form is replaced with: **"Thanks, your message is on its way. I reply within one business day."**
+- On submit error (real-endpoint mode only): "Something went wrong sending that. Your message wasn't lost, please email me directly at lewis.rodneyl@gmail.com."
+- While submitting: "Sending…"
 
-**Helper text:** "I reply within one business day."
+**Helper text (below section description):** "I reply within one business day."
 
 ---
 
 ## Footer
 
 ### Footer Navigation
-- About
+- Home
 - Projects
 - Skills
-- Contact
+- About
+- Resume (downloads `/resume.pdf`)
 
 ### Social Links
 - GitHub — https://github.com/RL22

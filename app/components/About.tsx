@@ -99,7 +99,7 @@ export default function About() {
                 <span className="text-brand text-sm font-bold tabular-nums shrink-0" aria-hidden="true">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <div>
+                <div className="min-w-0 flex-1">
                   <h4 className="font-semibold text-lg mb-1">{o.title}</h4>
                   <p className="text-gray-500 text-sm leading-relaxed">{o.desc}</p>
                 </div>

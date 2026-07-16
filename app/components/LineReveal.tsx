@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const lineVariants = {
   hidden: { y: "110%" },
@@ -13,6 +13,14 @@ const lineVariants = {
   }),
 };
 
+const lineVariantsReduced = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.01 },
+  },
+};
+
 interface LineRevealProps {
   lines: string[];
   className?: string;
@@ -20,13 +28,15 @@ interface LineRevealProps {
 }
 
 export function LineReveal({ lines, className, lineClassName }: LineRevealProps) {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <div className={className}>
       {lines.map((line, i) => (
         <div key={i} style={{ overflow: "hidden" }}>
           <motion.div
             custom={i}
-            variants={lineVariants}
+            variants={prefersReducedMotion ? lineVariantsReduced : lineVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}

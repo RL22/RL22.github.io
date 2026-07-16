@@ -13,6 +13,12 @@ export function PageLoader() {
     const tagline = taglineRef.current;
     if (!overlay || !monogram || !tagline) return;
 
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      // Skip the animated loader entirely for reduced-motion users.
+      overlay.style.display = "none";
+      return;
+    }
+
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
     // Monogram rises and lands
@@ -83,7 +89,7 @@ export function PageLoader() {
           fontFamily: "Inter, system-ui, sans-serif",
         }}
       >
-        Senior Web Platform Lead
+        Senior Web Platform Engineer
       </div>
     </div>
   );
