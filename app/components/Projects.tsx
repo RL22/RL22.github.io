@@ -179,12 +179,6 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
-
-        <div className="border-t border-gray-200 pt-10">
-          <a href="https://github.com/RL22" target="_blank" rel="noopener noreferrer" className="btn-outline">
-            More work on GitHub
-          </a>
-        </div>
       </div>
     </section>
   );
