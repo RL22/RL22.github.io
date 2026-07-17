@@ -1,10 +1,10 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
   { label: "About", href: "#about" },
+  { label: "Experience", href: "#projects" },
+  { label: "Open Source", href: "#open-source" },
+  { label: "Skills", href: "#skills" },
   { label: "Resume", href: "/resume.pdf", download: true },
 ];
 
@@ -53,9 +53,9 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-6 border-t border-cream-dark text-center">
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-600 text-sm">
             &copy; {new Date().getFullYear()}{" "}
-            <span className="text-brand font-semibold">Rodney L. Lewis</span>. Oakland, CA.
+            <span className="text-brand-dark font-semibold">Rodney L. Lewis</span>. Oakland, CA.
           </p>
         </div>
       </div>

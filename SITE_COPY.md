@@ -2,23 +2,24 @@
 
 ## Navigation
 
-### Main Navigation Links (desktop)
-- Home
-- Projects
-- Skills
-- About
+### Main Navigation Links (desktop, matches page order)
+- About (#about)
+- Experience (#projects)
+- Open Source (#open-source)
+- Skills (#skills)
 - Resume (downloads `/resume.pdf`)
 - Contact (separate CTA button, not in the link list)
 
 ### Mobile Menu
-- Home
-- Projects
-- Skills
-- About
-- Resume (downloads `/resume.pdf`)
-- Contact (CTA button at the bottom of the menu)
+Same set and order as desktop; Contact renders as the CTA button at the bottom of the menu. The RL monogram logo links home.
 
 ---
+
+## Typography
+
+- **Display / headings (h1–h4, `.font-display`):** Bricolage Grotesque (weights 600, 700, 800)
+- **Body / base:** Figtree (weights 400, 500, 600, 700)
+- Loaded via `next/font/google` in `app/layout.tsx` as CSS variables `--font-display` and `--font-body`; wired into `tailwind.config.ts` (`font-sans` → body, `font-display` → headings). Replaced the previous Inter typeface (2026-07-16).
 
 ## Page Metadata (`app/layout.tsx`)
 
@@ -44,14 +45,13 @@ Build platforms.
 Scale marketing impact.
 
 ### Description
-I build marketing platforms that scale by working across design, dev, and marketing fluidly. Most people don't. My hybrid perspective allows me to see where teams get stuck, what connections matter, and how systems should actually work. CMS architecture, reusable components, performance that sustains growth. AI is accelerating everything; the architecture is what enables 10x results.
+Eight years owning marketing-site lifecycles: CMS architecture, reusable component systems, and the performance work that turns a website into a compounding asset. I work across design, engineering, and marketing, with an AI-native workflow underneath.
 
 ### Call-to-Action Buttons
 - Primary: "Let's talk" (with arrow icon)
 - Secondary: "See the work →"
 
-### Stats Bar
-- **8+ yrs** · **5 orgs** · **Owned site lifecycles end-to-end** · **30%** fewer dev requests
+*(The text credibility strip below the CTAs — "8+ yrs · 5 orgs · Owned site lifecycles end-to-end · 30% fewer dev requests" — was removed. The floating cards carry those facts.)*
 
 ### Floating Cards (Desktop)
 1. **8+** Years
@@ -91,21 +91,12 @@ About
 **Main Heading:** I treat marketing sites like product.
 
 **Narrative P1:**
-Most marketing websites get refactored from the inside every time the brand pivots, and the platform underneath erodes. For eight years at Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems, my job has been the same at every logo: take an inherited marketing site, treat it like product, and make the team faster. At **Carrot, that work cut marketing dev requests by 30%**.
+Most marketing websites get refactored from the inside every time the brand pivots, and the platform underneath erodes. For eight years at Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems, my job has been the same at every logo: take an inherited marketing site, treat it like product, and make the team faster.
 
 **Narrative P2:**
 I'm based in Oakland, CA. Today I build at [Sprintz](https://sprintz.agency): Next.js, Sanity, and an AI-native delivery workflow.
 
-### Block 2 — Proof ("WHERE I'VE OWNED IT", indexed list 01–06)
-
-1. **Platform lifecycle ownership** — Multi-quarter platform work at Carrot and Pendo: components, publishing workflows, architecture, and performance sequenced by impact.
-2. **Headless CMS in production** — Headless WordPress at Pendo. WordPress-to-headless migration at Revel Systems. Sanity at Sprintz today.
-3. **Reusable component systems** — Modular templates at Carrot and data-integrated components at Pendo, wired for personalization and analytics.
-4. **Performance & technical SEO** — Core Web Vitals at Carrot. Lighthouse-driven refactors at Kiddom. SEO-optimized components across every senior role.
-5. **Experimentation & partnership** — A/B testing with demand gen at Pendo. Iteration loops grounded in performance data, alongside design, UX, and content.
-6. **Site + mar-tech migrations** — Marketo-to-HubSpot for Rancher. Standard WordPress to headless WordPress at Revel Systems.
-
-### Block 3 — Beliefs ("HOW I THINK", oversized numerals)
+### Block 2 — Beliefs ("HOW I THINK", oversized numerals)
 
 1. **Platforms compound or decay.**
    Every architecture decision either adds to the foundation or chips away at it. I build systems that grow in value over time.
@@ -122,7 +113,9 @@ I'm based in Oakland, CA. Today I build at [Sprintz](https://sprintz.agency): Ne
 ### Closing statement
 The best web platforms make the people around them faster. **That's the work.**
 
-*(Removed in the 2026-07 restructure: "How I Work" timeline, traits/tags row, quote block, and the "Let's Connect" sub-section — all redundant with Skills, Projects, or Contact.)*
+*(Folded 2026-07-16 to three blocks — claim, "How I think" principles, closing. The "Where I've owned it" indexed proof list (01–06) was removed as duplicative of the Experience section, and the "cut marketing dev requests by 30%" sentence was dropped from Narrative P1 (that metric lives in the hero card and the Experience section).)*
+
+*(Removed in the earlier 2026-07 restructure: "How I Work" timeline, traits/tags row, quote block, and the "Let's Connect" sub-section — all redundant with Skills, Projects, or Contact.)*
 
 ---
 
@@ -363,3 +356,11 @@ Working primarily with Front-End technologies, skilled in HTML5, CSS3, Vanilla J
 #### Ukulele
 - **Live site:** http://www.ukulelemag.com/
 - **My Role:** My contribution to Ukulele's redesign was during the development stage ensuring cross-browser compatibility & responsiveness. I also assisted with content migration from previous CMS to Wordpress.
+
+---
+
+## Archive
+
+### Previous hero description (replaced 2026-07-16)
+
+I build marketing platforms that scale by working across design, dev, and marketing fluidly. Most people don't. My hybrid perspective allows me to see where teams get stuck, what connections matter, and how systems should actually work. CMS architecture, reusable components, performance that sustains growth. AI is accelerating everything; the architecture is what enables 10x results.

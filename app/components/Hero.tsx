@@ -42,14 +42,15 @@ export default function Hero() {
             </span>
           </Reveal>
 
-          {/* Heading — line-by-line clip reveal */}
-          <div className="mb-6">
+          {/* Heading — single h1, line-by-line clip reveal */}
+          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
             {[
               { text: "Build platforms.", delay: 0.05 },
               { text: "Scale marketing impact.", delay: 0.15 },
             ].map((line, i) => (
-              <div key={i} style={{ overflow: "hidden" }}>
-                <motion.h1
+              <span key={i} className="block" style={{ overflow: "hidden" }}>
+                <motion.span
+                  className="block"
                   initial={{ y: "110%" }}
                   animate={{ y: "0%" }}
                   transition={{
@@ -57,17 +58,16 @@ export default function Hero() {
                     ease: [0.16, 1, 0.3, 1],
                     delay: line.delay,
                   }}
-                  className="text-5xl md:text-6xl font-extrabold leading-tight"
                 >
                   {line.text}
-                </motion.h1>
-              </div>
+                </motion.span>
+              </span>
             ))}
-          </div>
+          </h1>
 
           <Reveal delay={0.35}>
             <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-lg">
-              I build marketing platforms that scale by working across design, dev, and marketing fluidly. Most people don't. My hybrid perspective allows me to see where teams get stuck, what connections matter, and how systems should actually work. CMS architecture, reusable components, performance that sustains growth. AI is accelerating everything; the architecture is what enables 10x results.
+              Eight years owning marketing-site lifecycles: CMS architecture, reusable component systems, and the performance work that turns a website into a compounding asset. I work across design, engineering, and marketing, with an AI-native workflow underneath.
             </p>
             <div className="flex items-center gap-4 mb-10">
               <a href="#contact" className="btn-primary inline-flex items-center gap-2">
@@ -76,16 +76,6 @@ export default function Hero() {
               <a href="#projects" className="text-gray-600 hover:text-brand text-sm font-semibold transition-colors">
                 See the work →
               </a>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-gray-500 flex-wrap">
-              <span className="font-semibold text-gray-700">8+ yrs</span>
-              <span>·</span>
-              <span className="font-semibold text-gray-700">5 orgs</span>
-              <span>·</span>
-              <span className="font-semibold text-gray-700">Owned site lifecycles end-to-end</span>
-              <span>·</span>
-              <span className="font-semibold text-brand">30%</span>
-              <span>fewer dev requests</span>
             </div>
           </Reveal>
         </div>
@@ -111,7 +101,7 @@ export default function Hero() {
             <div className="float-card">
               <p className="text-3xl font-bold">8+</p>
               <p className="text-gray-600 font-medium">Years</p>
-              <p className="text-gray-400 text-sm font-normal mt-1">Owning marketing-site lifecycles</p>
+              <p className="text-gray-600 text-sm font-normal mt-1">Owning marketing-site lifecycles</p>
             </div>
           </motion.div>
 
@@ -123,7 +113,7 @@ export default function Hero() {
             <div className="float-card float-card--delay-1">
               <p className="text-gray-500 text-sm font-semibold mb-1">Organizations</p>
               <p className="text-3xl font-bold">5</p>
-              <p className="text-gray-400 text-sm font-normal">Pendo · Carrot · Kiddom · Andersen · Revel</p>
+              <p className="text-gray-600 text-sm font-normal">Pendo · Carrot · Kiddom · Andersen · Revel</p>
             </div>
           </motion.div>
 
@@ -135,7 +125,7 @@ export default function Hero() {
             <div className="float-card float-card--delay-2">
               <p className="text-3xl font-bold text-brand">30%</p>
               <p className="text-gray-600 font-medium">Fewer Dev Requests</p>
-              <p className="text-gray-400 text-sm font-normal mt-1">Marketing self-serve at Carrot Fertility</p>
+              <p className="text-gray-600 text-sm font-normal mt-1">Marketing self-serve at Carrot Fertility</p>
             </div>
           </motion.div>
         </div>
@@ -145,17 +135,17 @@ export default function Hero() {
           <div className="card">
             <p className="text-3xl font-bold">8+</p>
             <p className="text-gray-600 font-medium">Years</p>
-            <p className="text-gray-400 text-sm mt-1">Owning marketing-site lifecycles</p>
+            <p className="text-gray-600 text-sm mt-1">Owning marketing-site lifecycles</p>
           </div>
           <div className="card">
             <p className="text-3xl font-bold">5</p>
             <p className="text-gray-600 font-medium">Organizations</p>
-            <p className="text-gray-400 text-sm mt-1">Pendo · Carrot · Kiddom · Andersen · Revel</p>
+            <p className="text-gray-600 text-sm mt-1">Pendo · Carrot · Kiddom · Andersen · Revel</p>
           </div>
           <div className="card">
             <p className="text-3xl font-bold text-brand">30%</p>
             <p className="text-gray-600 font-medium">Fewer Dev Requests</p>
-            <p className="text-gray-400 text-sm mt-1">Marketing self-serve at Carrot Fertility</p>
+            <p className="text-gray-600 text-sm mt-1">Marketing self-serve at Carrot Fertility</p>
           </div>
         </div>
       </div>
@@ -165,17 +155,15 @@ export default function Hero() {
         <p className="text-center text-gray-500 text-sm font-medium mb-4">Stack I work in</p>
         <div className="flex justify-center items-center gap-8 flex-wrap px-6">
           {techIcons.map(t => (
-            <motion.span
+            <span
               key={t.alt}
               role="img"
               aria-label={t.alt}
               title={t.alt}
-              className="w-10 h-10 grayscale hover:grayscale-0 transition-[filter] duration-200 cursor-default"
-              whileHover={{ scale: 1.15 }}
-              transition={{ duration: 0.2 }}
+              className="w-10 h-10 grayscale"
             >
               <StackIcon name={t.name} />
-            </motion.span>
+            </span>
           ))}
         </div>
       </Reveal>

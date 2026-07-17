@@ -14,6 +14,7 @@ export default function Contact() {
   const [form, setForm] = useState<FormState>({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<SubmitStatus>("idle");
+  const [mailtoOpened, setMailtoOpened] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -43,6 +44,7 @@ export default function Contact() {
       const body = encodeURIComponent(`${form.message}\n\n- ${form.name}\n${form.email}`);
       const subject = encodeURIComponent("Portfolio inquiry");
       window.location.href = `mailto:lewis.rodneyl@gmail.com?subject=${subject}&body=${body}`;
+      setMailtoOpened(true);
       return;
     }
 
@@ -77,7 +79,7 @@ export default function Contact() {
     <section id="contact" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <Reveal className="text-center mb-16">
-          <span className="section-badge">Hire / Collaborate</span>
+          <span className="section-badge">Contact</span>
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
             If you&apos;re hiring a platform owner, let&apos;s talk.
           </h2>
@@ -193,6 +195,15 @@ export default function Contact() {
                 {usingMailtoFallback && (
                   <p className="text-gray-600 text-xs text-center">
                     This opens your email client with your message pre-filled.
+                  </p>
+                )}
+                {mailtoOpened && (
+                  <p role="status" className="text-gray-600 text-xs text-center">
+                    Opened your email client. Didn&apos;t work? Email me directly at{" "}
+                    <a href="mailto:lewis.rodneyl@gmail.com" className="text-brand-dark underline">
+                      lewis.rodneyl@gmail.com
+                    </a>
+                    .
                   </p>
                 )}
               </form>

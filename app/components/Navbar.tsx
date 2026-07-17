@@ -3,10 +3,10 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "Home", href: "/" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
   { label: "About", href: "#about" },
+  { label: "Experience", href: "#projects" },
+  { label: "Open Source", href: "#open-source" },
+  { label: "Skills", href: "#skills" },
   { label: "Resume", href: "/resume.pdf", download: true },
 ];
 

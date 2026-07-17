@@ -13,8 +13,17 @@ export function PageLoader() {
     const tagline = taglineRef.current;
     if (!overlay || !monogram || !tagline) return;
 
-    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      // Skip the animated loader entirely for reduced-motion users.
+    // The overlay must render on the server (sessionStorage is client-only),
+    // so repeat-visit and reduced-motion skips hide it imperatively here.
+    let alreadyShown = false;
+    try {
+      alreadyShown = window.sessionStorage.getItem("loaderShown") === "1";
+      window.sessionStorage.setItem("loaderShown", "1");
+    } catch {
+      // sessionStorage unavailable (e.g. private mode); animation plays every load.
+    }
+
+    if (alreadyShown || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       overlay.style.display = "none";
       return;
     }

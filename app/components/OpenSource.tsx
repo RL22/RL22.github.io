@@ -10,9 +10,9 @@ const monthYear = (iso: string) =>
 export default function OpenSource() {
   const { repos } = githubData;
   return (
-    <section id="open-source" className="py-24 bg-cream">
+    <section id="open-source" className="py-16 bg-cream">
       <div className="max-w-6xl mx-auto px-6">
-        <Reveal className="max-w-3xl mb-14">
+        <Reveal className="max-w-3xl mb-10">
           <span className="section-badge">Open Source</span>
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">Built in the open.</h2>
           <p className="text-gray-600 text-lg leading-relaxed">
@@ -32,7 +32,7 @@ export default function OpenSource() {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: (i % 2) * 0.08 }}
               className="group border-t border-gray-300/70 py-6 flex gap-5 items-baseline"
             >
-              <span className="text-brand text-sm font-bold tabular-nums shrink-0" aria-hidden="true">
+              <span className="text-brand-dark text-sm font-bold tabular-nums shrink-0" aria-hidden="true">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="min-w-0 flex-1">

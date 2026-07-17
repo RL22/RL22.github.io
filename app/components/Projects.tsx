@@ -106,7 +106,7 @@ export default function Projects() {
                   {p.title}
                 </span>
                 <div className="mt-6">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-brand mb-1">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-brand-dark mb-1">
                     {p.category}
                   </p>
                   <p className="text-gray-500 text-sm">{p.role}</p>
@@ -149,7 +149,7 @@ export default function Projects() {
 
         {/* Earlier roles tier */}
         <Reveal>
-          <h3 className="text-sm font-semibold uppercase tracking-widest text-brand mb-2">
+          <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-dark mb-2">
             Earlier roles
           </h3>
         </Reveal>
@@ -173,7 +173,7 @@ export default function Projects() {
                     p.title
                   )}
                 </h4>
-                <p className="text-gray-400 text-xs">{p.role}</p>
+                <p className="text-gray-500 text-xs">{p.role}</p>
               </div>
               <p className="text-gray-500 text-sm leading-relaxed">{p.outcome}</p>
             </motion.div>
