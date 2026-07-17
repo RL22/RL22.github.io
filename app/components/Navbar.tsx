@@ -7,7 +7,7 @@ const links = [
   { label: "Experience", href: "#projects" },
   { label: "Open Source", href: "#open-source" },
   { label: "Skills", href: "#skills" },
-  { label: "Resume", href: "/resume.pdf", download: true },
+  { label: "Resume", href: "/resume" },
 ];
 
 function Monogram() {
@@ -32,7 +32,6 @@ export default function Navbar() {
             <a
               key={l.label}
               href={l.href}
-              {...(l.download ? { download: true } : {})}
               className="text-gray-600 hover:text-brand font-medium transition-colors"
             >
               {l.label}
@@ -50,7 +49,6 @@ export default function Navbar() {
             <a
               key={l.label}
               href={l.href}
-              {...(l.download ? { download: true } : {})}
               onClick={() => setOpen(false)}
               className="text-gray-700 font-medium py-2 border-b border-cream-dark"
             >

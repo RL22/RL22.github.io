@@ -5,7 +5,7 @@ const navLinks = [
   { label: "Experience", href: "#projects" },
   { label: "Open Source", href: "#open-source" },
   { label: "Skills", href: "#skills" },
-  { label: "Resume", href: "/resume.pdf", download: true },
+  { label: "Resume", href: "/resume" },
 ];
 
 const socialLinks = [
@@ -33,7 +33,6 @@ export default function Footer() {
               <a
                 key={l.label}
                 href={l.href}
-                {...(l.download ? { download: true } : {})}
                 className="text-gray-500 hover:text-brand text-sm transition-colors"
               >
                 {l.label}

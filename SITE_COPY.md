@@ -7,7 +7,7 @@
 - Experience (#projects)
 - Open Source (#open-source)
 - Skills (#skills)
-- Resume (downloads `/resume.pdf`)
+- Resume (links to `/resume`)
 - Contact (separate CTA button, not in the link list)
 
 ### Mobile Menu
@@ -28,7 +28,7 @@ Same set and order as desktop; Contact renders as the CTA button at the bottom o
 
 ## Page Loader (`PageLoader.tsx`)
 
-Animated curtain shown on first load (skipped entirely for reduced-motion users).
+Animated curtain shown once per browser session (sessionStorage), skipped entirely for reduced-motion users.
 
 - **Monogram:** RL
 - **Tagline:** Senior Web Platform Engineer
@@ -252,13 +252,13 @@ Each group renders as a curated 5-tag list (no icons in the current component; t
 ## Contact Section
 
 ### Section Badge
-Hire / Collaborate
+Contact
 
 ### Section Heading
 If you're hiring a platform owner, let's talk.
 
 ### Section Description
-Currently open to senior roles owning marketing web platforms — Bay Area or remote. I reply within one business day.
+Currently open to senior roles owning marketing web platforms, Bay Area or remote. I reply within one business day.
 
 ### Contact Info ("Where to find me")
 
@@ -270,32 +270,24 @@ Currently open to senior roles owning marketing web platforms — Bay Area or re
 **GitHub:** github.com/RL22  
 **LinkedIn:** in/rodney-lewis-abb11b73
 
-**Buttons below the info list:**
-- "Email me" (mailto:lewis.rodneyl@gmail.com)
-- "Download resume" (downloads `/resume.pdf`)
+### Actions ("Reach out")
 
-### Contact Form Fields
+**Section Title:** Reach out
 
-**Section Title:** Send a note
+**Intro line:** No forms. Email me directly, grab time on my calendar, or take the resume with you.
 
-- **Name** (required)
-  Placeholder: "Your name"
+**Buttons (stacked):**
+- "Email me" (primary, mailto:lewis.rodneyl@gmail.com)
+- "Book a call" (outline, https://cal.com/rodlew/consultation)
+- "View resume" (outline, links to `/resume`)
 
-- **Email** (required)
-  Placeholder: "you@company.com"
+*(The contact form was removed 2026-07-16; no form endpoint is used. Visitors email or book a call.)*
 
-- **Message** (required)
-  Placeholder: "What's the role, project, or problem?"
+---
 
-**Submit button behavior:**
-- No live form endpoint is configured yet, so the form currently falls back to a `mailto:` submission.
-  - Button label in this state: **"Send via email"**
-  - Helper text shown under the button: **"This opens your email client with your message pre-filled."**
-- Once a real endpoint is wired up, the button will read **"Send message"**, and on success the form is replaced with: **"Thanks, your message is on its way. I reply within one business day."**
-- On submit error (real-endpoint mode only): "Something went wrong sending that. Your message wasn't lost, please email me directly at lewis.rodneyl@gmail.com."
-- While submitting: "Sending…"
+## Resume Page (`/resume`)
 
-**Helper text (below section description):** "I reply within one business day."
+Standalone route (`app/resume/page.tsx`) rendering the full resume in the site typefaces with a screen-only action bar ("Back to site" link, "Print / Save as PDF" button that triggers `window.print()`). Print styles produce the PDF: letter size, 0.6in margins, break-inside guards, terracotta accents with print-color-adjust. Content sections: header (name, title, contact line), Summary, Experience (6 roles, reverse-chronological, 30% metric once at Carrot), Open Source (readworthy, character.md), Skills (6 groups). Nav, footer, and Contact "View resume" all link to `/resume`.
 
 ---
 
@@ -306,7 +298,7 @@ Currently open to senior roles owning marketing web platforms — Bay Area or re
 - Projects
 - Skills
 - About
-- Resume (downloads `/resume.pdf`)
+- Resume (links to `/resume`)
 
 ### Social Links
 - GitHub — https://github.com/RL22
