@@ -23,6 +23,22 @@
       "blurb": "Placeholder: one-line description of the video.",
       "url": "https://www.youtube.com",
       "meta": "YouTube · Placeholder"
+    },
+    {
+      "type": "article",
+      "placeholder": true,
+      "title": "Placeholder: second article or teardown",
+      "blurb": "Placeholder: one-line takeaway from the piece.",
+      "url": "https://example.com",
+      "meta": "Placeholder publication · 2026"
+    },
+    {
+      "type": "video",
+      "placeholder": true,
+      "title": "Placeholder: third video, clip, or livestream",
+      "blurb": "Placeholder: one-line description of the clip.",
+      "url": "https://www.youtube.com",
+      "meta": "YouTube · Placeholder"
     }
   ]
 }

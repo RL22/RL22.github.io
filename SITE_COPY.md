@@ -5,7 +5,7 @@
 ### Main Navigation Links (desktop, matches page order)
 - About (#about)
 - Experience (#projects)
-- Open Source (#open-source)
+- Building in Public (#building)
 - Skills (#skills)
 - Resume (links to `/resume`)
 - Contact (separate CTA button, not in the link list)
@@ -193,8 +193,30 @@ Cards render in two tiers: a **Featured** tier (full cards with description, tag
 **Outcome:** Built and maintained WordPress sites and templates; the foundation later migrated to headless WordPress.  
 **Live:** https://revelsystems.com
 
+---
+
+## Building in Public Section
+
+*(Replaced the standalone Open Source section 2026-07-17. Renders between Experience and Skills, id `#building`.)*
+
+### Section Badge
+Building in Public
+
+### Section Heading
+Watch the work happen.
+
+### Section Subheading
+Repos, writing, and video, in the open as it ships. Proof of work beats claims of it.
+
+### Featured Block (two columns)
+- **Col 1:** featured video card, full-width 16:9 thumbnail with terracotta play button, kicker "Featured Video", title, blurb, meta. Currently a chip-marked PLACEHOLDER pending a real Push to Prod episode.
+- **Col 2:** two stacked repo cards (readworthy, character.md) fed by the build-time GitHub fetch (`app/data/github.json`): kicker "Code", name, description, "HTML · Updated {month year}".
+
+### Feed
+Type-tagged ruled rows (kickers: ARTICLE / VIDEO; repos live in the featured column, not the feed). Entries come from the hand-curated `app/data/building.json`. Current entries are 4 chip-marked PLACEHOLDERS (2 articles, 2 videos) pending real links.
+
 ### CTA
-More work on GitHub — https://github.com/RL22
+Full profile on GitHub — https://github.com/RL22 *(carried over; renders where the section links out)*
 
 ---
 
