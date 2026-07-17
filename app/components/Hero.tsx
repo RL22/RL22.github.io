@@ -7,11 +7,12 @@ import Reveal from "./Reveal";
 const techIcons: { name: IconName; alt: string }[] = [
   { name: "typescript", alt: "TypeScript" },
   { name: "react", alt: "React" },
-  { name: "nextjs", alt: "Next.js" },
   { name: "tailwindcss", alt: "Tailwind CSS" },
-  { name: "sanity", alt: "Sanity" },
   { name: "wordpress", alt: "WordPress" },
   { name: "vercel", alt: "Vercel" },
+  { name: "figma", alt: "Figma" },
+  { name: "anthropic", alt: "Anthropic" },
+  { name: "openai", alt: "OpenAI" },
 ];
 
 const cardVariant = (delay: number) => ({

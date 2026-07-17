@@ -77,7 +77,7 @@ I build marketing platforms that scale by working across design, dev, and market
 Stack I work in
 
 ### Tech Stack Icons
-TypeScript, React, Next.js, Tailwind CSS, Sanity, WordPress, Vercel
+TypeScript, React, Tailwind CSS, WordPress, Vercel, Figma, Anthropic, OpenAI
 
 ---
 
@@ -126,10 +126,10 @@ The best web platforms make the people around them faster. **That's the work.**
 
 ---
 
-## Projects / Case Studies
+## Projects / Experience
 
 ### Section Badge
-Case Studies
+Experience
 
 ### Section Heading
 Marketing-site lifecycles, owned end-to-end.
@@ -137,7 +137,7 @@ Marketing-site lifecycles, owned end-to-end.
 ### Section Subheading
 One card per role. Each follows the same arc: an inherited site, a platform reset, a team that ships faster afterward.
 
-Cards render in two tiers: a **Featured** tier (full case-study cards with description, tags, and links) and an **Earlier roles** tier (compact rows: title, role, one-line outcome).
+Cards render in two tiers: a **Featured** tier (full cards with description, tags, and links) and an **Earlier roles** tier (compact rows: title, role, one-line outcome). Both tiers are reverse-chronological.
 
 ### Featured Tier
 
@@ -153,19 +153,7 @@ Cards render in two tiers: a **Featured** tier (full case-study cards with descr
 - Live: https://sprintz.agency
 - Source: https://github.com/RL22
 
-#### Featured 2: Carrot Fertility
-
-**Title:** Carrot Fertility  
-**Role:** Sr. Web Developer · 2021–2022  
-**Category:** CMS Architecture & Performance  
-**Description:** Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance. Modular WordPress and Webflow templates let marketing self-serve; engineering got their roadmap back.  
-**Outcome:** Cut marketing dev requests by 30%.  
-**Tags:** WordPress, Webflow, Core Web Vitals, Mobile-First  
-**Links:**
-- Live: https://www.get-carrot.com
-- Source: —
-
-#### Featured 3: Pendo.io
+#### Featured 2: Pendo.io
 
 **Title:** Pendo.io  
 **Role:** Sr. Web Developer · 2022–2023  
@@ -175,6 +163,18 @@ Cards render in two tiers: a **Featured** tier (full case-study cards with descr
 **Tags:** Headless WordPress, A/B Testing, SEO, Personalization  
 **Links:**
 - Live: https://pendo.io
+- Source: —
+
+#### Featured 3: Carrot Fertility
+
+**Title:** Carrot Fertility  
+**Role:** Sr. Web Developer · 2021–2022  
+**Category:** CMS Architecture & Performance  
+**Description:** Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance. Modular Webflow templates let marketing self-serve; engineering got their roadmap back.  
+**Outcome:** Cut marketing dev requests by 30%.  
+**Tags:** Webflow, Core Web Vitals, Mobile-First  
+**Links:**
+- Live: https://www.get-carrot.com
 - Source: —
 
 ### Earlier Roles Tier

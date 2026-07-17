@@ -33,16 +33,6 @@ const featured: Featured[] = [
     sourceUrl: "https://github.com/RL22",
   },
   {
-    title: "Carrot Fertility",
-    role: "Sr. Web Developer · 2021–2022",
-    category: "CMS Architecture & Performance",
-    desc: "Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance. Modular WordPress and Webflow templates let marketing self-serve; engineering got their roadmap back.",
-    outcome: "Cut marketing dev requests by 30%.",
-    tags: ["WordPress", "Webflow", "Core Web Vitals", "Mobile-First"],
-    liveUrl: "https://www.get-carrot.com",
-    sourceUrl: null,
-  },
-  {
     title: "Pendo.io",
     role: "Sr. Web Developer · 2022–2023",
     category: "Reusable Components",
@@ -50,6 +40,16 @@ const featured: Featured[] = [
     outcome: "Marketing launched campaigns without an engineering ticket.",
     tags: ["Headless WordPress", "A/B Testing", "SEO", "Personalization"],
     liveUrl: "https://pendo.io",
+    sourceUrl: null,
+  },
+  {
+    title: "Carrot Fertility",
+    role: "Sr. Web Developer · 2021–2022",
+    category: "CMS Architecture & Performance",
+    desc: "Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance. Modular Webflow templates let marketing self-serve; engineering got their roadmap back.",
+    outcome: "Cut marketing dev requests by 30%.",
+    tags: ["Webflow", "Core Web Vitals", "Mobile-First"],
+    liveUrl: "https://www.get-carrot.com",
     sourceUrl: null,
   },
 ];
@@ -80,7 +80,7 @@ export default function Projects() {
     <section id="projects" className="py-24 bg-cream">
       <div className="max-w-6xl mx-auto px-6">
         <Reveal className="max-w-3xl mb-16">
-          <span className="section-badge">Case Studies</span>
+          <span className="section-badge">Experience</span>
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
             Marketing-site lifecycles, owned end-to-end.
           </h2>
