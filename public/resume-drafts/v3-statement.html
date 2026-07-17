@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rodney L. Lewis | Resume: V3 Statement</title>
+<meta name="description" content="Resume of Rodney L. Lewis, Senior Web Platform Engineer.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --terracotta: #A5423D;
+    --terracotta-2: #C0614A;
+    --cream: #F5EFE6;
+    --ink: #1c1b1a;
+    --ink-soft: #4a4744;
+    --hairline: #e3d9cd;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #ece7de;
+    color: var(--ink);
+    font-family: 'Figtree', Arial, sans-serif;
+  }
+
+  .variant-label {
+    max-width: 8.5in;
+    margin: 0.75in auto 0;
+    padding: 0 0.2in;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8a8378;
+  }
+
+  .sheet-wrap {
+    max-width: 8.5in;
+    margin: 0.4in auto 1in;
+    padding: 0 0.2in;
+  }
+
+  .sheet {
+    background: #fffdfb;
+    box-shadow: 0 6px 32px rgba(28, 27, 26, 0.14);
+    border-radius: 4px;
+    overflow: hidden;
+    font-size: 10.4pt;
+    line-height: 1.52;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Bricolage Grotesque', Georgia, serif;
+    margin: 0;
+  }
+
+  /* Full-bleed terracotta header band, reversed name */
+  header.head {
+    background: var(--terracotta);
+    color: var(--cream);
+    padding: 0.5in 0.6in 0.42in;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  header.head h1 {
+    font-size: 30pt;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+  }
+
+  header.head .title-line {
+    font-family: 'Bricolage Grotesque', Georgia, serif;
+    font-weight: 600;
+    font-size: 13pt;
+    color: #f2ddd6;
+    margin-top: 4px;
+  }
+
+  header.head .contact {
+    margin-top: 12px;
+    font-size: 9.2pt;
+    color: #f2ddd6;
+  }
+
+  header.head .contact span:not(:last-child)::after {
+    content: " \00b7 ";
+    color: #d9a89f;
+    padding: 0 3px;
+  }
+
+  .body-pad { padding: 0.36in 0.6in 0.55in; }
+
+  section { margin-top: 22px; }
+  section:first-child { margin-top: 0; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 11px;
+  }
+
+  .section-num {
+    font-family: 'Bricolage Grotesque', Georgia, serif;
+    font-weight: 800;
+    font-size: 20pt;
+    color: var(--terracotta-2);
+    opacity: 0.35;
+    line-height: 1;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  section h2 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--terracotta);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .summary { max-width: 7.3in; }
+
+  .entry {
+    margin-bottom: 15px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border-left: 2px solid var(--hairline);
+    padding-left: 12px;
+  }
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 3px 12px;
+  }
+
+  .entry-head h3 { font-size: 11.5pt; font-weight: 700; }
+
+  .entry-dates {
+    font-size: 9.2pt;
+    color: var(--ink-soft);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .entry-role {
+    font-size: 9.8pt;
+    color: var(--terracotta-2);
+    font-weight: 600;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .entry p.intro { margin: 5px 0 0; }
+
+  .entry ul {
+    margin: 6px 0 0;
+    padding-left: 16px;
+    list-style: disc;
+  }
+  .entry ul li::marker { color: var(--terracotta); }
+  .entry li { margin-bottom: 3px; }
+
+  .oss {
+    margin-bottom: 11px;
+    border-left: 2px solid var(--hairline);
+    padding-left: 12px;
+  }
+  .oss:last-child { margin-bottom: 0; }
+  .oss-name {
+    font-weight: 700;
+    font-family: 'Bricolage Grotesque', Georgia, serif;
+    font-size: 10.8pt;
+  }
+  .oss-url { color: var(--ink-soft); font-size: 9.1pt; margin-left: 8px; }
+  .oss-desc { margin-top: 3px; font-size: 10pt; }
+
+  .skills-line { margin-bottom: 7px; font-size: 10pt; }
+  .skills-line:last-child { margin-bottom: 0; }
+  .skills-group {
+    font-family: 'Bricolage Grotesque', Georgia, serif;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .skills-tags { color: var(--ink-soft); }
+
+  @media print {
+    @page { size: letter; margin: 0.55in; }
+    html, body { background: #fff; }
+    .variant-label { display: none !important; }
+    .sheet-wrap { max-width: none; margin: 0; padding: 0; }
+    .sheet {
+      box-shadow: none;
+      border-radius: 0;
+      margin: 0;
+    }
+    /* Header band bleeds to the page margin box: negative-margin trick to
+       cancel the @page margin on the top edge visually via full color fill. */
+    header.head {
+      margin: -0.55in -0.55in 0;
+      padding: 0.55in 0.6in 0.4in;
+    }
+    .body-pad { padding: 0.34in 0 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="variant-label">V3 &ndash; Statement (brand-forward header band)</div>
+  <div class="sheet-wrap">
+    <main class="sheet">
+      <header class="head">
+        <h1>Rodney L. Lewis</h1>
+        <div class="title-line">Senior Web Platform Engineer</div>
+        <div class="contact">
+          <span>Oakland, CA</span>
+          <span>lewis.rodneyl@gmail.com</span>
+          <span>github.com/RL22</span>
+          <span>linkedin.com/in/rodney-lewis-abb11b73</span>
+          <span>sprintz.agency</span>
+          <span>rl22.github.io</span>
+        </div>
+      </header>
+
+      <div class="body-pad">
+        <section>
+          <div class="section-head"><span class="section-num">01</span><h2>Summary</h2></div>
+          <p class="summary">
+            Eight years owning marketing-site lifecycles: CMS architecture, reusable component
+            systems, and the performance work that turns a website into a compounding asset. I work
+            across design, engineering, and marketing, with an AI-native workflow underneath. Senior
+            IC who owns the platform end to end, from inherited site to a system marketing can
+            self-serve on.
+          </p>
+        </section>
+
+        <section>
+          <div class="section-head"><span class="section-num">02</span><h2>Experience</h2></div>
+
+          <div class="entry">
+            <div class="entry-head"><h3>Sprintz</h3><span class="entry-dates">2023 &ndash; Present</span></div>
+            <div class="entry-role">Founder</div>
+            <p class="intro">Daily production environment designing, building, and shipping high-converting marketing sites on Next.js 16, Sanity CMS, Supabase, Cal.com, and Playwright, with an AI-native, agent-driven delivery workflow.</p>
+            <ul><li>Built and run an AI-native delivery workflow that ships production marketing sites end-to-end, solo.</li></ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-head"><h3>Pendo.io</h3><span class="entry-dates">2022 &ndash; 2023</span></div>
+            <div class="entry-role">Senior Web Developer</div>
+            <ul>
+              <li>Built reusable landing-page modules and marketing templates on a headless WordPress stack.</li>
+              <li>Partnered with demand gen on A/B tests and SEO; shipped data-integrated components for personalization and analytics.</li>
+              <li>Marketing launched campaigns without an engineering ticket.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-head"><h3>Carrot Fertility</h3><span class="entry-dates">2021 &ndash; 2022</span></div>
+            <div class="entry-role">Senior Web Developer</div>
+            <ul>
+              <li>Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance.</li>
+              <li>Built modular Webflow templates that let marketing self-serve, giving engineering their roadmap back.</li>
+              <li>Cut marketing dev requests by 30%.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-head"><h3>Kiddom</h3><span class="entry-dates">2021</span></div>
+            <div class="entry-role">Senior Web Developer</div>
+            <ul><li>Shipped SEO-optimized components and front-end refactors that lifted Lighthouse scores and gave marketing a base to iterate on.</li></ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-head"><h3>Andersen Digital</h3><span class="entry-dates">2020 &ndash; 2021</span></div>
+            <div class="entry-role">Web Developer</div>
+            <ul><li>Led CMS and mar-tech migrations for enterprise clients, including Rancher IO from Marketo to HubSpot.</li></ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-head"><h3>Revel Systems</h3><span class="entry-dates">2016 &ndash; 2020</span></div>
+            <div class="entry-role">Web Designer</div>
+            <ul><li>Built and maintained WordPress sites and templates; the foundation later migrated to headless WordPress.</li></ul>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-head"><span class="section-num">03</span><h2>Open Source</h2></div>
+          <div class="oss">
+            <div class="oss-name">readworthy<span class="oss-url">github.com/RL22/readworthy</span></div>
+            <div class="oss-desc">AI-native docs optimized for readability, structure, and context efficiency.</div>
+          </div>
+          <div class="oss">
+            <div class="oss-name">character.md<span class="oss-url">github.com/RL22/character.md</span></div>
+            <div class="oss-desc">A free, open-source starter system for creating consistent photorealistic AI characters with GPT-5 Image 2 and other image generation tools.</div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-head"><span class="section-num">04</span><h2>Skills</h2></div>
+          <div class="skills-line"><span class="skills-group">Frontend &amp; Backend: </span><span class="skills-tags">TypeScript, React, Next.js, Tailwind, Supabase</span></div>
+          <div class="skills-line"><span class="skills-group">CMS Platforms: </span><span class="skills-tags">Sanity, Headless WordPress, WordPress, Webflow, GraphQL</span></div>
+          <div class="skills-line"><span class="skills-group">Mar-Tech &amp; Data: </span><span class="skills-tags">HubSpot, Marketo, Salesforce, GA4, Vercel</span></div>
+          <div class="skills-line"><span class="skills-group">Conversion &amp; SEO: </span><span class="skills-tags">A/B Testing, Technical SEO, Core Web Vitals, Lighthouse, Reusable Components</span></div>
+          <div class="skills-line"><span class="skills-group">Design: </span><span class="skills-tags">Figma, Sketch, Photoshop, Illustrator, Lightroom</span></div>
+          <div class="skills-line"><span class="skills-group">AI-Native Stack: </span><span class="skills-tags">Claude Code, Codex, Gemini, MCP, Agentic Workflows</span></div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

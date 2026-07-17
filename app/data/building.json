@@ -1,0 +1,28 @@
+{
+  "featured": {
+    "type": "video",
+    "placeholder": true,
+    "title": "Placeholder: Push to Prod episode title",
+    "blurb": "Placeholder blurb: one or two sentences on what this episode covers and why it matters. Swap with a real episode before merge.",
+    "url": "https://www.youtube.com",
+    "meta": "YouTube · Placeholder"
+  },
+  "items": [
+    {
+      "type": "article",
+      "placeholder": true,
+      "title": "Placeholder: article title on marketing web platforms",
+      "blurb": "Placeholder: one-line takeaway from the article.",
+      "url": "https://example.com",
+      "meta": "Placeholder publication · 2026"
+    },
+    {
+      "type": "video",
+      "placeholder": true,
+      "title": "Placeholder: second video or short",
+      "blurb": "Placeholder: one-line description of the video.",
+      "url": "https://www.youtube.com",
+      "meta": "YouTube · Placeholder"
+    }
+  ]
+}
