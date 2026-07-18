@@ -216,7 +216,19 @@ Repos, writing, and video, in the open as it ships. Proof of work beats claims o
 Type-tagged ruled rows (kickers: ARTICLE / VIDEO; repos live in the featured column, not the feed). Entries come from the hand-curated `app/data/building.json`. Current entries are 4 chip-marked PLACEHOLDERS (2 articles, 2 videos) pending real links.
 
 ### CTA
-Full profile on GitHub — https://github.com/RL22 *(carried over; renders where the section links out)*
+View all resources (links to `/blog`)
+
+---
+
+## Blog & Resources Page (`/blog`)
+
+Hub page (`app/blog/page.tsx`) reached from the Building in Public section button; not in the nav yet. Reuses the section's shared components (`app/components/building/`: FeaturedBlock, FeedRow, PlaceholderChip, feed.ts).
+
+- **Badge:** Building in Public
+- **h1:** Blog & Resources
+- **Sub:** Every repo, article, and video, in one place, updated as the work ships.
+- **Structure:** Back-to-site link, featured block (video + stacked repos), full feed (all building.json items AND repos), "Full profile on GitHub" CTA at bottom (moved here from the homepage section).
+- **SEO:** canonical `/blog`, OpenGraph + Twitter summary metadata, `metadataBase` https://rl22.github.io set in layout, JSON-LD ItemList of real (non-placeholder) entries only.
 
 ---
 
