@@ -409,7 +409,7 @@ export default function OgPreviewPage() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/img/lifestyle-portrait-nobg.png"
+                src="/img/rod-transparent.png"
                 alt=""
                 style={{
                   display: "flex",
@@ -558,7 +558,7 @@ export default function OgPreviewPage() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/img/lifestyle-portrait-nobg.png"
+                src="/img/rod-transparent.png"
                 alt=""
                 style={{
                   display: "flex",
