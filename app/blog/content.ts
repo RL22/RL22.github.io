@@ -26,6 +26,8 @@ export type ArticleItem = {
   meta: string;
   publishedAt: string;
   body: string[];
+  image?: string;
+  imageAlt?: string;
 };
 
 export type RepoPage = {

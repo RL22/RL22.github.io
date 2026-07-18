@@ -35,6 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         url: canonical,
         siteName: "Rodney L. Lewis",
         type: post.type === "video" ? "video.other" : "article",
+        ...("image" in post && post.image ? { images: [{ url: post.image }] } : {}),
       },
       twitter: {
         card: post.type === "video" ? "summary_large_image" : "summary",
@@ -108,6 +109,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
       headline: post.title,
       description: post.blurb,
       datePublished: post.publishedAt,
+      ...("image" in post && post.image ? { image: post.image } : {}),
       author: AUTHOR,
       publisher: AUTHOR,
       url: canonical,

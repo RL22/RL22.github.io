@@ -1,4 +1,5 @@
 import { BottomCta } from "./BlogChrome";
+import PlaceholderChip from "../components/building/PlaceholderChip";
 import { formatDate, readingTime, type ArticleItem } from "./content";
 
 export default function ArticleLayout({ item }: { item: ArticleItem }) {
@@ -9,11 +10,29 @@ export default function ArticleLayout({ item }: { item: ArticleItem }) {
       <div className="max-w-3xl mx-auto px-6">
         <p className="text-xs font-bold uppercase tracking-widest text-brand-dark mb-4">Article</p>
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4 max-w-prose">{item.title}</h1>
-        <p className="text-gray-600 text-sm font-medium mb-10">
+        <p className="text-gray-600 text-sm font-medium mb-8">
           <time dateTime={item.publishedAt}>{formatDate(item.publishedAt)}</time>
           {" · "}
           {readingTime(item.body)}
         </p>
+
+        {/* Hero image (brand-tinted placeholder panel until a real image lands) */}
+        {item.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={item.image}
+            alt={item.imageAlt ?? item.title}
+            className="w-full aspect-[2/1] object-cover rounded-2xl mb-10"
+          />
+        ) : (
+          <div
+            className="w-full aspect-[2/1] rounded-2xl bg-brand/10 flex items-center justify-center mb-10"
+            role="img"
+            aria-label="Article hero image placeholder"
+          >
+            <PlaceholderChip />
+          </div>
+        )}
 
         <div className="max-w-[70ch] space-y-6">
           {lead && <p className="text-lg text-gray-600 leading-relaxed">{lead}</p>}
