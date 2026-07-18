@@ -1,0 +1,263 @@
+// Three tailored resume variants. Facts (orgs, dates, held titles, the 30%
+// metric) are identical everywhere; only summary, bullet emphasis, headline
+// title, and skills ordering shift per target-role archetype.
+
+export type ResumeVariant = "marketing" | "platform" | "design";
+
+export type Entry = {
+  org: string;
+  role: string;
+  dates: string;
+  bullets: string[];
+};
+
+export type SkillLine = { group: string; tags: string };
+
+export type ResumeContent = {
+  variant: ResumeVariant;
+  label: string;
+  path: string;
+  headline: string;
+  summary: string;
+  experience: Entry[];
+  skills: SkillLine[];
+};
+
+const oss = [
+  {
+    name: "readworthy",
+    url: "github.com/RL22/readworthy",
+    desc: "AI-native docs optimized for readability, structure, and context efficiency.",
+  },
+  {
+    name: "character.md",
+    url: "github.com/RL22/character.md",
+    desc: "A free, open-source starter system for creating consistent photorealistic AI characters with GPT-5 Image 2 and other image generation tools.",
+  },
+];
+
+export const openSource = oss;
+
+export const contactLine = [
+  "Oakland, CA",
+  "lewis.rodneyl@gmail.com",
+  "github.com/RL22",
+  "linkedin.com/in/rodney-lewis-abb11b73",
+  "sprintz.agency",
+  "rl22.github.io",
+];
+
+export const variants: Record<ResumeVariant, ResumeContent> = {
+  marketing: {
+    variant: "marketing",
+    label: "Marketing Web",
+    path: "/resume",
+    headline: "Senior Web Platform Engineer",
+    summary:
+      "Eight years owning marketing-site lifecycles: CMS architecture, reusable component systems, and the performance work that turns a website into a compounding asset. Senior IC who owns the platform end to end, from inherited site to a system marketing can self-serve on, with an AI-native workflow underneath.",
+    experience: [
+      {
+        org: "Sprintz",
+        role: "Founder",
+        dates: "2023 - Present",
+        bullets: [
+          "Design, build, and ship high-converting marketing sites on Next.js 16, Sanity CMS, Supabase, Cal.com, and Playwright.",
+          "Run an AI-native, agent-driven delivery workflow that ships production sites end-to-end, solo.",
+        ],
+      },
+      {
+        org: "Pendo.io",
+        role: "Senior Web Developer",
+        dates: "2022 - 2023",
+        bullets: [
+          "Built reusable landing-page modules and marketing templates on a headless WordPress stack; marketing launched campaigns without an engineering ticket.",
+          "Partnered with demand gen on A/B tests and SEO; shipped data-integrated components for personalization and analytics.",
+        ],
+      },
+      {
+        org: "Carrot Fertility",
+        role: "Senior Web Developer",
+        dates: "2021 - 2022",
+        bullets: [
+          "Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance.",
+          "Built modular Webflow templates that let marketing self-serve, giving engineering their roadmap back.",
+          "Cut marketing dev requests by 30%.",
+        ],
+      },
+      {
+        org: "Kiddom",
+        role: "Senior Web Developer",
+        dates: "2021",
+        bullets: [
+          "Shipped SEO-optimized components and front-end refactors that lifted Lighthouse scores and gave marketing a base to iterate on.",
+        ],
+      },
+      {
+        org: "Andersen Digital",
+        role: "Web Developer",
+        dates: "2020 - 2021",
+        bullets: [
+          "Led CMS and mar-tech migrations for enterprise clients, including Rancher IO from Marketo to HubSpot.",
+        ],
+      },
+      {
+        org: "Revel Systems",
+        role: "Web Designer",
+        dates: "2016 - 2020",
+        bullets: [
+          "Built and maintained WordPress sites and templates; the foundation later migrated to headless WordPress.",
+        ],
+      },
+    ],
+    skills: [
+      { group: "Frontend & Backend", tags: "TypeScript, React, Next.js, Tailwind, Supabase" },
+      { group: "CMS Platforms", tags: "Sanity, Headless WordPress, WordPress, Webflow, GraphQL" },
+      { group: "Mar-Tech & Data", tags: "HubSpot, Marketo, Salesforce, GA4, Vercel" },
+      { group: "Conversion & SEO", tags: "A/B Testing, Technical SEO, Core Web Vitals, Lighthouse, Reusable Components" },
+      { group: "Design", tags: "Figma, Sketch, Photoshop, Illustrator, Lightroom" },
+      { group: "AI-Native Stack", tags: "Claude Code, Codex, Gemini, MCP, Agentic Workflows" },
+    ],
+  },
+
+  platform: {
+    variant: "platform",
+    label: "Platform",
+    path: "/resume/platform",
+    headline: "Senior Frontend Platform Engineer",
+    summary:
+      "Eight years building the platform layer under marketing web: reusable component systems, CMS architecture, and the conventions that keep teams shipping in one direction. I own abstractions end to end, from templates and publishing workflows to performance budgets, so stakeholders build on the platform instead of around it.",
+    experience: [
+      {
+        org: "Sprintz",
+        role: "Founder",
+        dates: "2023 - Present",
+        bullets: [
+          "Architect and ship production marketing sites on Next.js 16, Sanity CMS, Supabase, and Playwright, owning conventions, tooling, and delivery end-to-end.",
+          "Run an AI-native, agent-driven workflow: the architecture and guardrails that let agents ship reliably.",
+        ],
+      },
+      {
+        org: "Pendo.io",
+        role: "Senior Web Developer",
+        dates: "2022 - 2023",
+        bullets: [
+          "Built a reusable landing-page component system on headless WordPress, wired for personalization and analytics; consumers launched campaigns without an engineering ticket.",
+          "Established template and testing conventions with demand gen across A/B and SEO programs.",
+        ],
+      },
+      {
+        org: "Carrot Fertility",
+        role: "Senior Web Developer",
+        dates: "2021 - 2022",
+        bullets: [
+          "Architected a modular Webflow template system that made marketing fully self-serve.",
+          "Owned Core Web Vitals, page speed, and mobile-first performance across the site.",
+          "Cut marketing dev requests by 30%.",
+        ],
+      },
+      {
+        org: "Kiddom",
+        role: "Senior Web Developer",
+        dates: "2021",
+        bullets: [
+          "Drove Lighthouse-led refactors and SEO-optimized components that gave the team a stable base to iterate on.",
+        ],
+      },
+      {
+        org: "Andersen Digital",
+        role: "Web Developer",
+        dates: "2020 - 2021",
+        bullets: [
+          "Led CMS and mar-tech platform migrations for enterprise clients, including Rancher IO from Marketo to HubSpot.",
+        ],
+      },
+      {
+        org: "Revel Systems",
+        role: "Web Designer",
+        dates: "2016 - 2020",
+        bullets: [
+          "Built and maintained the WordPress template foundation later migrated to headless WordPress.",
+        ],
+      },
+    ],
+    skills: [
+      { group: "Frontend & Backend", tags: "TypeScript, React, Next.js, Tailwind, Supabase" },
+      { group: "Component Systems", tags: "Reusable Components, Modular Templates, Publishing Workflows, Design Handoff, Conventions" },
+      { group: "CMS Platforms", tags: "Sanity, Headless WordPress, WordPress, Webflow, GraphQL" },
+      { group: "Performance & SEO", tags: "Core Web Vitals, Lighthouse, Technical SEO, A/B Testing, Vercel" },
+      { group: "AI-Native Stack", tags: "Claude Code, Codex, Gemini, MCP, Agentic Workflows" },
+      { group: "Mar-Tech & Data", tags: "HubSpot, Marketo, Salesforce, GA4, Analytics Integration" },
+    ],
+  },
+
+  design: {
+    variant: "design",
+    label: "Design",
+    path: "/resume/design",
+    headline: "Design Engineer",
+    summary:
+      "Designer who builds what he designs. Eight years across web design and engineering: Figma to production, motion and interaction written in code, and component systems that survive contact with real content. AI tools are collaborators in the workflow, from image generation to agent-driven builds.",
+    experience: [
+      {
+        org: "Sprintz",
+        role: "Founder",
+        dates: "2023 - Present",
+        bullets: [
+          "Design, art-direct, and build high-converting marketing sites end to end on Next.js 16, Sanity CMS, and Supabase.",
+          "Write motion and interaction in code (GSAP, Motion, Lenis) inside an AI-native, agent-driven workflow.",
+        ],
+      },
+      {
+        org: "Pendo.io",
+        role: "Senior Web Developer",
+        dates: "2022 - 2023",
+        bullets: [
+          "Built reusable landing-page modules and marketing templates with pixel-accurate design fidelity on headless WordPress.",
+          "Partnered with design and demand gen on A/B tests; shipped data-integrated components for personalization.",
+        ],
+      },
+      {
+        org: "Carrot Fertility",
+        role: "Senior Web Developer",
+        dates: "2021 - 2022",
+        bullets: [
+          "Built modular Webflow templates with mobile-first, responsive design that let marketing self-serve.",
+          "Owned Core Web Vitals and page speed so the design never shipped slower than it looked.",
+          "Cut marketing dev requests by 30%.",
+        ],
+      },
+      {
+        org: "Kiddom",
+        role: "Senior Web Developer",
+        dates: "2021",
+        bullets: [
+          "Shipped SEO-optimized components and refactors that lifted Lighthouse scores without compromising the design system.",
+        ],
+      },
+      {
+        org: "Andersen Digital",
+        role: "Web Developer",
+        dates: "2020 - 2021",
+        bullets: [
+          "Delivered CMS and mar-tech migrations for enterprise clients, including Rancher IO from Marketo to HubSpot.",
+        ],
+      },
+      {
+        org: "Revel Systems",
+        role: "Web Designer",
+        dates: "2016 - 2020",
+        bullets: [
+          "Designed and built WordPress sites and templates for revelsystems.com; the foundation later migrated to headless WordPress.",
+        ],
+      },
+    ],
+    skills: [
+      { group: "Design", tags: "Figma, Sketch, Photoshop, Illustrator, Lightroom" },
+      { group: "Motion & Interaction", tags: "GSAP, Motion, Lenis, Micro-interactions, Scroll Choreography" },
+      { group: "AI-Native Stack", tags: "Claude Code, Codex, Gemini, Image Generation, MCP" },
+      { group: "Frontend", tags: "TypeScript, React, Next.js, Tailwind, Supabase" },
+      { group: "CMS Platforms", tags: "Sanity, Headless WordPress, WordPress, Webflow, GraphQL" },
+      { group: "Conversion & SEO", tags: "A/B Testing, Core Web Vitals, Technical SEO, Lighthouse, Mobile-First" },
+    ],
+  },
+};
