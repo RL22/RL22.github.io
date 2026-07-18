@@ -18,10 +18,38 @@ const figtree = Figtree({
   display: "swap",
 });
 
+const siteTitle = "Rodney L. Lewis | Senior Web Platform Engineer";
+const siteDescription = "Eight years owning marketing-site lifecycles for Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems. Architecture, performance, reusable components, and the publishing workflows that let marketing ship without an engineering ticket.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://rl22.github.io"),
-  title: "Rodney L. Lewis | Senior Web Platform Engineer",
-  description: "Eight years owning marketing-site lifecycles for Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems. Architecture, performance, reusable components, and the publishing workflows that let marketing ship without an engineering ticket.",
+  title: siteTitle,
+  description: siteDescription,
+  openGraph: {
+    siteName: "Rodney L. Lewis",
+    type: "website",
+    locale: "en_US",
+    title: siteTitle,
+    description: siteDescription,
+  },
+  twitter: {
+    card: "summary",
+    title: siteTitle,
+    description: siteDescription,
+  },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Rodney L. Lewis",
+  jobTitle: "Senior Web Platform Engineer",
+  url: "https://rl22.github.io",
+  sameAs: [
+    "https://github.com/RL22",
+    "https://www.linkedin.com/in/rodney-lewis-abb11b73",
+    "https://sprintz.agency",
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -29,6 +57,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${bricolage.variable} ${figtree.variable}`}>
       <body>
         <a href="#main" className="skip-link">Skip to content</a>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <PageLoader />
         <LenisProvider>
           {children}
