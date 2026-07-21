@@ -3,8 +3,10 @@ import { ArrowLeft } from "lucide-react";
 import FeaturedBlock from "../components/building/FeaturedBlock";
 import FeedRow from "../components/building/FeedRow";
 import { feed, repoItems } from "../components/building/feed";
+import { SHOW_BUILDING_IN_PUBLIC } from "../config";
 
 export const metadata: Metadata = {
+  ...(SHOW_BUILDING_IN_PUBLIC ? {} : { robots: { index: false, follow: false } }),
   title: "Blog & Resources | Rodney L. Lewis",
   description:
     "Repos, articles, and video on building in public: marketing web platforms, open source, and the systems behind them.",

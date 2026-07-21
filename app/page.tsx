@@ -6,6 +6,7 @@ import BuildingInPublic from "./components/BuildingInPublic";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import { SHOW_BUILDING_IN_PUBLIC } from "./config";
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
         <Hero />
         <About />
         <Projects />
-        <BuildingInPublic />
+        {SHOW_BUILDING_IN_PUBLIC && <BuildingInPublic />}
         <Skills />
         <Contact />
       </main>

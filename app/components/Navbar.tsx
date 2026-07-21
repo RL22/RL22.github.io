@@ -1,11 +1,12 @@
 "use client";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { SHOW_BUILDING_IN_PUBLIC } from "../config";
 
 const links = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#projects" },
-  { label: "Building in Public", href: "#building" },
+  ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Building in Public", href: "#building" }] : []),
   { label: "Skills", href: "#skills" },
   { label: "Resume", href: "/resume" },
 ];

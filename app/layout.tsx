@@ -18,6 +18,7 @@ const figtree = Figtree({
   display: "swap",
 });
 
+const ogImage = "/og-default.png";
 const siteTitle = "Rodney L. Lewis | Senior Web Platform Engineer";
 const siteDescription = "Eight years owning marketing-site lifecycles for Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems. Architecture, performance, reusable components, and the publishing workflows that let marketing ship without an engineering ticket.";
 
@@ -29,13 +30,23 @@ export const metadata: Metadata = {
     siteName: "Rodney L. Lewis",
     type: "website",
     locale: "en_US",
+    url: "https://rl22.github.io",
     title: siteTitle,
     description: siteDescription,
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: "Rodney L. Lewis, Senior Web Platform Engineer. Build platforms. Scale marketing impact.",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
+    images: [ogImage],
   },
 };
 

@@ -1,9 +1,10 @@
 import { Github, Linkedin, Mail } from "lucide-react";
+import { SHOW_BUILDING_IN_PUBLIC } from "../config";
 
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#projects" },
-  { label: "Building in Public", href: "#building" },
+  ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Building in Public", href: "#building" }] : []),
   { label: "Skills", href: "#skills" },
   { label: "Resume", href: "/resume" },
 ];

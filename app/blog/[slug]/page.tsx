@@ -10,6 +10,7 @@ import {
   getRepoPageBySlug,
   getVideoOrArticleBySlug,
 } from "../content";
+import { SHOW_BUILDING_IN_PUBLIC } from "../../config";
 
 const SITE_URL = "https://rl22.github.io";
 const AUTHOR = { "@type": "Person", name: "Rodney L. Lewis", url: SITE_URL };
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title,
       description: post.blurb,
       alternates: { canonical },
+      ...(SHOW_BUILDING_IN_PUBLIC ? {} : { robots: { index: false, follow: false } }),
       openGraph: {
         title,
         description: post.blurb,
@@ -52,6 +54,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title,
       description: repoPage.tagline,
       alternates: { canonical },
+      ...(SHOW_BUILDING_IN_PUBLIC ? {} : { robots: { index: false, follow: false } }),
       openGraph: {
         title,
         description: repoPage.tagline,

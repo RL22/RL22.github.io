@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import buildingDataRaw from "./data/building.json";
 import githubData from "./data/github.json";
+import { SHOW_BUILDING_IN_PUBLIC } from "./config";
 
 export const dynamic = "force-static";
 
@@ -66,6 +67,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/resume/`,
       priority: 0.8,
     },
-    ...blogEntries(),
+    ...(SHOW_BUILDING_IN_PUBLIC ? blogEntries() : []),
   ];
 }
