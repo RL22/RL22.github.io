@@ -20,7 +20,7 @@ const skillGroups = [
   },
   {
     title: "Conversion & SEO",
-    desc: "The practice that turns a marketing site into a compounding asset. Every page ships with a metric.",
+    desc: "Where a marketing site earns its keep. I instrument the page, run the test, and act on what the data says.",
     tags: ["A/B Testing", "Technical SEO", "Core Web Vitals", "Lighthouse", "Reusable Components"],
   },
   {
@@ -43,7 +43,7 @@ export default function Skills() {
           <span className="section-badge">Skills</span>
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">What I work in.</h2>
           <p className="text-gray-600 text-lg leading-relaxed">
-            Six categories, drawn straight from the work, not aspirational. Tools are table stakes; the principles behind them are what compound.
+            Everything here comes out of shipped work, not a reading list. Capped at five per group: what I leave off matters as much as what I keep.
           </p>
         </Reveal>
         <div className="grid md:grid-cols-2 gap-x-14">

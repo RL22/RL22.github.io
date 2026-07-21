@@ -72,7 +72,7 @@ export default function Projects() {
             Marketing-site lifecycles, owned end-to-end.
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed">
-            One card per role. Each follows the same arc: an inherited site, a platform reset, a team that ships faster afterward.
+            Every role has followed the same arc: an inherited marketing site, a platform reset, and a team that ships without me afterward.
           </p>
         </Reveal>
 

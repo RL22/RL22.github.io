@@ -128,7 +128,7 @@ Experience
 Marketing-site lifecycles, owned end-to-end.
 
 ### Section Subheading
-One card per role. Each follows the same arc: an inherited site, a platform reset, a team that ships faster afterward.
+Every role has followed the same arc: an inherited marketing site, a platform reset, and a team that ships without me afterward.
 
 Cards render in two tiers: a **Featured** tier (org block, description, outcome, capability tags) and an **Earlier roles** tier (compact rows: org, role, one-line outcome). Both tiers are reverse-chronological. Outbound "Visit site" / "Source" buttons and earlier-role company links were removed 2026-07-21.
 
@@ -203,7 +203,7 @@ Skills
 What I work in.
 
 ### Section Subheading
-Six categories, drawn straight from the work, not aspirational. Tools are table stakes; the principles behind them are what compound.
+Everything here comes out of shipped work, not a reading list. Capped at five per group: what I leave off matters as much as what I keep.
 
 Each group renders as a curated 5-tag list (no icons in the current component; tags are capped, not exhaustive).
 
@@ -228,7 +228,7 @@ Each group renders as a curated 5-tag list (no icons in the current component; t
 ### Skill Group 4: Conversion & SEO
 
 **Title:** Conversion & SEO  
-**Description:** The practice that turns a marketing site into a compounding asset. Every page ships with a metric.  
+**Description:** Where a marketing site earns its keep. I instrument the page, run the test, and act on what the data says.  
 **Tags:** A/B Testing, Technical SEO, Core Web Vitals, Lighthouse, Reusable Components
 
 ### Skill Group 5: Design
