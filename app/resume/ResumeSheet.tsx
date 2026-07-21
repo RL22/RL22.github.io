@@ -1,6 +1,6 @@
 import { ArrowLeft } from "lucide-react";
 import PrintButton from "./PrintButton";
-import { contactLine, openSource, variants, type ResumeVariant } from "./content";
+import { contactLine, education, variants, type ResumeVariant } from "./content";
 import "./resume.css";
 
 export default function ResumeSheet({ variant }: { variant: ResumeVariant }) {
@@ -72,24 +72,26 @@ export default function ResumeSheet({ variant }: { variant: ResumeVariant }) {
         </section>
 
         <section>
-          <h2>Open Source Projects</h2>
-          {openSource.map((o) => (
-            <div className="resume-oss" key={o.name}>
-              <div>
-                <span className="resume-oss-name">{o.name}</span>{" "}
-                <span className="resume-oss-url">({o.url})</span>
-              </div>
-              <div className="resume-oss-desc">{o.desc}</div>
-            </div>
-          ))}
-        </section>
-
-        <section>
           <h2>Skills</h2>
           {c.skills.map((s) => (
             <div className="resume-skills-line" key={s.group}>
               <span className="resume-skills-group">{s.group}: </span>
               <span className="resume-skills-tags">{s.tags}</span>
+            </div>
+          ))}
+        </section>
+
+        <section>
+          <h2>Education</h2>
+          {education.map((ed) => (
+            <div className="resume-edu" key={ed.school}>
+              <div className="resume-edu-head">
+                <h3>{ed.school}</h3>
+                <span className="resume-entry-dates">{ed.year}</span>
+              </div>
+              <div className="resume-edu-credential">
+                {ed.credential} &middot; {ed.location}
+              </div>
             </div>
           ))}
         </section>
