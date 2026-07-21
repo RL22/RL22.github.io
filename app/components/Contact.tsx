@@ -1,6 +1,7 @@
 "use client";
-import { Mail, MapPin, Globe, Github, Linkedin, CalendarClock, FileText } from "lucide-react";
+import { Mail, MapPin, Globe, Github, Linkedin, FileText } from "lucide-react";
 import Reveal from "./Reveal";
+import BookACallButton from "./BookACallButton";
 
 const info = [
   { Icon: MapPin, label: "Location", value: "Oakland, CA (Bay Area)", href: null as string | null },
@@ -57,14 +58,7 @@ export default function Contact() {
               <a href="mailto:lewis.rodneyl@gmail.com" className="btn-primary flex items-center justify-center gap-2">
                 Email me <Mail className="w-4 h-4" />
               </a>
-              <a
-                href="https://cal.com/rodlew/consultation"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline flex items-center justify-center gap-2"
-              >
-                Book a call <CalendarClock className="w-4 h-4" />
-              </a>
+              <BookACallButton />
               <a href="/resume" className="btn-outline flex items-center justify-center gap-2">
                 View resume <FileText className="w-4 h-4" />
               </a>
