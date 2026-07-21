@@ -1,0 +1,118 @@
+{
+  "featured": {
+    "type": "video",
+    "layout": "video",
+    "slug": "placeholder-push-to-prod-episode",
+    "placeholder": true,
+    "title": "Placeholder: Push to Prod episode title",
+    "blurb": "Placeholder blurb: one or two sentences on what this episode covers and why it matters. Swap with a real episode before merge.",
+    "url": "https://www.youtube.com",
+    "meta": "YouTube · Placeholder",
+    "videoId": null,
+    "publishedAt": "2026-07-01",
+    "body": [
+      "Placeholder paragraph one: a short synopsis of what happens in this episode and why it is worth watching.",
+      "Placeholder paragraph two: the specific takeaway or lesson viewers should walk away with."
+    ]
+  },
+  "items": [
+    {
+      "type": "article",
+      "layout": "article",
+      "slug": "placeholder-marketing-web-platforms",
+      "placeholder": true,
+      "title": "Placeholder: article title on marketing web platforms",
+      "blurb": "Placeholder: one-line takeaway from the article.",
+      "url": "https://example.com",
+      "meta": "Placeholder publication · 2026",
+      "publishedAt": "2026-06-15",
+      "body": [
+        "Placeholder lead paragraph: the core argument of the article, stated plainly.",
+        "Placeholder supporting paragraph: context, evidence, or an example that backs up the lead.",
+        "Placeholder closing paragraph: the practical implication for readers building marketing web platforms."
+      ]
+    },
+    {
+      "type": "video",
+      "layout": "video",
+      "slug": "placeholder-second-video",
+      "placeholder": true,
+      "title": "Placeholder: second video or short",
+      "blurb": "Placeholder: one-line description of the video.",
+      "url": "https://www.youtube.com",
+      "meta": "YouTube · Placeholder",
+      "videoId": null,
+      "publishedAt": "2026-06-01",
+      "body": [
+        "Placeholder paragraph one: what this short or clip walks through.",
+        "Placeholder paragraph two: why it is relevant to the broader body of work."
+      ]
+    },
+    {
+      "type": "article",
+      "layout": "article",
+      "slug": "placeholder-second-teardown",
+      "placeholder": true,
+      "title": "Placeholder: second article or teardown",
+      "blurb": "Placeholder: one-line takeaway from the piece.",
+      "url": "https://example.com",
+      "meta": "Placeholder publication · 2026",
+      "publishedAt": "2026-05-10",
+      "body": [
+        "Placeholder lead paragraph: the subject of the teardown and why it was chosen.",
+        "Placeholder supporting paragraph: the specific details examined.",
+        "Placeholder closing paragraph: what to apply from the teardown."
+      ]
+    },
+    {
+      "type": "video",
+      "layout": "video",
+      "slug": "placeholder-third-video",
+      "placeholder": true,
+      "title": "Placeholder: third video, clip, or livestream",
+      "blurb": "Placeholder: one-line description of the clip.",
+      "url": "https://www.youtube.com",
+      "meta": "YouTube · Placeholder",
+      "videoId": null,
+      "publishedAt": "2026-04-20",
+      "body": [
+        "Placeholder paragraph one: the format and topic of this clip or livestream.",
+        "Placeholder paragraph two: the key moment or lesson worth watching for."
+      ]
+    }
+  ],
+  "repoPages": [
+    {
+      "slug": "readworthy",
+      "repo": "readworthy",
+      "publishedAt": "2026-05-21",
+      "tagline": "AI-native docs optimized for readability, structure, and context efficiency.",
+      "body": [
+        "Readworthy is an AI-native documentation format built to be readable by both humans and language models, optimizing for structure and context efficiency.",
+        "Placeholder: additional detail on the motivation behind the project and how it fits into the broader documentation tooling landscape.",
+        "Placeholder: notes on current status and what is planned next."
+      ],
+      "highlights": [
+        "Placeholder highlight 1: the core problem readworthy solves.",
+        "Placeholder highlight 2: a notable design decision in the format.",
+        "Placeholder highlight 3: how it is used in practice today."
+      ]
+    },
+    {
+      "slug": "character-md",
+      "repo": "character.md",
+      "publishedAt": "2026-05-20",
+      "tagline": "A free, open-source starter system for consistent photorealistic AI characters.",
+      "body": [
+        "character.md is a free, open-source starter system for creating consistent photorealistic AI characters with GPT-5 Image 2 and other image generation tools.",
+        "Placeholder: additional detail on the workflow and the problem of character consistency across generations.",
+        "Placeholder: notes on current status and what is planned next."
+      ],
+      "highlights": [
+        "Placeholder highlight 1: the consistency problem this starter system addresses.",
+        "Placeholder highlight 2: the structure of the character definition format.",
+        "Placeholder highlight 3: which image models it has been tested with."
+      ]
+    }
+  ]
+}

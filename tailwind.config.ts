@@ -8,7 +8,10 @@ const config: Config = {
         cream: "#F5EFE6",
         "cream-dark": "#EDE4D8",
       },
-      fontFamily: { sans: ["Inter", "system-ui", "sans-serif"] },
+      fontFamily: {
+        sans: ["var(--font-body)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
+      },
     },
   },
   plugins: [],
