@@ -6,3 +6,9 @@
 // navbar and footer links, the /blog URLs in sitemap.xml, and indexing on
 // the /blog pages.
 export const SHOW_BUILDING_IN_PUBLIC = false;
+
+// The Platform and Design resume variants stay built and printable at
+// /resume/platform and /resume/design, but the switcher is hidden so visitors
+// only ever see the default resume. Both variant routes are noindex and absent
+// from sitemap.xml. Set to true to show the switcher again.
+export const SHOW_RESUME_VARIANTS = false;

@@ -1,6 +1,7 @@
 import { ArrowLeft } from "lucide-react";
 import PrintButton from "./PrintButton";
 import { contactLine, education, variants, type ResumeVariant } from "./content";
+import { SHOW_RESUME_VARIANTS } from "../config";
 import "./resume.css";
 
 export default function ResumeSheet({ variant }: { variant: ResumeVariant }) {
@@ -14,22 +15,24 @@ export default function ResumeSheet({ variant }: { variant: ResumeVariant }) {
         >
           <ArrowLeft className="w-4 h-4" /> Back to site
         </a>
-        <nav aria-label="Resume versions" className="flex items-center gap-1 text-sm font-semibold">
-          {Object.values(variants).map((v) => (
-            <a
-              key={v.variant}
-              href={v.path}
-              aria-current={v.variant === variant ? "page" : undefined}
-              className={
-                v.variant === variant
-                  ? "px-3 py-1.5 rounded-full bg-brand text-white"
-                  : "px-3 py-1.5 rounded-full text-gray-600 hover:text-brand-dark transition-colors"
-              }
-            >
-              {v.label}
-            </a>
-          ))}
-        </nav>
+        {SHOW_RESUME_VARIANTS && (
+          <nav aria-label="Resume versions" className="flex items-center gap-1 text-sm font-semibold">
+            {Object.values(variants).map((v) => (
+              <a
+                key={v.variant}
+                href={v.path}
+                aria-current={v.variant === variant ? "page" : undefined}
+                className={
+                  v.variant === variant
+                    ? "px-3 py-1.5 rounded-full bg-brand text-white"
+                    : "px-3 py-1.5 rounded-full text-gray-600 hover:text-brand-dark transition-colors"
+                }
+              >
+                {v.label}
+              </a>
+            ))}
+          </nav>
+        )}
         <PrintButton />
       </div>
 
