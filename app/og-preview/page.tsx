@@ -133,11 +133,11 @@ export default function OgPreviewPage() {
               style={{
                 display: "flex",
                 fontFamily: "Bricolage Grotesque",
-                fontSize: 68,
+                fontSize: 52,
                 fontWeight: 800,
                 color: ink,
                 letterSpacing: -2,
-                lineHeight: 1.06,
+                lineHeight: 1.08,
               }}
             >
               Build platforms.
@@ -146,27 +146,14 @@ export default function OgPreviewPage() {
               style={{
                 display: "flex",
                 fontFamily: "Bricolage Grotesque",
-                fontSize: 68,
+                fontSize: 52,
                 fontWeight: 800,
                 color: brandDark,
                 letterSpacing: -2,
-                lineHeight: 1.06,
+                lineHeight: 1.08,
               }}
             >
-              Scale marketing
-            </div>
-            <div
-              style={{
-                display: "flex",
-                fontFamily: "Bricolage Grotesque",
-                fontSize: 68,
-                fontWeight: 800,
-                color: brandDark,
-                letterSpacing: -2,
-                lineHeight: 1.06,
-              }}
-            >
-              impact.
+              Scale marketing impact.
             </div>
           </div>
 
