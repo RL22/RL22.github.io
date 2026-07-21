@@ -94,7 +94,7 @@ About
 Most marketing websites get refactored from the inside every time the brand pivots, and the platform underneath erodes. For eight years at Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems, my job has been the same at every logo: take an inherited marketing site, treat it like product, and make the team faster.
 
 **Narrative P2:**
-I'm based in Oakland, CA. Today I build at [Sprintz](https://sprintz.agency): Next.js, Sanity, and an AI-native delivery workflow.
+I'm based in Oakland, CA. Today I run [Sprintz](https://sprintz.agency), helping founders and small marketing teams adopt AI into how they work, and building the sites and workflows that come out of it.
 
 ### Block 2 — Beliefs ("HOW I THINK", oversized numerals)
 
@@ -130,90 +130,52 @@ Marketing-site lifecycles, owned end-to-end.
 ### Section Subheading
 One card per role. Each follows the same arc: an inherited site, a platform reset, a team that ships faster afterward.
 
-Cards render in two tiers: a **Featured** tier (full cards with description, tags, and links) and an **Earlier roles** tier (compact rows: title, role, one-line outcome). Both tiers are reverse-chronological.
+Cards render in two tiers: a **Featured** tier (org block, description, outcome, capability tags) and an **Earlier roles** tier (compact rows: org, role, one-line outcome). Both tiers are reverse-chronological. Outbound "Visit site" / "Source" buttons and earlier-role company links were removed 2026-07-21.
+
+Titles match the 2023 resume of record. Cards lead with the operating-model change (what was inherited, what changed, what the team could do afterward) rather than metrics or tool lists; tools live in the Skills section.
 
 ### Featured Tier
 
 #### Featured 1: Sprintz
 
-**Title:** Sprintz  
-**Role:** Founder · 2023–present  
-**Category:** Studio + AI Systems  
-**Description:** My daily production environment: designing, building, and shipping high-converting marketing sites on Next.js 16, Sanity CMS, Supabase, Cal.com, and Playwright, with an AI-native, agent-driven delivery workflow.  
-**Outcome:** An AI-native delivery workflow that ships production marketing sites end-to-end.  
-**Tags:** Next.js 16, Sanity, Supabase, AI-Native  
-**Links:**
-- Live: https://sprintz.agency
-- Source: https://github.com/RL22
+**Role:** Founder · 2023–present
+**Category:** Client Strategy & AI Adoption
+**Description:** Partner to founders and small marketing teams: audit what is blocking conversion, name the highest-leverage fix, then build it. Engagements now start with AI adoption, sorting what to automate from what stays human. The same workflow runs my own delivery, so I stay in production every week.
+**Outcome:** Clients keep shipping after handoff, with AI in the loop.
+**Tags:** AI Adoption · Conversion Strategy · Design + Build · Marketing Ops
 
 #### Featured 2: Pendo.io
 
-**Title:** Pendo.io  
-**Role:** Sr. Marketing Engineer · 2022–2023  
-**Category:** Reusable Components  
-**Description:** Built reusable landing-page modules and marketing templates on a headless WordPress stack. Partnered with demand gen on A/B tests and SEO; shipped data-integrated components for personalization and analytics.  
-**Outcome:** Marketing launched campaigns without an engineering ticket.  
-**Tags:** Headless WordPress, A/B Testing, SEO, Personalization  
-**Links:**
-- Live: https://pendo.io
-- Source: —
+**Role:** Sr. Marketing Engineer · 2022–2023
+**Category:** Campaign Systems
+**Description:** Inherited a marketing site where every campaign needed engineering time. Rebuilt the landing-page and email template system into modules the marketing team could assemble themselves, then worked with marketing ops to wire in personalization and progressive profiling for enterprise prospects.
+**Outcome:** Campaigns stopped being engineering tickets.
+**Tags:** Landing Page Systems · Personalization · Demand Gen Partnership
 
 #### Featured 3: Carrot Fertility
 
-**Title:** Carrot Fertility  
-**Role:** Marketing Developer Lead · 2021–2022  
-**Category:** CMS Architecture & Performance  
-**Description:** Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance. Modular Webflow templates let marketing self-serve; engineering got their roadmap back.  
-**Outcome:** Cut marketing dev requests by 30%.  
-**Tags:** Webflow, Core Web Vitals, Mobile-First  
-**Links:**
-- Live: https://www.get-carrot.com
-- Source: —
+**Role:** Marketing Developer Lead · 2021–2022
+**Category:** Site Ownership
+**Description:** Owned the corporate site end to end: look and feel, growth strategy, and conversion. Standardized how web work got scoped and shipped, and partnered with teams across the company to turn new page and campaign needs into a modular template system.
+**Outcome:** Left a site the marketing team ran without a developer in the loop.
+**Tags:** Site Ownership · Template Systems · Conversion
 
 ### Earlier Roles Tier
 
 #### Earlier 1: Kiddom
 
-**Title:** Kiddom  
-**Role:** Marketing Developer Lead · 2021  
-**Outcome:** SEO-optimized components and front-end refactors that lifted Lighthouse scores and gave marketing a base to iterate on.  
-**Live:** https://www.kiddom.co
+**Role:** Marketing Developer Lead · 2021
+**Outcome:** Streamlined the marketing component library and audited the site against funnel data and heatmaps, leaving the team a base they could iterate on without starting over.
 
 #### Earlier 2: Andersen Digital
 
-**Title:** Andersen Digital  
-**Role:** Sr. Marketing Developer · 2020–2021  
-**Outcome:** Led CMS and mar-tech migrations for enterprise clients, including Rancher IO from Marketo to HubSpot.  
-**Live:** — (no link)
+**Role:** Sr. Marketing Developer · 2020–2021
+**Outcome:** Ran CMS and marketing-automation migrations for enterprise clients including Rancher IO, AppZen, and Illumio, connecting their campaign tooling to the platforms their sales teams already worked in.
 
 #### Earlier 3: Revel Systems
 
-**Title:** Revel Systems  
-**Role:** Web Team Lead · 2016–2020  
-**Outcome:** Built and maintained WordPress sites and templates; the foundation later migrated to headless WordPress.  
-**Live:** https://revelsystems.com
-
----
-
-## Building in Public Section
-
-*(Replaced the standalone Open Source section 2026-07-17. Renders between Experience and Skills, id `#building`.)*
-
-### Section Badge
-Building in Public
-
-### Section Heading
-Watch the work happen.
-
-### Section Subheading
-Repos, writing, and video, in the open as it ships. Proof of work beats claims of it.
-
-### Featured Block (two columns)
-- **Col 1:** featured video card, full-width 16:9 thumbnail with terracotta play button, kicker "Featured Video", title, blurb, meta. Currently a chip-marked PLACEHOLDER pending a real Push to Prod episode.
-- **Col 2:** two stacked repo cards (readworthy, character.md) fed by the build-time GitHub fetch (`app/data/github.json`): kicker "Code", name, description, "HTML · Updated {month year}".
-
-### Feed
-Type-tagged ruled rows (kickers: ARTICLE / VIDEO; repos live in the featured column, not the feed). Entries come from the hand-curated `app/data/building.json`. Current entries are 4 chip-marked PLACEHOLDERS (2 articles, 2 videos) pending real links.
+**Role:** Web Team Lead · 2016–2020
+**Outcome:** Led the web team for four years, rebuilding the company's properties around SEO and growth priorities, then led an on-demand product training platform that gave customers a reason to stay after the sale.
 
 ### CTA
 View all resources (links to `/blog`)
