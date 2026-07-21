@@ -132,7 +132,7 @@ Every role has followed the same arc: an inherited marketing site, a platform re
 
 Cards render in two tiers: a **Featured** tier (org block, description, outcome, capability tags) and an **Earlier roles** tier (compact rows: org, role, one-line outcome). Both tiers are reverse-chronological. Outbound "Visit site" / "Source" buttons and earlier-role company links were removed 2026-07-21.
 
-Titles match the 2023 resume of record. Cards lead with the operating-model change (what was inherited, what changed, what the team could do afterward) rather than metrics or tool lists; tools live in the Skills section.
+Titles reflect the owner-directed 2026-07-21 revision (see Revision note). Cards lead with the operating-model change (what was inherited, what changed, what the team could do afterward) rather than metrics or tool lists; tools live in the Skills section.
 
 ### Featured Tier
 
@@ -154,7 +154,7 @@ Titles match the 2023 resume of record. Cards lead with the operating-model chan
 
 #### Featured 3: Carrot Fertility
 
-**Role:** Marketing Developer Lead · 2021–2022
+**Role:** Sr. Web Developer · 2021–2022
 **Category:** Site Ownership
 **Description:** Owned the corporate site end to end: look and feel, growth strategy, and conversion. Standardized how web work got scoped and shipped, and partnered with teams across the company to turn new page and campaign needs into a modular template system.
 **Outcome:** Left a site the marketing team ran without a developer in the loop.
@@ -164,18 +164,18 @@ Titles match the 2023 resume of record. Cards lead with the operating-model chan
 
 #### Earlier 1: Kiddom
 
-**Role:** Marketing Developer Lead · 2021
+**Role:** Sr. Web Developer · 2021
 **Outcome:** Streamlined the marketing component library and audited the site against funnel data and heatmaps, leaving the team a base they could iterate on without starting over.
 
 #### Earlier 2: Andersen Digital
 
-**Role:** Sr. Marketing Developer · 2020–2021
+**Role:** Sr. Web Developer · 2020–2021
 **Outcome:** Ran CMS and marketing-automation migrations for enterprise clients including Rancher IO, AppZen, and Illumio, connecting their campaign tooling to the platforms their sales teams already worked in.
 
 #### Earlier 3: Revel Systems
 
-**Role:** Web Team Lead · 2016–2020
-**Outcome:** Led the web team for four years, rebuilding the company's properties around SEO and growth priorities, then led an on-demand product training platform that gave customers a reason to stay after the sale.
+**Role:** Web Developer to Sr. Web Developer · 2016–2020
+**Outcome:** Spent four years rebuilding the company's web properties around SEO and growth priorities, then helped build an on-demand product training platform that gave customers a reason to stay after the sale.
 
 ### CTA
 View all resources (links to `/blog`)
@@ -371,3 +371,6 @@ I build marketing platforms that scale by working across design, dev, and market
   metrics or tool lists. Tools live in the Skills section.
 - Outbound "Visit site" / "Source" buttons and earlier-role company links
   were removed from the Experience section.
+- Titles for Carrot, Kiddom, and Andersen were changed to Sr. Web Developer,
+  and Revel to Web Developer to Sr. Web Developer, at the owner's direction.
+  These supersede the earlier resume-of-record titles listed above.

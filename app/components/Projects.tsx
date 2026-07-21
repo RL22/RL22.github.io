@@ -36,7 +36,7 @@ const featured: Featured[] = [
   },
   {
     title: "Carrot Fertility",
-    role: "Marketing Developer Lead · 2021–2022",
+    role: "Sr. Web Developer · 2021–2022",
     category: "Site Ownership",
     desc: "Owned the corporate site end to end: look and feel, growth strategy, and conversion. Standardized how web work got scoped and shipped, and partnered with teams across the company to turn new page and campaign needs into a modular template system.",
     outcome: "Left a site the marketing team ran without a developer in the loop.",
@@ -47,18 +47,18 @@ const featured: Featured[] = [
 const earlier: Earlier[] = [
   {
     title: "Kiddom",
-    role: "Marketing Developer Lead · 2021",
+    role: "Sr. Web Developer · 2021",
     outcome: "Streamlined the marketing component library and audited the site against funnel data and heatmaps, leaving the team a base they could iterate on without starting over.",
   },
   {
     title: "Andersen Digital",
-    role: "Sr. Marketing Developer · 2020–2021",
+    role: "Sr. Web Developer · 2020–2021",
     outcome: "Ran CMS and marketing-automation migrations for enterprise clients including Rancher IO, AppZen, and Illumio, connecting their campaign tooling to the platforms their sales teams already worked in.",
   },
   {
     title: "Revel Systems",
-    role: "Web Team Lead · 2016–2020",
-    outcome: "Led the web team for four years, rebuilding the company's properties around SEO and growth priorities, then led an on-demand product training platform that gave customers a reason to stay after the sale.",
+    role: "Web Developer to Sr. Web Developer · 2016–2020",
+    outcome: "Spent four years rebuilding the company's web properties around SEO and growth priorities, then helped build an on-demand product training platform that gave customers a reason to stay after the sale.",
   },
 ];
 
