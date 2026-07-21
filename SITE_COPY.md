@@ -60,8 +60,8 @@ Eight years owning marketing-site lifecycles: CMS architecture, reusable compone
 2. **Organizations**: **5**
    - Pendo · Carrot · Kiddom · Andersen · Revel
 
-3. **30%** Fewer Dev Requests
-   - Marketing self-serve at Carrot Fertility
+3. **Self-Serve** Marketing ships without me
+   - The measure I build for
 
 ### Mobile Stats Cards
 1. **8+** Years
@@ -70,8 +70,8 @@ Eight years owning marketing-site lifecycles: CMS architecture, reusable compone
 2. **5** Organizations
    - Pendo · Carrot · Kiddom · Andersen · Revel
 
-3. **30%** Fewer Dev Requests
-   - Marketing self-serve at Carrot Fertility
+3. **Self-Serve** Marketing ships without me
+   - The measure I build for
 
 ### Tech Stack Label
 Stack I work in
@@ -149,7 +149,7 @@ Cards render in two tiers: a **Featured** tier (full cards with description, tag
 #### Featured 2: Pendo.io
 
 **Title:** Pendo.io  
-**Role:** Sr. Web Developer · 2022–2023  
+**Role:** Sr. Marketing Engineer · 2022–2023  
 **Category:** Reusable Components  
 **Description:** Built reusable landing-page modules and marketing templates on a headless WordPress stack. Partnered with demand gen on A/B tests and SEO; shipped data-integrated components for personalization and analytics.  
 **Outcome:** Marketing launched campaigns without an engineering ticket.  
@@ -161,7 +161,7 @@ Cards render in two tiers: a **Featured** tier (full cards with description, tag
 #### Featured 3: Carrot Fertility
 
 **Title:** Carrot Fertility  
-**Role:** Sr. Web Developer · 2021–2022  
+**Role:** Marketing Developer Lead · 2021–2022  
 **Category:** CMS Architecture & Performance  
 **Description:** Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance. Modular Webflow templates let marketing self-serve; engineering got their roadmap back.  
 **Outcome:** Cut marketing dev requests by 30%.  
@@ -175,21 +175,21 @@ Cards render in two tiers: a **Featured** tier (full cards with description, tag
 #### Earlier 1: Kiddom
 
 **Title:** Kiddom  
-**Role:** Sr. Web Developer · 2021  
+**Role:** Marketing Developer Lead · 2021  
 **Outcome:** SEO-optimized components and front-end refactors that lifted Lighthouse scores and gave marketing a base to iterate on.  
 **Live:** https://www.kiddom.co
 
 #### Earlier 2: Andersen Digital
 
 **Title:** Andersen Digital  
-**Role:** Web Developer · 2020–2021  
+**Role:** Sr. Marketing Developer · 2020–2021  
 **Outcome:** Led CMS and mar-tech migrations for enterprise clients, including Rancher IO from Marketo to HubSpot.  
 **Live:** — (no link)
 
 #### Earlier 3: Revel Systems
 
 **Title:** Revel Systems  
-**Role:** Web Designer · 2016–2020  
+**Role:** Web Team Lead · 2016–2020  
 **Outcome:** Built and maintained WordPress sites and templates; the foundation later migrated to headless WordPress.  
 **Live:** https://revelsystems.com
 
@@ -390,3 +390,22 @@ Working primarily with Front-End technologies, skilled in HTML5, CSS3, Vanilla J
 ### Previous hero description (replaced 2026-07-16)
 
 I build marketing platforms that scale by working across design, dev, and marketing fluidly. Most people don't. My hybrid perspective allows me to see where teams get stuck, what connections matter, and how systems should actually work. CMS architecture, reusable components, performance that sustains growth. AI is accelerating everything; the architecture is what enables 10x results.
+
+
+---
+
+## Revision note (2026-07-21)
+
+- Job titles across Experience and all three resume variants now match the
+  2023 resume of record: Sr. Marketing Engineer (Pendo), Marketing Developer
+  Lead (Carrot, Kiddom), Sr. Marketing Developer (Andersen), Web Team Lead
+  (Revel). The site previously used generic Web Developer / Web Designer
+  titles that conflicted with the resume.
+- The "30% fewer dev requests" metric was removed everywhere (hero card,
+  Experience, all resume variants). It could not be confidently defended in
+  an interview, and it appeared in neither resume of record.
+- Experience cards now lead with the operating-model change (what was
+  inherited, what changed, what the team could do afterward) instead of
+  metrics or tool lists. Tools live in the Skills section.
+- Outbound "Visit site" / "Source" buttons and earlier-role company links
+  were removed from the Experience section.

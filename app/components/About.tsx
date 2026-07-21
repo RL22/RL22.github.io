@@ -39,7 +39,7 @@ export default function About() {
             the team faster.
           </p>
           <p className="text-gray-600 text-lg leading-relaxed">
-            I&apos;m based in Oakland, CA. Today I build at{" "}
+            I&apos;m based in Oakland, CA. Today I run{" "}
             <a
               href="https://sprintz.agency"
               target="_blank"
@@ -48,7 +48,8 @@ export default function About() {
             >
               Sprintz
             </a>
-            : Next.js, Sanity, and an AI-native delivery workflow.
+            , helping founders and small marketing teams adopt AI into how they
+            work, and building the sites and workflows that come out of it.
           </p>
         </Reveal>
 

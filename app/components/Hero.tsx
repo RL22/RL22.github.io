@@ -117,15 +117,15 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Card 3 — bottom left — 30% */}
+          {/* Card 3 — bottom left — self-serve thesis */}
           <motion.div
             {...cardVariant(0.85)}
             className="absolute bottom-8 -left-4 z-20 card shadow-lg w-52"
           >
             <div className="float-card float-card--delay-2">
-              <p className="text-3xl font-bold text-brand">30%</p>
-              <p className="text-gray-600 font-medium">Fewer Dev Requests</p>
-              <p className="text-gray-600 text-sm font-normal mt-1">Marketing self-serve at Carrot Fertility</p>
+              <p className="text-2xl font-bold text-brand">Self-Serve</p>
+              <p className="text-gray-600 font-medium">Marketing ships without me</p>
+              <p className="text-gray-600 text-sm font-normal mt-1">The measure I build for</p>
             </div>
           </motion.div>
         </div>
@@ -143,9 +143,9 @@ export default function Hero() {
             <p className="text-gray-600 text-sm mt-1">Pendo · Carrot · Kiddom · Andersen · Revel</p>
           </div>
           <div className="card">
-            <p className="text-3xl font-bold text-brand">30%</p>
-            <p className="text-gray-600 font-medium">Fewer Dev Requests</p>
-            <p className="text-gray-600 text-sm mt-1">Marketing self-serve at Carrot Fertility</p>
+            <p className="text-2xl font-bold text-brand">Self-Serve</p>
+            <p className="text-gray-600 font-medium">Marketing ships without me</p>
+            <p className="text-gray-600 text-sm mt-1">The measure I build for</p>
           </div>
         </div>
       </div>

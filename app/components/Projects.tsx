@@ -1,5 +1,4 @@
 "use client";
-import { Globe, Github } from "lucide-react";
 import { motion } from "framer-motion";
 import Reveal from "./Reveal";
 
@@ -10,15 +9,12 @@ type Featured = {
   desc: string;
   outcome: string;
   tags: string[];
-  liveUrl: string | null;
-  sourceUrl: string | null;
 };
 
 type Earlier = {
   title: string;
   role: string;
   outcome: string;
-  liveUrl: string | null;
 };
 
 const featured: Featured[] = [
@@ -29,49 +25,40 @@ const featured: Featured[] = [
     desc: "Partner to founders and small marketing teams: audit what is blocking conversion, name the highest-leverage fix, then build it. Engagements now start with AI adoption, sorting what to automate from what stays human. The same workflow runs my own delivery, so I stay in production every week.",
     outcome: "Clients keep shipping after handoff, with AI in the loop.",
     tags: ["AI Adoption", "Conversion Strategy", "Design + Build", "Marketing Ops"],
-    liveUrl: "https://sprintz.agency",
-    sourceUrl: "https://github.com/RL22",
   },
   {
     title: "Pendo.io",
-    role: "Sr. Web Developer · 2022–2023",
-    category: "Reusable Components",
-    desc: "Built reusable landing-page modules and marketing templates on a headless WordPress stack. Partnered with demand gen on A/B tests and SEO; shipped data-integrated components for personalization and analytics.",
-    outcome: "Marketing launched campaigns without an engineering ticket.",
-    tags: ["Headless WordPress", "A/B Testing", "SEO", "Personalization"],
-    liveUrl: "https://pendo.io",
-    sourceUrl: null,
+    role: "Sr. Marketing Engineer · 2022–2023",
+    category: "Campaign Systems",
+    desc: "Inherited a marketing site where every campaign needed engineering time. Rebuilt the landing-page and email template system into modules the marketing team could assemble themselves, then worked with marketing ops to wire in personalization and progressive profiling for enterprise prospects.",
+    outcome: "Campaigns stopped being engineering tickets.",
+    tags: ["Landing Page Systems", "Personalization", "Demand Gen Partnership"],
   },
   {
     title: "Carrot Fertility",
-    role: "Sr. Web Developer · 2021–2022",
-    category: "CMS Architecture & Performance",
-    desc: "Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance. Modular Webflow templates let marketing self-serve; engineering got their roadmap back.",
-    outcome: "Cut marketing dev requests by 30%.",
-    tags: ["Webflow", "Core Web Vitals", "Mobile-First"],
-    liveUrl: "https://www.get-carrot.com",
-    sourceUrl: null,
+    role: "Marketing Developer Lead · 2021–2022",
+    category: "Site Ownership",
+    desc: "Owned the corporate site end to end: look and feel, growth strategy, and conversion. Standardized how web work got scoped and shipped, and partnered with teams across the company to turn new page and campaign needs into a modular template system.",
+    outcome: "Left a site the marketing team ran without a developer in the loop.",
+    tags: ["Site Ownership", "Template Systems", "Conversion"],
   },
 ];
 
 const earlier: Earlier[] = [
   {
     title: "Kiddom",
-    role: "Sr. Web Developer · 2021",
-    outcome: "SEO-optimized components and front-end refactors that lifted Lighthouse scores and gave marketing a base to iterate on.",
-    liveUrl: "https://www.kiddom.co",
+    role: "Marketing Developer Lead · 2021",
+    outcome: "Streamlined the marketing component library and audited the site against funnel data and heatmaps, leaving the team a base they could iterate on without starting over.",
   },
   {
     title: "Andersen Digital",
-    role: "Web Developer · 2020–2021",
-    outcome: "Led CMS and mar-tech migrations for enterprise clients, including Rancher IO from Marketo to HubSpot.",
-    liveUrl: null,
+    role: "Sr. Marketing Developer · 2020–2021",
+    outcome: "Ran CMS and marketing-automation migrations for enterprise clients including Rancher IO, AppZen, and Illumio, connecting their campaign tooling to the platforms their sales teams already worked in.",
   },
   {
     title: "Revel Systems",
-    role: "Web Designer · 2016–2020",
-    outcome: "Built and maintained WordPress sites and templates; the foundation later migrated to headless WordPress.",
-    liveUrl: "https://revelsystems.com",
+    role: "Web Team Lead · 2016–2020",
+    outcome: "Led the web team for four years, rebuilding the company's properties around SEO and growth priorities, then led an on-demand product training platform that gave customers a reason to stay after the sale.",
   },
 ];
 
@@ -117,7 +104,7 @@ export default function Projects() {
               <div className="flex flex-col">
                 <p className="text-gray-600 leading-relaxed mb-4">{p.desc}</p>
                 <p className="text-lg font-bold text-brand mb-5">{p.outcome}</p>
-                <p className="text-sm font-medium text-gray-700 mb-6">
+                <p className="text-sm font-medium text-gray-700">
                   {p.tags.map((t, ti) => (
                     <span key={t}>
                       {ti > 0 && (
@@ -130,18 +117,6 @@ export default function Projects() {
                     </span>
                   ))}
                 </p>
-                <div className="flex gap-3 mt-auto">
-                  {p.liveUrl && (
-                    <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-primary text-xs py-2 px-4 inline-flex items-center gap-1">
-                      <Globe className="w-3 h-3" /> Visit site
-                    </a>
-                  )}
-                  {p.sourceUrl && (
-                    <a href={p.sourceUrl} target="_blank" rel="noopener noreferrer" className="btn-outline text-xs py-2 px-4 inline-flex items-center gap-1">
-                      <Github className="w-3 h-3" /> Source
-                    </a>
-                  )}
-                </div>
               </div>
             </motion.article>
           ))}
@@ -164,15 +139,7 @@ export default function Projects() {
               className="border-t border-gray-200 py-6 grid md:grid-cols-[200px_1fr] gap-x-8 gap-y-2 items-baseline"
             >
               <div>
-                <h4 className="font-semibold text-lg">
-                  {p.liveUrl ? (
-                    <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="hover:text-brand transition-colors">
-                      {p.title}
-                    </a>
-                  ) : (
-                    p.title
-                  )}
-                </h4>
+                <h4 className="font-semibold text-lg">{p.title}</h4>
                 <p className="text-gray-500 text-xs">{p.role}</p>
               </div>
               <p className="text-gray-500 text-sm leading-relaxed">{p.outcome}</p>

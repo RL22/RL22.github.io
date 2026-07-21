@@ -1,6 +1,7 @@
-// Three tailored resume variants. Facts (orgs, dates, held titles, the 30%
-// metric) are identical everywhere; only summary, bullet emphasis, headline
-// title, and skills ordering shift per target-role archetype.
+// Three tailored resume variants. Facts (orgs, dates, held titles) are
+// identical everywhere; only summary, bullet emphasis, headline title, and
+// skills ordering shift per target-role archetype. Titles match the 2023
+// resume of record.
 
 export type ResumeVariant = "marketing" | "platform" | "design";
 
@@ -61,13 +62,13 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
         role: "Founder",
         dates: "2023 - Present",
         bullets: [
-          "Design, build, and ship high-converting marketing sites on Next.js 16, Sanity CMS, Supabase, Cal.com, and Playwright.",
-          "Run an AI-native, agent-driven delivery workflow that ships production sites end-to-end, solo.",
+          "Partner with founders and marketing teams to audit what blocks conversion, then design and build the fix.",
+          "Lead client AI adoption and build the marketing workflows their teams run after handoff.",
         ],
       },
       {
         org: "Pendo.io",
-        role: "Senior Web Developer",
+        role: "Sr. Marketing Engineer",
         dates: "2022 - 2023",
         bullets: [
           "Built reusable landing-page modules and marketing templates on a headless WordPress stack; marketing launched campaigns without an engineering ticket.",
@@ -76,17 +77,16 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Carrot Fertility",
-        role: "Senior Web Developer",
+        role: "Marketing Developer Lead",
         dates: "2021 - 2022",
         bullets: [
           "Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance.",
-          "Built modular Webflow templates that let marketing self-serve, giving engineering their roadmap back.",
-          "Cut marketing dev requests by 30%.",
+          "Built modular Webflow templates that let marketing launch pages without a developer in the loop, giving engineering their roadmap back.",
         ],
       },
       {
         org: "Kiddom",
-        role: "Senior Web Developer",
+        role: "Marketing Developer Lead",
         dates: "2021",
         bullets: [
           "Shipped SEO-optimized components and front-end refactors that lifted Lighthouse scores and gave marketing a base to iterate on.",
@@ -94,18 +94,18 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Andersen Digital",
-        role: "Web Developer",
+        role: "Sr. Marketing Developer",
         dates: "2020 - 2021",
         bullets: [
-          "Led CMS and mar-tech migrations for enterprise clients, including Rancher IO from Marketo to HubSpot.",
+          "Led CMS and mar-tech migrations for Rancher IO, AppZen, and Illumio, including Marketo to HubSpot.",
         ],
       },
       {
         org: "Revel Systems",
-        role: "Web Designer",
+        role: "Web Team Lead",
         dates: "2016 - 2020",
         bullets: [
-          "Built and maintained WordPress sites and templates; the foundation later migrated to headless WordPress.",
+          "Led the web team for four years, rebuilding the company’s properties around SEO and growth, and launching an on-demand customer training platform.",
         ],
       },
     ],
@@ -132,13 +132,13 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
         role: "Founder",
         dates: "2023 - Present",
         bullets: [
-          "Architect and ship production marketing sites on Next.js 16, Sanity CMS, Supabase, and Playwright, owning conventions, tooling, and delivery end-to-end.",
-          "Run an AI-native, agent-driven workflow: the architecture and guardrails that let agents ship reliably.",
+          "Own conventions, tooling, and delivery end to end for client marketing sites, from audit through handoff.",
+          "Lead client AI adoption and build the guardrails that let agent-driven workflows ship reliably.",
         ],
       },
       {
         org: "Pendo.io",
-        role: "Senior Web Developer",
+        role: "Sr. Marketing Engineer",
         dates: "2022 - 2023",
         bullets: [
           "Built a reusable landing-page component system on headless WordPress, wired for personalization and analytics; consumers launched campaigns without an engineering ticket.",
@@ -147,17 +147,16 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Carrot Fertility",
-        role: "Senior Web Developer",
+        role: "Marketing Developer Lead",
         dates: "2021 - 2022",
         bullets: [
-          "Architected a modular Webflow template system that made marketing fully self-serve.",
+          "Architected a modular Webflow template system that let marketing operate the site without engineering involvement.",
           "Owned Core Web Vitals, page speed, and mobile-first performance across the site.",
-          "Cut marketing dev requests by 30%.",
         ],
       },
       {
         org: "Kiddom",
-        role: "Senior Web Developer",
+        role: "Marketing Developer Lead",
         dates: "2021",
         bullets: [
           "Drove Lighthouse-led refactors and SEO-optimized components that gave the team a stable base to iterate on.",
@@ -165,18 +164,18 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Andersen Digital",
-        role: "Web Developer",
+        role: "Sr. Marketing Developer",
         dates: "2020 - 2021",
         bullets: [
-          "Led CMS and mar-tech platform migrations for enterprise clients, including Rancher IO from Marketo to HubSpot.",
+          "Led CMS and mar-tech platform migrations for Rancher IO, AppZen, and Illumio, including Marketo to HubSpot.",
         ],
       },
       {
         org: "Revel Systems",
-        role: "Web Designer",
+        role: "Web Team Lead",
         dates: "2016 - 2020",
         bullets: [
-          "Built and maintained the WordPress template foundation later migrated to headless WordPress.",
+          "Led the web team for four years, owning the template foundation and standards the properties were rebuilt on, plus an on-demand customer training platform.",
         ],
       },
     ],
@@ -203,13 +202,13 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
         role: "Founder",
         dates: "2023 - Present",
         bullets: [
-          "Design, art-direct, and build high-converting marketing sites end to end on Next.js 16, Sanity CMS, and Supabase.",
-          "Write motion and interaction in code (GSAP, Motion, Lenis) inside an AI-native, agent-driven workflow.",
+          "Design, art-direct, and build client marketing sites end to end, from brief through launch.",
+          "Write motion and interaction in code, and lead client AI adoption across their marketing workflows.",
         ],
       },
       {
         org: "Pendo.io",
-        role: "Senior Web Developer",
+        role: "Sr. Marketing Engineer",
         dates: "2022 - 2023",
         bullets: [
           "Built reusable landing-page modules and marketing templates with pixel-accurate design fidelity on headless WordPress.",
@@ -218,17 +217,16 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Carrot Fertility",
-        role: "Senior Web Developer",
+        role: "Marketing Developer Lead",
         dates: "2021 - 2022",
         bullets: [
-          "Built modular Webflow templates with mobile-first, responsive design that let marketing self-serve.",
+          "Built modular Webflow templates with mobile-first, responsive design that let marketing run the site themselves.",
           "Owned Core Web Vitals and page speed so the design never shipped slower than it looked.",
-          "Cut marketing dev requests by 30%.",
         ],
       },
       {
         org: "Kiddom",
-        role: "Senior Web Developer",
+        role: "Marketing Developer Lead",
         dates: "2021",
         bullets: [
           "Shipped SEO-optimized components and refactors that lifted Lighthouse scores without compromising the design system.",
@@ -236,18 +234,18 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Andersen Digital",
-        role: "Web Developer",
+        role: "Sr. Marketing Developer",
         dates: "2020 - 2021",
         bullets: [
-          "Delivered CMS and mar-tech migrations for enterprise clients, including Rancher IO from Marketo to HubSpot.",
+          "Delivered CMS and mar-tech migrations for Rancher IO, AppZen, and Illumio, including Marketo to HubSpot.",
         ],
       },
       {
         org: "Revel Systems",
-        role: "Web Designer",
+        role: "Web Team Lead",
         dates: "2016 - 2020",
         bullets: [
-          "Designed and built WordPress sites and templates for revelsystems.com; the foundation later migrated to headless WordPress.",
+          "Led the web team for four years, designing and rebuilding the company’s web properties around SEO and growth priorities, plus an on-demand product training platform.",
         ],
       },
     ],

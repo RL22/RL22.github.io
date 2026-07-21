@@ -27,7 +27,7 @@
   min-height: 1056px;
   margin: 0 auto;
   background: #fffdfb;
-  padding: 44px;
+  padding: 40px;
   box-shadow: 0 2px 24px rgba(28, 27, 26, 0.12);
   border-radius: 6px;
   color: #1c1b1a;
@@ -77,7 +77,7 @@
 }
 
 .resume-sheet section {
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 .resume-sheet section h2 {
@@ -98,7 +98,7 @@
 }
 
 .resume-entry {
-  margin-bottom: 6px;
+  margin-bottom: 5px;
   break-inside: avoid;
   page-break-inside: avoid;
 }
@@ -173,7 +173,7 @@
 }
 
 .resume-skills-line {
-  margin-bottom: 6px;
+  margin-bottom: 5px;
   font-size: 13.5px;
 }
 
