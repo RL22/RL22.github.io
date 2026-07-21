@@ -148,6 +148,35 @@
   margin-bottom: 1px;
 }
 
+.resume-edu {
+  margin-bottom: 5px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.resume-edu:last-child {
+  margin-bottom: 0;
+}
+
+.resume-edu-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+
+.resume-edu-head h3 {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.resume-edu-credential {
+  font-size: 12.5px;
+  color: #4a4744;
+  margin-top: 1px;
+}
+
 .resume-oss {
   margin-bottom: 6px;
 }

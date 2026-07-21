@@ -24,29 +24,29 @@ export type ResumeContent = {
   skills: SkillLine[];
 };
 
-const oss = [
+export type EducationEntry = {
+  school: string;
+  location: string;
+  credential: string;
+  year: string;
+};
+
+export const education: EducationEntry[] = [
   {
-    name: "readworthy",
-    url: "github.com/RL22/readworthy",
-    desc: "AI-native docs optimized for readability, structure, and context efficiency.",
+    school: "General Assembly",
+    location: "San Francisco, CA",
+    credential: "UX Immersive",
+    year: "2019",
   },
   {
-    name: "character.md",
-    url: "github.com/RL22/character.md",
-    desc: "A free, open-source starter system for creating consistent photorealistic AI characters with GPT-5 Image 2 and other image generation tools.",
+    school: "Free Code Camp",
+    location: "Online",
+    credential: "Full Stack Web Development Certificate",
+    year: "2015",
   },
 ];
 
-export const openSource = oss;
-
-export const contactLine = [
-  "Oakland, CA",
-  "lewis.rodneyl@gmail.com",
-  "github.com/RL22",
-  "linkedin.com/in/rodney-lewis-abb11b73",
-  "sprintz.agency",
-  "rl22.github.io",
-];
+export const contactLine = ["Oakland, CA", "lewis.rodneyl@gmail.com", "rl22.github.io"];
 
 export const variants: Record<ResumeVariant, ResumeContent> = {
   marketing: {
@@ -63,7 +63,6 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
         dates: "2023 - Present",
         bullets: [
           "Partner with founders and marketing teams to audit what blocks conversion, then design and build the fix.",
-          "Lead client AI adoption and build the marketing workflows their teams run after handoff.",
         ],
       },
       {
@@ -77,7 +76,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Carrot Fertility",
-        role: "Marketing Developer Lead",
+        role: "Sr. Web Developer",
         dates: "2021 - 2022",
         bullets: [
           "Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance.",
@@ -86,7 +85,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Kiddom",
-        role: "Marketing Developer Lead",
+        role: "Sr. Web Developer",
         dates: "2021",
         bullets: [
           "Shipped SEO-optimized components and front-end refactors that lifted Lighthouse scores and gave marketing a base to iterate on.",
@@ -94,7 +93,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Andersen Digital",
-        role: "Sr. Marketing Developer",
+        role: "Sr. Web Developer",
         dates: "2020 - 2021",
         bullets: [
           "Led CMS and mar-tech migrations for Rancher IO, AppZen, and Illumio, including Marketo to HubSpot.",
@@ -102,10 +101,10 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Revel Systems",
-        role: "Web Team Lead",
+        role: "Web Developer to Sr. Web Developer",
         dates: "2016 - 2020",
         bullets: [
-          "Led the web team for four years, rebuilding the company’s properties around SEO and growth, and launching an on-demand customer training platform.",
+          "Rebuilt the company's web properties around SEO and growth priorities over four years, and contributed to an on-demand customer training platform.",
         ],
       },
     ],
@@ -133,7 +132,6 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
         dates: "2023 - Present",
         bullets: [
           "Own conventions, tooling, and delivery end to end for client marketing sites, from audit through handoff.",
-          "Lead client AI adoption and build the guardrails that let agent-driven workflows ship reliably.",
         ],
       },
       {
@@ -147,7 +145,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Carrot Fertility",
-        role: "Marketing Developer Lead",
+        role: "Sr. Web Developer",
         dates: "2021 - 2022",
         bullets: [
           "Architected a modular Webflow template system that let marketing operate the site without engineering involvement.",
@@ -156,7 +154,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Kiddom",
-        role: "Marketing Developer Lead",
+        role: "Sr. Web Developer",
         dates: "2021",
         bullets: [
           "Drove Lighthouse-led refactors and SEO-optimized components that gave the team a stable base to iterate on.",
@@ -164,7 +162,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Andersen Digital",
-        role: "Sr. Marketing Developer",
+        role: "Sr. Web Developer",
         dates: "2020 - 2021",
         bullets: [
           "Led CMS and mar-tech platform migrations for Rancher IO, AppZen, and Illumio, including Marketo to HubSpot.",
@@ -172,10 +170,10 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Revel Systems",
-        role: "Web Team Lead",
+        role: "Web Developer to Sr. Web Developer",
         dates: "2016 - 2020",
         bullets: [
-          "Led the web team for four years, owning the template foundation and standards the properties were rebuilt on, plus an on-demand customer training platform.",
+          "Built the template foundation and standards the company's properties were rebuilt on over four years, plus an on-demand customer training platform.",
         ],
       },
     ],
@@ -203,7 +201,6 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
         dates: "2023 - Present",
         bullets: [
           "Design, art-direct, and build client marketing sites end to end, from brief through launch.",
-          "Write motion and interaction in code, and lead client AI adoption across their marketing workflows.",
         ],
       },
       {
@@ -217,7 +214,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Carrot Fertility",
-        role: "Marketing Developer Lead",
+        role: "Sr. Web Developer",
         dates: "2021 - 2022",
         bullets: [
           "Built modular Webflow templates with mobile-first, responsive design that let marketing run the site themselves.",
@@ -226,7 +223,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Kiddom",
-        role: "Marketing Developer Lead",
+        role: "Sr. Web Developer",
         dates: "2021",
         bullets: [
           "Shipped SEO-optimized components and refactors that lifted Lighthouse scores without compromising the design system.",
@@ -234,7 +231,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Andersen Digital",
-        role: "Sr. Marketing Developer",
+        role: "Sr. Web Developer",
         dates: "2020 - 2021",
         bullets: [
           "Delivered CMS and mar-tech migrations for Rancher IO, AppZen, and Illumio, including Marketo to HubSpot.",
@@ -242,10 +239,10 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       },
       {
         org: "Revel Systems",
-        role: "Web Team Lead",
+        role: "Web Developer to Sr. Web Developer",
         dates: "2016 - 2020",
         bullets: [
-          "Led the web team for four years, designing and rebuilding the company’s web properties around SEO and growth priorities, plus an on-demand product training platform.",
+          "Designed and rebuilt the company's web properties around SEO and growth priorities over four years, plus an on-demand product training platform.",
         ],
       },
     ],
