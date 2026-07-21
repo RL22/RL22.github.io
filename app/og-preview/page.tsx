@@ -49,22 +49,60 @@ export default function OgPreviewPage() {
           width: 1200,
           height: 630,
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
           backgroundColor: cream,
-          padding: 72,
           fontFamily: "Figtree",
           position: "relative",
+          overflow: "hidden",
         }}
       >
-        {/* Top row: monogram + name */}
+        {/* Full-bleed terracotta field on the right. The portrait's
+            transparent upper area lets the silhouette read directly against
+            the color with no visible box edge; the desk bleeds off the
+            bottom. Image is 1024x1024 with the head centered at x=512, so a
+            centered crop keeps him centered in the field. */}
         <div
           style={{
             display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
+            position: "absolute",
+            top: 0,
+            right: 0,
+            width: 480,
+            height: 630,
+            backgroundColor: brand,
+            overflow: "hidden",
+            alignItems: "flex-end",
+            justifyContent: "center",
           }}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/img/rod-transparent.png"
+            alt=""
+            style={{
+              display: "flex",
+              width: 620,
+              height: 620,
+              maxWidth: "none",
+              objectFit: "contain",
+            }}
+          />
+        </div>
+
+        {/* Type column */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            width: 720,
+            height: 630,
+            paddingTop: 64,
+            paddingBottom: 64,
+            paddingLeft: 72,
+            paddingRight: 48,
+          }}
+        >
+          {/* Identity */}
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <div
               style={{
@@ -83,100 +121,77 @@ export default function OgPreviewPage() {
             >
               RL
             </div>
-            <div
-              style={{
-                display: "flex",
-                fontSize: 28,
-                fontWeight: 700,
-                color: ink,
-              }}
-            >
+            <div style={{ display: "flex", fontSize: 28, fontWeight: 700, color: ink }}>
               Rodney L. Lewis
             </div>
           </div>
-        </div>
 
-        {/* Headline (kept clear of the photo block on the right) */}
-        <div style={{ display: "flex", flexDirection: "column", maxWidth: 700 }}>
+          {/* Headline: three lines, set large now that the split defines the
+              column instead of the type dodging a floating photo block. */}
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
+              style={{
+                display: "flex",
+                fontFamily: "Bricolage Grotesque",
+                fontSize: 68,
+                fontWeight: 800,
+                color: ink,
+                letterSpacing: -2,
+                lineHeight: 1.06,
+              }}
+            >
+              Build platforms.
+            </div>
+            <div
+              style={{
+                display: "flex",
+                fontFamily: "Bricolage Grotesque",
+                fontSize: 68,
+                fontWeight: 800,
+                color: brandDark,
+                letterSpacing: -2,
+                lineHeight: 1.06,
+              }}
+            >
+              Scale marketing
+            </div>
+            <div
+              style={{
+                display: "flex",
+                fontFamily: "Bricolage Grotesque",
+                fontSize: 68,
+                fontWeight: 800,
+                color: brandDark,
+                letterSpacing: -2,
+                lineHeight: 1.06,
+              }}
+            >
+              impact.
+            </div>
+          </div>
+
+          {/* Footer: rule spans the type column only, so its terminus aligns
+              with the color field's edge. */}
           <div
             style={{
               display: "flex",
-              fontFamily: "Bricolage Grotesque",
-              fontSize: 56,
-              fontWeight: 800,
-              color: ink,
-              letterSpacing: -1.5,
-              lineHeight: 1.1,
+              flexDirection: "column",
+              borderTop: `3px solid ${brand}`,
+              paddingTop: 24,
             }}
           >
-            Build platforms.
-          </div>
-          <div
-            style={{
-              display: "flex",
-              fontFamily: "Bricolage Grotesque",
-              fontSize: 56,
-              fontWeight: 800,
-              color: brandDark,
-              letterSpacing: -1.5,
-              lineHeight: 1.1,
-            }}
-          >
-            Scale marketing impact.
-          </div>
-        </div>
-
-        {/* Bottom row: title · url */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            borderTop: `3px solid ${brand}`,
-            paddingTop: 28,
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <div style={{ display: "flex", fontSize: 30, fontWeight: 600, color: ink }}>
-              Senior Web Platform Engineer
-            </div>
-            <div style={{ display: "flex", fontSize: 30, fontWeight: 600, color: sub }}>
-              ·
-            </div>
-            <div style={{ display: "flex", fontSize: 26, fontWeight: 500, color: sub }}>
-              rl22.github.io
+            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+              <div style={{ display: "flex", fontSize: 28, fontWeight: 600, color: ink }}>
+                Senior Web Platform Engineer
+              </div>
+              <div style={{ display: "flex", fontSize: 28, fontWeight: 600, color: sub }}>
+                ·
+              </div>
+              <div style={{ display: "flex", fontSize: 26, fontWeight: 500, color: sub }}>
+                rl22.github.io
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Photo block: terracotta rounded-rect with portrait standing in it,
-            echoing the site hero treatment */}
-        <div
-          style={{
-            display: "flex",
-            position: "absolute",
-            right: 72,
-            bottom: 130,
-            width: 300,
-            height: 440,
-            backgroundColor: brand,
-            borderRadius: 24,
-            overflow: "hidden",
-            alignItems: "flex-end",
-            justifyContent: "center",
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/img/lifestyle-portrait-nobg.png"
-            alt=""
-            style={{
-              display: "flex",
-              height: 420,
-              width: "auto",
-              objectFit: "contain",
-            }}
-          />
         </div>
       </div>
 
@@ -398,13 +413,12 @@ export default function OgPreviewPage() {
             <div
               style={{
                 display: "flex",
+                position: "relative",
                 width: 72,
                 height: 72,
                 borderRadius: 999,
                 backgroundColor: brand,
                 overflow: "hidden",
-                alignItems: "center",
-                justifyContent: "center",
               }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -413,9 +427,12 @@ export default function OgPreviewPage() {
                 alt=""
                 style={{
                   display: "flex",
-                  width: 72,
-                  height: 72,
-                  objectFit: "cover",
+                  position: "absolute",
+                  left: -50,
+                  top: -7,
+                  width: 172,
+                  height: 172,
+                  maxWidth: "none",
                 }}
               />
             </div>
@@ -547,13 +564,12 @@ export default function OgPreviewPage() {
             <div
               style={{
                 display: "flex",
+                position: "relative",
                 width: 72,
                 height: 72,
                 borderRadius: 999,
                 backgroundColor: brand,
                 overflow: "hidden",
-                alignItems: "center",
-                justifyContent: "center",
               }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -562,9 +578,12 @@ export default function OgPreviewPage() {
                 alt=""
                 style={{
                   display: "flex",
-                  width: 72,
-                  height: 72,
-                  objectFit: "cover",
+                  position: "absolute",
+                  left: -50,
+                  top: -7,
+                  width: 172,
+                  height: 172,
+                  maxWidth: "none",
                 }}
               />
             </div>
