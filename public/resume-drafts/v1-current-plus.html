@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rodney L. Lewis | Resume: V1 Current Plus</title>
+<meta name="description" content="Resume of Rodney L. Lewis, Senior Web Platform Engineer.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --terracotta: #A5423D;
+    --terracotta-2: #C0614A;
+    --cream: #F5EFE6;
+    --ink: #1c1b1a;
+    --ink-soft: #4a4744;
+    --hairline: #d9d3cd;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #ece7de;
+    color: var(--ink);
+    font-family: 'Figtree', Arial, sans-serif;
+  }
+
+  .variant-label {
+    max-width: 8.5in;
+    margin: 0.75in auto 0;
+    padding: 0 0.2in;
+    font-family: 'Figtree', Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8a8378;
+  }
+
+  .sheet-wrap {
+    max-width: 8.5in;
+    margin: 0.4in auto 1in;
+    padding: 0 0.2in;
+  }
+
+  .sheet {
+    background: #fffdfb;
+    margin: 0 auto;
+    box-shadow: 0 6px 32px rgba(28, 27, 26, 0.14);
+    border-radius: 4px;
+    padding: 0.6in;
+    font-size: 10.6pt;
+    line-height: 1.48;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Bricolage Grotesque', Georgia, serif;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  header.head {
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: 16px;
+  }
+
+  .name-lockup {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0 12px;
+  }
+
+  .name-lockup h1 {
+    font-size: 23pt;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+  }
+
+  .name-lockup .title {
+    font-family: 'Bricolage Grotesque', Georgia, serif;
+    font-weight: 600;
+    font-size: 12pt;
+    color: var(--terracotta);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    position: relative;
+    top: 1px;
+  }
+
+  .contact {
+    margin-top: 7px;
+    font-size: 9.3pt;
+    color: var(--ink-soft);
+  }
+
+  .contact span:not(:last-child)::after {
+    content: " \00b7 ";
+    color: var(--hairline);
+    padding: 0 2px;
+  }
+
+  section { margin-top: 16px; }
+
+  section h2 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--terracotta);
+    border-bottom: 1px solid var(--terracotta);
+    padding-bottom: 5px;
+    margin-bottom: 9px;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .summary { max-width: 7.3in; }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 1.15in 1fr;
+    gap: 0 14px;
+    margin-bottom: 11px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-dates {
+    font-size: 9.2pt;
+    color: var(--ink-soft);
+    font-weight: 500;
+    white-space: nowrap;
+    text-align: right;
+    padding-top: 2px;
+  }
+
+  .entry-body h3 {
+    font-size: 11pt;
+    font-weight: 700;
+    display: inline;
+  }
+
+  .entry-role {
+    font-size: 9.8pt;
+    color: var(--ink-soft);
+    font-weight: 500;
+    display: inline;
+    margin-left: 6px;
+  }
+
+  .entry-body p.intro {
+    margin: 3px 0 0;
+  }
+
+  .entry-body ul {
+    margin: 5px 0 0;
+    padding-left: 16px;
+    list-style: disc;
+  }
+
+  .entry-body ul li::marker { color: var(--terracotta); }
+  .entry-body li { margin-bottom: 2px; }
+
+  .oss { margin-bottom: 9px; }
+  .oss:last-child { margin-bottom: 0; }
+  .oss-name {
+    font-weight: 700;
+    font-family: 'Bricolage Grotesque', Georgia, serif;
+    font-size: 10.5pt;
+    display: inline;
+  }
+  .oss-url {
+    color: var(--ink-soft);
+    font-size: 9.1pt;
+    margin-left: 8px;
+  }
+  .oss-desc { margin-top: 2px; font-size: 10.1pt; }
+
+  .skills-line { margin-bottom: 5px; font-size: 10.1pt; }
+  .skills-line:last-child { margin-bottom: 0; }
+  .skills-group {
+    font-family: 'Bricolage Grotesque', Georgia, serif;
+    font-weight: 700;
+  }
+  .skills-tags { color: var(--ink-soft); }
+
+  @media print {
+    @page { size: letter; margin: 0.6in; }
+    html, body { background: #fff; }
+    .variant-label { display: none !important; }
+    .sheet-wrap { max-width: none; margin: 0; padding: 0; }
+    .sheet {
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0;
+      margin: 0;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="variant-label">V1 &ndash; Current Plus (refined single column)</div>
+  <div class="sheet-wrap">
+    <main class="sheet">
+      <header class="head">
+        <div class="name-lockup">
+          <h1>Rodney L. Lewis</h1>
+          <span class="title">Senior Web Platform Engineer</span>
+        </div>
+        <div class="contact">
+          <span>Oakland, CA</span>
+          <span>lewis.rodneyl@gmail.com</span>
+          <span>github.com/RL22</span>
+          <span>linkedin.com/in/rodney-lewis-abb11b73</span>
+          <span>sprintz.agency</span>
+          <span>rl22.github.io</span>
+        </div>
+      </header>
+
+      <section>
+        <h2>Summary</h2>
+        <p class="summary">
+          Eight years owning marketing-site lifecycles: CMS architecture, reusable component
+          systems, and the performance work that turns a website into a compounding asset. I work
+          across design, engineering, and marketing, with an AI-native workflow underneath. Senior
+          IC who owns the platform end to end, from inherited site to a system marketing can
+          self-serve on.
+        </p>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+
+        <div class="entry">
+          <div class="entry-dates">2023 &ndash; Present</div>
+          <div class="entry-body">
+            <h3>Sprintz</h3><span class="entry-role">Founder</span>
+            <p class="intro">Daily production environment designing, building, and shipping high-converting marketing sites on Next.js 16, Sanity CMS, Supabase, Cal.com, and Playwright, with an AI-native, agent-driven delivery workflow.</p>
+            <ul>
+              <li>Built and run an AI-native delivery workflow that ships production marketing sites end-to-end, solo.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-dates">2022 &ndash; 2023</div>
+          <div class="entry-body">
+            <h3>Pendo.io</h3><span class="entry-role">Senior Web Developer</span>
+            <ul>
+              <li>Built reusable landing-page modules and marketing templates on a headless WordPress stack.</li>
+              <li>Partnered with demand gen on A/B tests and SEO; shipped data-integrated components for personalization and analytics.</li>
+              <li>Marketing launched campaigns without an engineering ticket.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-dates">2021 &ndash; 2022</div>
+          <div class="entry-body">
+            <h3>Carrot Fertility</h3><span class="entry-role">Senior Web Developer</span>
+            <ul>
+              <li>Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance.</li>
+              <li>Built modular Webflow templates that let marketing self-serve, giving engineering their roadmap back.</li>
+              <li>Cut marketing dev requests by 30%.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-dates">2021</div>
+          <div class="entry-body">
+            <h3>Kiddom</h3><span class="entry-role">Senior Web Developer</span>
+            <ul>
+              <li>Shipped SEO-optimized components and front-end refactors that lifted Lighthouse scores and gave marketing a base to iterate on.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-dates">2020 &ndash; 2021</div>
+          <div class="entry-body">
+            <h3>Andersen Digital</h3><span class="entry-role">Web Developer</span>
+            <ul>
+              <li>Led CMS and mar-tech migrations for enterprise clients, including Rancher IO from Marketo to HubSpot.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-dates">2016 &ndash; 2020</div>
+          <div class="entry-body">
+            <h3>Revel Systems</h3><span class="entry-role">Web Designer</span>
+            <ul>
+              <li>Built and maintained WordPress sites and templates; the foundation later migrated to headless WordPress.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Open Source</h2>
+        <div class="oss">
+          <div class="oss-name">readworthy<span class="oss-url">github.com/RL22/readworthy</span></div>
+          <div class="oss-desc">AI-native docs optimized for readability, structure, and context efficiency.</div>
+        </div>
+        <div class="oss">
+          <div class="oss-name">character.md<span class="oss-url">github.com/RL22/character.md</span></div>
+          <div class="oss-desc">A free, open-source starter system for creating consistent photorealistic AI characters with GPT-5 Image 2 and other image generation tools.</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <div class="skills-line"><span class="skills-group">Frontend &amp; Backend: </span><span class="skills-tags">TypeScript, React, Next.js, Tailwind, Supabase</span></div>
+        <div class="skills-line"><span class="skills-group">CMS Platforms: </span><span class="skills-tags">Sanity, Headless WordPress, WordPress, Webflow, GraphQL</span></div>
+        <div class="skills-line"><span class="skills-group">Mar-Tech &amp; Data: </span><span class="skills-tags">HubSpot, Marketo, Salesforce, GA4, Vercel</span></div>
+        <div class="skills-line"><span class="skills-group">Conversion &amp; SEO: </span><span class="skills-tags">A/B Testing, Technical SEO, Core Web Vitals, Lighthouse, Reusable Components</span></div>
+        <div class="skills-line"><span class="skills-group">Design: </span><span class="skills-tags">Figma, Sketch, Photoshop, Illustrator, Lightroom</span></div>
+        <div class="skills-line"><span class="skills-group">AI-Native Stack: </span><span class="skills-tags">Claude Code, Codex, Gemini, MCP, Agentic Workflows</span></div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

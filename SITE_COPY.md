@@ -2,64 +2,82 @@
 
 ## Navigation
 
-### Main Navigation Links
-- Home
-- Projects
-- About
-- Contact
+### Main Navigation Links (desktop, matches page order)
+- About (#about)
+- Experience (#projects)
+- Building in Public (#building)
+- Skills (#skills)
+- Resume (links to `/resume`)
+- Contact (separate CTA button, not in the link list)
 
 ### Mobile Menu
-- Home
-- Projects
-- About
-- Contact
+Same set and order as desktop; Contact renders as the CTA button at the bottom of the menu. The RL monogram logo links home.
+
+---
+
+## Typography
+
+- **Display / headings (h1–h4, `.font-display`):** Bricolage Grotesque (weights 600, 700, 800)
+- **Body / base:** Figtree (weights 400, 500, 600, 700)
+- Loaded via `next/font/google` in `app/layout.tsx` as CSS variables `--font-display` and `--font-body`; wired into `tailwind.config.ts` (`font-sans` → body, `font-display` → headings). Replaced the previous Inter typeface (2026-07-16).
+
+## Page Metadata (`app/layout.tsx`)
+
+**Title:** Rodney L. Lewis | Senior Web Platform Engineer  
+**Description:** Eight years owning marketing-site lifecycles for Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems. Architecture, performance, reusable components, and the publishing workflows that let marketing ship without an engineering ticket.
+
+## Page Loader (`PageLoader.tsx`)
+
+Animated curtain shown once per browser session (sessionStorage), skipped entirely for reduced-motion users.
+
+- **Monogram:** RL
+- **Tagline:** Senior Web Platform Engineer
 
 ---
 
 ## Hero Section
 
 ### Badge
-Principal Web Platform Lead
+Senior Web Platform Engineer
 
 ### Main Headline (Line-by-line)
 Build platforms.
 Scale marketing impact.
 
 ### Description
-I build marketing platforms that scale by working across design, dev, and marketing fluidly. Most people don't. My hybrid perspective allows me to see where teams get stuck, what connections matter, and how systems should actually work. CMS architecture, reusable components, performance that sustains growth. AI is accelerating everything; the architecture is what enables 10x results.
+Eight years owning marketing-site lifecycles: CMS architecture, reusable component systems, and the performance work that turns a website into a compounding asset. I work across design, engineering, and marketing, with an AI-native workflow underneath.
 
 ### Call-to-Action Buttons
-- Primary: "Let's discuss the role"
+- Primary: "Let's talk" (with arrow icon)
 - Secondary: "See the work →"
 
-### Stats Bar
-- **8+ yrs** · **5 orgs** · **Led platform teams** · **30%** faster delivery
+*(The text credibility strip below the CTAs — "8+ yrs · 5 orgs · Owned site lifecycles end-to-end · 30% fewer dev requests" — was removed. The floating cards carry those facts.)*
 
 ### Floating Cards (Desktop)
 1. **8+** Years
    - Owning marketing-site lifecycles
 
-2. **Senior Roles**: **5**
-   - Pendo · Carrot · Kiddom
+2. **Organizations**: **5**
+   - Pendo · Carrot · Kiddom · Andersen · Revel
 
-3. **30%** Fewer Dev Tickets
-   - Marketing self-serve at Carrot
+3. **Self-Serve** Marketing ships without me
+   - The measure I build for
 
 ### Mobile Stats Cards
 1. **8+** Years
    - Owning marketing-site lifecycles
 
-2. **5** Senior Roles
+2. **5** Organizations
    - Pendo · Carrot · Kiddom · Andersen · Revel
 
-3. **30%** Fewer Dev Tickets
-   - Marketing self-serve at Carrot Fertility
+3. **Self-Serve** Marketing ships without me
+   - The measure I build for
 
 ### Tech Stack Label
 Stack I work in
 
 ### Tech Stack Icons
-HTML5, CSS3, JavaScript, React, PHP, WordPress, Next.js
+TypeScript, React, Tailwind CSS, WordPress, Vercel, Figma, Anthropic, OpenAI
 
 ---
 
@@ -68,124 +86,111 @@ HTML5, CSS3, JavaScript, React, PHP, WordPress, Next.js
 ### Section Badge
 About
 
-### Main Heading
-I treat marketing sites like product.
+### Block 1 — Claim (heading + narrative)
 
-### Subheading
-Most marketing websites get refactored from the inside every time the brand pivots. The platform underneath erodes. I've spent eight years owning marketing-site lifecycles: architecture, performance, components, and the publishing workflows underneath, so the platform compounds instead of decays.
+**Main Heading:** I treat marketing sites like product.
 
-### Areas of Ownership
+**Narrative P1:**
+Most marketing websites get refactored from the inside every time the brand pivots, and the platform underneath erodes. For eight years at Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems, my job has been the same at every logo: take an inherited marketing site, treat it like product, and make the team faster.
 
-#### 1. Platform lifecycle ownership
-Marketing-site lifecycles at Carrot and Pendo ran as multi-quarter platform work: components, publishing workflows, architecture, and performance sequenced by impact.
+**Narrative P2:**
+I'm based in Oakland, CA. Today I run [Sprintz](https://sprintz.agency), helping founders and small marketing teams adopt AI into how they work, and building the sites and workflows that come out of it.
 
-#### 2. Headless CMS in production
-Headless WordPress at Pendo. WordPress to headless migration at Revel Systems. Sanity at Sprintz today.
-
-#### 3. Reusable component systems
-Modular templates at Carrot Fertility reduced marketing dev requests by 30%. Component systems at Pendo wired in for personalization and analytics.
-
-#### 4. Performance & technical SEO
-Core Web Vitals work at Carrot. Lighthouse-driven refactors at Kiddom. SEO-optimized components and structured A/B plans across Pendo, Kiddom, and Andersen.
-
-#### 5. Experimentation & partnership
-A/B testing with demand gen at Pendo. Iteration loops at Carrot grounded in performance insights. Partnered with design, UX, data, and content teams across every senior role.
-
-#### 6. Site + mar-tech migrations
-Rancher IO (Marketo to HubSpot) and Revel Systems (standard WordPress to headless WordPress, Marketo to HubSpot), both delivered at Andersen.
-
-### Core Principles
+### Block 2 — Beliefs ("HOW I THINK", oversized numerals)
 
 1. **Platforms compound or decay.**
-   Every architecture decision either adds to the foundation or chips away at it.
+   Every architecture decision either adds to the foundation or chips away at it. I build systems that grow in value over time.
 
 2. **Marketing self-serve is the measure.**
-   Not the launch—how long the team operates without filing a ticket. At Carrot, we hit 30%.
+   Not the launch: how long the team operates without filing a ticket.
 
 3. **Every page is a hypothesis.**
-   Ship with a metric. Test. Iterate. Experimentation is baked into components from day one.
+   Ship with a metric attached. Instrument it, run the test, iterate. Experimentation is baked in at the component level.
+
+4. **AI amplifies good architecture.**
+   Agents write boilerplate fast, which means sloppy systems break faster too. The architecture underneath is the differentiator.
+
+### Closing statement
+The best web platforms make the people around them faster. **That's the work.**
+
+*(Folded 2026-07-16 to three blocks — claim, "How I think" principles, closing. The "Where I've owned it" indexed proof list (01–06) was removed as duplicative of the Experience section, and the "cut marketing dev requests by 30%" sentence was dropped from Narrative P1 (that metric lives in the hero card and the Experience section).)*
+
+*(Removed in the earlier 2026-07 restructure: "How I Work" timeline, traits/tags row, quote block, and the "Let's Connect" sub-section — all redundant with Skills, Projects, or Contact.)*
 
 ---
 
-## Projects / Case Studies
+## Projects / Experience
 
 ### Section Badge
-Case Studies
+Experience
 
 ### Section Heading
 Marketing-site lifecycles, owned end-to-end.
 
 ### Section Subheading
-One card per role. Each follows the same arc: an inherited site, a platform reset, a team that ships faster afterward.
+Every role has followed the same arc: an inherited marketing site, a platform reset, and a team that ships without me afterward.
 
-### Project 1: Sprintz
+Cards render in two tiers: a **Featured** tier (org block, description, outcome, capability tags) and an **Earlier roles** tier (compact rows: org, role, one-line outcome). Both tiers are reverse-chronological. Outbound "Visit site" / "Source" buttons and earlier-role company links were removed 2026-07-21.
 
-**Title:** Sprintz  
-**Role:** Founder · 2023–present  
-**Category:** Studio + AI Systems  
-**Description:** Hybrid studio pairing high-converting marketing sites with AI-native delivery systems. Built on Next.js 16, Sanity CMS, Supabase, Cal.com, and Playwright. Drives the open-source work that sits next to it: the BMAD-OpenCode Engine, readworthy, character.md, and antenna-os.  
-**Tags:** Next.js 16, Sanity, Supabase, BMAD  
-**Links:**
-- Live: https://sprintz.agency
-- Source: https://github.com/RL22
+Titles match the 2023 resume of record. Cards lead with the operating-model change (what was inherited, what changed, what the team could do afterward) rather than metrics or tool lists; tools live in the Skills section.
 
-### Project 2: Pendo.io
+### Featured Tier
 
-**Title:** Pendo.io  
-**Role:** Sr. Web Developer · 2022–2023  
-**Category:** Reusable Components  
-**Description:** Built reusable landing-page modules and marketing templates on a headless WordPress stack. Partnered with demand gen on A/B tests and SEO; shipped data-integrated components for personalization and analytics. Marketing launched campaigns without an engineering ticket.  
-**Tags:** Headless WordPress, A/B Testing, SEO, Personalization  
-**Links:**
-- Live: https://pendo.io
-- Source: —
+#### Featured 1: Sprintz
 
-### Project 3: Carrot Fertility
+**Role:** Founder · 2023–present
+**Category:** Client Strategy & AI Adoption
+**Description:** Partner to founders and small marketing teams: audit what is blocking conversion, name the highest-leverage fix, then build it. Engagements now start with AI adoption, sorting what to automate from what stays human. The same workflow runs my own delivery, so I stay in production every week.
+**Outcome:** Clients keep shipping after handoff, with AI in the loop.
+**Tags:** AI Adoption · Conversion Strategy · Design + Build · Marketing Ops
 
-**Title:** Carrot Fertility  
-**Role:** Sr. Web Developer · 2021–2022  
-**Category:** CMS Architecture & Performance  
-**Description:** Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance. Modular WordPress and Webflow templates reduced marketing dev requests by 30%. Marketing self-served; engineering got their roadmap back.  
-**Tags:** WordPress, Webflow, Core Web Vitals, Mobile-First  
-**Links:**
-- Live: https://www.get-carrot.com
-- Source: —
+#### Featured 2: Pendo.io
 
-### Project 4: Kiddom
+**Role:** Sr. Marketing Engineer · 2022–2023
+**Category:** Campaign Systems
+**Description:** Inherited a marketing site where every campaign needed engineering time. Rebuilt the landing-page and email template system into modules the marketing team could assemble themselves, then worked with marketing ops to wire in personalization and progressive profiling for enterprise prospects.
+**Outcome:** Campaigns stopped being engineering tickets.
+**Tags:** Landing Page Systems · Personalization · Demand Gen Partnership
 
-**Title:** Kiddom  
-**Role:** Sr. Web Developer · 2021  
-**Category:** SEO + Performance  
-**Description:** Built SEO-optimized page components and conversion tooling aligned to growth KPIs. Partnered with UX and data teams on behavioral testing. Front-end refactors lifted Lighthouse scores and gave the marketing team a base they could iterate on.  
-**Tags:** SEO, Conversion, Lighthouse, UX  
-**Links:**
-- Live: https://www.kiddom.co
-- Source: —
+#### Featured 3: Carrot Fertility
 
-### Project 5: Andersen Digital
+**Role:** Marketing Developer Lead · 2021–2022
+**Category:** Site Ownership
+**Description:** Owned the corporate site end to end: look and feel, growth strategy, and conversion. Standardized how web work got scoped and shipped, and partnered with teams across the company to turn new page and campaign needs into a modular template system.
+**Outcome:** Left a site the marketing team ran without a developer in the loop.
+**Tags:** Site Ownership · Template Systems · Conversion
 
-**Title:** Andersen Digital  
-**Role:** Web Developer · 2020–2021  
-**Category:** CMS & Mar-Tech Migrations  
-**Description:** Led CMS and mar-tech migrations for enterprise clients: Rancher IO (Marketo to HubSpot). Also shipped WordPress themes, HubSpot landing pages, and lead-gen components for AppZen and Illumio.  
-**Tags:** Marketo to HubSpot, A/B Testing, Lead Gen, WordPress  
-**Links:**
-- Live: —
-- Source: —
+### Earlier Roles Tier
 
-### Project 6: Revel Systems
+#### Earlier 1: Kiddom
 
-**Title:** Revel Systems  
-**Role:** Web Designer · 2016–2020  
-**Category:** Marketing CMS  
-**Description:** Built and maintained WordPress sites and custom templates for marketing and client education. Led optimization of training pages and the knowledge center to reduce bounce and improve retention, the foundation that was later migrated to headless WordPress.  
-**Tags:** WordPress, Templates, UX, Retention  
-**Links:**
-- Live: https://revelsystems.com
-- Source: —
+**Role:** Marketing Developer Lead · 2021
+**Outcome:** Streamlined the marketing component library and audited the site against funnel data and heatmaps, leaving the team a base they could iterate on without starting over.
+
+#### Earlier 2: Andersen Digital
+
+**Role:** Sr. Marketing Developer · 2020–2021
+**Outcome:** Ran CMS and marketing-automation migrations for enterprise clients including Rancher IO, AppZen, and Illumio, connecting their campaign tooling to the platforms their sales teams already worked in.
+
+#### Earlier 3: Revel Systems
+
+**Role:** Web Team Lead · 2016–2020
+**Outcome:** Led the web team for four years, rebuilding the company's properties around SEO and growth priorities, then led an on-demand product training platform that gave customers a reason to stay after the sale.
 
 ### CTA
-More work on GitHub — https://github.com/RL22
+View all resources (links to `/blog`)
+
+---
+
+## Blog & Resources Page (`/blog`)
+
+Hub page (`app/blog/page.tsx`) reached from the Building in Public section button; not in the nav yet. Reuses the section's shared components (`app/components/building/`: FeaturedBlock, FeedRow, PlaceholderChip, feed.ts).
+
+- **Badge:** Building in Public
+- **h1:** Blog & Resources
+- **Sub:** Every repo, article, and video, in one place, updated as the work ships.
+- **Structure:** Back-to-site link, featured block (video + stacked repos), full feed (all building.json items AND repos), "Full profile on GitHub" CTA at bottom (moved here from the homepage section).
+- **SEO:** canonical `/blog`, OpenGraph + Twitter summary metadata, `metadataBase` https://rl22.github.io set in layout, JSON-LD ItemList of real (non-placeholder) entries only.
 
 ---
 
@@ -198,64 +203,62 @@ Skills
 What I work in.
 
 ### Section Subheading
-Six categories, drawn straight from the work, not aspirational. Tools are table stakes; the principles behind them are what compound.
+Everything here comes out of shipped work, not a reading list. Capped at five per group: what I leave off matters as much as what I keep.
+
+Each group renders as a curated 5-tag list (no icons in the current component; tags are capped, not exhaustive).
 
 ### Skill Group 1: Frontend & Backend
 
 **Title:** Frontend & Backend  
-**Icon:** Code2  
 **Description:** The web layer I own, from markup to API. Agents write the boilerplate; I own the architecture.  
-**Tags:** HTML, CSS, JavaScript, TypeScript, React, TailwindCSS, Next.js, PHP, REST APIs
+**Tags:** TypeScript, React, Next.js, Tailwind, Supabase
 
-### Skill Group 2: CMS
+### Skill Group 2: CMS Platforms
 
-**Title:** CMS  
-**Icon:** Database  
+**Title:** CMS Platforms  
 **Description:** Headless and traditional. The publishing system is a product: templates, components, and editorial workflows that let marketing move without a ticket.  
-**Tags:** WordPress, Headless WordPress, Webflow, Sanity
+**Tags:** Sanity, Headless WordPress, WordPress, Webflow, GraphQL
 
-### Skill Group 3: Growth Stack
+### Skill Group 3: Mar-Tech & Data
 
-**Title:** Growth Stack  
-**Icon:** Megaphone  
+**Title:** Mar-Tech & Data  
 **Description:** The tools demand gen, lifecycle, and CRM teams live in. I connect the marketing site to the revenue motion.  
-**Tags:** Marketo, HubSpot, Instapage, SFMC, Mailchimp, Salesforce, Mutiny
+**Tags:** HubSpot, Marketo, Salesforce, GA4, Vercel
 
-### Skill Group 4: Design
+### Skill Group 4: Conversion & SEO
+
+**Title:** Conversion & SEO  
+**Description:** Where a marketing site earns its keep. I instrument the page, run the test, and act on what the data says.  
+**Tags:** A/B Testing, Technical SEO, Core Web Vitals, Lighthouse, Reusable Components
+
+### Skill Group 5: Design
 
 **Title:** Design  
-**Icon:** Palette  
 **Description:** Building with designers, not handing off to them. Pixel-accurate production from Figma to browser.  
-**Tags:** Figma, Sketch, Photoshop, Illustrator, Lightroom, Claude Design
-
-### Skill Group 5: Conversion
-
-**Title:** Conversion  
-**Icon:** Gauge  
-**Description:** The practice that turns a marketing site into a compounding asset. Every page ships with a metric.  
-**Tags:** A/B Testing, Technical SEO, Conversion Optimization, Core Web Vitals, Lighthouse, Reusable Components, CMS & Mar-Tech Migrations
+**Tags:** Figma, Sketch, Photoshop, Illustrator, Lightroom
 
 ### Skill Group 6: AI-Native Stack
 
 **Title:** AI-Native Stack  
-**Icon:** Sparkles  
-**Description:** The production stack at Sprintz, and how I think about building for a world where velocity is a given.  
-**Tags:** Next.js 16, TypeScript, Sanity, Supabase, Claude Code, Codex, Antigravity, PaperClip, BMAD, Vercel, Netlify, GraphQL
+**Description:** How I build now: agents, orchestration, and AI-assisted delivery as defaults, the production workflow at Sprintz.  
+**Tags:** Claude Code, Codex, Gemini, MCP, Agentic Workflows
 
 ---
 
 ## Contact Section
 
 ### Section Badge
-Hire / Collaborate
+Contact
 
 ### Section Heading
 If you're hiring a platform owner, let's talk.
 
 ### Section Description
-Currently open to senior and principal roles owning marketing web platforms, Bay Area or remote, and select [Sprintz](https://sprintz.agency) studio engagements. I reply within one business day.
+Currently open to senior roles owning marketing web platforms, Bay Area or remote. I reply within one business day.
 
-### Contact Info
+### Contact Info ("Where to find me")
+
+**Section Title:** Where to find me
 
 **Location:** Oakland, CA (Bay Area)  
 **Email:** lewis.rodneyl@gmail.com  
@@ -263,34 +266,35 @@ Currently open to senior and principal roles owning marketing web platforms, Bay
 **GitHub:** github.com/RL22  
 **LinkedIn:** in/rodney-lewis-abb11b73
 
-### Contact Form Fields
+### Actions ("Reach out")
 
-**Section Title:** Send a note
+**Section Title:** Reach out
 
-- **Name** (required)
-  Placeholder: "Your name"
+**Intro line:** No forms. Email me directly, grab time on my calendar, or take the resume with you.
 
-- **Email** (required)
-  Placeholder: "you@company.com"
+**Buttons (stacked):**
+- "Email me" (primary, mailto:lewis.rodneyl@gmail.com)
+- "Book a call" (outline, https://cal.com/rodlew/consultation)
+- "View resume" (outline, links to `/resume`)
 
-- **Message** (required)
-  Placeholder: "What's the role, project, or problem?"
+*(The contact form was removed 2026-07-16; no form endpoint is used. Visitors email or book a call.)*
 
-**Submit Button:**
-- Default: "Send message"
-- After submit: "Thanks, opening your email client…"
+---
 
-**Helper text:** "I reply within one business day."
+## Resume Page (`/resume`)
+
+Standalone route (`app/resume/page.tsx`) rendering the full resume in the site typefaces with a screen-only action bar ("Back to site" link, "Print / Save as PDF" button that triggers `window.print()`). Print styles produce the PDF: letter size, 0.6in margins, break-inside guards, terracotta accents with print-color-adjust. Content sections: header (name, title, contact line), Summary, Experience (6 roles, reverse-chronological, 30% metric once at Carrot), Open Source (readworthy, character.md), Skills (6 groups). Nav, footer, and Contact "View resume" all link to `/resume`.
 
 ---
 
 ## Footer
 
 ### Footer Navigation
-- About
+- Home
 - Projects
 - Skills
-- Contact
+- About
+- Resume (links to `/resume`)
 
 ### Social Links
 - GitHub — https://github.com/RL22
@@ -298,7 +302,7 @@ Currently open to senior and principal roles owning marketing web platforms, Bay
 - Email — lewis.rodneyl@gmail.com
 
 ### Copyright
-© 2024 **Rodney L. Lewis**. Oakland, CA.
+© 2026 **Rodney L. Lewis**. Oakland, CA.
 
 ---
 
@@ -340,3 +344,30 @@ Working primarily with Front-End technologies, skilled in HTML5, CSS3, Vanilla J
 #### Ukulele
 - **Live site:** http://www.ukulelemag.com/
 - **My Role:** My contribution to Ukulele's redesign was during the development stage ensuring cross-browser compatibility & responsiveness. I also assisted with content migration from previous CMS to Wordpress.
+
+---
+
+## Archive
+
+### Previous hero description (replaced 2026-07-16)
+
+I build marketing platforms that scale by working across design, dev, and marketing fluidly. Most people don't. My hybrid perspective allows me to see where teams get stuck, what connections matter, and how systems should actually work. CMS architecture, reusable components, performance that sustains growth. AI is accelerating everything; the architecture is what enables 10x results.
+
+
+---
+
+## Revision note (2026-07-21)
+
+- Job titles across Experience and all three resume variants now match the
+  2023 resume of record: Sr. Marketing Engineer (Pendo), Marketing Developer
+  Lead (Carrot, Kiddom), Sr. Marketing Developer (Andersen), Web Team Lead
+  (Revel). The site previously used generic Web Developer / Web Designer
+  titles that conflicted with the resume.
+- The "30% fewer dev requests" metric was removed everywhere (hero card,
+  Experience, all resume variants). It could not be confidently defended in
+  an interview, and it appeared in neither resume of record.
+- Experience cards now lead with the operating-model change (what was
+  inherited, what changed, what the team could do afterward) instead of
+  metrics or tool lists. Tools live in the Skills section.
+- Outbound "Visit site" / "Source" buttons and earlier-role company links
+  were removed from the Experience section.

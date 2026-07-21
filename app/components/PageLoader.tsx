@@ -13,6 +13,21 @@ export function PageLoader() {
     const tagline = taglineRef.current;
     if (!overlay || !monogram || !tagline) return;
 
+    // The overlay must render on the server (sessionStorage is client-only),
+    // so repeat-visit and reduced-motion skips hide it imperatively here.
+    let alreadyShown = false;
+    try {
+      alreadyShown = window.sessionStorage.getItem("loaderShown") === "1";
+      window.sessionStorage.setItem("loaderShown", "1");
+    } catch {
+      // sessionStorage unavailable (e.g. private mode); animation plays every load.
+    }
+
+    if (alreadyShown || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      overlay.style.display = "none";
+      return;
+    }
+
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
     // Monogram rises and lands
@@ -83,7 +98,7 @@ export function PageLoader() {
           fontFamily: "Inter, system-ui, sans-serif",
         }}
       >
-        Senior Web Platform Lead
+        Senior Web Platform Engineer
       </div>
     </div>
   );

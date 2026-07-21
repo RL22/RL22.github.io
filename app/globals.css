@@ -1,11 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html { scroll-behavior: smooth; }
-body { background-color: #F5EFE6; color: #1a1a1a; font-family: 'Inter', system-ui, sans-serif; }
+body {
+  background-color: #F5EFE6;
+  color: #1a1a1a;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display), system-ui, sans-serif;
+}
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
@@ -16,13 +22,46 @@ body { background-color: #F5EFE6; color: #1a1a1a; font-family: 'Inter', system-u
   50% { transform: translateY(-5px); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .float-card, .float-card--delay-1, .float-card--delay-2 { animation: none; }
+}
+
 @layer components {
   .btn-primary { @apply bg-brand text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-dark transition-colors duration-200; }
-  .btn-outline { @apply border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:border-brand hover:text-brand transition-colors duration-200; }
+  .btn-outline { @apply border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:border-brand hover:text-brand-dark transition-colors duration-200; }
   .tag { @apply inline-block bg-cream-dark text-gray-700 text-xs font-medium px-3 py-1 rounded-full; }
   .section-badge { @apply inline-block border border-gray-300 text-gray-600 text-sm px-4 py-1 rounded-full mb-4; }
   .card { @apply bg-white rounded-2xl p-6 shadow-sm; }
   .float-card { animation: float 4s ease-in-out infinite 1.8s; }
   .float-card--delay-1 { animation: float-b 4.5s ease-in-out infinite 2.1s; }
   .float-card--delay-2 { animation: float 5s ease-in-out infinite 2.4s; }
+}
+
+/* Skip-to-content link (visually hidden until focused) */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 100;
+  background-color: #A5523D;
+  color: #ffffff;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Visible keyboard focus states (WCAG 2.4.7) */
+.btn-primary:focus-visible,
+.btn-outline:focus-visible,
+.tag:focus-visible,
+a:focus-visible {
+  outline: 2px solid #A5523D;
+  outline-offset: 2px;
 }

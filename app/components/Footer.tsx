@@ -1,10 +1,12 @@
-import { Code2, Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { SHOW_BUILDING_IN_PUBLIC } from "../config";
 
 const navLinks = [
   { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#projects" },
+  ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Building in Public", href: "#building" }] : []),
   { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
+  { label: "Resume", href: "/resume" },
 ];
 
 const socialLinks = [
@@ -20,8 +22,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 font-bold text-lg">
-            <span className="w-9 h-9 bg-brand rounded-lg flex items-center justify-center">
-              <Code2 className="text-white w-5 h-5" />
+            <span className="w-9 h-9 bg-brand rounded-lg flex items-center justify-center text-white font-bold text-sm tracking-tight">
+              RL
             </span>
             Rodney L. Lewis
           </a>
@@ -29,7 +31,11 @@ export default function Footer() {
           {/* Nav links */}
           <nav className="flex gap-6 flex-wrap justify-center">
             {navLinks.map(l => (
-              <a key={l.label} href={l.href} className="text-gray-500 hover:text-brand text-sm transition-colors">
+              <a
+                key={l.label}
+                href={l.href}
+                className="text-gray-500 hover:text-brand text-sm transition-colors"
+              >
                 {l.label}
               </a>
             ))}
@@ -47,9 +53,9 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-6 border-t border-cream-dark text-center">
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-600 text-sm">
             &copy; {new Date().getFullYear()}{" "}
-            <span className="text-brand font-semibold">Rodney L. Lewis</span>. Oakland, CA.
+            <span className="text-brand-dark font-semibold">Rodney L. Lewis</span>. Oakland, CA.
           </p>
         </div>
       </div>
