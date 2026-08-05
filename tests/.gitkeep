@@ -1,0 +1,2 @@
+# Playwright testDir. Kept so `npx playwright test` reports "no tests"
+# rather than erroring on a missing directory.
