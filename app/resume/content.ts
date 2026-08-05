@@ -55,7 +55,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
     path: "/resume",
     headline: "Senior Web Platform Engineer",
     summary:
-      "Ten years owning marketing-site lifecycles: CMS architecture, reusable component systems, and the performance work that turns a website into a compounding asset. Senior IC who owns the platform end to end, from inherited site to a system marketing can self-serve on, with an AI-native workflow underneath.",
+      "Nine years owning marketing-site lifecycles: CMS architecture, reusable component systems, and the performance work that turns a website into a compounding asset. Senior IC who owns the platform end to end, from inherited site to a system marketing can self-serve on, with an AI-native workflow underneath.",
     experience: [
       {
         org: "Sprintz",
@@ -124,7 +124,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
     path: "/resume/platform",
     headline: "Senior Frontend Platform Engineer",
     summary:
-      "Ten years building the platform layer under marketing web: reusable component systems, CMS architecture, and the conventions that keep teams shipping in one direction. I own abstractions end to end, from templates and publishing workflows to performance budgets, so stakeholders build on the platform instead of around it.",
+      "Nine years building the platform layer under marketing web: reusable component systems, CMS architecture, and the conventions that keep teams shipping in one direction. I own abstractions end to end, from templates and publishing workflows to performance budgets, so stakeholders build on the platform instead of around it.",
     experience: [
       {
         org: "Sprintz",
@@ -193,7 +193,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
     path: "/resume/design",
     headline: "Design Engineer",
     summary:
-      "Designer who builds what he designs. Ten years across web design and engineering: Figma to production, motion and interaction written in code, and component systems that survive contact with real content. AI tools are collaborators in the workflow, from image generation to agent-driven builds.",
+      "Designer who builds what he designs. Nine years across web design and engineering: Figma to production, motion and interaction written in code, and component systems that survive contact with real content. AI tools are collaborators in the workflow, from image generation to agent-driven builds.",
     experience: [
       {
         org: "Sprintz",
