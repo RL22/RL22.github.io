@@ -374,3 +374,25 @@ I build marketing platforms that scale by working across design, dev, and market
 - Titles for Carrot, Kiddom, and Andersen were changed to Sr. Web Developer,
   and Revel to Web Developer to Sr. Web Developer, at the owner's direction.
   These supersede the earlier resume-of-record titles listed above.
+
+---
+
+## Revision note (2026-08-05)
+
+- The 2026-07-21 removal of the "30% fewer dev requests" metric is **partially
+  superseded**. The owner has confirmed the figure is real and defensible in an
+  interview, so it has been reinstated in the Everlaw-tailored materials only,
+  in the canonical phrasing: *"Architected modular Webflow templates that
+  reduced marketing dev requests by 30% and returned roadmap capacity to
+  engineering."*
+- Scope of the reinstatement is `Sprintz/jobs/everlaw` (the noindexed, tailored
+  resume at that repo's `/resume` route and its outreach drafts). **This public
+  site remains metric-free** — no hero card, Experience entry, or resume variant
+  here was changed. If the metric is ever added back to this site, update the
+  2026-07-21 note above rather than leaving the two in conflict.
+- Rationale for keeping the split: the earlier removal was made because the
+  number could not be defended on demand. That objection is resolved for a
+  tailored document Rodney controls and can speak to directly; it was not
+  re-litigated for the general-audience site, where the operating-model framing
+  ("let marketing launch pages without a developer in the loop") still reads
+  stronger than a bare percentage.
