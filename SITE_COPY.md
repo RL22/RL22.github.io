@@ -24,7 +24,7 @@ Same set and order as desktop; Contact renders as the CTA button at the bottom o
 ## Page Metadata (`app/layout.tsx`)
 
 **Title:** Rodney L. Lewis | Senior Web Platform Engineer  
-**Description:** Eight years owning marketing-site lifecycles for Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems. Architecture, performance, reusable components, and the publishing workflows that let marketing ship without an engineering ticket.
+**Description:** Nine years owning marketing-site lifecycles for Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems. Architecture, performance, reusable components, and the publishing workflows that let marketing ship without an engineering ticket.
 
 ## Page Loader (`PageLoader.tsx`)
 
@@ -45,7 +45,7 @@ Build platforms.
 Scale marketing impact.
 
 ### Description
-Eight years owning marketing-site lifecycles: CMS architecture, reusable component systems, and the performance work that turns a website into a compounding asset. I work across design, engineering, and marketing, with an AI-native workflow underneath.
+Nine years owning marketing-site lifecycles: CMS architecture, reusable component systems, and the performance work that turns a website into a compounding asset. I work across design, engineering, and marketing, with an AI-native workflow underneath.
 
 ### Call-to-Action Buttons
 - Primary: "Let's talk" (with arrow icon)
@@ -54,7 +54,7 @@ Eight years owning marketing-site lifecycles: CMS architecture, reusable compone
 *(The text credibility strip below the CTAs — "8+ yrs · 5 orgs · Owned site lifecycles end-to-end · 30% fewer dev requests" — was removed. The floating cards carry those facts.)*
 
 ### Floating Cards (Desktop)
-1. **8+** Years
+1. **9+** Years
    - Owning marketing-site lifecycles
 
 2. **Organizations**: **5**
@@ -64,7 +64,7 @@ Eight years owning marketing-site lifecycles: CMS architecture, reusable compone
    - The measure I build for
 
 ### Mobile Stats Cards
-1. **8+** Years
+1. **9+** Years
    - Owning marketing-site lifecycles
 
 2. **5** Organizations
@@ -91,7 +91,7 @@ About
 **Main Heading:** I treat marketing sites like product.
 
 **Narrative P1:**
-Most marketing websites get refactored from the inside every time the brand pivots, and the platform underneath erodes. For eight years at Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems, my job has been the same at every logo: take an inherited marketing site, treat it like product, and make the team faster.
+Most marketing websites get refactored from the inside every time the brand pivots, and the platform underneath erodes. For nine years at Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems, my job has been the same at every logo: take an inherited marketing site, treat it like product, and make the team faster.
 
 **Narrative P2:**
 I'm based in Oakland, CA. Today I run [Sprintz](https://sprintz.agency), helping founders and small marketing teams adopt AI into how they work, and building the sites and workflows that come out of it.
@@ -396,3 +396,22 @@ I build marketing platforms that scale by working across design, dev, and market
   re-litigated for the general-audience site, where the operating-model framing
   ("let marketing launch pages without a developer in the loop") still reads
   stronger than a bare percentage.
+
+---
+
+## Revision note (2026-08-05, tenure)
+
+- Tenure copy moved from "eight years" to **nine years** site-wide, and the
+  Hero credibility cards from "8+" to "9+". This aligns the site with the
+  Everlaw-tailored resume, which states "9 years of experience" as of commit
+  `1d48bea` ("align resume with canonical career facts").
+- Changed in ten places: page metadata, Hero description and both stat cards,
+  About narrative P1, the `/resume` metadata description, and all three resume
+  variant summaries (default, platform, design).
+- The historical note above quoting the removed credibility strip ("8+ yrs · 5
+  orgs · ...") is left verbatim on purpose: it records copy that no longer
+  ships, so it should not track the current number.
+- **Unverified by the site owner:** the resume lists Revel Systems from 2016,
+  which would arithmetically suggest ten years by 2026. Nine was taken from the
+  resume's own stated canon, not derived. If the correct figure is ten, this
+  note and all ten strings need the same pass.

@@ -67,7 +67,7 @@ export default function Hero() {
 
           <Reveal delay={0.35}>
             <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-lg">
-              Eight years owning marketing-site lifecycles: CMS architecture, reusable component systems, and the performance work that turns a website into a compounding asset. I work across design, engineering, and marketing, with an AI-native workflow underneath.
+              Nine years owning marketing-site lifecycles: CMS architecture, reusable component systems, and the performance work that turns a website into a compounding asset. I work across design, engineering, and marketing, with an AI-native workflow underneath.
             </p>
             <div className="flex items-center gap-4 mb-10">
               <a href="#contact" className="btn-primary inline-flex items-center gap-2">
@@ -99,7 +99,7 @@ export default function Hero() {
             className="absolute top-6 -left-4 z-20 card shadow-lg w-52"
           >
             <div className="float-card">
-              <p className="text-3xl font-bold">8+</p>
+              <p className="text-3xl font-bold">9+</p>
               <p className="text-gray-600 font-medium">Years</p>
               <p className="text-gray-600 text-sm font-normal mt-1">Owning marketing-site lifecycles</p>
             </div>
@@ -133,7 +133,7 @@ export default function Hero() {
         {/* Mobile stat cards (stacked, no photo) */}
         <div className="md:hidden flex flex-col gap-4">
           <div className="card">
-            <p className="text-3xl font-bold">8+</p>
+            <p className="text-3xl font-bold">9+</p>
             <p className="text-gray-600 font-medium">Years</p>
             <p className="text-gray-600 text-sm mt-1">Owning marketing-site lifecycles</p>
           </div>
