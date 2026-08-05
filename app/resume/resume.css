@@ -220,9 +220,11 @@
 }
 
 @media print {
+  /* 0.5in keeps the one-pager on one page: at 0.6in the content column narrows
+     to 701px, wraps two extra lines, and overflows the page by ~23px. */
   @page {
     size: letter;
-    margin: 0.6in;
+    margin: 0.5in;
   }
 
   body {
