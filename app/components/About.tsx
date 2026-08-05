@@ -33,7 +33,7 @@ export default function About() {
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-4">
             Most marketing websites get refactored from the inside every time the brand
-            pivots, and the platform underneath erodes. For eight years at Pendo, Carrot
+            pivots, and the platform underneath erodes. For nine years at Pendo, Carrot
             Fertility, Kiddom, Andersen, and Revel Systems, my job has been the same at
             every logo: take an inherited marketing site, treat it like product, and make
             the team faster.
