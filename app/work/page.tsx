@@ -56,7 +56,7 @@ export default function WorkPage() {
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
             Four builds, from the platform side.
           </h1>
-          <p className="text-gray-600 text-lg leading-relaxed">
+          <p className="text-gray-600 text-lg leading-relaxed max-w-[62ch]">
             Case studies from nine years owning marketing-site lifecycles. Each one starts the same
             way: an inherited site, a team blocked behind engineering, and a platform that had to be
             rebuilt while it stayed live. What follows is the architecture underneath, and what

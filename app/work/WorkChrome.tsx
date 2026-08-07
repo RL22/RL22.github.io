@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { ArrowLeft, Github, Linkedin, Mail } from "lucide-react";
 import { SHOW_BUILDING_IN_PUBLIC } from "../config";
 
 // Twin of app/blog/BlogChrome.tsx. It exists separately because BlogHeader
@@ -29,9 +29,14 @@ export function WorkHeader() {
           </span>
           Rodney L. Lewis
         </a>
-        <nav className="hidden md:flex items-center gap-8">
-          <a href="/work/" className="text-gray-600 hover:text-brand-dark font-medium transition-colors">
-            All case studies
+        <nav className="flex items-center gap-8">
+          <a
+            href="/work/"
+            aria-label="All case studies"
+            className="text-gray-600 hover:text-brand-dark font-medium transition-colors flex items-center gap-1.5"
+          >
+            <ArrowLeft className="w-4 h-4 md:hidden" aria-hidden="true" />
+            <span className="hidden md:inline">All case studies</span>
           </a>
         </nav>
         <a href="/#contact" className="btn-primary text-sm">

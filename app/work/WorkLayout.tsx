@@ -54,7 +54,7 @@ export default function WorkLayout({ item }: { item: CaseStudy }) {
           ))}
         </ul>
 
-        <div className="max-w-[70ch]">
+        <div className="max-w-[62ch]">
           {lead && <p className="text-lg text-gray-600 leading-relaxed">{lead}</p>}
         </div>
 
@@ -63,13 +63,13 @@ export default function WorkLayout({ item }: { item: CaseStudy }) {
         {diagram && (
           <figure className="my-14">
             <diagram.Component />
-            <figcaption className="text-gray-600 text-sm mt-4 max-w-[70ch]">
+            <figcaption className="text-gray-600 text-sm mt-4 max-w-[62ch]">
               {diagram.caption}
             </figcaption>
           </figure>
         )}
 
-        <div className="max-w-[70ch] space-y-5 text-gray-700 leading-relaxed">
+        <div className="max-w-[62ch] space-y-5 text-gray-700 leading-relaxed">
           {rest.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
@@ -92,7 +92,7 @@ export default function WorkLayout({ item }: { item: CaseStudy }) {
                   />
                 </picture>
                 {img.caption && (
-                  <figcaption className="text-gray-600 text-sm mt-3 max-w-[70ch]">
+                  <figcaption className="text-gray-600 text-sm mt-3 max-w-[62ch]">
                     {img.caption}
                   </figcaption>
                 )}
