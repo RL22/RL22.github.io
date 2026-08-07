@@ -7,6 +7,14 @@
 // the /blog pages.
 export const SHOW_BUILDING_IN_PUBLIC = false;
 
+// The /work case studies are built and routable, but ship hidden until the
+// archived screenshots and architecture diagrams land and the copy has had a
+// final read. See public/work/MANIFEST.md.
+//
+// Flipping this to true restores, in one step: the navbar, footer and blog
+// footer links, the /work URLs in sitemap.xml, and indexing on the /work pages.
+export const SHOW_WORK = false;
+
 // The Platform and Design resume variants stay built and printable at
 // /resume/platform and /resume/design, but the switcher is hidden so visitors
 // only ever see the default resume. Both variant routes are noindex and absent
