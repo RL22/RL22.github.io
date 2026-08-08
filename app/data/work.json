@@ -27,13 +27,17 @@
           "src": "/work/pendo-product-experience-hub.png",
           "webp": "/work/pendo-product-experience-hub.webp",
           "alt": "Archived screenshot of the Pendo product-experience hub: a hero heading over a cut-out photo collage, then a centred \"Explore use cases\" row of five pill tabs, then alternating two-column rows pairing a product screenshot with a heading, paragraph and link.",
-          "caption": "The product-family hub, October 2022. The five-tab use-case row and the alternating capability rows below it are the same components every product page in the family composes from."
+          "caption": "The product-family hub, October 2022. The five-tab use-case row and the alternating capability rows below it are the same components every product page in the family composes from.",
+          "width": 1600,
+          "height": 2000
         },
         {
           "src": "/work/pendo-in-app-support.png",
           "webp": "/work/pendo-in-app-support.webp",
           "alt": "Archived screenshot of the Pendo in-app support product page: a centred hero, a three-column row of icons and labels, then alternating sections pairing a heading and paragraph with a screenshot of an in-product overlay.",
-          "caption": "A leaf page in the same family, October 2022. Same primitives as the hub, different content record."
+          "caption": "A leaf page in the same family, October 2022. Same primitives as the hub, different content record.",
+          "width": 1600,
+          "height": 2000
         }
       ]
     },
@@ -64,13 +68,17 @@
           "src": "/work/pendo-demo-lp.png",
           "webp": "/work/pendo-demo-lp.webp",
           "alt": "Archived screenshot of a Pendo demo-request landing page with no site navigation: a heading and paragraph on the left above a three-column statistics row and a row of four customer logos, and a five-field form card with a consent checkbox and submit button on the right.",
-          "caption": "A demand gen landing page on go.pendo.io, October 2022. The statistics row, logo row and form are template modules, not page markup. Note that the figures shown are Pendo's own product claims from the campaign, not measurements of this work."
+          "caption": "A demand gen landing page on go.pendo.io, October 2022. The statistics row, logo row and form are template modules, not page markup. Note that the figures shown are Pendo's own product claims from the campaign, not measurements of this work.",
+          "width": 1600,
+          "height": 1068
         },
         {
           "src": "/work/pendo-demo-analytics-lp.png",
           "webp": "/work/pendo-demo-analytics-lp.webp",
           "alt": "Archived screenshot of an earlier, teal-accented Pendo demo-request landing page: a heading and paragraph on the left, a five-field form card headed \"Get started today!\" on the right, and below them a two-column section pairing a diagram with a heading and paragraph.",
-          "caption": "The prior-generation template, December 2022, shown for contrast. Two landing page systems running side by side is the condition the module set was built to consolidate."
+          "caption": "The prior-generation template, December 2022, shown for contrast. Two landing page systems running side by side is the condition the module set was built to consolidate.",
+          "width": 1600,
+          "height": 1340
         }
       ]
     },
@@ -101,13 +109,17 @@
           "src": "/work/carrot-resource-center.png",
           "webp": "/work/carrot-resource-center.webp",
           "alt": "Archived screenshot of the Carrot Resource Center: a sage-green hero with a filter row reading All, Blog, Webinars, eBooks & Guides, Case studies and Podcast, then one section per content collection, each with a heading, a View all button and a three-card grid.",
-          "caption": "The Resource Center, September 2021. Every section below the filter row is a separate Webflow CMS collection rendered through the same template."
+          "caption": "The Resource Center, September 2021. Every section below the filter row is a separate Webflow CMS collection rendered through the same template.",
+          "width": 1600,
+          "height": 2000
         },
         {
           "src": "/work/carrot-ebooks-guides.png",
           "webp": "/work/carrot-ebooks-guides.webp",
           "alt": "Archived screenshot of the Carrot eBooks & Guides collection page: the same hero and filter row as the Resource Center with eBooks & Guides active, above a three-column grid of eight cards, each showing a printed-report mock-up and a linked title.",
-          "caption": "The same template at collection scope, October 2021. Hub and collection are one component set, which is what made a new collection an entry rather than a build."
+          "caption": "The same template at collection scope, October 2021. Hub and collection are one component set, which is what made a new collection an entry rather than a build.",
+          "width": 1600,
+          "height": 2000
         }
       ]
     },
@@ -138,13 +150,17 @@
           "src": "/work/carrot-for-employers.png",
           "webp": "/work/carrot-for-employers.webp",
           "alt": "Archived screenshot of the Carrot \"For employers\" page: a sage-green hero with a heading, a Request a demo button and a flat vector illustration, above a four-column section of icons with labels and short paragraphs.",
-          "caption": "An employer-facing page on the main domain, September 2021. Conversion happens here rather than on a separate landing page subdomain."
+          "caption": "An employer-facing page on the main domain, September 2021. Conversion happens here rather than on a separate landing page subdomain.",
+          "width": 1600,
+          "height": 2000
         },
         {
           "src": "/work/carrot-careers.png",
           "webp": "/work/carrot-careers.webp",
           "alt": "Archived screenshot of the Carrot open-roles page: a pale-blue hero headed \"Open Roles\" above a two-column layout with a Departments filter rail on the left and a job list grouped under department headings on the right, each listing showing a role title and a Learn More link.",
-          "caption": "The careers section, May 2022. Every role on this page renders from the Greenhouse API, so there is no step where the site can drift from the ATS."
+          "caption": "The careers section, May 2022. Every role on this page renders from the Greenhouse API, so there is no step where the site can drift from the ATS.",
+          "width": 1600,
+          "height": 2000
         }
       ]
     }

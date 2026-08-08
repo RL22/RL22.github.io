@@ -9,6 +9,9 @@ export type WorkImage = {
   webp?: string;
   alt: string;
   caption?: string;
+  /** Intrinsic dimensions; see public/work/MANIFEST.md. Reserves layout space to prevent CLS. */
+  width: number;
+  height: number;
 };
 
 export type CaseStudy = {
@@ -49,4 +52,13 @@ export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
 
 export function getCaseStudiesByPillar(pillar: Pillar): CaseStudy[] {
   return caseStudies.filter((c) => c.pillars.includes(pillar));
+}
+
+// Glue the last two words with a non-breaking space so headline reflow never
+// strands a single word alone on its own line. Rendering-only: the copy
+// checked by content.test.ts and used in metadata stays the plain string.
+export function preventWidow(text: string): string {
+  const lastSpace = text.lastIndexOf(" ");
+  if (lastSpace === -1) return text;
+  return `${text.slice(0, lastSpace)} ${text.slice(lastSpace + 1)}`;
 }

@@ -33,7 +33,7 @@ export function WorkHeader() {
           <a
             href="/work/"
             aria-label="All case studies"
-            className="text-gray-600 hover:text-brand-dark font-medium transition-colors flex items-center gap-1.5"
+            className="-m-3.5 p-3.5 text-gray-600 hover:text-brand-dark font-medium transition-colors flex items-center gap-1.5"
           >
             <ArrowLeft className="w-4 h-4 md:hidden" aria-hidden="true" />
             <span className="hidden md:inline">All case studies</span>

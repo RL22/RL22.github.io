@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { caseStudies, PILLARS } from "./content";
+import { caseStudies, PILLARS, preventWidow } from "./content";
 import { SHOW_WORK } from "../config";
 
 const SITE_URL = "https://rl22.github.io";
@@ -54,7 +54,7 @@ export default function WorkPage() {
         <div className="max-w-3xl mb-6">
           <span className="section-badge">Work</span>
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Four builds, from the platform side.
+            {preventWidow("Four builds, from the platform side.")}
           </h1>
           <p className="text-gray-600 text-lg leading-relaxed max-w-[62ch]">
             Case studies from nine years owning marketing-site lifecycles. Each one starts the same
@@ -84,7 +84,7 @@ export default function WorkPage() {
 
                 <div>
                   <h2 className="text-2xl md:text-3xl font-bold mb-3 group-hover:text-brand-dark transition-colors">
-                    {c.title}
+                    {preventWidow(c.title)}
                   </h2>
                   <p className="text-gray-600 leading-relaxed mb-4 max-w-[60ch]">{c.blurb}</p>
                   <ul className="flex flex-wrap gap-2 mb-4">
