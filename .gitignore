@@ -9,3 +9,4 @@ node_modules
 next-env.d.ts
 playwright-report/
 test-results/
+.wayback-staging/

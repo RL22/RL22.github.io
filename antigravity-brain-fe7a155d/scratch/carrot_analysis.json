@@ -1,0 +1,988 @@
+{
+  "Pre-Start (Jun 2021)": {
+    "wf_page": "5e0e4888d4243b081a2d6a99",
+    "wf_site": "5e0e4888d4243b2e3e2d6a98",
+    "title": "Global fertility benefits for employers  | Carrot",
+    "meta_description": "Open the door to fertility care for every employee, everywhere. Reduce healthcare costs and drive healthier outcomes with Carrot's global fertility benefits.",
+    "h1s": [
+      "Global fertility benefits for employers that save money and tame anxiety"
+    ],
+    "h2s": [
+      "See how Carrot can transform companies.",
+      "A customizable solution to fit every company",
+      "Carrot Pregnancy",
+      "Carrot Rx\u00ae",
+      "Carrot Card\u00ae: the easiest way to pay for fertility care"
+    ],
+    "h3s": [
+      "See how Carrot fertility benefits can transform your company."
+    ],
+    "martech": {
+      "Webflow": "Present",
+      "Marketo": "Present",
+      "GTM": [
+        "GTM-MMXB5FQ"
+      ],
+      "CookiePro/OneTrust": "Present",
+      "HubSpot": "Present"
+    },
+    "external_scripts": [],
+    "data_attributes": [
+      "data-w-id",
+      "data-wf-domain",
+      "data-wf-site",
+      "data-collapse",
+      "data-delay",
+      "data-duration",
+      "data-animation",
+      "data-domain-script",
+      "data-wf-page",
+      "data-url"
+    ],
+    "roles": [
+      "banner",
+      "navigation",
+      "list"
+    ],
+    "component_classes": [
+      "b",
+      "button---demo---anchor",
+      "button-primary",
+      "button-secondary",
+      "button-secondary-2",
+      "c",
+      "c-logo",
+      "carrot-card-2",
+      "carrot-card-background-2",
+      "carrot-card-block-2",
+      "carrot-card-content-2",
+      "carrot-hubspot",
+      "carrot-hubspot-modal",
+      "carrot-pregnancy-2",
+      "carrot-rx-2",
+      "carrot-rx-content-2",
+      "carrot-rx-image",
+      "centered",
+      "components-footer",
+      "components-footer-social-link",
+      "components-home-module",
+      "components-mobile-logo",
+      "components-modal",
+      "components-modal-close",
+      "components-modal-wrapper",
+      "components-module-description",
+      "copy-body-16",
+      "copy-body-28",
+      "copy-book-11",
+      "copy-book-14",
+      "copy-caps-title-16",
+      "copy-h1",
+      "copy-h2",
+      "copy-h2-2",
+      "copy-h3",
+      "copy-medium-14-margin",
+      "copy-nav-menu-mobile",
+      "copyright",
+      "customized-plans",
+      "d",
+      "demo-title",
+      "demo-top-nav",
+      "desktop-copy-medium-13",
+      "div-block-11",
+      "div-block-115",
+      "div-block-116",
+      "div-block-118",
+      "div-block-124",
+      "div-block-126",
+      "div-block-132"
+    ],
+    "webflow_native_classes": [
+      "w--current",
+      "w-button",
+      "w-dropdown",
+      "w-dropdown-link",
+      "w-dropdown-list",
+      "w-dropdown-toggle",
+      "w-embed",
+      "w-inline-block",
+      "w-nav",
+      "w-nav-button",
+      "w-nav-menu",
+      "w-script"
+    ],
+    "unique_internal_routes": [
+      "/web/",
+      "/web/20210624233831/http://web.archive.org/screenshot/https://www.get-carrot.com/",
+      "/web/20210624233831/https://www.get-carrot.com/",
+      "/web/20210624233831/https://www.get-carrot.com/about",
+      "/web/20210624233831/https://www.get-carrot.com/blog",
+      "/web/20210624233831/https://www.get-carrot.com/blog/introducing-the-carrot-card",
+      "/web/20210624233831/https://www.get-carrot.com/business-associate-terms",
+      "/web/20210624233831/https://www.get-carrot.com/case-studies",
+      "/web/20210624233831/https://www.get-carrot.com/covid-19",
+      "/web/20210624233831/https://www.get-carrot.com/for-consultants",
+      "/web/20210624233831/https://www.get-carrot.com/for-employers",
+      "/web/20210624233831/https://www.get-carrot.com/for-health-plans",
+      "/web/20210624233831/https://www.get-carrot.com/podcast",
+      "/web/20210624233831/https://www.get-carrot.com/press-media",
+      "/web/20210624233831/https://www.get-carrot.com/privacy-policy",
+      "/web/20210624233831/https://www.get-carrot.com/resource-center",
+      "/web/20210624233831/https://www.get-carrot.com/security",
+      "/web/20210624233831/https://www.get-carrot.com/terms",
+      "/web/20210624233831/https://www.get-carrot.com/terms-of-data-processing",
+      "/web/20210624233831/https://www.get-carrot.com/whitepapers",
+      "/web/20210624233831/https://www.get-carrot.com/why-carrot"
+    ],
+    "cms_collections": [
+      "/web/*"
+    ],
+    "sample_links": [
+      [
+        "/web/",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "",
+        ""
+      ],
+      [
+        "https://archive.org/account/login.php",
+        "",
+        ""
+      ],
+      [
+        "https://help.archive.org/help/category/the-wayback-machine/",
+        "",
+        "xxs"
+      ],
+      [
+        "#close",
+        "",
+        ""
+      ],
+      [
+        "/web/20210624233831/http://web.archive.org/screenshot/https://www.get-carrot.com/",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "",
+        ""
+      ],
+      [
+        "#expand",
+        "About this capture",
+        "wm-btn wm-closed"
+      ],
+      [
+        "https://archive.org/details/GitHub_Archive_Program",
+        "GitHub Archive Program",
+        ""
+      ],
+      [
+        "#",
+        "",
+        "link-block-15 w-inline-block"
+      ],
+      [
+        "/web/20210624233831/https://www.get-carrot.com/",
+        "",
+        "w-inline-block w--current"
+      ],
+      [
+        "/web/20210624233831/https://www.get-carrot.com/why-carrot",
+        "Why Carrot?",
+        "nav-item w-inline-block"
+      ],
+      [
+        "/web/20210624233831/https://www.get-carrot.com/for-employers",
+        "For employers",
+        "nav-item w-inline-block"
+      ],
+      [
+        "/web/20210624233831/https://www.get-carrot.com/for-consultants",
+        "For consultants",
+        "nav-item w-inline-block"
+      ],
+      [
+        "/web/20210624233831/https://www.get-carrot.com/for-health-plans",
+        "For health plans",
+        "nav-item w-inline-block"
+      ],
+      [
+        "/web/20210624233831/https://www.get-carrot.com/about",
+        "About us",
+        "dropdown-link w-dropdown-link"
+      ],
+      [
+        "/web/20210624233831/https://www.get-carrot.com/resource-center",
+        "Resource Center",
+        "dropdown-link w-dropdown-link"
+      ],
+      [
+        "/web/20210624233831/https://www.get-carrot.com/blog",
+        "Blog",
+        "dropdown-link w-dropdown-link"
+      ]
+    ]
+  },
+  "Oct 2021": {
+    "wf_page": "615de10e0f5d8626f29a4ca9",
+    "wf_site": "5e0e4888d4243b2e3e2d6a98",
+    "title": "Global fertility benefits for employers  | Carrot",
+    "meta_description": "Open the door to fertility care for every employee, everywhere. Reduce healthcare costs and drive healthier outcomes with Carrot's global fertility benefits.",
+    "h1s": [
+      "Global fertility benefits for employers that save money and tame anxiety"
+    ],
+    "h2s": [
+      "See how Carrot can transform companies.",
+      "A customizable solution to fit every company",
+      "Pregnancy support",
+      "Carrot Rx\u00ae",
+      "Carrot Card\u00ae: the easiest way to pay for fertility care"
+    ],
+    "h3s": [
+      "See how Carrot can transform your company."
+    ],
+    "martech": {
+      "Webflow": "Present",
+      "Marketo": "Present",
+      "GTM": [
+        "GTM-MMXB5FQ"
+      ],
+      "CookiePro/OneTrust": "Present",
+      "HubSpot": "Present"
+    },
+    "external_scripts": [],
+    "data_attributes": [
+      "data-w-id",
+      "data-easing2",
+      "data-wf-domain",
+      "data-wf-site",
+      "data-collapse",
+      "data-delay",
+      "data-duration",
+      "data-animation",
+      "data-domain-script",
+      "data-wf-page",
+      "data-hover",
+      "data-url",
+      "data-easing"
+    ],
+    "roles": [
+      "banner",
+      "navigation",
+      "list"
+    ],
+    "component_classes": [
+      "_1",
+      "b",
+      "button---demo---anchor",
+      "button-primary",
+      "button-secondary",
+      "button-secondary-2",
+      "c",
+      "c-logo",
+      "carrot-card-2",
+      "carrot-card-background-2",
+      "carrot-card-block-2",
+      "carrot-card-content-2",
+      "carrot-hubspot",
+      "carrot-hubspot-modal",
+      "carrot-pregnancy-2",
+      "carrot-rx-2",
+      "carrot-rx-content-2",
+      "carrot-rx-image",
+      "centered",
+      "components-footer",
+      "components-footer-social-link",
+      "components-home-module",
+      "components-mobile-logo",
+      "components-modal",
+      "components-modal-close",
+      "components-modal-wrapper",
+      "components-module-description",
+      "copy-body-16",
+      "copy-body-28",
+      "copy-book-11",
+      "copy-book-14",
+      "copy-caps-title-16",
+      "copy-h1",
+      "copy-h2",
+      "copy-h2-2",
+      "copy-h3",
+      "copy-medium-14-margin",
+      "copy-nav-menu-mobile",
+      "copyright",
+      "customized-plans",
+      "d",
+      "demo-title",
+      "demo-top-nav",
+      "desktop-copy-medium-13",
+      "div-block-11",
+      "div-block-115",
+      "div-block-116",
+      "div-block-118",
+      "div-block-124",
+      "div-block-126"
+    ],
+    "webflow_native_classes": [
+      "w--current",
+      "w-button",
+      "w-dropdown",
+      "w-dropdown-link",
+      "w-dropdown-list",
+      "w-dropdown-toggle",
+      "w-embed",
+      "w-inline-block",
+      "w-nav",
+      "w-nav-button",
+      "w-nav-menu",
+      "w-script"
+    ],
+    "unique_internal_routes": [
+      "/web/",
+      "/web/20211018211257/http://web.archive.org/screenshot/https://www.get-carrot.com/",
+      "/web/20211018211257/https://www.get-carrot.com/",
+      "/web/20211018211257/https://www.get-carrot.com/about",
+      "/web/20211018211257/https://www.get-carrot.com/blog",
+      "/web/20211018211257/https://www.get-carrot.com/blog/introducing-the-carrot-card",
+      "/web/20211018211257/https://www.get-carrot.com/business-associate-terms",
+      "/web/20211018211257/https://www.get-carrot.com/carrot-careers",
+      "/web/20211018211257/https://www.get-carrot.com/case-studies",
+      "/web/20211018211257/https://www.get-carrot.com/covid-19",
+      "/web/20211018211257/https://www.get-carrot.com/for-consultants",
+      "/web/20211018211257/https://www.get-carrot.com/for-employers",
+      "/web/20211018211257/https://www.get-carrot.com/for-health-plans",
+      "/web/20211018211257/https://www.get-carrot.com/landing-pages/for-employees-request-fertility-benefits-at-your-company",
+      "/web/20211018211257/https://www.get-carrot.com/podcast",
+      "/web/20211018211257/https://www.get-carrot.com/press-media",
+      "/web/20211018211257/https://www.get-carrot.com/privacy-policy",
+      "/web/20211018211257/https://www.get-carrot.com/resource-center",
+      "/web/20211018211257/https://www.get-carrot.com/security",
+      "/web/20211018211257/https://www.get-carrot.com/terms",
+      "/web/20211018211257/https://www.get-carrot.com/terms-of-data-processing",
+      "/web/20211018211257/https://www.get-carrot.com/whitepapers",
+      "/web/20211018211257/https://www.get-carrot.com/why-carrot"
+    ],
+    "cms_collections": [
+      "/web/*"
+    ],
+    "sample_links": [
+      [
+        "/web/",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "",
+        ""
+      ],
+      [
+        "https://archive.org/account/login.php",
+        "",
+        ""
+      ],
+      [
+        "https://help.archive.org/help/category/the-wayback-machine/",
+        "",
+        "xxs"
+      ],
+      [
+        "#close",
+        "",
+        ""
+      ],
+      [
+        "/web/20211018211257/http://web.archive.org/screenshot/https://www.get-carrot.com/",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "",
+        ""
+      ],
+      [
+        "#expand",
+        "About this capture",
+        "wm-btn wm-closed"
+      ],
+      [
+        "https://archive.org/details/mediacloud",
+        "Media Cloud",
+        ""
+      ],
+      [
+        "#",
+        "",
+        "link-block-15 w-inline-block"
+      ],
+      [
+        "/web/20211018211257/https://www.get-carrot.com/",
+        "",
+        "w-inline-block w--current"
+      ],
+      [
+        "/web/20211018211257/https://www.get-carrot.com/why-carrot",
+        "Why Carrot?",
+        "nav-item w-inline-block"
+      ],
+      [
+        "/web/20211018211257/https://www.get-carrot.com/for-employers",
+        "For employers",
+        "nav-item w-inline-block"
+      ],
+      [
+        "/web/20211018211257/https://www.get-carrot.com/for-consultants",
+        "For consultants",
+        "nav-item w-inline-block"
+      ],
+      [
+        "/web/20211018211257/https://www.get-carrot.com/for-health-plans",
+        "For health plans",
+        "nav-item w-inline-block"
+      ],
+      [
+        "/web/20211018211257/https://www.get-carrot.com/about",
+        "About us",
+        "dropdown-link w-dropdown-link"
+      ],
+      [
+        "/web/20211018211257/https://www.get-carrot.com/resource-center",
+        "Resource Center",
+        "dropdown-link w-dropdown-link"
+      ],
+      [
+        "/web/20211018211257/https://www.get-carrot.com/blog",
+        "Blog",
+        "dropdown-link w-dropdown-link"
+      ]
+    ]
+  },
+  "Mar 2022": {
+    "wf_page": "621d2485acd1af2c2cacb33f",
+    "wf_site": "5e0e4888d4243b2e3e2d6a98",
+    "title": "Global fertility benefits for employers  | Carrot",
+    "meta_description": "Open the door to fertility care for every employee, everywhere. Reduce healthcare costs and drive healthier outcomes with Carrot's global fertility benefits.",
+    "h1s": [
+      "Global fertility benefits for employers that save money and tame anxiety"
+    ],
+    "h2s": [
+      "A customizable solution to fit every company",
+      "Pregnancy support",
+      "Carrot Rx\u00ae",
+      "Carrot Card\u00ae: the easiest way to pay for fertility care"
+    ],
+    "h3s": [
+      "See how Carrot can transform your company"
+    ],
+    "martech": {
+      "Webflow": "Present",
+      "Marketo": "Present",
+      "GTM": [
+        "GTM-MMXB5FQ"
+      ],
+      "CookiePro/OneTrust": "Present",
+      "HubSpot": "Present"
+    },
+    "external_scripts": [],
+    "data_attributes": [
+      "data-easing2",
+      "data-wf-domain",
+      "data-wf-site",
+      "data-collapse",
+      "data-delay",
+      "data-duration",
+      "data-sizes",
+      "data-animation",
+      "data-domain-script",
+      "data-wf-page",
+      "data-hover",
+      "data-url",
+      "data-easing"
+    ],
+    "roles": [
+      "banner",
+      "navigation",
+      "list"
+    ],
+    "component_classes": [
+      "_1",
+      "b",
+      "button---demo---anchor",
+      "button-primary",
+      "button-secondary",
+      "button-secondary-2",
+      "c",
+      "c-logo",
+      "carrot-card-2",
+      "carrot-card-background-2",
+      "carrot-card-block-2",
+      "carrot-card-content-2",
+      "carrot-hubspot",
+      "carrot-pregnancy-2",
+      "carrot-rx-2",
+      "carrot-rx-content-2",
+      "carrot-rx-image",
+      "centered",
+      "components-footer",
+      "components-footer-social-link",
+      "components-home-module",
+      "components-mobile-logo",
+      "components-module-description",
+      "copy-body-16",
+      "copy-body-28",
+      "copy-book-11",
+      "copy-book-14",
+      "copy-caps-title-16",
+      "copy-h1",
+      "copy-h2",
+      "copy-h2-2",
+      "copy-h3",
+      "copy-medium-14-margin",
+      "copy-nav-menu-mobile",
+      "copyright",
+      "copyright-year",
+      "customized-plans",
+      "d",
+      "demo-title",
+      "demo-top-nav",
+      "desktop-copy-medium-13",
+      "div-block-11",
+      "div-block-115",
+      "div-block-116",
+      "div-block-118",
+      "div-block-124",
+      "div-block-126",
+      "div-block-132",
+      "div-block-140",
+      "div-block-141"
+    ],
+    "webflow_native_classes": [
+      "w--current",
+      "w-button",
+      "w-dropdown",
+      "w-dropdown-link",
+      "w-dropdown-list",
+      "w-dropdown-toggle",
+      "w-embed",
+      "w-inline-block",
+      "w-nav",
+      "w-nav-button",
+      "w-nav-menu",
+      "w-script"
+    ],
+    "unique_internal_routes": [
+      "/web/",
+      "/web/20220320053713/http://web.archive.org/screenshot/https://www.get-carrot.com/",
+      "/web/20220320053713/https://www.get-carrot.com/",
+      "/web/20220320053713/https://www.get-carrot.com/about",
+      "/web/20220320053713/https://www.get-carrot.com/blog",
+      "/web/20220320053713/https://www.get-carrot.com/blog/introducing-the-carrot-card",
+      "/web/20220320053713/https://www.get-carrot.com/business-associate-terms",
+      "/web/20220320053713/https://www.get-carrot.com/carrot-careers/life-at-carrot",
+      "/web/20220320053713/https://www.get-carrot.com/case-studies",
+      "/web/20220320053713/https://www.get-carrot.com/covid-19",
+      "/web/20220320053713/https://www.get-carrot.com/for-consultants",
+      "/web/20220320053713/https://www.get-carrot.com/for-employers",
+      "/web/20220320053713/https://www.get-carrot.com/for-health-plans",
+      "/web/20220320053713/https://www.get-carrot.com/landing-pages/for-employees-request-fertility-benefits-at-your-company",
+      "/web/20220320053713/https://www.get-carrot.com/podcast",
+      "/web/20220320053713/https://www.get-carrot.com/press-media",
+      "/web/20220320053713/https://www.get-carrot.com/privacy-policy",
+      "/web/20220320053713/https://www.get-carrot.com/resource-center",
+      "/web/20220320053713/https://www.get-carrot.com/security",
+      "/web/20220320053713/https://www.get-carrot.com/terms",
+      "/web/20220320053713/https://www.get-carrot.com/terms-of-data-processing",
+      "/web/20220320053713/https://www.get-carrot.com/trademarks",
+      "/web/20220320053713/https://www.get-carrot.com/why-carrot"
+    ],
+    "cms_collections": [
+      "/web/*"
+    ],
+    "sample_links": [
+      [
+        "/web/",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "",
+        ""
+      ],
+      [
+        "https://archive.org/account/login.php",
+        "",
+        ""
+      ],
+      [
+        "https://help.archive.org/help/category/the-wayback-machine/",
+        "",
+        "xxs"
+      ],
+      [
+        "#close",
+        "",
+        ""
+      ],
+      [
+        "/web/20220320053713/http://web.archive.org/screenshot/https://www.get-carrot.com/",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "",
+        ""
+      ],
+      [
+        "#expand",
+        "About this capture",
+        "wm-btn wm-closed"
+      ],
+      [
+        "https://archive.org/details/archiveteam",
+        "Archive Team",
+        ""
+      ],
+      [
+        "https://wiki.archiveteam.org/",
+        "archiveteam.org",
+        ""
+      ],
+      [
+        "https://web.archive.org",
+        "Wayback Machine",
+        ""
+      ],
+      [
+        "https://archive.org/details/archiveteam_urls",
+        "Archive Team: URLs",
+        ""
+      ],
+      [
+        "/web/20220320053713/https://www.get-carrot.com/",
+        "",
+        "link-block-35 w-inline-block w--current"
+      ],
+      [
+        "/web/20220320053713/https://www.get-carrot.com/why-carrot",
+        "Why Carrot?",
+        "nav-item w-inline-block"
+      ],
+      [
+        "/web/20220320053713/https://www.get-carrot.com/for-employers",
+        "For employers",
+        "nav-item w-inline-block"
+      ],
+      [
+        "/web/20220320053713/https://www.get-carrot.com/for-consultants",
+        "For consultants",
+        "nav-item w-inline-block"
+      ],
+      [
+        "/web/20220320053713/https://www.get-carrot.com/for-health-plans",
+        "For health plans",
+        "nav-item w-inline-block"
+      ],
+      [
+        "/web/20220320053713/https://www.get-carrot.com/about",
+        "About us",
+        "dropdown-link w-dropdown-link"
+      ]
+    ]
+  },
+  "Jul 2022": {
+    "wf_page": "62d9c8a9233659b69116f44b",
+    "wf_site": "5e0e4888d4243b2e3e2d6a98",
+    "title": "Carrot Fertility | Global fertility benefits for employers",
+    "meta_description": "Open the door to fertility care for every employee, everywhere. Reduce healthcare costs and drive healthier outcomes with Carrot's global fertility benefits.",
+    "h1s": [
+      "The complete global solution for fertility benefits"
+    ],
+    "h2s": [
+      "Open the door to fertility care for every employee, everywhere",
+      "Benefits parity for your global workforce",
+      "Personalization leads to healthier members and lower costs",
+      "Fertility benefit solutions that fit your company and budget",
+      "Inclusive fertility benefits for all",
+      "For employers",
+      "For benefits consultants",
+      "For health plans"
+    ],
+    "h3s": [],
+    "martech": {
+      "Webflow": "Present",
+      "GTM": [
+        "GTM-MMXB5FQ"
+      ],
+      "Segment": "Present",
+      "CookiePro/OneTrust": "Present"
+    },
+    "external_scripts": [],
+    "data_attributes": [
+      "data-easing2",
+      "data-wf-domain",
+      "data-delay",
+      "data-nav-spacing",
+      "data-duration",
+      "data-autoplay-limit",
+      "data-animation",
+      "data-infinite",
+      "data-wf-site",
+      "data-sizes",
+      "data-autoplay",
+      "data-easing",
+      "data-collapse",
+      "data-hide-arrows",
+      "data-wf-page",
+      "data-hover",
+      "data-url",
+      "data-w-id",
+      "data-disable-swipe"
+    ],
+    "roles": [
+      "banner",
+      "navigation"
+    ],
+    "component_classes": [
+      "_2-lines",
+      "abso",
+      "b",
+      "banner__callout__text",
+      "bg__corn",
+      "bg__faded__gold",
+      "bg__mint__green",
+      "bg__nav__search",
+      "bg__peach",
+      "bg__pewter",
+      "bg_grey",
+      "button---demo---anchor",
+      "button-primary",
+      "button-secondary",
+      "button__row__close",
+      "c",
+      "c-logo",
+      "card__icon",
+      "card__icon__container",
+      "card__link__content",
+      "card__link__title",
+      "carrot-card-2",
+      "carrot-pregnancy-2",
+      "carrot-rx-2",
+      "centered",
+      "col__6",
+      "col__eyebrow__nav",
+      "column",
+      "components-footer-social-link",
+      "components-home-module",
+      "components-inline-arrow",
+      "components-inline-arrow__text",
+      "components-mobile-logo",
+      "components-subhead-a-inline-arrow",
+      "copy-body-16",
+      "copy-body-28",
+      "copy-caps-title-16",
+      "copy-h1",
+      "copy-h2-2",
+      "copy-nav-menu-mobile",
+      "copy-subhead_a",
+      "copy-subhead_b",
+      "copy__footer__link",
+      "copyright-year",
+      "custom-code__arrow",
+      "d",
+      "desktop-copy-medium-13",
+      "div-block-124",
+      "div-block-143",
+      "div-block-28"
+    ],
+    "webflow_native_classes": [
+      "w--current",
+      "w-button",
+      "w-dropdown",
+      "w-dropdown-link",
+      "w-dropdown-list",
+      "w-dropdown-toggle",
+      "w-form",
+      "w-icon-slider-left",
+      "w-icon-slider-right",
+      "w-inline-block",
+      "w-input",
+      "w-nav",
+      "w-nav-button",
+      "w-nav-menu",
+      "w-slide",
+      "w-slider",
+      "w-slider-arrow-left",
+      "w-slider-arrow-right",
+      "w-slider-mask",
+      "w-slider-nav"
+    ],
+    "unique_internal_routes": [
+      "/web/",
+      "/web/20220727231306/http://web.archive.org/screenshot/https://www.get-carrot.com/",
+      "/web/20220727231306/https://www.get-carrot.com/",
+      "/web/20220727231306/https://www.get-carrot.com/about",
+      "/web/20220727231306/https://www.get-carrot.com/blog",
+      "/web/20220727231306/https://www.get-carrot.com/business-associate-terms",
+      "/web/20220727231306/https://www.get-carrot.com/carrot-careers/life-at-carrot",
+      "/web/20220727231306/https://www.get-carrot.com/carrot-careers/open-roles",
+      "/web/20220727231306/https://www.get-carrot.com/case-studies",
+      "/web/20220727231306/https://www.get-carrot.com/contact-us",
+      "/web/20220727231306/https://www.get-carrot.com/for-consultants",
+      "/web/20220727231306/https://www.get-carrot.com/for-employers",
+      "/web/20220727231306/https://www.get-carrot.com/for-health-plans",
+      "/web/20220727231306/https://www.get-carrot.com/podcast",
+      "/web/20220727231306/https://www.get-carrot.com/press-media",
+      "/web/20220727231306/https://www.get-carrot.com/privacy-notice",
+      "/web/20220727231306/https://www.get-carrot.com/resource-center",
+      "/web/20220727231306/https://www.get-carrot.com/security",
+      "/web/20220727231306/https://www.get-carrot.com/sitemap",
+      "/web/20220727231306/https://www.get-carrot.com/terms",
+      "/web/20220727231306/https://www.get-carrot.com/trademarks",
+      "/web/20220727231306/https://www.get-carrot.com/why-carrot"
+    ],
+    "cms_collections": [
+      "/web/*"
+    ],
+    "sample_links": [
+      [
+        "/web/",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "",
+        ""
+      ],
+      [
+        "https://archive.org/account/login.php",
+        "",
+        ""
+      ],
+      [
+        "https://help.archive.org/help/category/the-wayback-machine/",
+        "",
+        "xxs"
+      ],
+      [
+        "#close",
+        "",
+        ""
+      ],
+      [
+        "/web/20220727231306/http://web.archive.org/screenshot/https://www.get-carrot.com/",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "",
+        ""
+      ],
+      [
+        "#",
+        "",
+        ""
+      ],
+      [
+        "#expand",
+        "About this capture",
+        "wm-btn wm-closed"
+      ],
+      [
+        "https://archive.org/details/GDELT_Project",
+        "GDELT Project",
+        ""
+      ],
+      [
+        "/web/20220727231306/https://www.get-carrot.com/contact-us",
+        "Contact us",
+        "eyebrow__link"
+      ],
+      [
+        "https://web.archive.org/web/20220727231306/https://app.get-carrot.com/",
+        "Member Login",
+        "button-secondary no__border w-button"
+      ],
+      [
+        "#",
+        "",
+        "search__box w-inline-block"
+      ],
+      [
+        "/web/20220727231306/https://www.get-carrot.com/",
+        "",
+        "link-block-35 w-inline-block w--current"
+      ],
+      [
+        "/web/20220727231306/https://www.get-carrot.com/why-carrot",
+        "Why Carrot?",
+        "nav-item scrolly w-inline-block"
+      ],
+      [
+        "/web/20220727231306/https://www.get-carrot.com/for-employers",
+        "For employers",
+        "nav-item scrolly w-inline-block"
+      ],
+      [
+        "/web/20220727231306/https://www.get-carrot.com/for-consultants",
+        "For consultants",
+        "nav-item scrolly w-inline-block"
+      ],
+      [
+        "/web/20220727231306/https://www.get-carrot.com/for-health-plans",
+        "For health plans",
+        "nav-item scrolly w-inline-block"
+      ],
+      [
+        "/web/20220727231306/https://www.get-carrot.com/about",
+        "About us",
+        "dropdown-link w-dropdown-link"
+      ]
+    ]
+  }
+}

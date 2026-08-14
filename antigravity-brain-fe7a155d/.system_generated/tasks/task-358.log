@@ -1,0 +1,44 @@
+
+================ Inspecting Oct 2021 Careers ================
+  Greenhouse references found: ['boards.greenhouse.io/embed/job_board/js?for=carrotfertility']
+  Marketo references found: ['marketo.com/js/forms2/js/forms2.min.js', 'marketo-home-contact-form', 'Munchkin();', 'marketo.com', 'Munchkin']
+  Custom Inline JS Blocks: 10
+    Snippet: window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};
+    Snippet: !function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className
+  H1: ['Careers at Carrot']
+
+================ Inspecting Jul 2022 Open Roles ================
+  Greenhouse references found: ['greenhouse.io/v1/boards/carrotfertility/', 'greenhouse.io/v1/boards/carrotfertility/jobs?content=true', 'greenhouse']
+  Custom Inline JS Blocks: 7
+    Snippet: window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};
+    Snippet: !function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className
+  H1: ['Open Roles']
+
+================ Inspecting Oct 2021 For Employers ================
+  Marketo references found: ['marketo.com/js/forms2/js/forms2.min.js', 'marketo-home-contact-form', 'Munchkin();', 'marketo.com', 'Munchkin']
+  Custom Inline JS Blocks: 10
+    Snippet: window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};
+    Snippet: !function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className
+  H1: ['A fertility benefit that’s right for your company, right now']
+
+================ Inspecting Jul 2022 For Employers ================
+  Marketo references found: ['marketo.com', 'marketo.com/js/forms2/js/forms2.min.js', 'MktoForms2.loadForm(']
+  Custom Inline JS Blocks: 6
+    Snippet: window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};
+    Snippet: !function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className
+  H1: ['A fertility benefit that’s right for your company, right now']
+
+================ Inspecting Jul 2022 Resource Center ================
+  Marketo references found: ['marketo.com', 'marketo.com/js/forms2/js/forms2.min.js', 'MktoForms2.loadForm(']
+  Webflow Dynamic Collections Detected: 44 elements (Sample classes: ['w-dyn-list', 'resource-center-list-two-up w-dyn-items', 'w-dyn-items', 'resource-center-list w-dyn-items'])
+  Custom Inline JS Blocks: 6
+    Snippet: window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};
+    Snippet: !function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className
+  H1: ['Resource Center']
+
+================ Inspecting Mar 2022 Request Benefits LP ================
+  Marketo references found: ['Marketo', 'MktoForms2.loadForm(', 'marketo.com/js/forms2/js/forms2.min.js']
+  Custom Inline JS Blocks: 9
+    Snippet: window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};
+    Snippet: WebFont.load({  google: {    families: ["Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Inconsolata:400,700"]  }});
+  H1: ['For employees: Bring fertility benefits to your workplace.']
