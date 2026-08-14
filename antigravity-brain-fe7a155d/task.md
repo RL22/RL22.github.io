@@ -1,0 +1,4 @@
+- `[/]` Create Pendo case study in `building.json`
+- `[ ]` Create Carrot case study in `building.json`
+- `[ ]` Update `SITE_COPY.md` to reflect the new case studies
+- `[ ]` Test locally to ensure rendering is correct
