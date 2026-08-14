@@ -366,6 +366,9 @@ I build marketing platforms that scale by working across design, dev, and market
 - The "30% fewer dev requests" metric was removed everywhere (hero card,
   Experience, all resume variants). It could not be confidently defended in
   an interview, and it appeared in neither resume of record.
+  **Superseded 2026-08-06** for the `/work` section only — see the revision
+  note at the foot of this file. The hero card, Experience section, and all
+  three resume variants remain metric-free.
 - Experience cards now lead with the operating-model change (what was
   inherited, what changed, what the team could do afterward) instead of
   metrics or tool lists. Tools live in the Skills section.
@@ -424,3 +427,46 @@ I build marketing platforms that scale by working across design, dev, and market
   earlier drift.
 - Related: the Everlaw-tailored resume states nine in its summary
   (`RL22/everlaw#2`). `rodney-profile.md` line 17 also states nine.
+
+---
+
+## Revision note (2026-08-06, /work section)
+
+- New `/work` section shipped: four case studies at `/work/<slug>/`, sourced
+  from `app/data/work.json`, behind the `SHOW_WORK` flag in `app/config.ts`.
+  The flag is `false` at time of writing, so the routes build but carry
+  `noindex`, stay out of `sitemap.xml`, and appear in no nav list.
+- **The 30% metric is reinstated on this public site, scoped to one place.**
+  It appears only in the `outcome` field of the `carrot-cms-architecture` case
+  study, in the canonical phrasing from the 2026-08-05 note. It does not appear
+  in that study's blurb or body, in any other case study, or anywhere else on
+  the site. This supersedes the 2026-07-21 removal for `/work` only; the hero
+  card, Experience section, and all three resume variants remain metric-free.
+- The constraint is enforced by test, not by convention:
+  `app/work/content.test.ts` fails the build if the metric appears in more than
+  one study, appears outside the `outcome` field, or if any other quantified
+  claim (`N%`, `N percent`, `Nx`) is introduced into case-study prose. The same
+  file also fails on management verbs and on the banned marketing register from
+  `PRODUCT.md`. `tests/work.spec.ts` re-checks the metric against rendered HTML.
+- The owner is responsible for defending the figure on demand. That was the
+  original objection in the 2026-07-21 removal, and it is the only thing
+  standing behind the reinstatement.
+
+## Revision note (2026-08-06, contrast)
+
+`PRODUCT.md` has claimed "contrast-checked text on cream/terracotta surfaces"
+and WCAG 2.1 AA throughout. Axe found that claim was not true. Four sitewide
+failures were fixed while building `/work`:
+
+| Element | Before | After |
+| --- | --- | --- |
+| `.btn-primary`, white on `bg-brand` `#C0614A` | 4.16:1 | 5.42:1 (`bg-brand-dark`) |
+| "RL" monogram, white on `bg-brand` at 14px bold | 4.15:1 | 5.42:1 (`bg-brand-dark`) |
+| Footer links, `text-gray-500` on cream | 4.23:1 | 6.61:1 (`text-gray-600`) |
+| Link hover, `hover:text-brand` on cream | 3.64:1 | 4.74:1 (`hover:text-brand-dark`) |
+
+A `brand.darker` token (`#8A4433`, 7.11:1 on white) was added to
+`tailwind.config.ts` to give `.btn-primary` a hover step above `brand-dark`.
+The visible effect is that terracotta buttons and the monogram are one shade
+deeper across the whole site. `bg-brand` is still correct for non-text surfaces
+but must not carry white body text.

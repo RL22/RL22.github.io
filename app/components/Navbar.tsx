@@ -1,11 +1,12 @@
 "use client";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { SHOW_BUILDING_IN_PUBLIC } from "../config";
+import { SHOW_BUILDING_IN_PUBLIC, SHOW_WORK } from "../config";
 
 const links = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#projects" },
+  ...(SHOW_WORK ? [{ label: "Work", href: "/work/" }] : []),
   ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Building in Public", href: "#building" }] : []),
   { label: "Skills", href: "#skills" },
   { label: "Resume", href: "/resume" },
@@ -13,7 +14,7 @@ const links = [
 
 function Monogram() {
   return (
-    <span className="w-9 h-9 bg-brand rounded-lg flex items-center justify-center text-white font-bold text-sm tracking-tight">
+    <span className="w-9 h-9 bg-brand-dark rounded-lg flex items-center justify-center text-white font-bold text-sm tracking-tight">
       RL
     </span>
   );
@@ -33,7 +34,7 @@ export default function Navbar() {
             <a
               key={l.label}
               href={l.href}
-              className="text-gray-600 hover:text-brand font-medium transition-colors"
+              className="text-gray-600 hover:text-brand-dark font-medium transition-colors"
             >
               {l.label}
             </a>

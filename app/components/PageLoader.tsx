@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 export function PageLoader() {
@@ -7,7 +7,11 @@ export function PageLoader() {
   const monogramRef = useRef<HTMLDivElement>(null);
   const taglineRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  // Layout effect, not a regular effect: it must hide the overlay before the
+  // browser paints. A regular effect runs after paint, so on a repeat visit
+  // (sessionStorage already set) the solid-terracotta overlay would flash on
+  // screen for a frame before JS had a chance to suppress it.
+  useLayoutEffect(() => {
     const overlay = overlayRef.current;
     const monogram = monogramRef.current;
     const tagline = taglineRef.current;
