@@ -1,11 +1,14 @@
-import { Github, Linkedin, Mail } from "lucide-react";
-import { SHOW_WORK } from "../config";
+import { ArrowLeft, Github, Linkedin, Mail } from "lucide-react";
+import { SHOW_BUILDING_IN_PUBLIC } from "../config";
 
+// Twin of app/blog/BlogChrome.tsx. It exists separately because BlogHeader
+// hardcodes "Back to Building in Public", which is the wrong destination from
+// a case study.
 const footerLinks = [
   { label: "About", href: "/#about" },
   { label: "Experience", href: "/#projects" },
-  ...(SHOW_WORK ? [{ label: "Work", href: "/work/" }] : []),
-  { label: "Building in Public", href: "/#building" },
+  { label: "Work", href: "/work/" },
+  ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Building in Public", href: "/#building" }] : []),
   { label: "Skills", href: "/#skills" },
   { label: "Resume", href: "/resume" },
 ];
@@ -16,7 +19,7 @@ const socialLinks = [
   { Icon: Mail, href: "mailto:lewis.rodneyl@gmail.com", label: "Email" },
 ];
 
-export function BlogHeader() {
+export function WorkHeader() {
   return (
     <header className="sticky top-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-cream-dark">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -26,9 +29,14 @@ export function BlogHeader() {
           </span>
           Rodney L. Lewis
         </a>
-        <nav className="hidden md:flex items-center gap-8">
-          <a href="/#building" className="text-gray-600 hover:text-brand-dark font-medium transition-colors">
-            Back to Building in Public
+        <nav className="flex items-center gap-8">
+          <a
+            href="/work/"
+            aria-label="All case studies"
+            className="-m-3.5 p-3.5 text-gray-600 hover:text-brand-dark font-medium transition-colors flex items-center gap-1.5"
+          >
+            <ArrowLeft className="w-4 h-4 md:hidden" aria-hidden="true" />
+            <span className="hidden md:inline">All case studies</span>
           </a>
         </nav>
         <a href="/#contact" className="btn-primary text-sm">
@@ -39,7 +47,7 @@ export function BlogHeader() {
   );
 }
 
-export function BlogFooter() {
+export function WorkFooter() {
   return (
     <footer className="bg-cream border-t border-cream-dark py-10">
       <div className="max-w-6xl mx-auto px-6">
@@ -90,11 +98,11 @@ export function BlogFooter() {
   );
 }
 
-export function BottomCta() {
+export function WorkBottomCta() {
   return (
     <div className="border-t border-gray-200 pt-10 mt-16 max-w-3xl mx-auto px-6 flex flex-wrap gap-4">
-      <a href="/#building" className="btn-outline">
-        More building in public
+      <a href="/work/" className="btn-outline">
+        More case studies
       </a>
       <a href="/#contact" className="btn-primary">
         Get in touch

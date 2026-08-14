@@ -1,0 +1,168 @@
+{
+  "caseStudies": [
+    {
+      "slug": "pendo-core-web-platform",
+      "company": "Pendo.io",
+      "role": "Sr. Marketing Engineer",
+      "period": "Oct 2022 – Jun 2023",
+      "publishedAt": "2026-08-06",
+      "title": "A URL architecture the product suite could grow into",
+      "pillars": ["Engineering", "Product"],
+      "blurb": "Rebuilt Pendo's product pages on a headless WordPress and React architecture so a growing product suite could expand without a rebuild.",
+      "stack": ["Headless WordPress", "ACF", "Gutenberg", "React", "Gatsby", "Next.js"],
+      "challenge": "Pendo's product line was expanding faster than the website architecture that carried it. Every new product needed a page, every page needed a place in the information architecture, and the existing structure had no room left. The site could absorb another launch, but only by hand, and only with an engineer in the loop for each one.",
+      "solution": "I built the product surface of the main site as a component-driven system on a headless WordPress back end, with React and Gatsby rendering the front. Content lived in structured ACF and Gutenberg fields rather than in page markup, and the URL structure was reorganized around product families, under a /product-{family}/{product}/ pattern, so the shape of the site matched the shape of the product line. A new product page became a matter of composing existing components against a new content record.",
+      "outcome": "The architecture stopped being the constraint on launches. New product family pages assembled from components the team already had, in a URL structure that had room in it, without an engineer rebuilding the section each time.",
+      "body": [
+        "Pendo was shipping product faster than its website could hold. The product surface of pendo.io had grown one page at a time, each launch bolting a new route onto a structure that was never designed to carry a suite. By the time I joined, the marketing site had become the slowest part of a product launch: the copy was ready, the design was ready, and the architecture was the thing everyone waited on.",
+        "The first decision was to stop treating product pages as pages. A product page is a content type — it has a name, a positioning line, a set of capability blocks, proof, and a call to action — and it repeats. Once you model it that way, the work moves from producing markup to producing a schema and the components that render it. I built that model in headless WordPress, using ACF and Gutenberg so the content team edited structured fields rather than layouts, and rendered it through React on a Gatsby build.",
+        "The URL structure was the other half of the architecture. Product pages were reorganized under a /product-{family}/{product}/ pattern, which sounds like a routing detail and is actually a product decision: it forced the site to express how the product suite was organized, gave each family a home that could accept new members, and made the shape of the navigation follow from the shape of the catalog rather than from whatever had been added most recently.",
+        "Decoupling the CMS from the front end is what made the rest safe. Content changes stopped touching render code, so the marketing and content teams could work on pages without a deploy on the critical path, and I could change how a component rendered everywhere at once without opening every page. That separation is the whole point of a headless stack, and it only pays off if the component library on the front end is disciplined enough to be the single place a pattern lives.",
+        "The thing I care about in this build is what it removed. Before, launching a product page meant a scoping conversation, an engineering ticket, and a bespoke template. After, it meant a content record and a composition of existing components — the same primitives, assembled differently. The platform absorbed the next launch instead of the team absorbing it.",
+        "This is the version of a marketing site I keep building toward: not a set of pages that happen to describe a product, but a system whose structure mirrors the product it sells, so that growth in one shows up as configuration in the other rather than as a rebuild."
+      ],
+      "diagramNote": "Show the decoupled pipeline left to right: a WordPress box (labeled with ACF and Gutenberg field groups) feeding structured content over an API into a React/Gatsby build step, which emits the /product-{family}/{product}/ route tree as a set of leaf nodes under a family branch. Inside the build step, show a small stack of shared component blocks (hero, capability grid, proof, CTA) with arrows fanning out to every product route. Mark the CMS-to-build boundary as the decoupling line, with editors entering on the CMS side and never crossing it.",
+      "images": [
+        {
+          "src": "/work/pendo-product-experience-hub.png",
+          "webp": "/work/pendo-product-experience-hub.webp",
+          "alt": "Archived screenshot of the Pendo product-experience hub: a hero heading over a cut-out photo collage, then a centred \"Explore use cases\" row of five pill tabs, then alternating two-column rows pairing a product screenshot with a heading, paragraph and link.",
+          "caption": "The product-family hub, October 2022. The five-tab use-case row and the alternating capability rows below it are the same components every product page in the family composes from.",
+          "width": 1600,
+          "height": 2000
+        },
+        {
+          "src": "/work/pendo-in-app-support.png",
+          "webp": "/work/pendo-in-app-support.webp",
+          "alt": "Archived screenshot of the Pendo in-app support product page: a centred hero, a three-column row of icons and labels, then alternating sections pairing a heading and paragraph with a screenshot of an in-product overlay.",
+          "caption": "A leaf page in the same family, October 2022. Same primitives as the hub, different content record.",
+          "width": 1600,
+          "height": 2000
+        }
+      ]
+    },
+    {
+      "slug": "pendo-demand-gen-systems",
+      "company": "Pendo.io",
+      "role": "Sr. Marketing Engineer",
+      "period": "Oct 2022 – Jun 2023",
+      "publishedAt": "2026-08-06",
+      "title": "Taking engineering out of the campaign loop",
+      "pillars": ["Marketing", "Analytics"],
+      "blurb": "Modular Marketo templates, personalization, and clean tracking on go.pendo.io, so demand gen could launch and test without an engineering ticket.",
+      "stack": ["Marketo", "Mutiny", "Google Tag Manager", "Segment", "JavaScript"],
+      "challenge": "Marketing operations could not launch a campaign without engineering. Every landing page and every email started as a ticket, which meant the pace of demand gen was set by an engineering queue rather than by the campaign calendar. Testing suffered first: when a variant costs a sprint slot, teams stop running variants.",
+      "solution": "I rebuilt the demand gen surface on go.pendo.io as a template system rather than a page factory. Marketo guided landing page templates and email templates were broken into modules marketing ops could assemble on their own, with custom JavaScript underneath for the behavior the templates could not express — form logic that filtered non-company email addresses at the point of entry, and Google Tag Manager data layer scripts that made every page report itself consistently. Mutiny sat on top for audience-segmented testing and personalization.",
+      "outcome": "Marketing ops stopped filing tickets to launch. Campaigns, variants, and audience-specific treatments shipped on the marketing team's own schedule, and the data coming back was clean enough to act on because the tracking was part of the template rather than added per page.",
+      "body": [
+        "The bottleneck at the demand gen layer was not technical difficulty. It was that every campaign asset — a landing page, an email, a variant of either — had to pass through an engineer, and engineers are a shared resource with a queue. The cost showed up in what the marketing team stopped attempting: when a second variant means waiting behind a sprint, you ship one variant and call it a test.",
+        "So the work was to change who could build. I broke the Marketo guided landing page templates and the email templates into modules — hero, form, proof, offer, footer — that marketing ops could compose without touching markup. The constraint was that the modules had to be genuinely complete: a template system that covers only the easy cases still routes every interesting campaign back through engineering, which is the same bottleneck with extra steps.",
+        "Underneath the templates, custom JavaScript handled the things guided templates cannot express on their own. Form logic filtered out non-company email addresses at the point of submission, so the lead quality problem was solved at the source rather than in a downstream cleanup job. Google Tag Manager data layer scripts standardized what each page reported, which meant a campaign was instrumented because it used the template, not because someone remembered to instrument it.",
+        "That is the part that makes the loop work. Analytics hygiene is usually treated as a reporting problem, handled after the fact by the people who need the numbers. Building it into the template moves it upstream: every page emits the same events with the same names, so comparisons between campaigns are actually comparisons, and the funnel view is trustworthy without reconciliation.",
+        "With the build cost removed and the measurement trustworthy, testing became routine rather than exceptional. Mutiny handled audience segmentation and personalization on top of the same templates, so demand gen could run a treatment for a specific segment and read the result against a clean baseline. The team could form a hypothesis in the morning and have it live without a ticket.",
+        "The systems I build for marketing get judged on one thing: how long the team operates after I stop being involved. On the demand gen side at Pendo, the answer was that campaign launches simply stopped appearing in the engineering queue."
+      ],
+      "diagramNote": "Draw the campaign loop as a cycle, not a pipeline. Start at a marketing ops actor box composing a page from a stack of Marketo template modules, arrow into a go.pendo.io landing page node. From that node, split two arrows: one into a Mutiny box labeled segment/variant that loops back to the page, and one into a form-logic box (non-company email filter) that gates what reaches Marketo. From the page, run a separate dashed instrumentation arrow through GTM data layer into Segment and out to reporting, then close the cycle with an arrow from reporting back to marketing ops. Show the engineering box off to the side with no arrow into the loop — that absence is the point.",
+      "images": [
+        {
+          "src": "/work/pendo-demo-lp.png",
+          "webp": "/work/pendo-demo-lp.webp",
+          "alt": "Archived screenshot of a Pendo demo-request landing page with no site navigation: a heading and paragraph on the left above a three-column statistics row and a row of four customer logos, and a five-field form card with a consent checkbox and submit button on the right.",
+          "caption": "A demand gen landing page on go.pendo.io, October 2022. The statistics row, logo row and form are template modules, not page markup. Note that the figures shown are Pendo's own product claims from the campaign, not measurements of this work.",
+          "width": 1600,
+          "height": 1068
+        },
+        {
+          "src": "/work/pendo-demo-analytics-lp.png",
+          "webp": "/work/pendo-demo-analytics-lp.webp",
+          "alt": "Archived screenshot of an earlier, teal-accented Pendo demo-request landing page: a heading and paragraph on the left, a five-field form card headed \"Get started today!\" on the right, and below them a two-column section pairing a diagram with a heading and paragraph.",
+          "caption": "The prior-generation template, December 2022, shown for contrast. Two landing page systems running side by side is the condition the module set was built to consolidate.",
+          "width": 1600,
+          "height": 1340
+        }
+      ]
+    },
+    {
+      "slug": "carrot-cms-architecture",
+      "company": "Carrot Fertility",
+      "role": "Sr. Web Developer",
+      "period": "Sep 2021 – Jul 2022",
+      "publishedAt": "2026-08-06",
+      "title": "Running the marketing site like a product",
+      "pillars": ["Product", "Engineering"],
+      "blurb": "Ran the marketing site like a product: Asana intake, modular Webflow collection templates, and a careers section wired to the Greenhouse API.",
+      "stack": ["Webflow Enterprise CMS", "Greenhouse API", "Asana", "JavaScript"],
+      "challenge": "Web work arrived from every direction and in no consistent form. Requests came in as conversations, scope was discovered mid-build, and the CMS collection pages underneath had drifted far enough from the design system that each new page was a small negotiation. Content production was slow, and the slowness was operational as much as technical.",
+      "solution": "I treated the marketing site as a product with an intake, a backlog, and a template system. An Asana intake form standardized how web work was scoped across marketing, design, and engineering, so requests arrived with the information needed to size them. I then rebuilt the Webflow CMS collection pages as modular templates that enforced the design system by construction, and wired the careers section to the Greenhouse API so open roles published themselves.",
+      "outcome": "Architected modular Webflow templates that reduced marketing dev requests by 30% and returned roadmap capacity to engineering. Design system consistency became the default state of a new page rather than something reviewed into it, and the careers section stopped being a page anyone had to maintain.",
+      "body": [
+        "The marketing site at Carrot was not short of demand. It was short of a front door. Web work arrived as hallway conversations, thread replies, and half-scoped asks, which meant scope surfaced during the build instead of before it, and the same clarifying questions were asked on every request. That is an operations problem wearing a technical costume, and no amount of faster building fixes it.",
+        "So the first thing I built was not code. An Asana intake form standardized how web work got scoped across marketing, design, and engineering: what the page is for, who it is aimed at, what has to be true for it to be finished. Requests arrived comparable to each other, which made prioritization possible, and made it visible when the same request kept recurring in different clothes — which is the signal that a template is missing.",
+        "Those recurring requests pointed straight at the CMS. I rebuilt the Webflow CMS collection pages as modular templates, with the design system expressed in the components themselves rather than maintained by review. When the template carries the type scale, spacing, and component behavior, a new page is consistent because it was built, not because someone caught the drift in QA. Content production stopped being a build for each page and became an entry against a template.",
+        "The careers section was the clearest case for removing a human from the loop entirely. I wired it to the Greenhouse API so that open roles rendered from the source of truth recruiting was already maintaining. Nobody mirrors a job posting onto the website anymore, and the site cannot be stale relative to the ATS, because there is no copy step where staleness could enter.",
+        "Taken together, the intake, the templates, and the API integration turned a queue of requests into a system with an operating model. The requests that still reached a developer were the ones that genuinely needed one, which is the correct residue.",
+        "I keep coming back to this framing because it is the one that separates a marketing site that compounds from one that decays. Product rigor on a marketing site is not process for its own sake: it is intake so you know what you are building, templates so you build it once, and integrations so the parts that should never be hand-maintained never are."
+      ],
+      "diagramNote": "Two connected halves. On the left, an intake funnel: marketing, design, and engineering requesters feeding one Asana intake form, which sorts into two outputs — template covers this, and needs a developer — with the first arrow visibly heavier. On the right, a Webflow CMS box showing a collection schema feeding a set of modular collection-page templates, with design system tokens drawn as a layer inside the templates rather than a checklist beside them. Below, a separate arrow from a Greenhouse API box into the careers route, labeled as the one path with no human step in it.",
+      "images": [
+        {
+          "src": "/work/carrot-resource-center.png",
+          "webp": "/work/carrot-resource-center.webp",
+          "alt": "Archived screenshot of the Carrot Resource Center: a sage-green hero with a filter row reading All, Blog, Webinars, eBooks & Guides, Case studies and Podcast, then one section per content collection, each with a heading, a View all button and a three-card grid.",
+          "caption": "The Resource Center, September 2021. Every section below the filter row is a separate Webflow CMS collection rendered through the same template.",
+          "width": 1600,
+          "height": 2000
+        },
+        {
+          "src": "/work/carrot-ebooks-guides.png",
+          "webp": "/work/carrot-ebooks-guides.webp",
+          "alt": "Archived screenshot of the Carrot eBooks & Guides collection page: the same hero and filter row as the Resource Center with eBooks & Guides active, above a three-column grid of eight cards, each showing a printed-report mock-up and a linked title.",
+          "caption": "The same template at collection scope, October 2021. Hub and collection are one component set, which is what made a new collection an entry rather than a build.",
+          "width": 1600,
+          "height": 2000
+        }
+      ]
+    },
+    {
+      "slug": "carrot-integrated-marketing-systems",
+      "company": "Carrot Fertility",
+      "role": "Sr. Web Developer",
+      "period": "Sep 2021 – Jul 2022",
+      "publishedAt": "2026-08-06",
+      "title": "One domain, one funnel, no handoff",
+      "pillars": ["Marketing", "Engineering"],
+      "blurb": "Embedded Marketo forms and brand-matched email templates into the native Webflow site, keeping conversion, tracking, and SEO on one domain.",
+      "stack": ["Webflow Enterprise CMS", "Marketo", "JavaScript"],
+      "challenge": "The conversion path crossed a domain boundary. Sending prospects from the marketing site to a separate landing page system split the funnel in two: tracking continuity broke at the handoff, the visual experience changed underneath the visitor, and the pages that earned the most intent lived off the domain accruing the SEO value.",
+      "solution": "Rather than run a separate demand gen subdomain, I embedded custom Marketo forms directly into native Webflow pages and component symbols, so the form was part of the page instead of a destination the visitor was sent to. Marketo email templates were rebuilt to match the brand system, so what arrived in the inbox after a submission looked like the page that produced it. Marketing kept its native Marketo data; the visitor never left the site.",
+      "outcome": "The funnel stayed on one domain end to end. Tracking held together across the whole path instead of resetting at a handoff, the pages carrying the most intent kept contributing to the domain's SEO position, and marketing lost nothing on the data side because the forms were Marketo forms.",
+      "body": [
+        "There is a standard shape to B2B demand gen: the marketing site lives on one domain, the campaign landing pages live on a marketing automation subdomain, and prospects cross between them at the exact moment they are most likely to convert. It is an architecture chosen for the marketing team's convenience, and the visitor pays for it.",
+        "At Carrot we went the other way. Instead of standing up a separate landing page system, I embedded custom Marketo forms directly into the native Webflow site — into pages and into reusable component symbols, so a form could be dropped into any layout and behave the same way. From the visitor's side there is no transition: the form is part of the page they were already reading, in the same type, on the same domain, at the same speed.",
+        "Keeping the funnel on one domain fixes three problems at once, and they are usually treated as three separate teams' problems. Tracking stops resetting at a boundary, so the path from first touch to submission is one continuous story rather than two fragments someone has to stitch together. The visual experience never breaks, so the trust built by the page carries into the moment of conversion. And the pages that attract the most intent keep contributing their authority to the domain instead of donating it to a subdomain.",
+        "None of that would have been acceptable if it cost the marketing team their data. The forms are real Marketo forms, not a custom collector that syncs later, so lead records, programs, and campaign attribution behave exactly as marketing ops expects. The integration was engineered so the marketing automation platform still owns the record — the only thing that changed is where the form is rendered.",
+        "I extended the same logic downstream by rebuilding the Marketo email templates against the brand system. A submission that produces a confirmation email in a different visual language undoes some of what the page just built. Matching the templates to the site made the whole sequence — page, form, inbox — read as one experience rather than as three systems introducing themselves in turn.",
+        "The general principle: the seams between marketing systems are where conversion, measurement, and trust leak out. Most of the engineering value on a marketing site is in removing seams the visitor should never have been asked to cross."
+      ],
+      "diagramNote": "Contrast two paths stacked vertically. On top, the conventional split funnel: a marketing-site box, an arrow crossing a labeled domain boundary to a separate landing-page subdomain box, with break marks on the tracking arrow and an SEO-authority arrow pointing away from the main domain. Below it, the built version: a single Webflow domain box containing the page and an embedded Marketo form symbol, with one unbroken tracking arrow running the full width into Marketo, and a downstream arrow to a brand-matched email template. Keep the two diagrams the same width so the missing boundary in the lower one is the visible difference.",
+      "images": [
+        {
+          "src": "/work/carrot-for-employers.png",
+          "webp": "/work/carrot-for-employers.webp",
+          "alt": "Archived screenshot of the Carrot \"For employers\" page: a sage-green hero with a heading, a Request a demo button and a flat vector illustration, above a four-column section of icons with labels and short paragraphs.",
+          "caption": "An employer-facing page on the main domain, September 2021. Conversion happens here rather than on a separate landing page subdomain.",
+          "width": 1600,
+          "height": 2000
+        },
+        {
+          "src": "/work/carrot-careers.png",
+          "webp": "/work/carrot-careers.webp",
+          "alt": "Archived screenshot of the Carrot open-roles page: a pale-blue hero headed \"Open Roles\" above a two-column layout with a Departments filter rail on the left and a job list grouped under department headings on the right, each listing showing a role title and a Learn More link.",
+          "caption": "The careers section, May 2022. Every role on this page renders from the Greenhouse API, so there is no step where the site can drift from the ATS.",
+          "width": 1600,
+          "height": 2000
+        }
+      ]
+    }
+  ]
+}

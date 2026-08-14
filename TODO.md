@@ -31,6 +31,32 @@ homepage section, the navbar and footer links, the `/blog` URLs in
    `app/blog/[slug]/page.tsx` metadata.
 7. Flip `SHOW_BUILDING_IN_PUBLIC` to `true`.
 
+## /work: revisit Pendo product URL structure claim
+
+[app/data/work.json](app/data/work.json)'s `pendo-core-web-platform` case study
+and its diagram (`app/work/diagrams/`, not yet built for this case study)
+describe product pages as organized under one shared `/product-{family}/{product}/`
+pattern. That's true for exactly one namespace — `/product-experience/{product}/`,
+confirmed live and in Wayback — but the real June 2023 homepage nav
+(`https://web.archive.org/web/20230627090523/https://www.pendo.io/`) also shows
+two other, incompatible URL shapes:
+
+- `/product/{name}/` — flat, no family segment (e.g. `/product/adopt`,
+  `/product/analytics`, `/product/engage`, `/product/feedback`,
+  `/product/in-app-guides`, `/product/mobile`, `/product/roadmap`,
+  `/product/saas-portfolio-insights`)
+- `/products/{name}/` — flat, plural, overlapping names with the one above
+  (`/products/analytics`, `/products/mobile`, `/products/data-sync`,
+  `/products/saas-portfolio-insights`) — looks like a rebrand mid-flight,
+  two schemes live at once
+
+So "Adopt" is real and did exist in-tenure, but at `/product/adopt`, not as a
+second family under the `/product-{family}/{product}/` pattern the case study
+claims. Before this case study or its diagram go live (`SHOW_WORK` flip),
+decide: rewrite the claim to be honest about the migration-in-progress reality,
+or keep the case study scoped to the one namespace where the clean pattern
+claim is actually true (`product-experience`) and don't mention Adopt.
+
 ## Nice to have
 
 - The blog pages' bottom CTA links to `/#building`, which is a dead anchor

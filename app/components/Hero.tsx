@@ -73,7 +73,7 @@ export default function Hero() {
               <a href="#contact" className="btn-primary inline-flex items-center gap-2">
                 Let's talk <ArrowRight className="w-4 h-4" />
               </a>
-              <a href="#projects" className="text-gray-600 hover:text-brand text-sm font-semibold transition-colors">
+              <a href="#projects" className="text-gray-600 hover:text-brand-dark text-sm font-semibold transition-colors">
                 See the work →
               </a>
             </div>

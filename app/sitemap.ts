@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import buildingDataRaw from "./data/building.json";
 import githubData from "./data/github.json";
-import { SHOW_BUILDING_IN_PUBLIC } from "./config";
+import { SHOW_BUILDING_IN_PUBLIC, SHOW_WORK } from "./config";
+import { caseStudies } from "./work/content";
 
 export const dynamic = "force-static";
 
@@ -57,6 +58,20 @@ function blogEntries(): MetadataRoute.Sitemap {
   return entries;
 }
 
+function workEntries(): MetadataRoute.Sitemap {
+  return [
+    {
+      url: `${SITE_URL}/work/`,
+      priority: 0.8,
+    },
+    ...caseStudies.map((c) => ({
+      url: `${SITE_URL}/work/${c.slug}/`,
+      lastModified: c.publishedAt ? new Date(c.publishedAt) : undefined,
+      priority: 0.7,
+    })),
+  ];
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
@@ -67,6 +82,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/resume/`,
       priority: 0.8,
     },
+    ...(SHOW_WORK ? workEntries() : []),
     ...(SHOW_BUILDING_IN_PUBLIC ? blogEntries() : []),
   ];
 }
