@@ -1,0 +1,183 @@
+Fetching Oct 2022 - /product-experience/ ...
+Fetching Oct 2022 - /digital-adoption/ ...
+Fetching Oct 2022 - /product/adopt/ ...
+Fetching Oct 2022 - /product/analytics/ ...
+Fetching Feb 2023 - /product-experience/user-onboarding/ ...
+Fetching Feb 2023 - /digital-adoption/employee-productivity/ ...
+Fetching Feb 2023 - /product/adopt/ ...
+Fetching Feb 2023 - /products/analytics/ ...
+Fetching Jun 2023 - /product/adopt/ ...
+Fetching Jun 2023 - /products/data-sync/ ...
+Fetching Jun 2023 - /product-experience/product-led-growth/ ...
+
+
+=== SUMMARY OF INSPECTION ===
+[
+  {
+    "period": "Oct 2022",
+    "path": "/product-experience/",
+    "body_classes": "page-template page-template-template-component-layout page-template-template-component-layout-php page page-id-6007 page-parent",
+    "themes": [
+      "pendo-blog",
+      "pendo-components"
+    ],
+    "plugins": [],
+    "martech": {
+      "Mutiny": "64c4277f45fc6bf8",
+      "Marketo": "Present",
+      "GTM": "GTM-NRJ68V",
+      "OneTrust": "Present",
+      "Drift": "Present"
+    }
+  },
+  {
+    "period": "Oct 2022",
+    "path": "/digital-adoption/",
+    "body_classes": "page-template page-template-template-component-layout page-template-template-component-layout-php page page-id-6009 page-parent",
+    "themes": [
+      "pendo-blog",
+      "pendo-components"
+    ],
+    "plugins": [],
+    "martech": {
+      "Mutiny": "64c4277f45fc6bf8",
+      "Marketo": "Present",
+      "GTM": "GTM-NRJ68V",
+      "OneTrust": "Present",
+      "Drift": "Present",
+      "Wistia": "Present"
+    }
+  },
+  {
+    "period": "Oct 2022",
+    "path": "/product/adopt/",
+    "body_classes": "page-template page-template-template-component-layout page-template-template-component-layout-php page page-id-6694 page-child parent-pageid-1958",
+    "themes": [
+      "pendo-blog",
+      "pendo-components"
+    ],
+    "plugins": [],
+    "martech": {
+      "Mutiny": "64c4277f45fc6bf8",
+      "Marketo": "Present",
+      "GTM": "GTM-NRJ68V",
+      "OneTrust": "Present",
+      "Drift": "Present"
+    }
+  },
+  {
+    "period": "Oct 2022",
+    "path": "/product/analytics/",
+    "body_classes": "page-template page-template-template-component-layout page-template-template-component-layout-php page page-id-7578 page-child parent-pageid-1958",
+    "themes": [
+      "pendo-blog",
+      "pendo-components"
+    ],
+    "plugins": [],
+    "martech": {
+      "Mutiny": "64c4277f45fc6bf8",
+      "Marketo": "Present",
+      "GTM": "GTM-NRJ68V",
+      "OneTrust": "Present",
+      "Drift": "Present"
+    }
+  },
+  {
+    "period": "Feb 2023",
+    "path": "/product-experience/user-onboarding/",
+    "body_classes": "page-template-default page page-id-1970 page-child parent-pageid-6007 wp-embed-responsive user-onboarding",
+    "themes": [
+      "timber-sage-starter"
+    ],
+    "plugins": [],
+    "martech": {
+      "Mutiny": "64c4277f45fc6bf8",
+      "Marketo": "Present",
+      "GTM": "GTM-MBJ22KN",
+      "OneTrust": "Present",
+      "Bizible": "Present"
+    }
+  },
+  {
+    "period": "Feb 2023",
+    "path": "/digital-adoption/employee-productivity/",
+    "body_classes": "page-template-default page page-id-6013 page-child parent-pageid-6009 wp-embed-responsive employee-productivity",
+    "themes": [
+      "timber-sage-starter"
+    ],
+    "plugins": [],
+    "martech": {
+      "Mutiny": "64c4277f45fc6bf8",
+      "Marketo": "Present",
+      "GTM": "GTM-MBJ22KN",
+      "OneTrust": "Present",
+      "Bizible": "Present"
+    }
+  },
+  {
+    "period": "Feb 2023",
+    "path": "/product/adopt/",
+    "body_classes": "page-template-default page page-id-6694 page-child parent-pageid-1958 wp-embed-responsive adopt",
+    "themes": [
+      "timber-sage-starter"
+    ],
+    "plugins": [],
+    "martech": {
+      "Mutiny": "64c4277f45fc6bf8",
+      "Marketo": "Present",
+      "GTM": "GTM-MBJ22KN",
+      "OneTrust": "Present",
+      "Bizible": "Present"
+    }
+  },
+  {
+    "period": "Feb 2023",
+    "path": "/products/analytics/",
+    "body_classes": "navia",
+    "themes": [],
+    "plugins": [],
+    "martech": {}
+  },
+  {
+    "period": "Jun 2023",
+    "path": "/product/adopt/",
+    "body_classes": "page-template-default page page-id-6694 page-child parent-pageid-1958 wp-embed-responsive adopt",
+    "themes": [
+      "timber-sage-starter"
+    ],
+    "plugins": [
+      "paradome-wp-plugin"
+    ],
+    "martech": {
+      "Mutiny": "64c4277f45fc6bf8",
+      "Marketo": "Present",
+      "GTM": "GTM-MBJ22KN",
+      "OneTrust": "Present",
+      "Bizible": "Present"
+    }
+  },
+  {
+    "period": "Jun 2023",
+    "path": "/products/data-sync/",
+    "body_classes": "navia",
+    "themes": [],
+    "plugins": [],
+    "martech": {}
+  },
+  {
+    "period": "Jun 2023",
+    "path": "/product-experience/product-led-growth/",
+    "body_classes": "page-template-default page page-id-9641 page-child parent-pageid-6007 wp-embed-responsive product-led-growth",
+    "themes": [
+      "timber-sage-starter"
+    ],
+    "plugins": [],
+    "martech": {
+      "Mutiny": "64c4277f45fc6bf8",
+      "Marketo": "Present",
+      "GTM": "GTM-MBJ22KN",
+      "OneTrust": "Present",
+      "Bizible": "Present"
+    }
+  }
+]
