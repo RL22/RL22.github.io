@@ -14,7 +14,9 @@ Personal portfolio for Rodney L. Lewis (rl22.github.io). One conversion event: t
 
 ## Brand Personality
 
-Confident craftsman. Calm, precise, quietly senior. Warm and human (terracotta/cream, real photography) but engineering-first in voice: outcomes over adjectives, one standardized metric (30% fewer marketing dev requests at Carrot), ownership verbs not management verbs. Never salesy, never shouty.
+Confident craftsman. Calm, precise, quietly senior. Warm and human (terracotta/cream, real photography) but engineering-first in voice: outcomes over adjectives, ownership verbs not management verbs. Never salesy, never shouty.
+
+**Metric policy.** The site is metric-free apart from two sanctioned claims: the tenure figure ("nine years owning marketing-site lifecycles", scoped to Oct 2016 onward), and "reduced marketing dev requests by 30%", which appears once, in the outcome of the `carrot-cms-architecture` case study. No other quantified claim may be introduced anywhere. `app/work/content.test.ts` enforces this for `/work`; see the revision notes in `SITE_COPY.md` for the full history, including the 2026-07-21 removal this partially supersedes.
 
 ## Anti-references
 
