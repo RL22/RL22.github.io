@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getDiagram } from "./diagrams";
 import { getAdjacentCaseStudies, preventWidow, type CaseStudy } from "./content";
+import Reveal from "../components/Reveal";
 
 // The brief is a labelled definition list rather than three equal cards:
 // PRODUCT.md rules out the icon-heading-text grid, and challenge/solution/
@@ -14,7 +15,7 @@ function Brief({ item }: { item: CaseStudy }) {
   ];
 
   return (
-    <div className="border-l-2 border-brand/30 pl-6 space-y-8 my-12 max-w-[62ch]">
+    <div className="space-y-8 my-12 max-w-[62ch]">
       {rows.map(([term, definition]) => (
         <div key={term} id={term.toLowerCase()} className="scroll-mt-24">
           <h2 className="text-xs font-bold uppercase tracking-widest text-brand-dark mb-2">
@@ -62,7 +63,7 @@ function Rail({ item, hasDiagram }: { item: CaseStudy; hasDiagram: boolean }) {
       </ul>
 
       <details className="lg:hidden mb-8 pt-6 border-t border-gray-200">
-        <summary className="text-xs font-bold uppercase tracking-widest text-gray-500 cursor-pointer select-none py-2.5 -my-2.5">
+        <summary className="text-xs font-bold uppercase tracking-widest text-gray-500 cursor-pointer select-none py-3.5 -my-3.5">
           On this page
         </summary>
         <nav aria-label="Case study sections (mobile)" className="mt-3 text-sm space-y-2">
@@ -96,35 +97,43 @@ export default function WorkLayout({ item }: { item: CaseStudy }) {
         <Rail item={item} hasDiagram={!!diagram} />
 
         <div className="min-w-0">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 max-w-prose">
-            {preventWidow(item.title)}
-          </h1>
+          <Reveal>
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-6 max-w-prose">
+              {preventWidow(item.title)}
+            </h1>
 
-          <div className="max-w-[62ch]">
-            {lead && <p className="text-lg text-gray-600 leading-relaxed">{lead}</p>}
-          </div>
+            <div className="max-w-[62ch]">
+              {lead && <p className="text-lg text-gray-600 leading-relaxed">{lead}</p>}
+            </div>
+          </Reveal>
 
-          <Brief item={item} />
+          <Reveal delay={0.1}>
+            <Brief item={item} />
+          </Reveal>
 
           {diagram && (
             <figure id="diagram" className="my-14 scroll-mt-24">
-              <diagram.Component />
-              <figcaption className="text-gray-600 text-sm mt-4 max-w-[62ch]">
-                {diagram.caption}
-              </figcaption>
+              <Reveal>
+                <diagram.Component />
+                <figcaption className="text-gray-600 text-sm mt-4 max-w-[62ch]">
+                  {diagram.caption}
+                </figcaption>
+              </Reveal>
             </figure>
           )}
 
           {rest.length > 0 && (
             <div id="the-build" className="scroll-mt-24">
-              <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">
-                The build
-              </h2>
-              <div className="max-w-[62ch] space-y-5 text-gray-700 leading-relaxed">
-                {rest.map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
-              </div>
+              <Reveal>
+                <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">
+                  The build
+                </h2>
+                <div className="max-w-[62ch] space-y-5 text-gray-700 leading-relaxed">
+                  {rest.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+              </Reveal>
             </div>
           )}
 

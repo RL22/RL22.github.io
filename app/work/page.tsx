@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { WorkNavbar } from "./WorkChrome";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import Reveal from "../components/Reveal";
 import { caseStudies, PILLARS, preventWidow, slugifyCompany, type CaseStudy } from "./content";
 import { SHOW_WORK } from "../config";
 
@@ -62,14 +63,14 @@ export default function WorkPage() {
   return (
     <>
       <WorkNavbar />
-      <main id="main" className="py-24 bg-white">
+      <main id="main" className="bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
       />
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-3xl mb-6">
-          <span className="inline-block bg-brand/10 text-brand text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+      <div className="max-w-6xl mx-auto px-6 pt-24">
+        <Reveal className="max-w-3xl mb-6">
+          <span className="inline-block bg-brand/10 text-brand-dark text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
             Work
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
@@ -82,23 +83,23 @@ export default function WorkPage() {
             marketing could do afterward.
           </p>
           <p className="text-gray-500 text-sm leading-relaxed max-w-[62ch] mt-3">
-            Not the full work history — that&apos;s the <a href="/#experience" className="text-brand-dark hover:underline">Experience</a> section.
+            Not the full work history. That&apos;s the <a href="/#experience" className="text-brand-dark hover:underline">Experience</a> section.
             These are the write-ups for the roles worth walking through in detail.
           </p>
-        </div>
+        </Reveal>
 
         <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-14">
           {PILLARS.join(" · ")}
         </p>
 
         <ul className="space-y-px border-t border-gray-200">
-          {groupByCompany(caseStudies).map((group) => (
+          {groupByCompany(caseStudies).map((group, i) => (
             <li
               key={group.company}
               id={slugifyCompany(group.company)}
               className="list-none border-b border-gray-200 scroll-mt-24"
             >
-              <div className="grid md:grid-cols-[1fr_2fr] gap-x-10 gap-y-6 py-10">
+              <Reveal delay={Math.min(i * 0.06, 0.3)} className="grid md:grid-cols-[1fr_2fr] gap-x-10 gap-y-6 py-10">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-widest text-brand-dark">
                     {group.company}
@@ -130,13 +131,13 @@ export default function WorkPage() {
                     </a>
                   ))}
                 </div>
-              </div>
+              </Reveal>
             </li>
           ))}
         </ul>
       </div>
-      </main>
       <Contact />
+      </main>
       <Footer />
     </>
   );

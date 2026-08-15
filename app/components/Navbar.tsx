@@ -44,12 +44,18 @@ export default function Navbar() {
           ))}
         </nav>
         <a href="/#contact" className="hidden md:inline-flex btn-primary text-sm">Contact</a>
-        <button className="md:hidden p-2.5 -m-2.5" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+        <button
+          className="md:hidden p-2.5 -m-2.5"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+        >
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
       {open && (
-        <nav className="md:hidden bg-cream px-6 pb-4 flex flex-col gap-4">
+        <nav id="mobile-navigation" className="md:hidden bg-cream px-6 pb-4 flex flex-col gap-4">
           {links.map((l) => (
             <a
               key={l.label}

@@ -38,7 +38,7 @@ export default function Hero() {
         {/* Left: copy */}
         <div>
           <Reveal>
-            <span className="inline-block bg-brand/10 text-brand text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+            <span className="inline-block bg-brand/10 text-brand-darker text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
               Senior Web Platform Engineer
             </span>
           </Reveal>
@@ -97,7 +97,7 @@ export default function Hero() {
           {/* Card 1 — top left — Years */}
           <motion.div
             {...cardVariant(0.55)}
-            className="absolute top-6 -left-4 z-20 card shadow-lg w-52"
+            className="absolute top-6 -left-4 z-20 card shadow-lg w-40 lg:w-52"
           >
             <div className="float-card">
               <p className="text-3xl font-bold">9+</p>
@@ -109,7 +109,7 @@ export default function Hero() {
           {/* Card 2 — top right — Organizations */}
           <motion.div
             {...cardVariant(0.7)}
-            className="absolute top-4 -right-4 z-20 card shadow-lg w-56"
+            className="absolute top-4 -right-4 z-20 card shadow-lg w-40 lg:w-56"
           >
             <div className="float-card float-card--delay-1">
               <p className="text-gray-500 text-sm font-semibold mb-1">Organizations</p>

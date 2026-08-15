@@ -61,7 +61,7 @@ const earlier: EarlierRole[] = [
   {
     title: "Mednition",
     role: "HubSpot Developer / Designer · Feb–Jul 2021 · Contract",
-    outcome: "Built modular HubSpot landing page templates for KATE, an emergency-department triage AI, concurrently with the Andersen Digital and Kiddom contracts below.",
+    outcome: "Designed and built modular HubSpot landing page templates for KATE, an emergency-department triage AI, that stayed in production unchanged for years after the five-month contract ended.",
     caseStudySlugs: ["mednition-landing-page-templates"],
   },
   {

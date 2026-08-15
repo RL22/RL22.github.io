@@ -195,6 +195,54 @@
       ]
     },
     {
+      "slug": "kiddom-component-architecture",
+      "company": "Kiddom",
+      "role": "Senior Web Developer",
+      "period": "Apr – Sep 2021",
+      "publishedAt": "2026-08-14",
+      "title": "Sole ownership, from Lighthouse score to sitemap",
+      "pillars": [
+        "Engineering",
+        "Product"
+      ],
+      "blurb": "Sole developer on a K-12 ed-tech marketing site, shipping 40+ reusable React components and new lead-gen sections without losing an indexed page.",
+      "stack": [
+        "Gatsby",
+        "React",
+        "Webpack",
+        "Lighthouse"
+      ],
+      "challenge": "Kiddom's marketing site had no dedicated technical owner. Front-end sections were one-off layouts rather than reusable components, so every new campaign page or performance fix meant repeating work that should have been a variation on something already built. Diagnostic signals — Lighthouse scores, funnel drop-off, heatmap friction — sat in the data with nobody assigned to act on them.",
+      "solution": "As the sole developer on the Gatsby-based marketing site, I built a library of 40+ reusable React components to replace the one-off layouts, then used Lighthouse audits, funnel analysis, and heatmaps to prioritize what to fix first. I added new lead-gen and content sections — a customer stories hub, a grant-match lead capture page, a new research report — on top of the existing site rather than in place of it, keeping every previously indexed page live and crawlable throughout.",
+      "outcome": "The component library replaced one-off page builds with assembly from a shared set, and the new sections expanded the sitemap from 51 pages to 54 without removing any of the pages already ranking. The contract was renewed on the strength of that work.",
+      "body": [
+        "Kiddom's marketing site had exactly one developer assigned to it: me. Every diagnostic audit, every component decision, every deploy went through a single person, on a static Gatsby site with no tag manager and no CMS plugin layer standing between the codebase and production. That kind of ownership removes the usual division of labor — there was no separate QA pass or devops layer to catch a mistake before it shipped.",
+        "The site I inherited had grown as one-off layouts: each section built for its own page rather than as an instance of something reusable. That is slow in the ordinary way — every new campaign page starts from a blank layout — and slow in a less obvious way, because performance work on one page tells you nothing about the next one built the same ad hoc way. I built a library of 40+ reusable React components in Gatsby to replace that pattern, so a new page became a composition instead of a fresh build.",
+        "Alongside the component work, I ran the site's performance and behavioral diagnostics myself: Lighthouse audits for render-blocking assets and layout shift, funnel analysis and heatmaps for where visitors dropped off or got stuck. Owning both the code and the diagnostics meant a friction point found in the data turned directly into a prioritized fix, without a handoff between whoever reads analytics and whoever ships code.",
+        "The site also needed new territory, and I built it without disturbing what already worked. A customer stories section went up alongside the existing success stories pages — additive, not a replacement — a grant-match page gave K-12 administrators a dedicated path to funding information, and a new research report gave content marketing a fresh asset. Every one of those was added with the sitemap checked before and after: the site moved from 51 URLs to 54, and nothing that was indexed going in was missing coming out.",
+        "That sitemap discipline mattered more than it sounds like it should. Adding sections to a site that already ranks is easy to get wrong in a way that only shows up in search traffic weeks later. Verifying the sitemap on both ends of every change was the cheap insurance against quietly breaking something that had taken years to rank.",
+        "Being the only developer on a live marketing site forces a kind of discipline that a bigger team can sometimes route around: the components have to be clean because nobody else is going to catch a mess, and the diagnostics have to turn into fixes because there is no one else to hand them to. The contract renewal that followed was the site's owners deciding that discipline was worth extending."
+      ],
+      "images": [
+        {
+          "src": "/work/kiddom-start.png",
+          "webp": "/work/kiddom-start.webp",
+          "alt": "Archived screenshot of the Kiddom marketing website homepage as it looked in March 2021, before the engagement began, showing the pre-tenure hero section and navigation.",
+          "caption": "The homepage at the start of the six-month engagement, March 2021.",
+          "width": 1600,
+          "height": 2000
+        },
+        {
+          "src": "/work/kiddom-end.png",
+          "webp": "/work/kiddom-end.webp",
+          "alt": "Archived screenshot of the Kiddom marketing website homepage from September 2021, at the end of the engagement, showing the front-end structure and visual presentation after the component rebuild.",
+          "caption": "The same homepage at the end of the engagement, September 2021 — one of 54 pages on the site by then, all built from the same component library.",
+          "width": 1600,
+          "height": 2000
+        }
+      ]
+    },
+    {
       "slug": "mednition-landing-page-templates",
       "company": "Mednition",
       "role": "HubSpot Developer / Designer",
@@ -251,57 +299,9 @@
       ]
     },
     {
-      "slug": "kiddom-component-architecture",
-      "company": "Kiddom",
-      "role": "Senior Web Developer",
-      "period": "Apr – Sep 2021",
-      "publishedAt": "2026-08-14",
-      "title": "Sole ownership, from Lighthouse score to sitemap",
-      "pillars": [
-        "Engineering",
-        "Product"
-      ],
-      "blurb": "Sole developer on a K-12 ed-tech marketing site, shipping 40+ reusable React components and new lead-gen sections without losing an indexed page.",
-      "stack": [
-        "Gatsby",
-        "React",
-        "Webpack",
-        "Lighthouse"
-      ],
-      "challenge": "Kiddom's marketing site had no dedicated technical owner. Front-end sections were one-off layouts rather than reusable components, so every new campaign page or performance fix meant repeating work that should have been a variation on something already built. Diagnostic signals — Lighthouse scores, funnel drop-off, heatmap friction — sat in the data with nobody assigned to act on them.",
-      "solution": "As the sole developer on the Gatsby-based marketing site, I built a library of 40+ reusable React components to replace the one-off layouts, then used Lighthouse audits, funnel analysis, and heatmaps to prioritize what to fix first. I added new lead-gen and content sections — a customer stories hub, a grant-match lead capture page, a new research report — on top of the existing site rather than in place of it, keeping every previously indexed page live and crawlable throughout.",
-      "outcome": "The component library replaced one-off page builds with assembly from a shared set, and the new sections expanded the sitemap from 51 pages to 54 without removing any of the pages already ranking. The contract was renewed on the strength of that work.",
-      "body": [
-        "Kiddom's marketing site had exactly one developer assigned to it: me. Every diagnostic audit, every component decision, every deploy went through a single person, on a static Gatsby site with no tag manager and no CMS plugin layer standing between the codebase and production. That kind of ownership removes the usual division of labor — there was no separate QA pass or devops layer to catch a mistake before it shipped.",
-        "The site I inherited had grown as one-off layouts: each section built for its own page rather than as an instance of something reusable. That is slow in the ordinary way — every new campaign page starts from a blank layout — and slow in a less obvious way, because performance work on one page tells you nothing about the next one built the same ad hoc way. I built a library of 40+ reusable React components in Gatsby to replace that pattern, so a new page became a composition instead of a fresh build.",
-        "Alongside the component work, I ran the site's performance and behavioral diagnostics myself: Lighthouse audits for render-blocking assets and layout shift, funnel analysis and heatmaps for where visitors dropped off or got stuck. Owning both the code and the diagnostics meant a friction point found in the data turned directly into a prioritized fix, without a handoff between whoever reads analytics and whoever ships code.",
-        "The site also needed new territory, and I built it without disturbing what already worked. A customer stories section went up alongside the existing success stories pages — additive, not a replacement — a grant-match page gave K-12 administrators a dedicated path to funding information, and a new research report gave content marketing a fresh asset. Every one of those was added with the sitemap checked before and after: the site moved from 51 URLs to 54, and nothing that was indexed going in was missing coming out.",
-        "That sitemap discipline mattered more than it sounds like it should. Adding sections to a site that already ranks is easy to get wrong in a way that only shows up in search traffic weeks later. Verifying the sitemap on both ends of every change was the cheap insurance against quietly breaking something that had taken years to rank.",
-        "Being the only developer on a live marketing site forces a kind of discipline that a bigger team can sometimes route around: the components have to be clean because nobody else is going to catch a mess, and the diagnostics have to turn into fixes because there is no one else to hand them to. The contract renewal that followed was the site's owners deciding that discipline was worth extending."
-      ],
-      "images": [
-        {
-          "src": "/work/kiddom-start.png",
-          "webp": "/work/kiddom-start.webp",
-          "alt": "Archived screenshot of the Kiddom marketing website homepage as it looked in March 2021, before the engagement began, showing the pre-tenure hero section and navigation.",
-          "caption": "The homepage at the start of the six-month engagement, March 2021.",
-          "width": 1600,
-          "height": 2000
-        },
-        {
-          "src": "/work/kiddom-end.png",
-          "webp": "/work/kiddom-end.webp",
-          "alt": "Archived screenshot of the Kiddom marketing website homepage from September 2021, at the end of the engagement, showing the front-end structure and visual presentation after the component rebuild.",
-          "caption": "The same homepage at the end of the engagement, September 2021 — one of 54 pages on the site by then, all built from the same component library.",
-          "width": 1600,
-          "height": 2000
-        }
-      ]
-    },
-    {
       "slug": "appzen-campaign-templates",
-      "company": "AppZen",
-      "role": "Senior Web Developer (Andersen Digital)",
+      "company": "Andersen Digital",
+      "role": "Senior Web Developer",
       "period": "Aug 2020 – May 2021",
       "publishedAt": "2026-08-14",
       "title": "A calculator template, redeployed without a rebuild",

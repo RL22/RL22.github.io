@@ -26,12 +26,10 @@ export default function Contact() {
           </p>
         </Reveal>
 
-        <div className="grid md:grid-cols-[1fr_280px] gap-12 lg:gap-16">
+        <div className="grid md:grid-cols-[minmax(0,26rem)_280px] gap-12 lg:gap-16">
           <Reveal>
             <h3 className="text-xl font-bold mb-6">Reach out</h3>
-            <div className="max-w-sm">
-              <ContactForm />
-            </div>
+            <ContactForm />
           </Reveal>
 
           <Reveal delay={0.15}>

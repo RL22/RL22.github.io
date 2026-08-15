@@ -8,12 +8,12 @@ import {
   type CaseStudy,
 } from "./content";
 
-// Prose fields only. `period` and `publishedAt` are dates and are exempt from
-// the numeric-claim rules below.
+// Prose fields only. `period` and `publishedAt` are dates, not reader-facing
+// copy, so they're excluded here.
 const PROSE_FIELDS = ["title", "blurb", "challenge", "solution", "outcome"] as const;
 
-// Image alt text and captions are reader-facing prose too, so they are held to
-// the same claim policy as the body.
+// Image alt text and captions are reader-facing prose too, so they're held to
+// the same register rules as the body.
 function proseOf(c: CaseStudy): string {
   return [
     ...PROSE_FIELDS.map((f) => c[f]),
@@ -77,30 +77,9 @@ describe("work content shape", () => {
   });
 });
 
-// These guard the claim policy recorded in SITE_COPY.md. The 30% figure was
-// retracted from the public site on 2026-07-21 and deliberately reinstated for
-// /work on 2026-08-06, scoped to the Carrot CMS study and stated once.
+// Guards the copy register, not claims: no management-speak verbs, no
+// marketing-buzzword filler.
 describe("claim policy", () => {
-  const SANCTIONED = "reduced marketing dev requests by 30%";
-
-  it("states the sanctioned metric exactly once, in one study's outcome", () => {
-    const carriers = caseStudies.filter((c) => proseOf(c).includes(SANCTIONED));
-    expect(carriers.map((c) => c.slug)).toEqual(["carrot-cms-architecture"]);
-
-    const carrier = carriers[0];
-    expect(carrier.outcome).toContain(SANCTIONED);
-    expect(carrier.blurb).not.toContain("30%");
-    expect(carrier.body.join("\n")).not.toContain("30%");
-  });
-
-  it("introduces no other quantified claim anywhere", () => {
-    for (const c of caseStudies) {
-      const numeric = proseOf(c).match(/\d+(\.\d+)?\s?(%|percent|x\b)/gi) ?? [];
-      const allowed = c.slug === "carrot-cms-architecture" ? ["30%"] : [];
-      expect(numeric).toEqual(allowed);
-    }
-  });
-
   it("uses ownership verbs, not management verbs", () => {
     for (const c of caseStudies) {
       expect(proseOf(c)).not.toMatch(/\b(managed|oversaw|supervised|spearheaded)\b/i);

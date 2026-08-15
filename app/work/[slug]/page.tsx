@@ -83,8 +83,8 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
           </a>
         </div>
         <WorkLayout item={item} />
+        <Contact />
       </main>
-      <Contact />
       <Footer />
     </>
   );

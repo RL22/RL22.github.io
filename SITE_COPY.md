@@ -181,17 +181,17 @@ Compact rows: title, role/period, one-line outcome, and (where one exists) an in
 
 #### Earlier 2: Mednition
 
-Added 2026-08-14 — a contract that ran concurrently with Andersen Digital and Kiddom, previously absent from this tier entirely.
+Added 2026-08-14, previously absent from this tier entirely. Rewritten 2026-08-15 to drop a concurrency aside (it ran alongside the Andersen Digital and Kiddom contracts) and recenter the line on the work itself: design and execution, not scheduling.
 
 **Role:** HubSpot Developer / Designer · Feb–Jul 2021 · Contract
-**Outcome:** Built modular HubSpot landing page templates for KATE, an emergency-department triage AI, concurrently with the Andersen Digital and Kiddom contracts below.
+**Outcome:** Designed and built modular HubSpot landing page templates for KATE, an emergency-department triage AI, that stayed in production unchanged for years after the five-month contract ended.
 **Case study:** `mednition-landing-page-templates`
 
 #### Earlier 3: Andersen Digital
 
 **Role:** Sr. Web Developer · 2020–2021
 **Outcome:** Ran CMS and marketing-automation migrations for enterprise clients including Rancher IO, AppZen, and Illumio, connecting their campaign tooling to the platforms their sales teams already worked in.
-**Case study:** `appzen-campaign-templates` (the row is titled Andersen Digital; the linked case study is scoped to the AppZen engagement specifically, not Rancher IO or Illumio)
+**Case study:** `appzen-campaign-templates` — Andersen Digital was the employer (an agency); AppZen was the client. The case study's `company` field says Andersen Digital to match, scoped to the AppZen engagement specifically, not Rancher IO or Illumio.
 
 #### Earlier 4: Revel Systems
 

@@ -96,10 +96,10 @@ export default function CampaignLoop() {
       </title>
       <desc id="campaign-desc">
         Two chains of four boxes, drawn at the same positions so they can be compared. The upper
-        chain, labelled &ldquo;Before — engineering gated&rdquo;, runs Marketing ops, Engineering,
+        chain, labelled &ldquo;Before: engineering gated&rdquo;, runs Marketing ops, Engineering,
         Landing page, Marketo, with Engineering shown as a solid grey box marking it as the
-        bottleneck. The lower chain, labelled &ldquo;Built — no ticket required&rdquo;, runs
-        Marketing ops, Modules, Landing page, Marketo — Engineering is absent from the chain — with
+        bottleneck. The lower chain, labelled &ldquo;Built: no ticket required&rdquo;, runs
+        Marketing ops, Modules, Landing page, Marketo. Engineering is absent from the chain, with
         an unbroken tracking bar beneath it and a single return arrow labelled &ldquo;test, read,
         iterate&rdquo; running from Marketo back to Marketing ops.
       </desc>
@@ -122,14 +122,14 @@ export default function CampaignLoop() {
 
       {/* ---------- Panel A: engineering in the chain ---------- */}
       <text x="8" y="12" className={PANEL_LABEL}>
-        Before — engineering gated
+        Before: engineering gated
       </text>
 
       <Chain y={26} labels={["Marketing ops", "Engineering", "Landing page", "Marketo"]} emphasisIndex={1} />
 
       {/* ---------- Panel B: engineering out of the chain ---------- */}
       <text x="8" y="106" className={PANEL_LABEL}>
-        Built — no ticket required
+        Built: no ticket required
       </text>
 
       <Chain y={120} labels={["Marketing ops", "Modules", "Landing page", "Marketo"]} />

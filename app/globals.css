@@ -43,17 +43,18 @@ h1, h2, h3, h4, .font-display {
 .skip-link {
   position: absolute;
   left: 1rem;
-  top: -3rem;
+  top: 1rem;
   z-index: 100;
   background-color: #A5523D;
   color: #ffffff;
   padding: 0.625rem 1.25rem;
   border-radius: 0.5rem;
   font-weight: 600;
-  transition: top 0.2s ease;
+  transform: translateY(-4rem);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .skip-link:focus {
-  top: 1rem;
+  transform: translateY(0);
   outline: 2px solid #ffffff;
   outline-offset: 2px;
 }
