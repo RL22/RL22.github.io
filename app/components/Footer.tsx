@@ -1,12 +1,15 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import { SHOW_BUILDING_IN_PUBLIC, SHOW_WORK } from "../config";
 
+// Absolute "/#..." paths, not bare "#...": Footer renders on /work and
+// /work/[slug] too, where a bare hash would resolve against that route
+// instead of jumping back to the homepage section.
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#projects" },
+  { label: "About", href: "/#about" },
+  { label: "Experience", href: "/#experience" },
   ...(SHOW_WORK ? [{ label: "Work", href: "/work/" }] : []),
-  ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Building in Public", href: "#building" }] : []),
-  { label: "Skills", href: "#skills" },
+  ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Building in Public", href: "/#building" }] : []),
+  { label: "Skills", href: "/#skills" },
   { label: "Resume", href: "/resume" },
 ];
 

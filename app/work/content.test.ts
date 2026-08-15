@@ -23,8 +23,8 @@ function proseOf(c: CaseStudy): string {
 }
 
 describe("work content shape", () => {
-  it("exposes four case studies", () => {
-    expect(caseStudies).toHaveLength(4);
+  it("exposes seven case studies", () => {
+    expect(caseStudies).toHaveLength(7);
   });
 
   it("has unique, url-safe slugs", () => {

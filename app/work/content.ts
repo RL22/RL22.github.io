@@ -54,6 +54,26 @@ export function getCaseStudiesByPillar(pillar: Pillar): CaseStudy[] {
   return caseStudies.filter((c) => c.pillars.includes(pillar));
 }
 
+// Anchor id for a company's group on the /work index.
+export function slugifyCompany(company: string): string {
+  return company
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+// Prev/next by array order (the order case studies are authored in
+// app/data/work.json), clamped at the ends rather than wrapping — this is
+// sequential reading order, not a carousel.
+export function getAdjacentCaseStudies(slug: string): { prev?: CaseStudy; next?: CaseStudy } {
+  const index = caseStudies.findIndex((c) => c.slug === slug);
+  if (index === -1) return {};
+  return {
+    prev: index > 0 ? caseStudies[index - 1] : undefined,
+    next: index < caseStudies.length - 1 ? caseStudies[index + 1] : undefined,
+  };
+}
+
 // Glue the last two words with a non-breaking space so headline reflow never
 // strands a single word alone on its own line. Rendering-only: the copy
 // checked by content.test.ts and used in metadata stays the plain string.

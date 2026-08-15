@@ -1,6 +1,6 @@
-import { WorkBottomCta } from "./WorkChrome";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getDiagram } from "./diagrams";
-import { preventWidow, type CaseStudy } from "./content";
+import { getAdjacentCaseStudies, preventWidow, type CaseStudy } from "./content";
 
 // The brief is a labelled definition list rather than three equal cards:
 // PRODUCT.md rules out the icon-heading-text grid, and challenge/solution/
@@ -74,6 +74,7 @@ function Rail({ item, hasDiagram }: { item: CaseStudy; hasDiagram: boolean }) {
 export default function WorkLayout({ item }: { item: CaseStudy }) {
   const [lead, ...rest] = item.body;
   const diagram = getDiagram(item.slug);
+  const { prev, next } = getAdjacentCaseStudies(item.slug);
 
   return (
     <article className="py-20">
@@ -144,10 +145,40 @@ export default function WorkLayout({ item }: { item: CaseStudy }) {
               ))}
             </ul>
           </div>
+
+          {(prev || next) && (
+            <nav
+              aria-label="Case study pagination"
+              className="mt-10 pt-8 border-t border-gray-200 grid sm:grid-cols-2 gap-6"
+            >
+              {prev ? (
+                <a href={`/work/${prev.slug}/`} className="group block">
+                  <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1.5 flex items-center gap-1.5">
+                    <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" /> Previous
+                  </p>
+                  <p className="font-semibold group-hover:text-brand-dark transition-colors">
+                    {prev.title}
+                  </p>
+                </a>
+              ) : (
+                <div />
+              )}
+              {next ? (
+                <a href={`/work/${next.slug}/`} className="group block sm:text-right">
+                  <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1.5 flex items-center gap-1.5 sm:justify-end">
+                    Next <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                  </p>
+                  <p className="font-semibold group-hover:text-brand-dark transition-colors">
+                    {next.title}
+                  </p>
+                </a>
+              ) : (
+                <div />
+              )}
+            </nav>
+          )}
         </div>
       </div>
-
-      <WorkBottomCta />
     </article>
   );
 }

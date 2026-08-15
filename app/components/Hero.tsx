@@ -2,6 +2,7 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import StackIcon, { type IconName } from "tech-stack-icons";
+import { SHOW_WORK } from "../config";
 import Reveal from "./Reveal";
 
 const techIcons: { name: IconName; alt: string }[] = [
@@ -73,7 +74,7 @@ export default function Hero() {
               <a href="#contact" className="btn-primary inline-flex items-center gap-2">
                 Let's talk <ArrowRight className="w-4 h-4" />
               </a>
-              <a href="#projects" className="text-gray-600 hover:text-brand-dark text-sm font-semibold transition-colors">
+              <a href={SHOW_WORK ? "/work/" : "#experience"} className="text-gray-600 hover:text-brand-dark text-sm font-semibold transition-colors">
                 See the work →
               </a>
             </div>
@@ -112,8 +113,8 @@ export default function Hero() {
           >
             <div className="float-card float-card--delay-1">
               <p className="text-gray-500 text-sm font-semibold mb-1">Organizations</p>
-              <p className="text-3xl font-bold">5</p>
-              <p className="text-gray-600 text-sm font-normal">Pendo · Carrot · Kiddom · Andersen · Revel</p>
+              <p className="text-3xl font-bold">6</p>
+              <p className="text-gray-600 text-sm font-normal">Pendo · Carrot · Kiddom · Mednition · Andersen · Revel</p>
             </div>
           </motion.div>
 
@@ -138,9 +139,9 @@ export default function Hero() {
             <p className="text-gray-600 text-sm mt-1">Owning marketing-site lifecycles</p>
           </div>
           <div className="card">
-            <p className="text-3xl font-bold">5</p>
+            <p className="text-3xl font-bold">6</p>
             <p className="text-gray-600 font-medium">Organizations</p>
-            <p className="text-gray-600 text-sm mt-1">Pendo · Carrot · Kiddom · Andersen · Revel</p>
+            <p className="text-gray-600 text-sm mt-1">Pendo · Carrot · Kiddom · Mednition · Andersen · Revel</p>
           </div>
           <div className="card">
             <p className="text-2xl font-bold text-brand">Self-Serve</p>

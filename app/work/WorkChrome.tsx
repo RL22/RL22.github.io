@@ -1,112 +1,75 @@
-import { ArrowLeft, Github, Linkedin, Mail } from "lucide-react";
-import { SHOW_BUILDING_IN_PUBLIC } from "../config";
+"use client";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
-// Twin of app/blog/BlogChrome.tsx. It exists separately because BlogHeader
-// hardcodes "Back to Building in Public", which is the wrong destination from
-// a case study.
-const footerLinks = [
-  { label: "About", href: "/#about" },
-  { label: "Experience", href: "/#projects" },
+// WorkHeader/WorkFooter (bespoke chrome for /work and /work/[slug]) were
+// replaced with the standard site Footer on 2026-08-14, but the nav needed
+// its own version: the homepage Navbar's links point at homepage sections
+// that don't exist here. WorkNavbar is deliberately minimal — logo/home,
+// Work, Resume, and the Contact button — rather than mirroring the
+// homepage's full link set.
+function Monogram() {
+  return (
+    <span className="w-9 h-9 bg-brand-dark rounded-lg flex items-center justify-center text-white font-bold text-sm tracking-tight">
+      RL
+    </span>
+  );
+}
+
+const links = [
   { label: "Work", href: "/work/" },
-  ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Building in Public", href: "/#building" }] : []),
-  { label: "Skills", href: "/#skills" },
   { label: "Resume", href: "/resume" },
 ];
 
-const socialLinks = [
-  { Icon: Github, href: "https://github.com/RL22", label: "GitHub" },
-  { Icon: Linkedin, href: "https://www.linkedin.com/in/rodney-lewis-abb11b73", label: "LinkedIn" },
-  { Icon: Mail, href: "mailto:lewis.rodneyl@gmail.com", label: "Email" },
-];
+export function WorkNavbar() {
+  const [open, setOpen] = useState(false);
 
-export function WorkHeader() {
   return (
     <header className="sticky top-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-cream-dark">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2 font-bold text-lg">
-          <span className="w-9 h-9 bg-brand-dark rounded-lg flex items-center justify-center text-white font-bold text-sm tracking-tight">
-            RL
-          </span>
+          <Monogram />
           Rodney L. Lewis
         </a>
-        <nav className="flex items-center gap-8">
-          <a
-            href="/work/"
-            aria-label="All case studies"
-            className="-m-3.5 p-3.5 text-gray-600 hover:text-brand-dark font-medium transition-colors flex items-center gap-1.5"
-          >
-            <ArrowLeft className="w-4 h-4 md:hidden" aria-hidden="true" />
-            <span className="hidden md:inline">All case studies</span>
-          </a>
+        <nav className="hidden md:flex items-center gap-8">
+          {links.map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              className="text-gray-600 hover:text-brand-dark font-medium transition-colors"
+            >
+              {l.label}
+            </a>
+          ))}
         </nav>
-        <a href="/#contact" className="btn-primary text-sm">
+        <a href="#contact" className="hidden md:inline-flex btn-primary text-sm">
           Contact
         </a>
+        <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
-    </header>
-  );
-}
-
-export function WorkFooter() {
-  return (
-    <footer className="bg-cream border-t border-cream-dark py-10">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <a href="/" className="flex items-center gap-2 font-bold text-lg">
-            <span className="w-9 h-9 bg-brand-dark rounded-lg flex items-center justify-center text-white font-bold text-sm tracking-tight">
-              RL
-            </span>
-            Rodney L. Lewis
+      {open && (
+        <nav className="md:hidden bg-cream px-6 pb-4 flex flex-col gap-4">
+          {links.map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className="text-gray-700 font-medium py-2 border-b border-cream-dark"
+            >
+              {l.label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            onClick={() => setOpen(false)}
+            className="btn-primary text-sm text-center mt-2"
+          >
+            Contact
           </a>
-
-          <nav className="flex gap-6 flex-wrap justify-center">
-            {footerLinks.map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                className="text-gray-600 hover:text-brand-dark text-sm transition-colors"
-              >
-                {l.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="flex gap-3">
-            {socialLinks.map(({ Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                aria-label={label}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:text-brand-dark hover:border-brand transition-colors"
-              >
-                <Icon className="w-4 h-4" />
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-8 pt-6 border-t border-cream-dark text-center">
-          <p className="text-gray-600 text-sm">
-            &copy; {new Date().getFullYear()}{" "}
-            <span className="text-brand-dark font-semibold">Rodney L. Lewis</span>. Oakland, CA.
-          </p>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-export function WorkBottomCta() {
-  return (
-    <div className="border-t border-gray-200 pt-10 mt-16 max-w-3xl mx-auto px-6 flex flex-wrap gap-4">
-      <a href="/work/" className="btn-outline">
-        More case studies
-      </a>
-      <a href="/#contact" className="btn-primary">
-        Get in touch
-      </a>
-    </div>
+        </nav>
+      )}
+    </header>
   );
 }

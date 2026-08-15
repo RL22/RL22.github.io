@@ -48,8 +48,8 @@ Scale marketing impact.
 Nine years owning marketing-site lifecycles: CMS architecture, reusable component systems, and the performance work that turns a website into a compounding asset. I work across design, engineering, and marketing, with an AI-native workflow underneath.
 
 ### Call-to-Action Buttons
-- Primary: "Let's talk" (with arrow icon)
-- Secondary: "See the work →"
+- Primary: "Let's talk" (with arrow icon) → `#contact`
+- Secondary: "See the work →" → `/work/` (added 2026-08-14; previously scrolled to `#projects`)
 
 *(The text credibility strip below the CTAs — "8+ yrs · 5 orgs · Owned site lifecycles end-to-end · 30% fewer dev requests" — was removed. The floating cards carry those facts.)*
 
@@ -57,8 +57,8 @@ Nine years owning marketing-site lifecycles: CMS architecture, reusable componen
 1. **9+** Years
    - Owning marketing-site lifecycles
 
-2. **Organizations**: **5**
-   - Pendo · Carrot · Kiddom · Andersen · Revel
+2. **Organizations**: **6**
+   - Pendo · Carrot · Kiddom · Mednition · Andersen · Revel
 
 3. **Self-Serve** Marketing ships without me
    - The measure I build for
@@ -67,8 +67,8 @@ Nine years owning marketing-site lifecycles: CMS architecture, reusable componen
 1. **9+** Years
    - Owning marketing-site lifecycles
 
-2. **5** Organizations
-   - Pendo · Carrot · Kiddom · Andersen · Revel
+2. **6** Organizations
+   - Pendo · Carrot · Kiddom · Mednition · Andersen · Revel
 
 3. **Self-Serve** Marketing ships without me
    - The measure I build for
@@ -91,7 +91,9 @@ About
 **Main Heading:** I treat marketing sites like product.
 
 **Narrative P1:**
-Most marketing websites get refactored from the inside every time the brand pivots, and the platform underneath erodes. For nine years at Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems, my job has been the same at every logo: take an inherited marketing site, treat it like product, and make the team faster.
+Most marketing websites get refactored from the inside every time the brand pivots, and the platform underneath erodes. For nine years at Pendo, Carrot Fertility, Kiddom, Mednition, Andersen, and Revel Systems, my job has been the same at every logo: take an inherited marketing site, treat it like product, and make the team faster.
+
+*(Mednition added 2026-08-14 to match the Experience section's Earlier Roles tier and the Hero "Organizations" count, both updated the same day — see the Hero section note above.)*
 
 **Narrative P2:**
 I'm based in Oakland, CA. Today I run [Sprintz](https://sprintz.agency), helping founders and small marketing teams adopt AI into how they work, and building the sites and workflows that come out of it.
@@ -130,9 +132,16 @@ Marketing-site lifecycles, owned end-to-end.
 ### Section Subheading
 Every role has followed the same arc: an inherited marketing site, a platform reset, and a team that ships without me afterward.
 
-Cards render in two tiers: a **Featured** tier (org block, description, outcome, capability tags) and an **Earlier roles** tier (compact rows: org, role, one-line outcome). Both tiers are reverse-chronological. Outbound "Visit site" / "Source" buttons and earlier-role company links were removed 2026-07-21.
+Cards render in two visually distinct tiers, reverse-chronological within each:
 
-Titles reflect the owner-directed 2026-07-21 revision (see Revision note). Cards lead with the operating-model change (what was inherited, what changed, what the team could do afterward) rather than metrics or tool lists; tools live in the Skills section.
+- **Featured** — the 3 big cards (org block, description, outcome, capability tags).
+- **Earlier roles** — compact rows (org, role/period, one-line outcome). Briefly reformatted to the Featured card layout on 2026-08-14, then reverted the same day to the original compact-row format on the owner's direction — Experience is meant to stay the resume-density view, distinct from the deep-dive `/work` case studies. Outbound "Visit site" / "Source" buttons and earlier-role company links were removed 2026-07-21 and were not reintroduced.
+
+Titles reflect the owner-directed 2026-07-21 revision (see Revision note). Featured cards lead with the operating-model change (what was inherited, what changed, what the team could do afterward) rather than metrics or tool lists; tools live in the Skills section.
+
+Cards/rows for orgs with a published `/work` case study show a "Case study: {title}" link — under the tags on Featured cards, inline beneath the outcome line on Earlier-role rows — gated on `SHOW_WORK` (`app/config.ts`). Sprintz and Revel Systems have no case study and show no link. Case-study pages do not link back to this section; the role/company context is already stated in the case study's own rail (company, role, period), per the owner's direction (2026-08-14) that Work and Experience overlap in subject but are not meant to be woven together as one navigable unit.
+
+A one-line pointer to `/work` was added under the section subheading, gated on `SHOW_WORK`: "This is the resume view. A few of these roles are written up in full at Work."
 
 ### Featured Tier
 
@@ -162,20 +171,33 @@ Titles reflect the owner-directed 2026-07-21 revision (see Revision note). Cards
 
 ### Earlier Roles Tier
 
+Compact rows: title, role/period, one-line outcome, and (where one exists) an inline "Case study: {title}" link. No category, description, or tags at this tier — that detail lives in the Featured tier and in the linked `/work` case study.
+
 #### Earlier 1: Kiddom
 
 **Role:** Sr. Web Developer · 2021
 **Outcome:** Streamlined the marketing component library and audited the site against funnel data and heatmaps, leaving the team a base they could iterate on without starting over.
+**Case study:** `kiddom-component-architecture`
 
-#### Earlier 2: Andersen Digital
+#### Earlier 2: Mednition
+
+Added 2026-08-14 — a contract that ran concurrently with Andersen Digital and Kiddom, previously absent from this tier entirely.
+
+**Role:** HubSpot Developer / Designer · Feb–Jul 2021 · Contract
+**Outcome:** Built modular HubSpot landing page templates for KATE, an emergency-department triage AI, concurrently with the Andersen Digital and Kiddom contracts below.
+**Case study:** `mednition-landing-page-templates`
+
+#### Earlier 3: Andersen Digital
 
 **Role:** Sr. Web Developer · 2020–2021
 **Outcome:** Ran CMS and marketing-automation migrations for enterprise clients including Rancher IO, AppZen, and Illumio, connecting their campaign tooling to the platforms their sales teams already worked in.
+**Case study:** `appzen-campaign-templates` (the row is titled Andersen Digital; the linked case study is scoped to the AppZen engagement specifically, not Rancher IO or Illumio)
 
-#### Earlier 3: Revel Systems
+#### Earlier 4: Revel Systems
 
 **Role:** Web Developer to Sr. Web Developer · 2016–2020
 **Outcome:** Spent four years rebuilding the company's web properties around SEO and growth priorities, then helped build an on-demand product training platform that gave customers a reason to stay after the sale.
+**Case study:** none — no `/work` entry exists for Revel Systems.
 
 ### CTA
 View all resources (links to `/blog`)

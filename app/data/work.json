@@ -7,9 +7,19 @@
       "period": "Oct 2022 – Jun 2023",
       "publishedAt": "2026-08-06",
       "title": "A URL architecture the product suite could grow into",
-      "pillars": ["Engineering", "Product"],
+      "pillars": [
+        "Engineering",
+        "Product"
+      ],
       "blurb": "Rebuilt Pendo's product pages on a headless WordPress and React architecture so a growing product suite could expand without a rebuild.",
-      "stack": ["Headless WordPress", "ACF", "Gutenberg", "React", "Gatsby", "Next.js"],
+      "stack": [
+        "Headless WordPress",
+        "ACF",
+        "Gutenberg",
+        "React",
+        "Gatsby",
+        "Next.js"
+      ],
       "challenge": "Pendo's product line was expanding faster than the website architecture that carried it. Every new product needed a page, every page needed a place in the information architecture, and the existing structure had no room left. The site could absorb another launch, but only by hand, and only with an engineer in the loop for each one.",
       "solution": "I built the product surface of the main site as a component-driven system on a headless WordPress back end, with React and Gatsby rendering the front. Content lived in structured ACF and Gutenberg fields rather than in page markup, and the URL structure was reorganized around product families, under a /product-{family}/{product}/ pattern, so the shape of the site matched the shape of the product line. A new product page became a matter of composing existing components against a new content record.",
       "outcome": "The architecture stopped being the constraint on launches. New product family pages assembled from components the team already had, in a URL structure that had room in it, without an engineer rebuilding the section each time.",
@@ -48,9 +58,18 @@
       "period": "Oct 2022 – Jun 2023",
       "publishedAt": "2026-08-06",
       "title": "Taking engineering out of the campaign loop",
-      "pillars": ["Marketing", "Analytics"],
+      "pillars": [
+        "Marketing",
+        "Analytics"
+      ],
       "blurb": "Modular Marketo templates, personalization, and clean tracking on go.pendo.io, so demand gen could launch and test without an engineering ticket.",
-      "stack": ["Marketo", "Mutiny", "Google Tag Manager", "Segment", "JavaScript"],
+      "stack": [
+        "Marketo",
+        "Mutiny",
+        "Google Tag Manager",
+        "Segment",
+        "JavaScript"
+      ],
       "challenge": "Marketing operations could not launch a campaign without engineering. Every landing page and every email started as a ticket, which meant the pace of demand gen was set by an engineering queue rather than by the campaign calendar. Testing suffered first: when a variant costs a sprint slot, teams stop running variants.",
       "solution": "I rebuilt the demand gen surface on go.pendo.io as a template system rather than a page factory. Marketo guided landing page templates and email templates were broken into modules marketing ops could assemble on their own, with custom JavaScript underneath for the behavior the templates could not express — form logic that filtered non-company email addresses at the point of entry, and Google Tag Manager data layer scripts that made every page report itself consistently. Mutiny sat on top for audience-segmented testing and personalization.",
       "outcome": "Marketing ops stopped filing tickets to launch. Campaigns, variants, and audience-specific treatments shipped on the marketing team's own schedule, and the data coming back was clean enough to act on because the tracking was part of the template rather than added per page.",
@@ -89,9 +108,17 @@
       "period": "Sep 2021 – Jul 2022",
       "publishedAt": "2026-08-06",
       "title": "Running the marketing site like a product",
-      "pillars": ["Product", "Engineering"],
+      "pillars": [
+        "Product",
+        "Engineering"
+      ],
       "blurb": "Ran the marketing site like a product: Asana intake, modular Webflow collection templates, and a careers section wired to the Greenhouse API.",
-      "stack": ["Webflow Enterprise CMS", "Greenhouse API", "Asana", "JavaScript"],
+      "stack": [
+        "Webflow Enterprise CMS",
+        "Greenhouse API",
+        "Asana",
+        "JavaScript"
+      ],
       "challenge": "Web work arrived from every direction and in no consistent form. Requests came in as conversations, scope was discovered mid-build, and the CMS collection pages underneath had drifted far enough from the design system that each new page was a small negotiation. Content production was slow, and the slowness was operational as much as technical.",
       "solution": "I treated the marketing site as a product with an intake, a backlog, and a template system. An Asana intake form standardized how web work was scoped across marketing, design, and engineering, so requests arrived with the information needed to size them. I then rebuilt the Webflow CMS collection pages as modular templates that enforced the design system by construction, and wired the careers section to the Greenhouse API so open roles published themselves.",
       "outcome": "Architected modular Webflow templates that reduced marketing dev requests by 30% and returned roadmap capacity to engineering. Design system consistency became the default state of a new page rather than something reviewed into it, and the careers section stopped being a page anyone had to maintain.",
@@ -130,9 +157,16 @@
       "period": "Sep 2021 – Jul 2022",
       "publishedAt": "2026-08-06",
       "title": "One domain, one funnel, no handoff",
-      "pillars": ["Marketing", "Engineering"],
+      "pillars": [
+        "Marketing",
+        "Engineering"
+      ],
       "blurb": "Embedded Marketo forms and brand-matched email templates into the native Webflow site, keeping conversion, tracking, and SEO on one domain.",
-      "stack": ["Webflow Enterprise CMS", "Marketo", "JavaScript"],
+      "stack": [
+        "Webflow Enterprise CMS",
+        "Marketo",
+        "JavaScript"
+      ],
       "challenge": "The conversion path crossed a domain boundary. Sending prospects from the marketing site to a separate landing page system split the funnel in two: tracking continuity broke at the handoff, the visual experience changed underneath the visitor, and the pages that earned the most intent lived off the domain accruing the SEO value.",
       "solution": "Rather than run a separate demand gen subdomain, I embedded custom Marketo forms directly into native Webflow pages and component symbols, so the form was part of the page instead of a destination the visitor was sent to. Marketo email templates were rebuilt to match the brand system, so what arrived in the inbox after a submission looked like the page that produced it. Marketing kept its native Marketo data; the visitor never left the site.",
       "outcome": "The funnel stayed on one domain end to end. Tracking held together across the whole path instead of resetting at a handoff, the pages carrying the most intent kept contributing to the domain's SEO position, and marketing lost nothing on the data side because the forms were Marketo forms.",
@@ -159,6 +193,161 @@
           "webp": "/work/carrot-careers.webp",
           "alt": "Archived screenshot of the Carrot open-roles page: a pale-blue hero headed \"Open Roles\" above a two-column layout with a Departments filter rail on the left and a job list grouped under department headings on the right, each listing showing a role title and a Learn More link.",
           "caption": "The careers section, May 2022. Every role on this page renders from the Greenhouse API, so there is no step where the site can drift from the ATS.",
+          "width": 1600,
+          "height": 2000
+        }
+      ]
+    },
+    {
+      "slug": "mednition-landing-page-templates",
+      "company": "Mednition",
+      "role": "HubSpot Developer / Designer",
+      "period": "Feb – Jul 2021",
+      "publishedAt": "2026-08-14",
+      "title": "Templates built once, still live years later",
+      "pillars": [
+        "Engineering",
+        "Marketing"
+      ],
+      "blurb": "Modular HubSpot landing page templates for an emergency-care AI platform — one stayed live for nearly five years after a five-month contract.",
+      "stack": [
+        "HubSpot CMS",
+        "HubL",
+        "CSS",
+        "A/B Testing"
+      ],
+      "challenge": "Mednition needed landing pages for KATE, its AI-assisted emergency department triage tool, built for hospital and clinical audiences who reject aggressive B2B sales language on sight. The original scope was narrow: one to two weeks, a handful of hours a week, up to three landing pages in HubSpot with conversion testing built in.",
+      "solution": "I designed and built five modular HubSpot landing page templates on Mednition's insights subdomain — covering a product overview, an industry event, a clinical research study, and two demo-request formats — with layout and styling separated cleanly from the content fields marketing edited, and A/B testing wired into the template rather than bolted on per page.",
+      "outcome": "The one to two week engagement extended to five months on the strength of the templates, and the KATE triage landing page built in the opening weeks was still live and unchanged in structure years later — a page scoped for a short contract that outran the contract itself by nearly five years.",
+      "body": [
+        "Mednition builds KATE, an AI system that helps emergency department nurses assign Emergency Severity Index triage acuity — a judgment call that affects how quickly a patient in the waiting room gets seen. Marketing a clinical AI tool to hospital administrators and ER leadership rules out most of the standard B2B playbook: aggressive claims and growth-hacked funnels read as untrustworthy to an audience deciding how emergency departments triage patients. The pages had to earn trust through restraint, not persuasion tactics.",
+        "The contract started small: one to two weeks, five to eight hours a week, to design and develop up to three landing pages in HubSpot with A/B testing for conversion. I treated the brief as a template problem instead of a page-by-page one. Five pages eventually shipped from the same modular system — a KATE product overview, an American Heart Association innovation event page, a clinical research recruitment page, and two demo-request pages — sharing consistent typography, a predictable content hierarchy, and CTA placement that held up under testing instead of fighting it.",
+        "Underneath the design, the templates were built for handoff. Layout and styling lived in the HubSpot template layer; the fields marketing edited were kept separate from it, which is the difference between a team that can launch a new campaign page on its own and one that routes every change back through a developer. That separation was the real deliverable — the pages were the proof it worked.",
+        "The clearest evidence of that showed up after the contract ended. The KATE triage landing page built in the first weeks of the engagement was still being served, in its original structure, nearly five years later — a page scoped for a one to two week job outliving the contract that produced it many times over, without a rebuild in between.",
+        "The subdomain itself stayed active well past the handoff, too: independent archive records show dozens of distinct paths published on it in the years after the contract closed, which says more about Mednition's marketing operation than about any one template, but it is consistent with a system a non-technical team could keep running without an engineer in the loop.",
+        "A modular template built for a short contract is really a bet that the client keeps running it once the contract is a memory. This one paid off on a longer horizon than most landing pages get the chance to: the same page, the same structure, five years on."
+      ],
+      "diagramNote": "Show one HubSpot template shell on the left feeding four content variants on the right — product overview, event, research, and demo request — each pulling from the same header, hero, and CTA components with only the content fields swapped. Draw a locked layer around the layout/styling portion and an open layer around the content fields, labeled as the boundary marketing could edit without a developer. Off to the side, show a single timeline arrow from the original build date stretching far to the right past the end of the contract, labeled as the page still running unchanged.",
+      "images": [
+        {
+          "src": "/work/mednition-early.png",
+          "webp": "/work/mednition-early.webp",
+          "alt": "Archived screenshot of Mednition's KATE for ESI Acuity Assignment landing page as first captured in February 2021: a clinical hero heading, a supporting paragraph, and a HubSpot-built demo request form, styled in a restrained, clinical visual register.",
+          "caption": "The KATE triage landing page as it looked when it first went live, February 2021 — built inside the modular HubSpot template system.",
+          "width": 1600,
+          "height": 1829
+        },
+        {
+          "src": "/work/mednition-aha-event.png",
+          "webp": "/work/mednition-aha-event.webp",
+          "alt": "Archived screenshot of the American Heart Association Innovation Event landing page, showing the same modular template system applied to an industry event: an event-specific hero, an agenda section, and a registration form.",
+          "caption": "An event landing page built from the same template shell, February 2021 — different content, same underlying components.",
+          "width": 1600,
+          "height": 2000
+        },
+        {
+          "src": "/work/mednition-recent.png",
+          "webp": "/work/mednition-recent.webp",
+          "alt": "Archived screenshot of the same KATE for ESI Acuity Assignment landing page captured years later, showing the same structure, form, and layout still in production on Mednition's insights subdomain.",
+          "caption": "The same page, captured again years later: same structure, same form, unchanged since the original build.",
+          "width": 1600,
+          "height": 1282
+        }
+      ]
+    },
+    {
+      "slug": "kiddom-component-architecture",
+      "company": "Kiddom",
+      "role": "Senior Web Developer",
+      "period": "Apr – Sep 2021",
+      "publishedAt": "2026-08-14",
+      "title": "Sole ownership, from Lighthouse score to sitemap",
+      "pillars": [
+        "Engineering",
+        "Product"
+      ],
+      "blurb": "Sole developer on a K-12 ed-tech marketing site, shipping 40+ reusable React components and new lead-gen sections without losing an indexed page.",
+      "stack": [
+        "Gatsby",
+        "React",
+        "Webpack",
+        "Lighthouse"
+      ],
+      "challenge": "Kiddom's marketing site had no dedicated technical owner. Front-end sections were one-off layouts rather than reusable components, so every new campaign page or performance fix meant repeating work that should have been a variation on something already built. Diagnostic signals — Lighthouse scores, funnel drop-off, heatmap friction — sat in the data with nobody assigned to act on them.",
+      "solution": "As the sole developer on the Gatsby-based marketing site, I built a library of 40+ reusable React components to replace the one-off layouts, then used Lighthouse audits, funnel analysis, and heatmaps to prioritize what to fix first. I added new lead-gen and content sections — a customer stories hub, a grant-match lead capture page, a new research report — on top of the existing site rather than in place of it, keeping every previously indexed page live and crawlable throughout.",
+      "outcome": "The component library replaced one-off page builds with assembly from a shared set, and the new sections expanded the sitemap from 51 pages to 54 without removing any of the pages already ranking. The contract was renewed on the strength of that work.",
+      "body": [
+        "Kiddom's marketing site had exactly one developer assigned to it: me. Every diagnostic audit, every component decision, every deploy went through a single person, on a static Gatsby site with no tag manager and no CMS plugin layer standing between the codebase and production. That kind of ownership removes the usual division of labor — there was no separate QA pass or devops layer to catch a mistake before it shipped.",
+        "The site I inherited had grown as one-off layouts: each section built for its own page rather than as an instance of something reusable. That is slow in the ordinary way — every new campaign page starts from a blank layout — and slow in a less obvious way, because performance work on one page tells you nothing about the next one built the same ad hoc way. I built a library of 40+ reusable React components in Gatsby to replace that pattern, so a new page became a composition instead of a fresh build.",
+        "Alongside the component work, I ran the site's performance and behavioral diagnostics myself: Lighthouse audits for render-blocking assets and layout shift, funnel analysis and heatmaps for where visitors dropped off or got stuck. Owning both the code and the diagnostics meant a friction point found in the data turned directly into a prioritized fix, without a handoff between whoever reads analytics and whoever ships code.",
+        "The site also needed new territory, and I built it without disturbing what already worked. A customer stories section went up alongside the existing success stories pages — additive, not a replacement — a grant-match page gave K-12 administrators a dedicated path to funding information, and a new research report gave content marketing a fresh asset. Every one of those was added with the sitemap checked before and after: the site moved from 51 URLs to 54, and nothing that was indexed going in was missing coming out.",
+        "That sitemap discipline mattered more than it sounds like it should. Adding sections to a site that already ranks is easy to get wrong in a way that only shows up in search traffic weeks later. Verifying the sitemap on both ends of every change was the cheap insurance against quietly breaking something that had taken years to rank.",
+        "Being the only developer on a live marketing site forces a kind of discipline that a bigger team can sometimes route around: the components have to be clean because nobody else is going to catch a mess, and the diagnostics have to turn into fixes because there is no one else to hand them to. The contract renewal that followed was the site's owners deciding that discipline was worth extending."
+      ],
+      "diagramNote": "Two panels. Left panel: a single developer node with three arrows out — one to a component library block (labeled 40+ Gatsby/React components), one to a diagnostics block (Lighthouse, funnel, and heatmap icons feeding a prioritized-fix list), and one to a sitemap block. Right panel: the sitemap block expanding from 51 to 54 nodes, with the three new nodes (customer stories, grant-match, research report) drawn as additions branching off the existing tree rather than replacing any existing leaf — no node in the original 51 is removed or redrawn.",
+      "images": [
+        {
+          "src": "/work/kiddom-start.png",
+          "webp": "/work/kiddom-start.webp",
+          "alt": "Archived screenshot of the Kiddom marketing website homepage as it looked in March 2021, before the engagement began, showing the pre-tenure hero section and navigation.",
+          "caption": "The homepage at the start of the six-month engagement, March 2021.",
+          "width": 1600,
+          "height": 2000
+        },
+        {
+          "src": "/work/kiddom-end.png",
+          "webp": "/work/kiddom-end.webp",
+          "alt": "Archived screenshot of the Kiddom marketing website homepage from September 2021, at the end of the engagement, showing the front-end structure and visual presentation after the component rebuild.",
+          "caption": "The same homepage at the end of the engagement, September 2021 — one of 54 pages on the site by then, all built from the same component library.",
+          "width": 1600,
+          "height": 2000
+        }
+      ]
+    },
+    {
+      "slug": "appzen-campaign-templates",
+      "company": "AppZen",
+      "role": "Senior Web Developer (Andersen Digital)",
+      "period": "Aug 2020 – May 2021",
+      "publishedAt": "2026-08-14",
+      "title": "A calculator template, redeployed without a rebuild",
+      "pillars": [
+        "Engineering",
+        "Marketing"
+      ],
+      "blurb": "A reusable ROI calculator template for AppZen's Marketo-to-HubSpot migration, built once and redeployed months later for a second campaign.",
+      "stack": [
+        "HubSpot CMS",
+        "Marketo",
+        "JavaScript",
+        "HubSpot Forms"
+      ],
+      "challenge": "AppZen was migrating its campaign subdomain from Marketo to HubSpot, and the pages built on it were bottlenecked by rigid, one-off structures. Enterprise lead-gen tools like a finance ROI calculator needed bespoke front-end work for every new offer, which meant every campaign idea waited on developer time before marketing could test it.",
+      "solution": "As part of a multi-client consulting engagement, I supported AppZen's Marketo-to-HubSpot migration and built a reusable landing page template for their ROI calculator, unifying the calculation logic, input sliders, value proposition blocks, and HubSpot form capture into one maintainable layout. I also built templates for AppZen's other recurring campaign formats — event pages and gated asset downloads — on the same subdomain.",
+      "outcome": "The calculator template was built once and redeployed months later for a second product campaign under the same URL and naming pattern, without a rebuild. The subdomain moved fully onto HubSpot, and campaign teams had templates for the formats they used most, rather than a bespoke build for each.",
+      "body": [
+        "AppZen's campaign subdomain was in the middle of a platform change: moving from Marketo to HubSpot while campaigns kept running on it. My work was part of a multi-client agency engagement, supporting the migration of tracking, form handlers, and design tokens without breaking live campaign traffic — the kind of work where the visible deliverable is a page, but the harder part is not losing data mid-flight.",
+        "The recurring bottleneck was AppZen's ROI calculator, a finance-focused interactive tool sales used as a lead-gen asset. Before the rebuild, a calculator page meant hardcoded JavaScript specific to that one launch — every new instance meant an engineer rewriting logic that should have been configuration. I built a template that separated the calculation logic and input fields from the page around them, so a new calculator instance was a matter of setting parameters, not writing new code.",
+        "The template held up under the test that matters: reuse. Months after the first version launched, AppZen's marketing team deployed a second calculator instance for a new product line, under the same URL and naming pattern, without pulling me back in to rebuild it. A template that gets reused without its author in the room is the template working as intended.",
+        "Beyond the calculator, I built templates for AppZen's other recurring campaign formats on the same subdomain — event landing pages with speaker grids and registration forms, and gated asset downloads — so the subdomain had a small set of reusable shells rather than a page-by-page build for every campaign type.",
+        "None of this was really about the calculator specifically. It was about recognizing that a subdomain doesn't need many pages to have a template problem — it needs a small number of recurring formats and the discipline to build each one once. AppZen's campaign subdomain had six or so page types in active rotation at any point, which is a template problem at any scale.",
+        "The migration itself closed out cleanly: by the end of the engagement, AppZen's campaign infrastructure was running on HubSpot with the tracking and form handling intact, and the templates left behind meant the next campaign didn't have to start from a blank page."
+      ],
+      "diagramNote": "Show a subdomain box (info.appzen.com) with a Marketo-to-HubSpot migration arrow crossing it left to right, tracking and form-handler icons riding the same arrow so the migration reads as one motion, not a swap. Below, branch the subdomain into three template shells — ROI calculator (with a parameters/config icon separate from the page shell), event landing page, and gated asset download — and from the calculator shell, draw two campaign instances launching off it months apart, both pointing back to the same template shell rather than to separate builds.",
+      "images": [
+        {
+          "src": "/work/appzen-mastermindsummit.png",
+          "webp": "/work/appzen-mastermindsummit.webp",
+          "alt": "Screenshot of AppZen's Mastermind Summit event landing page on info.appzen.com, showing event branding, an agenda section, and a registration form built from the same modular template system used across AppZen's other campaign pages.",
+          "caption": "An event landing page on the same subdomain, captured December 2020 — a different template shell than the calculator, same underlying system.",
+          "width": 1600,
+          "height": 1300
+        },
+        {
+          "src": "/work/appzen-roi-calculator-live.png",
+          "webp": "/work/appzen-roi-calculator-live.webp",
+          "alt": "Screenshot of AppZen's ROI calculator landing page on info.appzen.com, showing an interactive slider-based tool with input fields on one side and a live-calculated output panel on the other.",
+          "caption": "The calculator template as it exists on the live subdomain today. The original 2020 instance never rendered in the Wayback archive because its scripts weren't preserved, so this is a current capture of the same template pattern, not a historical snapshot.",
           "width": 1600,
           "height": 2000
         }
