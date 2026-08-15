@@ -14,16 +14,16 @@ function Brief({ item }: { item: CaseStudy }) {
   ];
 
   return (
-    <dl className="border-l-2 border-brand/30 pl-6 space-y-8 my-12 max-w-[62ch]">
+    <div className="border-l-2 border-brand/30 pl-6 space-y-8 my-12 max-w-[62ch]">
       {rows.map(([term, definition]) => (
         <div key={term} id={term.toLowerCase()} className="scroll-mt-24">
-          <dt className="text-xs font-bold uppercase tracking-widest text-brand-dark mb-2">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-brand-dark mb-2">
             {term}
-          </dt>
-          <dd className="text-gray-700 leading-relaxed">{definition}</dd>
+          </h2>
+          <p className="text-gray-700 leading-relaxed">{definition}</p>
         </div>
       ))}
-    </dl>
+    </div>
   );
 }
 
@@ -37,6 +37,7 @@ function Rail({ item, hasDiagram }: { item: CaseStudy; hasDiagram: boolean }) {
     ["Solution", "#solution"],
     ["Outcome", "#outcome"],
     ...(hasDiagram ? [["Diagram", "#diagram"]] : []),
+    ["The build", "#the-build"],
     ["Built with", "#built-with"],
   ] as const;
 
@@ -101,11 +102,18 @@ export default function WorkLayout({ item }: { item: CaseStudy }) {
             </figure>
           )}
 
-          <div className="max-w-[62ch] space-y-5 text-gray-700 leading-relaxed">
-            {rest.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
+          {rest.length > 0 && (
+            <div id="the-build" className="scroll-mt-24">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">
+                The build
+              </h2>
+              <div className="max-w-[62ch] space-y-5 text-gray-700 leading-relaxed">
+                {rest.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+            </div>
+          )}
 
           {item.images.length > 0 && (
             <div className="mt-14 space-y-10 max-w-[62ch]">

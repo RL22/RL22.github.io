@@ -20,9 +20,22 @@ export default function Contact() {
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
             If you&apos;re hiring a platform owner, let&apos;s talk.
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto mb-6">
             Currently open to senior roles owning marketing web platforms, Bay Area or remote. I reply within one business day.
           </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <a href="mailto:lewis.rodneyl@gmail.com" className="tag hover:bg-brand/20 transition-colors">
+              Hiring for a senior IC role
+            </a>
+            <a
+              href="https://sprintz.agency"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tag hover:bg-brand/20 transition-colors"
+            >
+              Need Sprintz help
+            </a>
+          </div>
         </Reveal>
 
         <div className="grid md:grid-cols-2 gap-12">

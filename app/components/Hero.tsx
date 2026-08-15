@@ -71,11 +71,11 @@ export default function Hero() {
               Nine years owning marketing-site lifecycles: CMS architecture, reusable component systems, and the performance work that turns a website into a compounding asset. I work across design, engineering, and marketing, with an AI-native workflow underneath.
             </p>
             <div className="flex items-center gap-4 mb-10">
-              <a href="#contact" className="btn-primary inline-flex items-center gap-2">
-                Let's talk <ArrowRight className="w-4 h-4" />
+              <a href={SHOW_WORK ? "/work/" : "#experience"} className="btn-primary inline-flex items-center gap-2">
+                See the work <ArrowRight className="w-4 h-4" />
               </a>
-              <a href={SHOW_WORK ? "/work/" : "#experience"} className="text-gray-600 hover:text-brand-dark text-sm font-semibold transition-colors">
-                See the work →
+              <a href="#contact" className="text-gray-600 hover:text-brand-dark text-sm font-semibold transition-colors">
+                Let's talk →
               </a>
             </div>
           </Reveal>
