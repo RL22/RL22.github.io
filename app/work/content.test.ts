@@ -64,7 +64,6 @@ describe("work content shape", () => {
     for (const c of caseStudies) {
       expect(c.body.length).toBeGreaterThanOrEqual(4);
       expect(c.stack.length).toBeGreaterThan(0);
-      expect(c.diagramNote.length).toBeGreaterThan(0);
     }
   });
 

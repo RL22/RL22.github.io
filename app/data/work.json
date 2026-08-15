@@ -31,7 +31,6 @@
         "The thing I care about in this build is what it removed. Before, launching a product page meant a scoping conversation, an engineering ticket, and a bespoke template. After, it meant a content record and a composition of existing components — the same primitives, assembled differently. The platform absorbed the next launch instead of the team absorbing it.",
         "This is the version of a marketing site I keep building toward: not a set of pages that happen to describe a product, but a system whose structure mirrors the product it sells, so that growth in one shows up as configuration in the other rather than as a rebuild."
       ],
-      "diagramNote": "Show the decoupled pipeline left to right: a WordPress box (labeled with ACF and Gutenberg field groups) feeding structured content over an API into a React/Gatsby build step, which emits the /product-{family}/{product}/ route tree as a set of leaf nodes under a family branch. Inside the build step, show a small stack of shared component blocks (hero, capability grid, proof, CTA) with arrows fanning out to every product route. Mark the CMS-to-build boundary as the decoupling line, with editors entering on the CMS side and never crossing it.",
       "images": [
         {
           "src": "/work/pendo-product-experience-hub.png",
@@ -81,7 +80,6 @@
         "With the build cost removed and the measurement trustworthy, testing became routine rather than exceptional. Mutiny handled audience segmentation and personalization on top of the same templates, so demand gen could run a treatment for a specific segment and read the result against a clean baseline. The team could form a hypothesis in the morning and have it live without a ticket.",
         "The systems I build for marketing get judged on one thing: how long the team operates after I stop being involved. On the demand gen side at Pendo, the answer was that campaign launches simply stopped appearing in the engineering queue."
       ],
-      "diagramNote": "Draw the campaign loop as a cycle, not a pipeline. Start at a marketing ops actor box composing a page from a stack of Marketo template modules, arrow into a go.pendo.io landing page node. From that node, split two arrows: one into a Mutiny box labeled segment/variant that loops back to the page, and one into a form-logic box (non-company email filter) that gates what reaches Marketo. From the page, run a separate dashed instrumentation arrow through GTM data layer into Segment and out to reporting, then close the cycle with an arrow from reporting back to marketing ops. Show the engineering box off to the side with no arrow into the loop — that absence is the point.",
       "images": [
         {
           "src": "/work/pendo-demo-lp.png",
@@ -130,7 +128,6 @@
         "Taken together, the intake, the templates, and the API integration turned a queue of requests into a system with an operating model. The requests that still reached a developer were the ones that genuinely needed one, which is the correct residue.",
         "I keep coming back to this framing because it is the one that separates a marketing site that compounds from one that decays. Product rigor on a marketing site is not process for its own sake: it is intake so you know what you are building, templates so you build it once, and integrations so the parts that should never be hand-maintained never are."
       ],
-      "diagramNote": "Two connected halves. On the left, an intake funnel: marketing, design, and engineering requesters feeding one Asana intake form, which sorts into two outputs — template covers this, and needs a developer — with the first arrow visibly heavier. On the right, a Webflow CMS box showing a collection schema feeding a set of modular collection-page templates, with design system tokens drawn as a layer inside the templates rather than a checklist beside them. Below, a separate arrow from a Greenhouse API box into the careers route, labeled as the one path with no human step in it.",
       "images": [
         {
           "src": "/work/carrot-resource-center.png",
@@ -178,7 +175,6 @@
         "I extended the same logic downstream by rebuilding the Marketo email templates against the brand system. A submission that produces a confirmation email in a different visual language undoes some of what the page just built. Matching the templates to the site made the whole sequence — page, form, inbox — read as one experience rather than as three systems introducing themselves in turn.",
         "The general principle: the seams between marketing systems are where conversion, measurement, and trust leak out. Most of the engineering value on a marketing site is in removing seams the visitor should never have been asked to cross."
       ],
-      "diagramNote": "Contrast two paths stacked vertically. On top, the conventional split funnel: a marketing-site box, an arrow crossing a labeled domain boundary to a separate landing-page subdomain box, with break marks on the tracking arrow and an SEO-authority arrow pointing away from the main domain. Below it, the built version: a single Webflow domain box containing the page and an embedded Marketo form symbol, with one unbroken tracking arrow running the full width into Marketo, and a downstream arrow to a brand-matched email template. Keep the two diagrams the same width so the missing boundary in the lower one is the visible difference.",
       "images": [
         {
           "src": "/work/carrot-for-employers.png",
@@ -227,7 +223,6 @@
         "The subdomain itself stayed active well past the handoff, too: independent archive records show dozens of distinct paths published on it in the years after the contract closed, which says more about Mednition's marketing operation than about any one template, but it is consistent with a system a non-technical team could keep running without an engineer in the loop.",
         "A modular template built for a short contract is really a bet that the client keeps running it once the contract is a memory. This one paid off on a longer horizon than most landing pages get the chance to: the same page, the same structure, five years on."
       ],
-      "diagramNote": "Show one HubSpot template shell on the left feeding four content variants on the right — product overview, event, research, and demo request — each pulling from the same header, hero, and CTA components with only the content fields swapped. Draw a locked layer around the layout/styling portion and an open layer around the content fields, labeled as the boundary marketing could edit without a developer. Off to the side, show a single timeline arrow from the original build date stretching far to the right past the end of the contract, labeled as the page still running unchanged.",
       "images": [
         {
           "src": "/work/mednition-early.png",
@@ -284,7 +279,6 @@
         "That sitemap discipline mattered more than it sounds like it should. Adding sections to a site that already ranks is easy to get wrong in a way that only shows up in search traffic weeks later. Verifying the sitemap on both ends of every change was the cheap insurance against quietly breaking something that had taken years to rank.",
         "Being the only developer on a live marketing site forces a kind of discipline that a bigger team can sometimes route around: the components have to be clean because nobody else is going to catch a mess, and the diagnostics have to turn into fixes because there is no one else to hand them to. The contract renewal that followed was the site's owners deciding that discipline was worth extending."
       ],
-      "diagramNote": "Two panels. Left panel: a single developer node with three arrows out — one to a component library block (labeled 40+ Gatsby/React components), one to a diagnostics block (Lighthouse, funnel, and heatmap icons feeding a prioritized-fix list), and one to a sitemap block. Right panel: the sitemap block expanding from 51 to 54 nodes, with the three new nodes (customer stories, grant-match, research report) drawn as additions branching off the existing tree rather than replacing any existing leaf — no node in the original 51 is removed or redrawn.",
       "images": [
         {
           "src": "/work/kiddom-start.png",
@@ -333,7 +327,6 @@
         "None of this was really about the calculator specifically. It was about recognizing that a subdomain doesn't need many pages to have a template problem — it needs a small number of recurring formats and the discipline to build each one once. AppZen's campaign subdomain had six or so page types in active rotation at any point, which is a template problem at any scale.",
         "The migration itself closed out cleanly: by the end of the engagement, AppZen's campaign infrastructure was running on HubSpot with the tracking and form handling intact, and the templates left behind meant the next campaign didn't have to start from a blank page."
       ],
-      "diagramNote": "Show a subdomain box (info.appzen.com) with a Marketo-to-HubSpot migration arrow crossing it left to right, tracking and form-handler icons riding the same arrow so the migration reads as one motion, not a swap. Below, branch the subdomain into three template shells — ROI calculator (with a parameters/config icon separate from the page shell), event landing page, and gated asset download — and from the calculator shell, draw two campaign instances launching off it months apart, both pointing back to the same template shell rather than to separate builds.",
       "images": [
         {
           "src": "/work/appzen-mastermindsummit.png",

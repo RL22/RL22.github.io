@@ -49,7 +49,7 @@ export default function Footer() {
           <div className="flex gap-3">
             {socialLinks.map(({ Icon, href, label }) => (
               <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:text-brand-dark hover:border-brand transition-colors">
+                className="w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:text-brand-dark hover:border-brand transition-colors">
                 <Icon className="w-4 h-4" />
               </a>
             ))}

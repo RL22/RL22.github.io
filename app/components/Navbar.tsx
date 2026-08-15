@@ -44,7 +44,7 @@ export default function Navbar() {
           ))}
         </nav>
         <a href="/#contact" className="hidden md:inline-flex btn-primary text-sm">Contact</a>
-        <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+        <button className="md:hidden p-2.5 -m-2.5" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>

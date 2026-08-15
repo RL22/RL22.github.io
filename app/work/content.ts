@@ -28,7 +28,6 @@ export type CaseStudy = {
   solution: string;
   outcome: string;
   body: string[];
-  diagramNote: string;
   images: WorkImage[];
 };
 

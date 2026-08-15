@@ -61,6 +61,19 @@ function Rail({ item, hasDiagram }: { item: CaseStudy; hasDiagram: boolean }) {
         ))}
       </ul>
 
+      <details className="lg:hidden mb-8 pt-6 border-t border-gray-200">
+        <summary className="text-xs font-bold uppercase tracking-widest text-gray-500 cursor-pointer select-none py-2.5 -my-2.5">
+          On this page
+        </summary>
+        <nav aria-label="Case study sections (mobile)" className="mt-3 text-sm space-y-2">
+          {sections.map(([label, href]) => (
+            <a key={href} href={href} className="block text-gray-600 hover:text-brand-dark transition-colors">
+              {label}
+            </a>
+          ))}
+        </nav>
+      </details>
+
       <nav aria-label="Case study sections" className="hidden lg:block text-sm space-y-2.5 pt-6 border-t border-gray-200">
         {sections.map(([label, href]) => (
           <a key={href} href={href} className="block text-gray-600 hover:text-brand-dark transition-colors">
@@ -116,7 +129,7 @@ export default function WorkLayout({ item }: { item: CaseStudy }) {
           )}
 
           {item.images.length > 0 && (
-            <div className="mt-14 space-y-10 max-w-[62ch]">
+            <div className="mt-14 space-y-10">
               {item.images.map((img) => (
                 <figure key={img.src}>
                   {/* next/image is unusable here: images.unoptimized is set for
