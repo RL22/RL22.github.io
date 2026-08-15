@@ -1,12 +1,12 @@
 "use client";
-import { Mail, MapPin, Globe, Github, Linkedin, FileText } from "lucide-react";
+import { Mail, MapPin, Github, Linkedin, FileText } from "lucide-react";
 import Reveal from "./Reveal";
 import BookACallButton from "./BookACallButton";
 
+// Sprintz references belong in About and Experience only, not here.
 const info = [
   { Icon: MapPin, label: "Location", value: "Oakland, CA (Bay Area)", href: null as string | null },
   { Icon: Mail, label: "Email", value: "lewis.rodneyl@gmail.com", href: "mailto:lewis.rodneyl@gmail.com" },
-  { Icon: Globe, label: "Studio", value: "sprintz.agency", href: "https://sprintz.agency" },
   { Icon: Github, label: "GitHub", value: "github.com/RL22", href: "https://github.com/RL22" },
   { Icon: Linkedin, label: "LinkedIn", value: "in/rodney-lewis-abb11b73", href: "https://www.linkedin.com/in/rodney-lewis-abb11b73" },
 ];
@@ -20,22 +20,9 @@ export default function Contact() {
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
             If you&apos;re hiring a platform owner, let&apos;s talk.
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-6">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Currently open to senior roles owning marketing web platforms, Bay Area or remote. I reply within one business day.
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <a href="mailto:lewis.rodneyl@gmail.com" className="tag hover:bg-brand/20 transition-colors">
-              Hiring for a senior IC role
-            </a>
-            <a
-              href="https://sprintz.agency"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="tag hover:bg-brand/20 transition-colors"
-            >
-              Need Sprintz help
-            </a>
-          </div>
         </Reveal>
 
         <div className="grid md:grid-cols-2 gap-12">

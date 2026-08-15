@@ -30,7 +30,7 @@ const skillGroups = [
   },
   {
     title: "AI-Native Stack",
-    desc: "How I build now: agents, orchestration, and AI-assisted delivery as defaults, the production workflow at Sprintz.",
+    desc: "How I build now: agents, orchestration, and AI-assisted delivery as defaults, the production workflow.",
     tags: ["Claude Code", "Codex", "Gemini", "MCP", "Agentic Workflows"],
   },
 ];
