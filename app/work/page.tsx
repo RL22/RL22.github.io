@@ -134,15 +134,6 @@ export default function WorkPage() {
             </li>
           ))}
         </ul>
-
-        <div className="pt-10 mt-2 flex flex-wrap gap-4">
-          <a href="/resume" className="btn-outline">
-            Resume
-          </a>
-          <a href="#contact" className="btn-primary">
-            Get in touch
-          </a>
-        </div>
       </div>
       </main>
       <Contact />

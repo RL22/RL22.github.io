@@ -292,14 +292,15 @@ Currently open to senior roles owning marketing web platforms, Bay Area or remot
 
 **Section Title:** Reach out
 
-**Intro line:** No forms. Email me directly, grab time on my calendar, or take the resume with you.
+**Intro line:** Send a message directly, grab time on my calendar, or take the resume with you.
 
-**Buttons (stacked):**
-- "Email me" (primary, mailto:lewis.rodneyl@gmail.com)
+**Form:** Name / Email / Message, submits to Formspree (`ContactForm.tsx`, endpoint `xyegprkr`). Success state replaces the form with an inline confirmation.
+
+**Buttons (stacked, below the form):**
 - "Book a call" (outline, https://cal.com/rodlew/consultation)
 - "View resume" (outline, links to `/resume`)
 
-*(The contact form was removed 2026-07-16; no form endpoint is used. Visitors email or book a call.)*
+*(Contact form re-added 2026-08-14 via Formspree, replacing the mailto "Email me" CTA. Direct email is still listed under "Where to find me".)*
 
 ---
 
