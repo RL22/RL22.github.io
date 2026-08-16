@@ -59,9 +59,16 @@ function blogEntries(): MetadataRoute.Sitemap {
 }
 
 function workEntries(): MetadataRoute.Sitemap {
+  const latestCaseStudy = caseStudies.reduce<Date | undefined>((latest, c) => {
+    if (!c.publishedAt) return latest;
+    const d = new Date(c.publishedAt);
+    return !latest || d > latest ? d : latest;
+  }, undefined);
+
   return [
     {
       url: `${SITE_URL}/work/`,
+      lastModified: latestCaseStudy,
       priority: 0.8,
     },
     ...caseStudies.map((c) => ({
@@ -76,10 +83,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${SITE_URL}/`,
+      lastModified: new Date("2026-08-16"),
       priority: 1,
     },
     {
       url: `${SITE_URL}/resume/`,
+      lastModified: new Date("2026-08-16"),
       priority: 0.8,
     },
     ...(SHOW_WORK ? workEntries() : []),

@@ -1,16 +1,28 @@
 import buildingData from "../data/building.json";
 import githubData from "../data/github.json";
 
+export type BlogCategory =
+  | "Bookmarks"
+  | "Repo Review"
+  | "Thoughts"
+  | "Marketing"
+  | "AI"
+  | "Design"
+  | "Code";
+
 export type VideoItem = {
   type: "video";
   layout: "video";
   slug: string;
   placeholder?: boolean;
+  category: BlogCategory;
   title: string;
   blurb: string;
   url: string | null;
   meta: string;
   videoId: string | null;
+  /** ISO 8601 duration (e.g. "PT24M58S"), for VideoObject structured data. */
+  duration?: string;
   publishedAt: string;
   body: string[];
 };
@@ -20,6 +32,7 @@ export type ArticleItem = {
   layout: "article";
   slug: string;
   placeholder?: boolean;
+  category: BlogCategory;
   title: string;
   blurb: string;
   url: string | null;
@@ -28,11 +41,13 @@ export type ArticleItem = {
   body: string[];
   image?: string;
   imageAlt?: string;
+  ctaLabel?: string;
 };
 
 export type RepoPage = {
   slug: string;
   repo: string;
+  category: BlogCategory;
   publishedAt: string;
   tagline: string;
   body: string[];
@@ -85,8 +100,11 @@ export function monthYear(iso: string): string {
   return new Date(iso).toLocaleDateString("en-US", { month: "long", year: "numeric" });
 }
 
+export function wordCount(body: string[]): number {
+  return body.join(" ").split(/\s+/).filter(Boolean).length;
+}
+
 export function readingTime(body: string[]): string {
-  const words = body.join(" ").split(/\s+/).filter(Boolean).length;
-  const minutes = Math.max(1, Math.round(words / 200));
+  const minutes = Math.max(1, Math.round(wordCount(body) / 200));
   return `${minutes} min read`;
 }

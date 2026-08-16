@@ -4,6 +4,7 @@ import buildingData from "../../data/building.json";
 export type FeedItem = {
   type: "code" | "article" | "video";
   placeholder?: boolean;
+  category?: string;
   title: string;
   blurb: string;
   url: string;

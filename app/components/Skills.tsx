@@ -30,14 +30,14 @@ const skillGroups = [
   },
   {
     title: "AI-Native Stack",
-    desc: "How I build now: agents, orchestration, and AI-assisted delivery as defaults, the production workflow at Sprintz.",
+    desc: "How I build now: agents, orchestration, and AI-assisted delivery as defaults, the production workflow.",
     tags: ["Claude Code", "Codex", "Gemini", "MCP", "Agentic Workflows"],
   },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 bg-cream">
+    <section id="skills" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <Reveal className="max-w-3xl mb-16">
           <span className="section-badge">Skills</span>

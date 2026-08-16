@@ -34,9 +34,9 @@ export default function About() {
           <p className="text-gray-600 text-lg leading-relaxed mb-4">
             Most marketing websites get refactored from the inside every time the brand
             pivots, and the platform underneath erodes. For nine years at Pendo, Carrot
-            Fertility, Kiddom, Andersen, and Revel Systems, my job has been the same at
-            every logo: take an inherited marketing site, treat it like product, and make
-            the team faster.
+            Fertility, Kiddom, Mednition, Andersen, and Revel Systems, my job has been the
+            same at every logo: take an inherited marketing site, treat it like product,
+            and make the team faster.
           </p>
           <p className="text-gray-600 text-lg leading-relaxed">
             I&apos;m based in Oakland, CA. Today I run{" "}

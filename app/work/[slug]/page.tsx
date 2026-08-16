@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { WorkHeader, WorkFooter } from "../WorkChrome";
+import { ArrowLeft } from "lucide-react";
+import { WorkNavbar } from "../WorkChrome";
+import Contact from "../../components/Contact";
+import Footer from "../../components/Footer";
 import WorkLayout from "../WorkLayout";
 import { getAllSlugs, getCaseStudyBySlug } from "../content";
 import { SHOW_WORK } from "../../config";
@@ -61,6 +64,8 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
     author: AUTHOR,
     publisher: AUTHOR,
     url: canonical,
+    ...(item.images[0] ? { image: `${SITE_URL}${item.images[0].src}` } : {}),
+    about: { "@type": "Organization", name: item.company },
   };
 
   return (
@@ -69,11 +74,20 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <WorkHeader />
+      <WorkNavbar />
       <main id="main" className="bg-white">
+        <div className="max-w-6xl mx-auto px-6 pt-10 -mb-10">
+          <a
+            href="/work/"
+            className="text-gray-600 hover:text-brand-dark text-sm font-semibold inline-flex items-center gap-1.5 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" aria-hidden="true" /> All case studies
+          </a>
+        </div>
         <WorkLayout item={item} />
+        <Contact />
       </main>
-      <WorkFooter />
+      <Footer />
     </>
   );
 }

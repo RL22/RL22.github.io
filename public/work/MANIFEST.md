@@ -32,6 +32,26 @@ under 300 KB. Prefer the WebP with the PNG as fallback.
 | `carrot-for-employers.webp` | `carrot-integrated-marketing-systems` | `https://www.get-carrot.com/for-employers` | 20210901183631 | 1600×2000 | 108 KB | (same as PNG above) |
 | `carrot-careers.png` | `carrot-integrated-marketing-systems` | `https://www.get-carrot.com/carrot-careers/open-roles` | 20220517075937 | 1600×2000 | 61 KB | Archived screenshot of the Carrot open-roles careers page. A pale-blue hero holds the Carrot logo, site navigation and the centred heading "Open Roles". Below, a two-column layout places a Departments filter rail on the left — Business Operations, Customer Experience, Engineering, Finance, Marketing, People, Product, Sales — beside a job list grouped under orange department headings. Each listing shows the role title, the department name in small capitals, and a Learn More link on the right. Visible roles include Fertility Billing Analyst, Care Navigator, Claims Processor, Enrollment Marketing Manager, Associate Software Engineer, Senior Software Engineer, Global Finance Operations Specialist, Demand Generation Manager, Events Manager and Lifecycle Marketing Manager. |
 | `carrot-careers.webp` | `carrot-integrated-marketing-systems` | `https://www.get-carrot.com/carrot-careers/open-roles` | 20220517075937 | 1600×2000 | 70 KB | (same as PNG above) |
+| `mednition-early.png` | `mednition-landing-page-templates` | `https://insights.mednition.com/kate-for-esi-acuity-assignment` | 20210227064056 | 1600×1829 | 144 KB | Archived screenshot of the KATE for ESI Acuity Assignment landing page as first captured, February 2021. |
+| `mednition-early.webp` | `mednition-landing-page-templates` | `https://insights.mednition.com/kate-for-esi-acuity-assignment` | 20210227064056 | 1600×1829 | 88 KB | (same as PNG above) |
+| `mednition-aha-event.png` | `mednition-landing-page-templates` | `https://insights.mednition.com/aha-innovation-event` | 20210227055503 | 1600×2000 | 164 KB | Archived screenshot of the American Heart Association Innovation Event landing page, February 2021. |
+| `mednition-aha-event.webp` | `mednition-landing-page-templates` | `https://insights.mednition.com/aha-innovation-event` | 20210227055503 | 1600×2000 | 102 KB | (same as PNG above) |
+| `mednition-recent.png` | `mednition-landing-page-templates` | `https://insights.mednition.com/kate-for-esi-acuity-assignment` | 20260209234441 | 1600×1282 | 115 KB | Archived screenshot of the same KATE landing page, captured years later, showing the same structure still in production. |
+| `mednition-recent.webp` | `mednition-landing-page-templates` | `https://insights.mednition.com/kate-for-esi-acuity-assignment` | 20260209234441 | 1600×1282 | 74 KB | (same as PNG above) |
+| `kiddom-start.png` | `kiddom-component-architecture` | `https://www.kiddom.co/` | 20210330191511 | 1600×2000 | 227 KB | Archived screenshot of the Kiddom marketing homepage, March 2021, before the engagement began. |
+| `kiddom-start.webp` | `kiddom-component-architecture` | `https://www.kiddom.co/` | 20210330191511 | 1600×2000 | 116 KB | (same as PNG above) |
+| `kiddom-end.png` | `kiddom-component-architecture` | `https://www.kiddom.co/` | 20210927010005 | 1600×2000 | 218 KB | Archived screenshot of the Kiddom marketing homepage, September 2021, at the end of the engagement. |
+| `kiddom-end.webp` | `kiddom-component-architecture` | `https://www.kiddom.co/` | 20210927010005 | 1600×2000 | 113 KB | (same as PNG above) |
+| `appzen-mastermindsummit.png` | `appzen-campaign-templates` | `https://info.appzen.com/mastermindsummit` | 20201230 | 1600×1300 | 483 KB | Archived screenshot of the AppZen Mastermind Summit event landing page, December 2020. |
+| `appzen-mastermindsummit.webp` | `appzen-campaign-templates` | `https://info.appzen.com/mastermindsummit` | 20201230 | 1600×1300 | 63 KB | (same as PNG above) |
+| `appzen-roi-calculator-live.png` | `appzen-campaign-templates` | `https://info.appzen.com/roi-calculator` | live capture, 2026 | 1600×2000 | 275 KB | Current live capture of the ROI calculator template — the 2020/2021 instance never rendered in Wayback because its scripts were never archived, so this stands in as illustrative evidence of the template pattern rather than a historical snapshot. |
+| `appzen-roi-calculator-live.webp` | `appzen-campaign-templates` | `https://info.appzen.com/roi-calculator` | live capture, 2026 | 1600×2000 | 99 KB | (same as PNG above) |
+
+**Note on the Mednition/Kiddom/AppZen batch.** These seven assets were supplied as full-page
+captures rather than produced with the 1600×2000-viewport method above; each was resized to
+1600px wide and cropped to its top region, then recompressed to a 256-colour PNG and a WebP, to
+match the serving format used by the rest of this directory. `appzen-mastermindsummit.png` was
+cropped shorter (1300px) than the standard 2000px to keep the PNG fallback near the size budget.
 
 ## Notes on what was excluded
 

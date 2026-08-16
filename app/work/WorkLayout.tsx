@@ -1,6 +1,7 @@
-import { WorkBottomCta } from "./WorkChrome";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getDiagram } from "./diagrams";
-import { preventWidow, type CaseStudy } from "./content";
+import { getAdjacentCaseStudies, preventWidow, type CaseStudy } from "./content";
+import Reveal from "../components/Reveal";
 
 // The brief is a labelled definition list rather than three equal cards:
 // PRODUCT.md rules out the icon-heading-text grid, and challenge/solution/
@@ -14,16 +15,16 @@ function Brief({ item }: { item: CaseStudy }) {
   ];
 
   return (
-    <dl className="border-l-2 border-brand/30 pl-6 space-y-8 my-12 max-w-[62ch]">
+    <div className="space-y-8 my-12 max-w-[62ch]">
       {rows.map(([term, definition]) => (
         <div key={term} id={term.toLowerCase()} className="scroll-mt-24">
-          <dt className="text-xs font-bold uppercase tracking-widest text-brand-dark mb-2">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-brand-dark mb-2">
             {term}
-          </dt>
-          <dd className="text-gray-700 leading-relaxed">{definition}</dd>
+          </h2>
+          <p className="text-gray-700 leading-relaxed">{definition}</p>
         </div>
       ))}
-    </dl>
+    </div>
   );
 }
 
@@ -37,6 +38,7 @@ function Rail({ item, hasDiagram }: { item: CaseStudy; hasDiagram: boolean }) {
     ["Solution", "#solution"],
     ["Outcome", "#outcome"],
     ...(hasDiagram ? [["Diagram", "#diagram"]] : []),
+    ["The build", "#the-build"],
     ["Built with", "#built-with"],
   ] as const;
 
@@ -60,6 +62,19 @@ function Rail({ item, hasDiagram }: { item: CaseStudy; hasDiagram: boolean }) {
         ))}
       </ul>
 
+      <details className="lg:hidden mb-8 pt-6 border-t border-gray-200">
+        <summary className="text-xs font-bold uppercase tracking-widest text-gray-500 cursor-pointer select-none py-3.5 -my-3.5">
+          On this page
+        </summary>
+        <nav aria-label="Case study sections (mobile)" className="mt-3 text-sm space-y-2">
+          {sections.map(([label, href]) => (
+            <a key={href} href={href} className="block text-gray-600 hover:text-brand-dark transition-colors">
+              {label}
+            </a>
+          ))}
+        </nav>
+      </details>
+
       <nav aria-label="Case study sections" className="hidden lg:block text-sm space-y-2.5 pt-6 border-t border-gray-200">
         {sections.map(([label, href]) => (
           <a key={href} href={href} className="block text-gray-600 hover:text-brand-dark transition-colors">
@@ -74,6 +89,7 @@ function Rail({ item, hasDiagram }: { item: CaseStudy; hasDiagram: boolean }) {
 export default function WorkLayout({ item }: { item: CaseStudy }) {
   const [lead, ...rest] = item.body;
   const diagram = getDiagram(item.slug);
+  const { prev, next } = getAdjacentCaseStudies(item.slug);
 
   return (
     <article className="py-20">
@@ -81,33 +97,48 @@ export default function WorkLayout({ item }: { item: CaseStudy }) {
         <Rail item={item} hasDiagram={!!diagram} />
 
         <div className="min-w-0">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 max-w-prose">
-            {preventWidow(item.title)}
-          </h1>
+          <Reveal>
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-6 max-w-prose">
+              {preventWidow(item.title)}
+            </h1>
 
-          <div className="max-w-[62ch]">
-            {lead && <p className="text-lg text-gray-600 leading-relaxed">{lead}</p>}
-          </div>
+            <div className="max-w-[62ch]">
+              {lead && <p className="text-lg text-gray-600 leading-relaxed">{lead}</p>}
+            </div>
+          </Reveal>
 
-          <Brief item={item} />
+          <Reveal delay={0.1}>
+            <Brief item={item} />
+          </Reveal>
 
           {diagram && (
             <figure id="diagram" className="my-14 scroll-mt-24">
-              <diagram.Component />
-              <figcaption className="text-gray-600 text-sm mt-4 max-w-[62ch]">
-                {diagram.caption}
-              </figcaption>
+              <Reveal>
+                <diagram.Component />
+                <figcaption className="text-gray-600 text-sm mt-4 max-w-[62ch]">
+                  {diagram.caption}
+                </figcaption>
+              </Reveal>
             </figure>
           )}
 
-          <div className="max-w-[62ch] space-y-5 text-gray-700 leading-relaxed">
-            {rest.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
+          {rest.length > 0 && (
+            <div id="the-build" className="scroll-mt-24">
+              <Reveal>
+                <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">
+                  The build
+                </h2>
+                <div className="max-w-[62ch] space-y-5 text-gray-700 leading-relaxed">
+                  {rest.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
+          )}
 
           {item.images.length > 0 && (
-            <div className="mt-14 space-y-10 max-w-[62ch]">
+            <div className="mt-14 space-y-10">
               {item.images.map((img) => (
                 <figure key={img.src}>
                   {/* next/image is unusable here: images.unoptimized is set for
@@ -144,10 +175,40 @@ export default function WorkLayout({ item }: { item: CaseStudy }) {
               ))}
             </ul>
           </div>
+
+          {(prev || next) && (
+            <nav
+              aria-label="Case study pagination"
+              className="mt-10 pt-8 border-t border-gray-200 grid sm:grid-cols-2 gap-6"
+            >
+              {prev ? (
+                <a href={`/work/${prev.slug}/`} className="group block">
+                  <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1.5 flex items-center gap-1.5">
+                    <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" /> Previous
+                  </p>
+                  <p className="font-semibold group-hover:text-brand-dark transition-colors">
+                    {prev.title}
+                  </p>
+                </a>
+              ) : (
+                <div />
+              )}
+              {next ? (
+                <a href={`/work/${next.slug}/`} className="group block sm:text-right">
+                  <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1.5 flex items-center gap-1.5 sm:justify-end">
+                    Next <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                  </p>
+                  <p className="font-semibold group-hover:text-brand-dark transition-colors">
+                    {next.title}
+                  </p>
+                </a>
+              ) : (
+                <div />
+              )}
+            </nav>
+          )}
         </div>
       </div>
-
-      <WorkBottomCta />
     </article>
   );
 }

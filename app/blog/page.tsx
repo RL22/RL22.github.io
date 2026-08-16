@@ -10,7 +10,10 @@ export const metadata: Metadata = {
   title: "Blog & Resources | Rodney L. Lewis",
   description:
     "Repos, articles, and video on building in public: marketing web platforms, open source, and the systems behind them.",
-  alternates: { canonical: "/blog" },
+  alternates: {
+    canonical: "/blog",
+    ...(SHOW_BUILDING_IN_PUBLIC ? { types: { "application/rss+xml": "/feed.xml" } } : {}),
+  },
   openGraph: {
     title: "Blog & Resources | Rodney L. Lewis",
     description:

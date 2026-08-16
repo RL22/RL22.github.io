@@ -1,12 +1,15 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import { SHOW_BUILDING_IN_PUBLIC, SHOW_WORK } from "../config";
 
+// Absolute "/#..." paths, not bare "#...": Footer renders on /work and
+// /work/[slug] too, where a bare hash would resolve against that route
+// instead of jumping back to the homepage section.
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#projects" },
+  { label: "About", href: "/#about" },
+  { label: "Experience", href: "/#experience" },
   ...(SHOW_WORK ? [{ label: "Work", href: "/work/" }] : []),
-  ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Building in Public", href: "#building" }] : []),
-  { label: "Skills", href: "#skills" },
+  ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Building in Public", href: "/#building" }] : []),
+  { label: "Skills", href: "/#skills" },
   { label: "Resume", href: "/resume" },
 ];
 
@@ -46,7 +49,7 @@ export default function Footer() {
           <div className="flex gap-3">
             {socialLinks.map(({ Icon, href, label }) => (
               <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:text-brand-dark hover:border-brand transition-colors">
+                className="w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:text-brand-dark hover:border-brand transition-colors">
                 <Icon className="w-4 h-4" />
               </a>
             ))}

@@ -27,7 +27,10 @@ export default function FeaturedBlock() {
             {featured.title}
           </h3>
           <p className="text-gray-600 text-sm leading-relaxed mb-3">{featured.blurb}</p>
-          <p className="text-sm font-medium text-gray-600 mt-auto">{featured.meta}</p>
+          <p className="text-sm font-medium text-gray-600 mt-auto flex items-center gap-2">
+            {featured.meta}
+            {featured.category && <span className="tag">{featured.category}</span>}
+          </p>
         </a>
 
         {/* Col 2: two stacked repos */}

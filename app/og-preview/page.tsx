@@ -1,32 +1,34 @@
 import type { Metadata } from "next";
+import { ogTokens, TopRow, Byline } from "../lib/og-theme";
 
 export const metadata: Metadata = {
   title: "OG Preview | Rodney L. Lewis",
   robots: { index: false },
 };
 
-// OG image previews, authored as HTML for Satori conversion.
+// Live reference for every OG card the site actually generates, plus the two
+// sitewide defaults that don't have a per-page generator.
 //
-// Satori portability rules followed here:
-// - inline styles only (no Tailwind classes inside the cards)
-// - flexbox only (every element with children declares display: flex)
-// - solid colors, no CSS variables, no grid, no filters
-// - fonts referenced by family name; supply Bricolage Grotesque + Figtree
-//   font buffers to satori() at render time
-// - images use site-relative "/img/..." src for this browser preview; at
-//   render time satori requires absolute URLs or data URIs for images
+// Cards 3–6 import the exact TopRow/Byline components used by the real
+// Satori generators (app/blog/[slug]/opengraph-image.tsx,
+// app/work/[slug]/opengraph-image.tsx, shared via app/lib/og-theme.tsx) —
+// so this page can't silently drift from what actually ships the way a
+// hand-duplicated copy would. Only the avatar source differs: the real
+// generators load a base64 data URI via app/lib/og-assets.ts (Satori can't
+// fetch a relative browser path at build time), this page uses the plain
+// "/img/..." site path since it's rendered live in a browser.
 //
-// Capture targets (each exactly 1200x630):
-//   #og-card-default  - default sitewide OG image
-//   #og-card-alt      - alternate sitewide OG image (terracotta-drenched)
-//   #og-card-article  - blog article template (dynamic title)
-//   #og-card-video    - blog video template (dynamic title)
+// Cards 1–2 (sitewide default/alt) have no per-page generator — the site
+// still uses a static /public/og-default.png for the homepage, /resume, and
+// the /blog and /work index pages — so they stay hand-coded illustrations,
+// not tied to any real route.
+const avatarSrc = "/img/rod-transparent.png";
 
-const brand = "#C0614A";
-const brandDark = "#A5423D";
-const cream = "#F5EFE6";
-const ink = "#1C1B1A";
-const sub = "#4A4744";
+const brand = ogTokens.brand;
+const brandDark = ogTokens.brandDark;
+const cream = ogTokens.cream;
+const ink = ogTokens.ink;
+const sub = ogTokens.sub;
 const creamTint = "#F5EFE6";
 const creamTintDim = "#EAD9CF";
 
@@ -34,14 +36,15 @@ export default function OgPreviewPage() {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center gap-4 py-10 px-4 overflow-x-auto">
       <p className="text-sm text-gray-600 font-medium">
-        OG image previews · capture each card element at 1200 × 630
+        OG image reference · every card is 1200 × 630
       </p>
 
       {/* ===================================================================
-          1. Default sitewide
+          1. Default sitewide (no generator — static /public/og-default.png)
       =================================================================== */}
       <h2 className="text-base font-semibold text-gray-800 mt-4">
-        1 · Default sitewide · <code>#og-card-default</code>
+        1 · Default sitewide (static, used for homepage / resume / index pages)
+        · <code>#og-card-default</code>
       </h2>
       <div
         id="og-card-default"
@@ -55,11 +58,6 @@ export default function OgPreviewPage() {
           overflow: "hidden",
         }}
       >
-        {/* Full-bleed terracotta field on the right. The portrait's
-            transparent upper area lets the silhouette read directly against
-            the color with no visible box edge; the desk bleeds off the
-            bottom. Image is 1024x1024 with the head centered at x=512, so a
-            centered crop keeps him centered in the field. */}
         <div
           style={{
             display: "flex",
@@ -76,7 +74,7 @@ export default function OgPreviewPage() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/img/rod-transparent.png"
+            src={avatarSrc}
             alt=""
             style={{
               display: "flex",
@@ -87,8 +85,6 @@ export default function OgPreviewPage() {
             }}
           />
         </div>
-
-        {/* Type column */}
         <div
           style={{
             display: "flex",
@@ -102,7 +98,6 @@ export default function OgPreviewPage() {
             paddingRight: 48,
           }}
         >
-          {/* Identity */}
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <div
               style={{
@@ -125,9 +120,6 @@ export default function OgPreviewPage() {
               Rodney L. Lewis
             </div>
           </div>
-
-          {/* Headline: three lines, set large now that the split defines the
-              column instead of the type dodging a floating photo block. */}
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div
               style={{
@@ -156,9 +148,6 @@ export default function OgPreviewPage() {
               Scale marketing impact.
             </div>
           </div>
-
-          {/* Footer: rule spans the type column only, so its terminus aligns
-              with the color field's edge. */}
           <div
             style={{
               display: "flex",
@@ -183,10 +172,11 @@ export default function OgPreviewPage() {
       </div>
 
       {/* ===================================================================
-          2. Sitewide alt
+          2. Sitewide alt (illustrative only — not currently wired up)
       =================================================================== */}
       <h2 className="text-base font-semibold text-gray-800 mt-8">
-        2 · Sitewide alt · <code>#og-card-alt</code>
+        2 · Sitewide alt (terracotta-drenched, illustrative — not in use)
+        · <code>#og-card-alt</code>
       </h2>
       <div
         id="og-card-alt"
@@ -202,14 +192,7 @@ export default function OgPreviewPage() {
           position: "relative",
         }}
       >
-        {/* Top row: inverted monogram + name */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <div
               style={{
@@ -228,20 +211,11 @@ export default function OgPreviewPage() {
             >
               RL
             </div>
-            <div
-              style={{
-                display: "flex",
-                fontSize: 28,
-                fontWeight: 700,
-                color: cream,
-              }}
-            >
+            <div style={{ display: "flex", fontSize: 28, fontWeight: 700, color: cream }}>
               Rodney L. Lewis
             </div>
           </div>
         </div>
-
-        {/* Headline in cream tones */}
         <div style={{ display: "flex", flexDirection: "column", maxWidth: 900 }}>
           <div
             style={{
@@ -270,8 +244,6 @@ export default function OgPreviewPage() {
             Scale marketing impact.
           </div>
         </div>
-
-        {/* Bottom row: title · url, in cream */}
         <div
           style={{
             display: "flex",
@@ -296,13 +268,14 @@ export default function OgPreviewPage() {
       </div>
 
       {/* ===================================================================
-          3. Blog: article template
+          3. Blog: article — kicker is the post's category (real logic from
+          app/blog/[slug]/opengraph-image.tsx), not a generic "ARTICLE" label
       =================================================================== */}
       <h2 className="text-base font-semibold text-gray-800 mt-8">
-        3 · Blog: article template · <code>#og-card-article</code>
+        3 · Blog article · kicker = <code>post.category</code>
+        · <code>/blog/agnostic-ai-stack/opengraph-image</code>
       </h2>
       <div
-        id="og-card-article"
         style={{
           width: 1200,
           height: 630,
@@ -315,129 +288,34 @@ export default function OgPreviewPage() {
           position: "relative",
         }}
       >
-        {/* Top row: monogram + name ... kicker */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: 56,
-                height: 56,
-                backgroundColor: brand,
-                borderRadius: 14,
-                color: "#FFFFFF",
-                fontFamily: "Bricolage Grotesque",
-                fontSize: 26,
-                fontWeight: 800,
-              }}
-            >
-              RL
-            </div>
-            <div
-              style={{
-                display: "flex",
-                fontSize: 28,
-                fontWeight: 700,
-                color: ink,
-              }}
-            >
-              Rodney L. Lewis
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              fontSize: 22,
-              fontWeight: 700,
-              color: brandDark,
-              letterSpacing: 2,
-              textTransform: "uppercase",
-            }}
-          >
-            ARTICLE
-          </div>
-        </div>
-
-        {/* Article title slot (dynamic per post at render time) */}
+        <TopRow kicker="THOUGHTS" />
         <div style={{ display: "flex", flexDirection: "column", maxWidth: 1050 }}>
           <div
             style={{
               display: "flex",
               fontFamily: "Bricolage Grotesque",
-              fontSize: 64,
+              fontSize: 60,
               fontWeight: 800,
               color: ink,
               letterSpacing: -1.5,
               lineHeight: 1.15,
             }}
           >
-            Placeholder: article title goes here, swapped per post at render time
+            The case for an agnostic AI stack
           </div>
         </div>
-
-        {/* Bottom row: series · url ... headshot + name */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            borderTop: `3px solid ${brand}`,
-            paddingTop: 28,
-          }}
-        >
-          <div style={{ display: "flex", fontSize: 26, fontWeight: 500, color: sub }}>
-            Building in Public · rl22.github.io
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <div
-              style={{
-                display: "flex",
-                position: "relative",
-                width: 72,
-                height: 72,
-                borderRadius: 999,
-                backgroundColor: brand,
-                overflow: "hidden",
-              }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/img/rod-transparent.png"
-                alt=""
-                style={{
-                  display: "flex",
-                  position: "absolute",
-                  left: -50,
-                  top: -7,
-                  width: 172,
-                  height: 172,
-                  maxWidth: "none",
-                }}
-              />
-            </div>
-            <div style={{ display: "flex", fontSize: 26, fontWeight: 600, color: ink }}>
-              Rodney L. Lewis
-            </div>
-          </div>
-        </div>
+        <Byline seriesLabel="Building in Public" avatarSrc={avatarSrc} />
       </div>
 
       {/* ===================================================================
-          4. Blog: video template
+          4. Blog: video — same category-based kicker, play affordance,
+          seriesLabel stays "Building in Public"
       =================================================================== */}
       <h2 className="text-base font-semibold text-gray-800 mt-8">
-        4 · Blog: video template · <code>#og-card-video</code>
+        4 · Blog video · kicker = <code>post.category</code>
+        · <code>/blog/on-brand-stock-photos/opengraph-image</code>
       </h2>
       <div
-        id="og-card-video"
         style={{
           width: 1200,
           height: 630,
@@ -450,58 +328,7 @@ export default function OgPreviewPage() {
           position: "relative",
         }}
       >
-        {/* Top row: monogram + name ... kicker */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: 56,
-                height: 56,
-                backgroundColor: brand,
-                borderRadius: 14,
-                color: "#FFFFFF",
-                fontFamily: "Bricolage Grotesque",
-                fontSize: 26,
-                fontWeight: 800,
-              }}
-            >
-              RL
-            </div>
-            <div
-              style={{
-                display: "flex",
-                fontSize: 28,
-                fontWeight: 700,
-                color: ink,
-              }}
-            >
-              Rodney L. Lewis
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              fontSize: 22,
-              fontWeight: 700,
-              color: brandDark,
-              letterSpacing: 2,
-              textTransform: "uppercase",
-            }}
-          >
-            VIDEO
-          </div>
-        </div>
-
-        {/* Play affordance + video title slot (dynamic per episode at render time) */}
+        <TopRow kicker="AI" />
         <div style={{ display: "flex", alignItems: "center", gap: 36, maxWidth: 1050 }}>
           <div
             style={{
@@ -523,72 +350,130 @@ export default function OgPreviewPage() {
             style={{
               display: "flex",
               fontFamily: "Bricolage Grotesque",
-              fontSize: 64,
+              fontSize: 60,
               fontWeight: 800,
               color: ink,
               letterSpacing: -1.5,
               lineHeight: 1.15,
             }}
           >
-            Placeholder: video title goes here, swapped per episode at render time
+            Augment Your On-Brand Stock Photos
           </div>
         </div>
-
-        {/* Bottom row: series · url ... headshot + name */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            borderTop: `3px solid ${brand}`,
-            paddingTop: 28,
-          }}
-        >
-          <div style={{ display: "flex", fontSize: 26, fontWeight: 500, color: sub }}>
-            Building in Public · rl22.github.io
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <div
-              style={{
-                display: "flex",
-                position: "relative",
-                width: 72,
-                height: 72,
-                borderRadius: 999,
-                backgroundColor: brand,
-                overflow: "hidden",
-              }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/img/rod-transparent.png"
-                alt=""
-                style={{
-                  display: "flex",
-                  position: "absolute",
-                  left: -50,
-                  top: -7,
-                  width: 172,
-                  height: 172,
-                  maxWidth: "none",
-                }}
-              />
-            </div>
-            <div style={{ display: "flex", fontSize: 26, fontWeight: 600, color: ink }}>
-              Rodney L. Lewis
-            </div>
-          </div>
-        </div>
+        <Byline seriesLabel="Building in Public" avatarSrc={avatarSrc} />
       </div>
 
-      <p className="text-xs text-gray-500 max-w-xl text-center mt-4">
-        Styles are Satori-compatible: inline flexbox only, solid colors, no CSS variables.
-        Provide Bricolage Grotesque (600/800) and Figtree (500/700) font buffers to satori().
-        Image <code>src</code> values here are site-relative ("/img/...") for this browser
-        preview only — at render time Satori requires absolute URLs or data URIs for images.
-        Four capture targets: <code>#og-card-default</code>, <code>#og-card-alt</code>,{" "}
-        <code>#og-card-article</code>, <code>#og-card-video</code>. The article and video
-        templates take a dynamic title string swapped in per post/episode at render time.
+      {/* ===================================================================
+          5. Case studies — kicker = company name, role · period subline,
+          seriesLabel = "Case Study". Real logic from
+          app/work/[slug]/opengraph-image.tsx.
+      =================================================================== */}
+      <h2 className="text-base font-semibold text-gray-800 mt-8">
+        5 · Case study · kicker = <code>item.company</code>, subline ={" "}
+        <code>role · period</code> · <code>/work/pendo-core-web-platform/opengraph-image</code>
+      </h2>
+      <div
+        style={{
+          width: 1200,
+          height: 630,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          backgroundColor: cream,
+          padding: 72,
+          fontFamily: "Figtree",
+          position: "relative",
+        }}
+      >
+        <TopRow kicker="PENDO.IO" />
+        <div style={{ display: "flex", flexDirection: "column", maxWidth: 1050 }}>
+          <div
+            style={{
+              display: "flex",
+              fontSize: 26,
+              fontWeight: 600,
+              color: brandDark,
+              marginBottom: 12,
+            }}
+          >
+            Sr. Marketing Engineer · Oct 2022 – Jun 2023
+          </div>
+          <div
+            style={{
+              display: "flex",
+              fontFamily: "Bricolage Grotesque",
+              fontSize: 58,
+              fontWeight: 800,
+              color: ink,
+              letterSpacing: -1.5,
+              lineHeight: 1.15,
+            }}
+          >
+            A URL architecture the product suite could grow into
+          </div>
+        </div>
+        <Byline seriesLabel="Case Study" avatarSrc={avatarSrc} />
+      </div>
+
+      {/* ===================================================================
+          6. Repo page — kicker is hardcoded "OPEN SOURCE" (not category-
+          driven, unlike articles/videos), name first then tagline as a
+          subtitle beneath it. Real logic from
+          app/blog/[slug]/opengraph-image.tsx's repo branch.
+      =================================================================== */}
+      <h2 className="text-base font-semibold text-gray-800 mt-8">
+        6 · Repo page · kicker = fixed "OPEN SOURCE", tagline below the name
+        · <code>/blog/readworthy/opengraph-image</code>
+      </h2>
+      <div
+        style={{
+          width: 1200,
+          height: 630,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          backgroundColor: cream,
+          padding: 72,
+          fontFamily: "Figtree",
+          position: "relative",
+        }}
+      >
+        <TopRow kicker="OPEN SOURCE" />
+        <div style={{ display: "flex", flexDirection: "column", maxWidth: 1050 }}>
+          <div
+            style={{
+              display: "flex",
+              fontFamily: "Bricolage Grotesque",
+              fontSize: 60,
+              fontWeight: 800,
+              color: ink,
+              letterSpacing: -1.5,
+              lineHeight: 1.15,
+            }}
+          >
+            readworthy
+          </div>
+          <div
+            style={{
+              display: "flex",
+              fontSize: 28,
+              fontWeight: 500,
+              color: sub,
+              marginTop: 16,
+              maxWidth: 900,
+            }}
+          >
+            AI-native docs optimized for readability, structure, and context efficiency.
+          </div>
+        </div>
+        <Byline seriesLabel="Building in Public" avatarSrc={avatarSrc} />
+      </div>
+
+      <p className="text-xs text-gray-500 max-w-xl text-center mt-4 mb-10">
+        Cards 3–6 render from the same components the real generators use
+        (<code>app/lib/og-theme.tsx</code>) — this page can&apos;t silently
+        drift from production the way a hand-duplicated copy could. Cards 1–2
+        are hand-coded illustrations with no generator behind them.
       </p>
     </div>
   );

@@ -8,7 +8,10 @@ export default function ArticleLayout({ item }: { item: ArticleItem }) {
   return (
     <article className="py-20">
       <div className="max-w-3xl mx-auto px-6">
-        <p className="text-xs font-bold uppercase tracking-widest text-brand-dark mb-4">Article</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-brand-dark mb-4 flex items-center gap-2">
+          Article
+          <span className="tag">{item.category}</span>
+        </p>
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4 max-w-prose">{item.title}</h1>
         <p className="text-gray-600 text-sm font-medium mb-8">
           <time dateTime={item.publishedAt}>{formatDate(item.publishedAt)}</time>
@@ -46,7 +49,7 @@ export default function ArticleLayout({ item }: { item: ArticleItem }) {
         {item.url && (
           <div className="mt-10">
             <a href={item.url} target="_blank" rel="noopener noreferrer" className="btn-outline">
-              Read the original piece
+              {item.ctaLabel ?? "Read the original piece"}
             </a>
           </div>
         )}

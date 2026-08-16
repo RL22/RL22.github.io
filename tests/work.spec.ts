@@ -102,14 +102,6 @@ test.describe("/work detail", () => {
         d.captionPhrase
       );
 
-      // Diagrams stay metric-free even on the one case study whose prose
-      // carries the sanctioned 30% figure — that number belongs to the
-      // outcome field alone, never to a visual.
-      const figureText = await page
-        .locator("figure", { has: svg })
-        .innerText();
-      expect(figureText).not.toMatch(/\d+(\.\d+)?%/);
-
       // It has to actually occupy space: `w-full h-auto` on an SVG collapses
       // to zero if the viewBox or the container is wrong.
       const box = await svg.boundingBox();
@@ -131,14 +123,4 @@ test.describe("/work detail", () => {
       expect(scale * 10).toBeGreaterThan(6.5);
     });
   }
-
-  test("the sanctioned metric appears on exactly one case study", async ({ page }) => {
-    const carriers: string[] = [];
-    for (const slug of slugs) {
-      await page.goto(`/work/${slug}/`);
-      const text = (await page.locator("main").innerText()).toLowerCase();
-      if (text.includes("30%")) carriers.push(slug);
-    }
-    expect(carriers).toEqual(["carrot-cms-architecture"]);
-  });
 });

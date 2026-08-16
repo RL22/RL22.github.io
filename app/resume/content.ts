@@ -60,15 +60,15 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Sprintz",
         role: "Founder",
-        dates: "2023 - Present",
+        dates: "Jun 2023 - Present",
         bullets: [
-          "Partner with founders and marketing teams to audit what blocks conversion, then design and build the fix.",
+          "Partner with founders and marketing teams to audit what blocks conversion, then design and build the solution.",
         ],
       },
       {
         org: "Pendo.io",
         role: "Sr. Marketing Engineer",
-        dates: "2022 - 2023",
+        dates: "Oct 2022 - Jun 2023",
         bullets: [
           "Built reusable landing-page modules and marketing templates on a headless WordPress stack; marketing launched campaigns without an engineering ticket.",
           "Partnered with demand gen on A/B tests and SEO; shipped data-integrated components for personalization and analytics.",
@@ -77,7 +77,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Carrot Fertility",
         role: "Sr. Web Developer",
-        dates: "2021 - 2022",
+        dates: "Sep 2021 - Jul 2022",
         bullets: [
           "Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance.",
           "Built modular Webflow templates that let marketing launch pages without a developer in the loop, giving engineering their roadmap back.",
@@ -86,7 +86,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Kiddom",
         role: "Sr. Web Developer",
-        dates: "2021",
+        dates: "Apr - Sep 2021",
         bullets: [
           "Shipped SEO-optimized components and front-end refactors that lifted Lighthouse scores and gave marketing a base to iterate on.",
         ],
@@ -94,7 +94,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Andersen Digital",
         role: "Sr. Web Developer",
-        dates: "2020 - 2021",
+        dates: "Aug 2020 - May 2021",
         bullets: [
           "Led CMS and mar-tech migrations for Rancher IO, AppZen, and Illumio, including Marketo to HubSpot.",
         ],
@@ -102,7 +102,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Revel Systems",
         role: "Web Developer to Sr. Web Developer",
-        dates: "2016 - 2020",
+        dates: "Oct 2016 - Feb 2020",
         bullets: [
           "Rebuilt the company's web properties around SEO and growth priorities over four years, and contributed to an on-demand customer training platform.",
         ],
@@ -129,7 +129,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Sprintz",
         role: "Founder",
-        dates: "2023 - Present",
+        dates: "Jun 2023 - Present",
         bullets: [
           "Own conventions, tooling, and delivery end to end for client marketing sites, from audit through handoff.",
         ],
@@ -137,7 +137,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Pendo.io",
         role: "Sr. Marketing Engineer",
-        dates: "2022 - 2023",
+        dates: "Oct 2022 - Jun 2023",
         bullets: [
           "Built a reusable landing-page component system on headless WordPress, wired for personalization and analytics; consumers launched campaigns without an engineering ticket.",
           "Established template and testing conventions with demand gen across A/B and SEO programs.",
@@ -146,7 +146,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Carrot Fertility",
         role: "Sr. Web Developer",
-        dates: "2021 - 2022",
+        dates: "Sep 2021 - Jul 2022",
         bullets: [
           "Architected a modular Webflow template system that let marketing operate the site without engineering involvement.",
           "Owned Core Web Vitals, page speed, and mobile-first performance across the site.",
@@ -155,7 +155,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Kiddom",
         role: "Sr. Web Developer",
-        dates: "2021",
+        dates: "Apr - Sep 2021",
         bullets: [
           "Drove Lighthouse-led refactors and SEO-optimized components that gave the team a stable base to iterate on.",
         ],
@@ -163,7 +163,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Andersen Digital",
         role: "Sr. Web Developer",
-        dates: "2020 - 2021",
+        dates: "Aug 2020 - May 2021",
         bullets: [
           "Led CMS and mar-tech platform migrations for Rancher IO, AppZen, and Illumio, including Marketo to HubSpot.",
         ],
@@ -171,7 +171,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Revel Systems",
         role: "Web Developer to Sr. Web Developer",
-        dates: "2016 - 2020",
+        dates: "Oct 2016 - Feb 2020",
         bullets: [
           "Built the template foundation and standards the company's properties were rebuilt on over four years, plus an on-demand customer training platform.",
         ],
@@ -198,7 +198,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Sprintz",
         role: "Founder",
-        dates: "2023 - Present",
+        dates: "Jun 2023 - Present",
         bullets: [
           "Design, art-direct, and build client marketing sites end to end, from brief through launch.",
         ],
@@ -206,7 +206,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Pendo.io",
         role: "Sr. Marketing Engineer",
-        dates: "2022 - 2023",
+        dates: "Oct 2022 - Jun 2023",
         bullets: [
           "Built reusable landing-page modules and marketing templates with pixel-accurate design fidelity on headless WordPress.",
           "Partnered with design and demand gen on A/B tests; shipped data-integrated components for personalization.",
@@ -215,7 +215,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Carrot Fertility",
         role: "Sr. Web Developer",
-        dates: "2021 - 2022",
+        dates: "Sep 2021 - Jul 2022",
         bullets: [
           "Built modular Webflow templates with mobile-first, responsive design that let marketing run the site themselves.",
           "Owned Core Web Vitals and page speed so the design never shipped slower than it looked.",
@@ -224,7 +224,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Kiddom",
         role: "Sr. Web Developer",
-        dates: "2021",
+        dates: "Apr - Sep 2021",
         bullets: [
           "Shipped SEO-optimized components and refactors that lifted Lighthouse scores without compromising the design system.",
         ],
@@ -232,7 +232,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Andersen Digital",
         role: "Sr. Web Developer",
-        dates: "2020 - 2021",
+        dates: "Aug 2020 - May 2021",
         bullets: [
           "Delivered CMS and mar-tech migrations for Rancher IO, AppZen, and Illumio, including Marketo to HubSpot.",
         ],
@@ -240,7 +240,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
       {
         org: "Revel Systems",
         role: "Web Developer to Sr. Web Developer",
-        dates: "2016 - 2020",
+        dates: "Oct 2016 - Feb 2020",
         bullets: [
           "Designed and rebuilt the company's web properties around SEO and growth priorities over four years, plus an on-demand product training platform.",
         ],

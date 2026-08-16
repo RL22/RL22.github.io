@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rl22.github.io"),
   title: siteTitle,
   description: siteDescription,
+  verification: { google: "googled984ca84bb168b8a" },
   openGraph: {
     siteName: "Rodney L. Lewis",
     type: "website",
@@ -50,6 +51,14 @@ const personJsonLd = {
     "https://github.com/RL22",
     "https://www.linkedin.com/in/rodney-lewis-abb11b73",
     "https://sprintz.agency",
+  ],
+  knowsAbout: [
+    "Next.js",
+    "CMS Architecture",
+    "Marketing Web Platforms",
+    "Core Web Vitals",
+    "React",
+    "TypeScript",
   ],
 };
 
