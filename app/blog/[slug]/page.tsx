@@ -51,7 +51,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         url: canonical,
         siteName: "Rodney L. Lewis",
         type: post.type === "video" ? "video.other" : "article",
-        images: [{ url: ("image" in post && post.image) || "/og-default.png", width: 1200, height: 630 }],
         ...(isArticle ? { publishedTime: post.publishedAt, authors: ["Rodney L. Lewis"] } : {}),
       },
       twitter: {
@@ -76,7 +75,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         url: canonical,
         siteName: "Rodney L. Lewis",
         type: "article",
-        images: [{ url: "/og-default.png", width: 1200, height: 630 }],
         publishedTime: repoPage.publishedAt,
         authors: ["Rodney L. Lewis"],
       },
