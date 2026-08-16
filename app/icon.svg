@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" role="img">
+  <title>Rodney L. Lewis</title>
+  <desc>RL monogram: white "RL" wordmark on a rounded brand-dark square, matching the site's nav/footer badge.</desc>
+  <rect width="36" height="36" rx="8" fill="#A5523D" />
+  <g fill="#FFFFFF">
+    <g transform="translate(9.901 22.900) scale(0.014000 -0.014000)">
+      <path d="M76 0V700H336Q410 700 467.0 671.0Q524 642 556.0 591.5Q588 541 588 474Q588 405 551.0 352.5Q514 300 454 273L616 0H461L318 248Q312 248 305.5 248.0Q299 248 292 248H213V0ZM213 373H337Q368 373 392.5 386.0Q417 399 431.5 422.0Q446 445 446 474Q446 519 413.5 547.0Q381 575 330 575H213Z" />
+    </g>
+    <g transform="translate(18.581 22.900) scale(0.014000 -0.014000)">
+      <path d="M76 0V700H213V125H521V0Z" />
+    </g>
+  </g>
+</svg>
