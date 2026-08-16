@@ -7,7 +7,10 @@ export default function VideoLayout({ item }: { item: VideoItem }) {
   return (
     <article className="py-20">
       <div className="max-w-3xl mx-auto px-6">
-        <p className="text-xs font-bold uppercase tracking-widest text-brand-dark mb-4">Video</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-brand-dark mb-4 flex items-center gap-2">
+          Video
+          <span className="tag">{item.category}</span>
+        </p>
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4">{item.title}</h1>
         <p className="text-gray-600 text-sm font-medium mb-10">
           <time dateTime={item.publishedAt}>{formatDate(item.publishedAt)}</time>

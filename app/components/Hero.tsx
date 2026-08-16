@@ -2,6 +2,7 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import StackIcon, { type IconName } from "tech-stack-icons";
+import { SHOW_WORK } from "../config";
 import Reveal from "./Reveal";
 
 const techIcons: { name: IconName; alt: string }[] = [
@@ -37,7 +38,7 @@ export default function Hero() {
         {/* Left: copy */}
         <div>
           <Reveal>
-            <span className="inline-block bg-brand/10 text-brand text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+            <span className="inline-block bg-brand/10 text-brand-darker text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
               Senior Web Platform Engineer
             </span>
           </Reveal>
@@ -70,11 +71,11 @@ export default function Hero() {
               Nine years owning marketing-site lifecycles: CMS architecture, reusable component systems, and the performance work that turns a website into a compounding asset. I work across design, engineering, and marketing, with an AI-native workflow underneath.
             </p>
             <div className="flex items-center gap-4 mb-10">
-              <a href="#contact" className="btn-primary inline-flex items-center gap-2">
-                Let's talk <ArrowRight className="w-4 h-4" />
+              <a href={SHOW_WORK ? "/work/" : "#experience"} className="btn-primary inline-flex items-center gap-2">
+                See the work <ArrowRight className="w-4 h-4" />
               </a>
-              <a href="#projects" className="text-gray-600 hover:text-brand-dark text-sm font-semibold transition-colors">
-                See the work →
+              <a href="#contact" className="text-gray-600 hover:text-brand-dark text-sm font-semibold transition-colors">
+                Let's talk →
               </a>
             </div>
           </Reveal>
@@ -87,7 +88,9 @@ export default function Hero() {
           <div className="absolute bottom-0 right-0 w-[84%] h-[90%] bg-brand rounded-3xl overflow-hidden">
             <img
               src="/img/portfolio-hero-chmd-lifestyle-gen.webp"
-              alt="Rodney L. Lewis"
+              alt="Rodney L. Lewis, Senior Web Platform Engineer"
+              width={1065}
+              height={1600}
               className="absolute bottom-0 right-0 h-full w-full object-cover object-top select-none pointer-events-none"
               draggable={false}
             />
@@ -96,7 +99,7 @@ export default function Hero() {
           {/* Card 1 — top left — Years */}
           <motion.div
             {...cardVariant(0.55)}
-            className="absolute top-6 -left-4 z-20 card shadow-lg w-52"
+            className="absolute top-6 -left-4 z-20 card shadow-lg w-40 lg:w-52"
           >
             <div className="float-card">
               <p className="text-3xl font-bold">9+</p>
@@ -108,12 +111,12 @@ export default function Hero() {
           {/* Card 2 — top right — Organizations */}
           <motion.div
             {...cardVariant(0.7)}
-            className="absolute top-4 -right-4 z-20 card shadow-lg w-56"
+            className="absolute top-4 -right-4 z-20 card shadow-lg w-40 lg:w-56"
           >
             <div className="float-card float-card--delay-1">
               <p className="text-gray-500 text-sm font-semibold mb-1">Organizations</p>
-              <p className="text-3xl font-bold">5</p>
-              <p className="text-gray-600 text-sm font-normal">Pendo · Carrot · Kiddom · Andersen · Revel</p>
+              <p className="text-3xl font-bold">6</p>
+              <p className="text-gray-600 text-sm font-normal">Pendo · Carrot · Kiddom · Mednition · Andersen · Revel</p>
             </div>
           </motion.div>
 
@@ -138,9 +141,9 @@ export default function Hero() {
             <p className="text-gray-600 text-sm mt-1">Owning marketing-site lifecycles</p>
           </div>
           <div className="card">
-            <p className="text-3xl font-bold">5</p>
+            <p className="text-3xl font-bold">6</p>
             <p className="text-gray-600 font-medium">Organizations</p>
-            <p className="text-gray-600 text-sm mt-1">Pendo · Carrot · Kiddom · Andersen · Revel</p>
+            <p className="text-gray-600 text-sm mt-1">Pendo · Carrot · Kiddom · Mednition · Andersen · Revel</p>
           </div>
           <div className="card">
             <p className="text-2xl font-bold text-brand">Self-Serve</p>

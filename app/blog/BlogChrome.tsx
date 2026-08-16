@@ -3,7 +3,7 @@ import { SHOW_WORK } from "../config";
 
 const footerLinks = [
   { label: "About", href: "/#about" },
-  { label: "Experience", href: "/#projects" },
+  { label: "Experience", href: "/#experience" },
   ...(SHOW_WORK ? [{ label: "Work", href: "/work/" }] : []),
   { label: "Building in Public", href: "/#building" },
   { label: "Skills", href: "/#skills" },

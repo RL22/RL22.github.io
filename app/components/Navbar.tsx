@@ -3,12 +3,15 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { SHOW_BUILDING_IN_PUBLIC, SHOW_WORK } from "../config";
 
+// Absolute "/#..." paths, not bare "#...": Navbar renders on /work and
+// /work/[slug] too, where a bare hash would resolve against that route
+// instead of jumping back to the homepage section.
 const links = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#projects" },
+  { label: "About", href: "/#about" },
+  { label: "Experience", href: "/#experience" },
   ...(SHOW_WORK ? [{ label: "Work", href: "/work/" }] : []),
-  ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Building in Public", href: "#building" }] : []),
-  { label: "Skills", href: "#skills" },
+  ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Building in Public", href: "/#building" }] : []),
+  { label: "Skills", href: "/#skills" },
   { label: "Resume", href: "/resume" },
 ];
 
@@ -40,13 +43,19 @@ export default function Navbar() {
             </a>
           ))}
         </nav>
-        <a href="#contact" className="hidden md:inline-flex btn-primary text-sm">Contact</a>
-        <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+        <a href="/#contact" className="hidden md:inline-flex btn-primary text-sm">Contact</a>
+        <button
+          className="md:hidden p-2.5 -m-2.5"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+        >
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
       {open && (
-        <nav className="md:hidden bg-cream px-6 pb-4 flex flex-col gap-4">
+        <nav id="mobile-navigation" className="md:hidden bg-cream px-6 pb-4 flex flex-col gap-4">
           {links.map((l) => (
             <a
               key={l.label}
@@ -57,7 +66,7 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <a href="#contact" onClick={() => setOpen(false)} className="btn-primary text-sm text-center mt-2">Contact</a>
+          <a href="/#contact" onClick={() => setOpen(false)} className="btn-primary text-sm text-center mt-2">Contact</a>
         </nav>
       )}
     </header>

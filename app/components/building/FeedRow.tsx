@@ -29,7 +29,10 @@ export default function FeedRow({ item, delay = 0 }: { item: FeedItem; delay?: n
           {item.placeholder && <PlaceholderChip />}
         </h3>
         <p className="text-gray-600 text-sm leading-relaxed mb-2">{item.blurb}</p>
-        <p className="text-sm font-medium text-gray-600">{item.meta}</p>
+        <p className="text-sm font-medium text-gray-600 flex items-center gap-2">
+          {item.meta}
+          {item.category && <span className="tag">{item.category}</span>}
+        </p>
       </div>
     </motion.a>
   );
