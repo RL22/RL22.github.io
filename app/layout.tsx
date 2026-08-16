@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rl22.github.io"),
   title: siteTitle,
   description: siteDescription,
+  verification: { google: "googled984ca84bb168b8a" },
   openGraph: {
     siteName: "Rodney L. Lewis",
     type: "website",
