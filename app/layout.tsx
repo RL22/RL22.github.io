@@ -62,6 +62,14 @@ const personJsonLd = {
     "https://www.linkedin.com/in/rodney-lewis-abb11b73",
     "https://sprintz.agency",
   ],
+  knowsAbout: [
+    "Next.js",
+    "CMS Architecture",
+    "Marketing Web Platforms",
+    "Core Web Vitals",
+    "React",
+    "TypeScript",
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

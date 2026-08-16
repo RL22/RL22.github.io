@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   ...(SHOW_WORK ? {} : { robots: { index: false, follow: false } }),
   title: "Work | Rodney L. Lewis",
   description: DESCRIPTION,
-  alternates: { canonical: "/work" },
+  alternates: { canonical: "/work/" },
   openGraph: {
     title: "Work | Rodney L. Lewis",
     description: DESCRIPTION,

@@ -88,7 +88,9 @@ export default function Hero() {
           <div className="absolute bottom-0 right-0 w-[84%] h-[90%] bg-brand rounded-3xl overflow-hidden">
             <img
               src="/img/portfolio-hero-chmd-lifestyle-gen.webp"
-              alt="Rodney L. Lewis"
+              alt="Rodney L. Lewis, Senior Web Platform Engineer"
+              width={1065}
+              height={1600}
               className="absolute bottom-0 right-0 h-full w-full object-cover object-top select-none pointer-events-none"
               draggable={false}
             />
