@@ -1,61 +1,36 @@
 # TODO
 
-## Building in Public: replace placeholder content, then unhide
+## Building in Public: fill remaining content, then unhide
 
-The section and its seven blog pages are built and working. They ship hidden
-only because the content is placeholder text that would read as fake.
+Still gated behind `SHOW_BUILDING_IN_PUBLIC` in [app/config.ts](app/config.ts),
+currently `false`. That one flag controls the homepage section, the navbar and
+footer links, the `/blog` URLs in `sitemap.xml`, and `noindex` on the blog pages.
 
-Everything is gated behind `SHOW_BUILDING_IN_PUBLIC` in
-[app/config.ts](app/config.ts), currently `false`. That one flag controls the
-homepage section, the navbar and footer links, the `/blog` URLs in
-`sitemap.xml`, and `noindex` on the blog pages.
+**Done**, in [app/data/building.json](app/data/building.json):
 
-**Work to do**, all content in [app/data/building.json](app/data/building.json):
+1. Featured video is real: "Augment Your On-Brand Stock Photos" (AI User
+   Group talk), real `videoId`, real body.
+2. The two extra unfilled video slots were dropped rather than filled
+   (`placeholder-second-video`, `placeholder-third-video` no longer exist).
+3. Five real articles replace the two generic article placeholders: two
+   "Thoughts" essays and three "Repo Review" pieces. Added a `category` field
+   (`BlogCategory` in [app/blog/content.ts](app/blog/content.ts)) across
+   `VideoItem`/`ArticleItem`/`RepoPage`, shown as a label only, no filter UI.
+5. `"placeholder": true` removed from every filled entry.
 
-1. **Featured video** (`placeholder-push-to-prod-episode`): real title, blurb,
-   `videoId`, `publishedAt`, and body paragraphs. While `videoId` is `null` the
-   page renders a grey placeholder panel instead of the YouTube player.
-2. **Two more videos** (`placeholder-second-video`, `placeholder-third-video`):
-   same fields. Both currently have `videoId: null`.
-3. **Two articles** (`placeholder-marketing-web-platforms`,
-   `placeholder-second-teardown`): real title, blurb, and body paragraphs.
-   Optionally add `image` and `imageAlt` for the hero; without them the layout
-   renders a placeholder panel.
-4. **Two repo pages** (`readworthy`, `character-md`): replace the placeholder
-   `body` paragraphs and `highlights`. Their taglines are already real, and
+**Still to do:**
+
+4. **Two repo pages** (`readworthy`, `character-md`): still have placeholder
+   `body` paragraphs and `highlights`. Taglines are already real, and
    language/stars/updated date come from the build-time GitHub fetch.
-5. Remove `"placeholder": true` from each entry as it becomes real. That flag
-   drives the visible PLACEHOLDER chips.
 6. Generate per-post OG images from the `#og-card-article` and
    `#og-card-video` templates at `/og-preview`, then reference them in
    `app/blog/[slug]/page.tsx` metadata.
 7. Flip `SHOW_BUILDING_IN_PUBLIC` to `true`.
 
-## /work: revisit Pendo product URL structure claim
-
-[app/data/work.json](app/data/work.json)'s `pendo-core-web-platform` case study
-and its diagram (`app/work/diagrams/`, not yet built for this case study)
-describe product pages as organized under one shared `/product-{family}/{product}/`
-pattern. That's true for exactly one namespace — `/product-experience/{product}/`,
-confirmed live and in Wayback — but the real June 2023 homepage nav
-(`https://web.archive.org/web/20230627090523/https://www.pendo.io/`) also shows
-two other, incompatible URL shapes:
-
-- `/product/{name}/` — flat, no family segment (e.g. `/product/adopt`,
-  `/product/analytics`, `/product/engage`, `/product/feedback`,
-  `/product/in-app-guides`, `/product/mobile`, `/product/roadmap`,
-  `/product/saas-portfolio-insights`)
-- `/products/{name}/` — flat, plural, overlapping names with the one above
-  (`/products/analytics`, `/products/mobile`, `/products/data-sync`,
-  `/products/saas-portfolio-insights`) — looks like a rebrand mid-flight,
-  two schemes live at once
-
-So "Adopt" is real and did exist in-tenure, but at `/product/adopt`, not as a
-second family under the `/product-{family}/{product}/` pattern the case study
-claims. Before this case study or its diagram go live (`SHOW_WORK` flip),
-decide: rewrite the claim to be honest about the migration-in-progress reality,
-or keep the case study scoped to the one namespace where the clean pattern
-claim is actually true (`product-experience`) and don't mention Adopt.
+A running list of future article ideas, tailored to this site's audience and
+inspired by codeline.co/thoughts, lives at [blog-ideas.json](blog-ideas.json)
+in the repo root.
 
 ## Nice to have
 

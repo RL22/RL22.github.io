@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Headless WordPress: stripping the REST API payload for Next.js",
+    "category": "Code",
+    "angle": "WordPress sends too much data by default. This covers how to intercept and strip the REST API response down to only the fields a Next.js frontend actually consumes, paired with an edge caching middleware pattern to fix TTFB.",
+    "whyItFits": "Shows he knows how to take a notoriously heavy CMS and force it to perform at enterprise standards."
+  },
+  {
+    "title": "HubSpot Themes: building components that marketers cannot break",
+    "category": "Marketing",
+    "angle": "A component architecture approach to HubSpot that limits style overrides while preserving layout flexibility. Explains how to use custom modules and strict field definitions to enforce brand guidelines automatically.",
+    "whyItFits": "Proves he builds for the actual end users while maintaining strict engineering rigor."
+  },
+  {
+    "title": "Model Routing: dynamically selecting LLMs in a Next.js marketing stack",
+    "category": "AI",
+    "angle": "Relying on a single LLM provider for all features is a failure point. A technical look at how to route tasks dynamically between Claude, OpenAI, and local models based on latency requirements and token costs.",
+    "whyItFits": "Demonstrates deep practical experience with AI integration beyond basic API wrappers."
+  },
+  {
+    "title": "Vercel AI SDK Core: how tool calling and streaming actually work",
+    "category": "Repo Review",
+    "angle": "A technical breakdown of how the AI SDK handles streaming responses and tool calling under the hood. Focuses on the adapter pattern they use to normalize different provider APIs into a single interface.",
+    "whyItFits": "Positions him as an engineer who reads the source code of the tools he uses and understands their architectural decisions."
+  },
+  {
+    "title": "Sanity Schema Patterns: building page builders without the maintenance debt",
+    "category": "Code",
+    "angle": "How to structure Sanity schemas using polymorphic arrays for a flexible page builder that avoids becoming a maintenance nightmare. Covers validation rules and preview configurations for complex layouts.",
+    "whyItFits": "Highlights his ability to architect CMS solutions that balance content flexibility with structured data."
+  },
+  {
+    "title": "Microinteractions: measuring the actual engineering cost of animation",
+    "category": "Design",
+    "angle": "A framework for evaluating when a complex animation is worth the bundle size and main thread blocking time. Details specific profiling techniques in Chrome DevTools to measure the exact performance impact on Core Web Vitals.",
+    "whyItFits": "Shows he cares about design but grounds his decisions in measurable performance metrics and user experience."
+  },
+  {
+    "title": "Visual Builders: the false economy of no code workarounds",
+    "category": "Thoughts",
+    "angle": "Trying to force Webflow to handle complex conditional logic always costs more engineering time than building a custom React application. A technical guide on when to eject from visual builders and own the stack.",
+    "whyItFits": "Proves he can make strategic technical decisions and knows the hard limits of different platform types."
+  },
+  {
+    "title": "Core Web Vitals: treating LCP as a demand generation metric",
+    "category": "Marketing",
+    "angle": "The direct correlation between LCP improvements and form submission rates on B2B landing pages. Shares a case study of optimizing a Next.js site to drop render blocking resources and the resulting conversion lift.",
+    "whyItFits": "Connects engineering outcomes directly to business metrics that matter to marketing leadership."
+  },
+  {
+    "title": "Webflow Client API: the undocumented endpoints for programmatic updates",
+    "category": "Bookmarks",
+    "angle": "A practical look at the undocumented endpoints in the Webflow API that allow for programmatic site updates. Explains how to use them for automated content syncing from external databases.",
+    "whyItFits": "Shows he digs deep into platform capabilities to build integrations that most people assume are impossible."
+  },
+  {
+    "title": "Content Migration: multi agent orchestration for unstructured data",
+    "category": "AI",
+    "angle": "How to use a network of Claude Code agents to parse, structure, and migrate thousands of unstructured blog posts into a new headless CMS format. Covers the prompt architecture and validation steps.",
+    "whyItFits": "Demonstrates advanced AI workflow automation for a painful and common marketing engineering task."
+  },
+  {
+    "title": "Marketo Forms: decoupling submission logic from the client library",
+    "category": "Code",
+    "angle": "How to build custom React forms that post directly to the Marketo background endpoint. Eliminates the need to load the heavy Marketo JavaScript library on the client entirely.",
+    "whyItFits": "Addresses a specific and universal pain point for marketing engineers with a clean technical solution."
+  },
+  {
+    "title": "Tailwind CSS v4: analyzing the new CSS variable engine architecture",
+    "category": "Repo Review",
+    "angle": "An analysis of the new engine architecture in Tailwind v4. Focuses on the CSS variable approach and what it actually means for design system implementations in enterprise codebases.",
+    "whyItFits": "Shows he stays ahead of core tooling changes and evaluates them based on architectural impact."
+  },
+  {
+    "title": "Component APIs: designing React props for marketing teams",
+    "category": "Design",
+    "angle": "How to structure React component props so that non technical users can assemble pages in a visual editor without creating broken layouts. Covers default values, prop validation, and error boundaries.",
+    "whyItFits": "Highlights his expertise in bridging the gap between engineering systems and marketing workflows."
+  },
+  {
+    "title": "Sanity vs Webflow: a technical rubric for platform selection",
+    "category": "Thoughts",
+    "angle": "A technical rubric for deciding between a headless CMS and a visual builder based on content relationships, localization requirements, and available engineering resources.",
+    "whyItFits": "Positions him as a strategic partner who can guide platform selection instead of just executing tickets."
+  },
+  {
+    "title": "AI Native Workflows: delegating boilerplate to Codex and architecture to Claude",
+    "category": "AI",
+    "angle": "A breakdown of a daily workflow using multiple AI assistants for different tasks. Explains the reasoning behind using Codex for boilerplate generation and Claude for architectural refactoring.",
+    "whyItFits": "Shows he is an efficient and modern engineer who uses AI to accelerate output without compromising quality."
+  },
+  {
+    "title": "Next.js App Router: overriding default caching semantics for marketing content",
+    "category": "Bookmarks",
+    "angle": "A clear explanation of how the App Router handles caching by default and how to override it for dynamic marketing content. A necessary reference for anyone building headless architectures.",
+    "whyItFits": "Proves his mastery of a complex and critical tool in the modern frontend stack."
+  },
+  {
+    "title": "Localization Workflows: syncing headless CMS content with translation APIs",
+    "category": "Marketing",
+    "angle": "How to connect a headless CMS to a translation API and a Git based approval process. Details the webhooks and edge functions required to keep multiple regions in sync without manual data entry.",
+    "whyItFits": "Demonstrates experience building enterprise scale marketing infrastructure."
+  },
+  {
+    "title": "Edge Functions: personalizing static pages without layout shift",
+    "category": "Code",
+    "angle": "A technical deep dive into using Vercel Edge Middleware to inject localized pricing and user context into statically generated Next.js pages before they hit the browser.",
+    "whyItFits": "Solves a classic marketing web problem of balancing static site performance with dynamic personalization."
+  },
+  {
+    "title": "Figma Variables: automating design token synchronization",
+    "category": "Design",
+    "angle": "How to set up a GitHub Action that pulls updated color and typography variables directly from the Figma API and compiles them into CSS custom properties.",
+    "whyItFits": "Proves he can build internal tooling that aligns engineering and design teams."
+  },
+  {
+    "title": "Claude Code: building a local plugin for marketing operations",
+    "category": "AI",
+    "angle": "An overview of writing a custom Claude Code plugin that can directly query a Marketo instance and draft landing page copy based on past successful campaigns.",
+    "whyItFits": "Positions him at the frontier of AI tooling for practical marketing workflows."
+  }
+]
