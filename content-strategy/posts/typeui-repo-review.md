@@ -8,11 +8,13 @@ That changes the operator’s job. Instead of repeatedly asking an agent to “m
 
 ## How TypeUI works
 
+Since this review was researched, TypeUI has expanded into a broader platform led by MCP integration, plugins, and prompt surfaces beyond its original CLI-and-Markdown workflow. The review below remains scoped to the CLI/Markdown path I inspected.
+
 TypeUI packages design guidance for AI coding tools as Markdown. Its [`npx typeui.sh` CLI](https://github.com/bergside/typeui#cli-commands) can generate or update a local design system, create a randomized starting point, list registry entries, and pull a named specification. The output can use either `SKILL.md` or `DESIGN.md`, giving the agent project-level rules it can load alongside the codebase.
 
 The registry makes those rules reusable. TypeUI’s `list` and `pull` commands resolve named entries to Markdown source paths, so an aesthetic such as Brutalism, Neumorphism, or Paper becomes a versioned specification rather than an adjective buried in a prompt.
 
-[![TypeUI repository preview showing its design-skill and UI-prompt tooling](https://repository-images.githubusercontent.com/1171412548/20ee9e6e-4b8b-4ed1-a701-d6dbc7ec380c)](https://github.com/bergside/typeui)
+[![TypeUI repository preview showing its design-skill and UI-prompt tooling](/og-cache/bergside-typeui.png)](https://github.com/bergside/typeui)
 
 *The TypeUI repository documents its CLI, registry contract, and agent-readable design guidance.*
 

@@ -58,12 +58,12 @@
         {
           "name": "mattpocock/skills",
           "url": "https://github.com/mattpocock/skills",
-          "ogImage": "https://opengraph.githubassets.com/b901433918e7d86f3c331d4a2bee53719e29cb111dc22723baf6f04d331f07c4/mattpocock/skills"
+          "ogImage": "/og-cache/mattpocock-skills.png"
         },
         {
           "name": "obra/superpowers",
           "url": "https://github.com/obra/superpowers",
-          "ogImage": "https://opengraph.githubassets.com/e5bd508a8a6e91f17779a3d94b75523bdedc51c50f272b4859cb755bf259e898/obra/superpowers"
+          "ogImage": "/og-cache/obra-superpowers.png"
         }
       ],
       "bodyFile": "content-strategy/posts/matt-pocock-vs-obra-superpowers.md"
@@ -74,8 +74,8 @@
       "slug": "typeui-repo-review",
       "category": ["AI", "DESIGN", "ENGINEERING"],
       "status": "published",
-      "title": "TypeUI: forcing agents to care about design",
-      "blurb": "An open-source CLI that injects typographic and layout constraints into an agent's context, so generated UI stops defaulting to generic.",
+      "title": "TypeUI: giving agents a design brief",
+      "blurb": "An open-source toolkit for putting typography, layout, and interaction guidance into an agent's working context.",
       "url": "https://github.com/bergside/typeui",
       "ctaLabel": "View the repo",
       "meta": "Repo Review · AI · Aug 2026",
@@ -84,7 +84,7 @@
         {
           "name": "bergside/typeui",
           "url": "https://github.com/bergside/typeui",
-          "ogImage": "https://repository-images.githubusercontent.com/1171412548/20ee9e6e-4b8b-4ed1-a701-d6dbc7ec380c"
+          "ogImage": "/og-cache/bergside-typeui.png"
         }
       ],
       "bodyFile": "content-strategy/posts/typeui-repo-review.md"
@@ -93,7 +93,7 @@
       "type": "repo review",
       "layout": "review",
       "slug": "marketingskills-repo-review",
-      "category": ["AI", "ENGINEERING", "MARKETING", "ANALYTICS", "SEO"],
+      "category": ["AI", "ENGINEERING", "MARKETING", "SEO"],
       "status": "published",
       "title": "Marketing Skills: engineering discipline for growth work",
       "blurb": "A skill library that treats marketing operations as a dependency graph, anchoring every task to one source of product truth.",
@@ -105,7 +105,7 @@
         {
           "name": "coreyhaines31/marketingskills",
           "url": "https://github.com/coreyhaines31/marketingskills",
-          "ogImage": "https://opengraph.githubassets.com/0847b423a5fdf5191c1816ee1fa8d345873f95cea3a2440e4a3fab59e8faa0c4/coreyhaines31/marketingskills"
+          "ogImage": "/og-cache/coreyhaines31-marketingskills.png"
         }
       ],
       "bodyFile": "content-strategy/posts/marketingskills-repo-review.md"

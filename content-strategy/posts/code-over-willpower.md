@@ -1,4 +1,4 @@
-An agent's judgment is probabilistic, no matter how capable the model or how carefully written the prompt. Ask it to follow the same instruction a hundred times and the outputs will be close, not identical. The gap between close and correct is where bugs, style drift, and broken conventions live. When I noticed how much of my agentic workflow depended on an agent remembering to do something correctly every time, I started treating that dependence as a design smell.
+An agent's judgment is probabilistic, no matter how capable the model or how carefully written the prompt. Run the same instruction repeatedly and the outputs will vary, even when they're all reasonable. The gap between close and correct is where bugs, style drift, and broken conventions live. When I noticed how much of my agentic workflow depended on an agent remembering to do something correctly every time, I started treating that dependence as a design smell.
 
 ## Prompts are policy; code is enforcement
 
@@ -6,7 +6,7 @@ A prompt can state the policy: format changed files, preserve the schema, run th
 
 But a reminder is not an enforcement mechanism. The agent still has to interpret and retain it as the context grows, which leaves room for variation. Clearer prompting improves the odds; it does not turn a probabilistic process into a deterministic one.
 
-Code serves a different purpose. A formatter can reject inconsistent output. A schema validator can name the missing property. A test can reproduce a known failure. These checks do not need to understand the whole task. They need only answer a narrow question the same way every time. The prompt sets direction; the executable check defines the boundary the output cannot cross unnoticed.
+Code serves a different purpose. A formatter can reject inconsistent output. A schema validator can name the missing property. A test can reproduce a known failure. These checks do not need to understand the whole task. Well-designed checks evaluate a narrow condition reproducibly, though flaky dependencies and environment drift can still introduce variation. The prompt sets direction; the executable check defines the boundary the output cannot cross unnoticed.
 
 The useful pattern is prompts for intent and code for invariants. The agent does the open-ended work, runs the checks, and revises within explicit limits.
 
@@ -46,7 +46,7 @@ Not every check needs a framework. A small script that verifies filenames, scans
 
 Local checks provide quick feedback, but the shared control point belongs in continuous integration: the agent makes a change; CI runs the checks; a failure returns specific feedback; the agent fixes the cause; only a passing change becomes eligible to merge.
 
-Placement matters because a check that can be skipped is still partly a memory test. A formatter command in a README depends on someone running it; a required job becomes part of the merge contract. [GitHub protected branches and required status checks](https://docs.github.com/en/repositories/configuring-branches-and-merges/in-your-repository/managing-protected-branches/about-protected-branches) provide one implementation: named checks must pass before changes enter the protected branch.
+Placement matters because a check that can be skipped is still partly a memory test. A formatter command in a README depends on someone running it; a required job becomes part of the merge contract. [GitHub protected branches and required status checks](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) provide one implementation: when required status checks are enabled, affected collaborators cannot merge until those checks pass. Administrators and roles with bypass permission are exempt by default unless bypassing is explicitly disabled.
 
 Failure messages are part of the interface. “Validation failed” sends the agent back into open-ended diagnosis. “`category` must be one of these four values” converts the failure into a bounded revision. A gate should report what failed, where it failed, and how to reproduce the check locally. Deterministic enforcement works best when its feedback is equally concrete.
 

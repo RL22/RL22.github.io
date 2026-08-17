@@ -4,7 +4,7 @@
 
 Marketing work often runs through separate documents, tools, and owners. Conversion optimization, copywriting, analytics, and technical SEO may each be sound on their own while operating from different assumptions about the audience, positioning, or conversion goal. [Corey Haines's Marketing Skills repository](https://github.com/coreyhaines31/marketingskills) treats that coordination problem as an engineering problem: give AI agents structured marketing workflows, then make them read the same product context before they act.
 
-The important choice is not simply putting marketing advice into Markdown. It is making `.agents/product-marketing.md` the shared dependency for downstream work. That file gives every activated skill the same account of the product, audience, positioning, voice, proof, and goals. The repository turns alignment from something an operator has to restate in every prompt into context the system can inspect and reuse.
+The important choice is not simply putting marketing advice into Markdown. It is making `.agents/product-marketing.md` the shared dependency for downstream work. That file gives every downstream skill the same account of the product, audience, positioning, voice, proof, and goals. The repository turns alignment from something an operator has to restate in every prompt into context the system can inspect and reuse.
 
 ## How the Marketing Skills repository is structured
 
@@ -12,7 +12,7 @@ I opened the repository expecting a loose prompt library. Instead, the root sepa
 
 That shape follows the [Agent Skills specification](https://agentskills.io/specification): a required `SKILL.md` can sit beside optional scripts, references, and assets. It also makes the marketing system portable. The repository documents installation paths for multiple coding agents, while the workflow logic remains readable, editable, and version controlled.
 
-[![GitHub preview for Corey Haines's Marketing Skills repository](https://opengraph.githubassets.com/0847b423a5fdf5191c1816ee1fa8d345873f95cea3a2440e4a3fab59e8faa0c4/coreyhaines31/marketingskills)](https://github.com/coreyhaines31/marketingskills)
+[![GitHub preview for Corey Haines's Marketing Skills repository](/og-cache/coreyhaines31-marketingskills.png)](https://github.com/coreyhaines31/marketingskills)
 
 *GitHub preview for the Marketing Skills repository.*
 

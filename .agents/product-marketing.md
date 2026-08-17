@@ -62,6 +62,8 @@ These are hands-on IC roles: own the marketing site (CMS, components, performanc
 
 ## 5. Hard Rules (verification & honesty)
 
+**Scope: career/positioning copy** — About, Experience, Contact, resume variants, and any `/work` case study. Does not apply to Building in Public (`/building`, `/blog`, `app/data/building.json`) — that content is Rodney's own commentary and opinion on things he's read/watched/built, not resume-adjacent career claims, so it isn't checked against the resume/italics test below.
+
 - **Plain text** = directly verifiable in the Resume (`Rodney Lewis Resume 2025.pdf.md`).
 - **Italics** = not verbatim on the resume — drawn from positioning research, GitHub profile, the user's stated facts, or prior site content. Must be flagged for user review before publishing.
 - **Never** fabricate numbers, testimonials, or company names.

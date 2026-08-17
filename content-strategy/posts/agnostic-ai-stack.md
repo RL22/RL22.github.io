@@ -1,12 +1,12 @@
-I don't build AI workflows around a single model provider anymore, and anyone doing serious engineering work with AI tools should think twice before doing so. The model market moves too quickly for that commitment to make sense: prices change, capability rankings flip between releases, and the best model for a task today may be the wrong choice six months from now. The model is the least stable layer in the stack, so it should not be the layer everything else depends on.
+I believe AI workflows should not be designed around a single model provider. The model market moves too quickly for that commitment to make sense: prices change, capability rankings flip between releases, and the best model for a task today may be the wrong choice six months from now. The model is the least stable layer in the stack, so it should not be the layer everything else depends on.
 
 ## Match the model to the job
 
 Provider-agnostic architecture starts with task requirements, not model rankings. Different tasks need different levels of reasoning, speed, context, and reliability. A workflow that sends every request to one default model ignores those differences and usually pays for capability it does not need or accepts weak results where deeper reasoning matters.
 
-Consider four common jobs. A support-ticket classifier needs predictable labels, low latency, and low cost because it may run constantly. A planning pass needs stronger reasoning and can tolerate a slower response. A code-editing step needs reliable instruction following, structured output, and enough context to understand the affected files. A final release review may need the most capable model available because a missed issue costs more than the inference call.
+Consider four hypothetical jobs. A support-ticket classifier would need predictable labels, low latency, and low cost because it might run constantly. A planning pass would call for stronger reasoning and could tolerate a slower response. A code-editing step would need reliable instruction following, structured output, and enough context to understand the affected files. A final release review might warrant the most capable model available because a missed issue could cost more than the inference call.
 
-That routing policy can stay compact:
+An illustrative routing policy could stay compact:
 
 | Task | Primary requirement | Sensible route | Fallback priority |
 |---|---|---|---|
@@ -29,9 +29,11 @@ A portable workflow should define what happens when a call times out, reaches a 
 
 Model portability is also narrower than provider portability. A plain text-generation step may move easily. A workflow built around a provider's hosted tools, prompt caching, computer-use API, or proprietary retrieval layer may not. The architecture should make that dependency visible instead of pretending it does not exist.
 
-## A thin adapter is usually enough
+## An illustrative thin-adapter pattern
 
-The practical fix is a small boundary between workflow logic and model calls. The workflow describes the task; the adapter translates that request into a provider-specific API call and normalizes the response. Prompts, business rules, evaluation criteria, retry policy, and task routing stay outside provider SDK code.
+At the architectural level, one possible answer is a small boundary between workflow logic and model calls. The workflow would describe the task; an adapter would translate that request into a provider-specific API call and normalize the response. Prompts, business rules, evaluation criteria, retry policy, and task routing would stay outside provider SDK code.
+
+The following TypeScript is illustrative pseudocode for that pattern, not a production implementation or a description of a system I have built:
 
 ```ts
 type ModelTask = "classify" | "plan" | "edit" | "review";
@@ -61,11 +63,11 @@ const routes = {
 } satisfies Record<ModelTask, { primary: string; fallback: string | null }>;
 ```
 
-The adapter should normalize only what the workflow truly shares: input messages, structured-output requests, response text, usage, and a small error taxonomy. Each provider implementation can still expose an escape hatch for native options. That keeps the common path clean without blocking features that have no equivalent elsewhere.
+In this hypothetical design, the adapter would normalize only what the workflow truly shares: input messages, structured-output requests, response text, usage, and a small error taxonomy. Each provider implementation could still expose an escape hatch for native options. That would keep the common path clean without blocking features that have no equivalent elsewhere.
 
-Configuration then maps task types to evaluated model tiers rather than scattering model IDs through application code. Replacing a model becomes a configuration change followed by an evaluation run, not a search-and-rewrite project. A fallback provider uses the same normalized contract, so the workflow does not need a second branch for every task.
+Configuration could then map task types to evaluated model tiers rather than scattering model IDs through application code. In principle, replacing a model would become a configuration change followed by an evaluation run, not a search-and-rewrite project. A fallback provider could use the same normalized contract, keeping a second provider branch out of each task workflow.
 
-This boundary also makes tests more useful. The workflow can run against a fake adapter in unit tests, while provider contract tests verify request translation and response normalization. Model evaluations then answer the separate question: does this candidate model perform the task well enough to enter the routing table?
+The same boundary could also make tests more useful. A workflow could run against a fake adapter in unit tests, while provider contract tests could verify request translation and response normalization. Model evaluations would then answer a separate question: does this candidate model perform the task well enough to enter the routing table?
 
 <!-- asset: agnostic-ai-stack-fallback | brief: primary model failure → fallback provider → normalized response | alt: Fallback flow across two model providers -->
 
@@ -79,6 +81,6 @@ Some workflows should use a provider directly. If the product depends on a uniqu
 
 ## Design for the swap
 
-I am not interested in chasing every model release or building a routing platform before a workflow needs one. I want the smallest boundary that keeps task logic separate from a volatile dependency: explicit requirements, a thin adapter, a configuration-driven route, and evaluations that qualify replacements.
+I am not arguing for chasing every model release or building a routing platform before a workflow needs one. The principle I believe in is the smallest boundary that keeps task logic separate from a volatile dependency: explicit requirements, a thin adapter, a configuration-driven route, and evaluations that qualify replacements.
 
 The decision rule is simple. If a model call is ordinary inference and another provider could perform the same job, put it behind the boundary. If the workflow depends on a provider-specific capability, expose that dependency clearly and test it as such. Pay the small design cost while the integration is simple, and the eventual swap becomes routine work instead of an emergency rewrite.

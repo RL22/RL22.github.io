@@ -4,9 +4,9 @@ Matt Pocock and Jesse Vincent (Obra) start from the same diagnosis: coding agent
 
 ## Matt Pocock's composable, operator-led skills
 
-[Matt Pocock's skills repository](https://github.com/mattpocock/skills) is a collection of small, adaptable workflows for software engineering rather than one prescribed delivery system. The repository separates user-invoked skills, which orchestrate work when the developer explicitly calls them, from model-invoked skills, which the agent can select when a task fits. Each skill uses the portable [`SKILL.md` format defined by the Agent Skills specification](https://agentskills.io/specification), so the workflow lives in inspectable, version-controlled text rather than a hidden prompt.
+[Matt Pocock's skills repository](https://github.com/mattpocock/skills) is a collection of small, adaptable workflows for software engineering rather than one prescribed delivery system. The repository separates user-invoked skills, which orchestrate work when the developer explicitly calls them, from model-invoked skills, which the agent can select when a task fits. Each workflow is stored in a [`SKILL.md` file](https://agentskills.io/specification), with some harness-specific invocation metadata layered on top of the shared specification, so the workflow lives in inspectable, version-controlled text rather than a hidden prompt.
 
-[![GitHub preview for Matt Pocock's composable agent-skills repository](https://opengraph.githubassets.com/b901433918e7d86f3c331d4a2bee53719e29cb111dc22723baf6f04d331f07c4/mattpocock/skills)](https://github.com/mattpocock/skills)
+[![GitHub preview for Matt Pocock's composable agent-skills repository](/og-cache/mattpocock-skills.png)](https://github.com/mattpocock/skills)
 
 *GitHub preview for [mattpocock/skills](https://github.com/mattpocock/skills), a modular skill library for software-engineering agents.*
 
@@ -18,7 +18,7 @@ That structure keeps the developer close to the work. I can call the workflow th
 
 [Obra's Superpowers repository](https://github.com/obra/superpowers) presents itself as a complete software-development methodology built from composable skills. Its default path moves from brainstorming to an approved design, an implementation plan, task execution, test-driven development, review, and branch completion. The skills activate as the work reaches each stage, so the agent carries more of the orchestration burden.
 
-[![GitHub preview for Obra's process-led Superpowers repository](https://opengraph.githubassets.com/e5bd508a8a6e91f17779a3d94b75523bdedc51c50f272b4859cb755bf259e898/obra/superpowers)](https://github.com/obra/superpowers)
+[![GitHub preview for Obra's process-led Superpowers repository](/og-cache/obra-superpowers.png)](https://github.com/obra/superpowers)
 
 *GitHub preview for [obra/superpowers](https://github.com/obra/superpowers), an agentic software-development methodology organized as a connected workflow.*
 
@@ -55,6 +55,4 @@ The reverse cases reveal each system's limit. Pocock's approach can make the ope
 
 ## If I could only pick one
 
-For my day-to-day work in an established codebase, I would pick Pocock's skills. They make senior-IC judgment visible: I choose the tool, define the seam, inspect the result, and keep the agent close to the architecture already in place.
-
-For a larger, well-scoped body of autonomous work, I would switch to Superpowers. Its value is the connected process: agree on the design and plan, then let task isolation, review gates, and progress tracking keep execution aligned. My default is Pocock; the context qualifier is that Superpowers is the stronger fit when process autonomy is the point.
+If I could only pick one, I would default to Pocock's skills. The deciding criterion is who should own the workflow: Pocock when I want to steer it, Superpowers when process autonomy is the point.
