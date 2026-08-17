@@ -1,15 +1,18 @@
 import { Play } from "lucide-react";
 import LiteYouTube from "../components/LiteYouTube";
 import { BottomCta } from "./BlogChrome";
-import { formatDate, type VideoItem } from "./content";
+import MarkdownBody from "./MarkdownBody";
+import { formatDate, getBody, type BuildingItem } from "./content";
 
-export default function VideoLayout({ item }: { item: VideoItem }) {
+export default function VideoLayout({ item }: { item: BuildingItem }) {
   return (
     <article className="py-20">
       <div className="max-w-3xl mx-auto px-6">
-        <p className="text-xs font-bold uppercase tracking-widest text-brand-dark mb-4 flex items-center gap-2">
+        <p className="text-xs font-bold uppercase tracking-widest text-brand-dark mb-4 flex items-center gap-2 flex-wrap">
           Video
-          <span className="tag">{item.category}</span>
+          {item.category.map((tag) => (
+            <span className="tag" key={tag}>{tag}</span>
+          ))}
         </p>
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4">{item.title}</h1>
         <p className="text-gray-600 text-sm font-medium mb-10">
@@ -31,10 +34,8 @@ export default function VideoLayout({ item }: { item: VideoItem }) {
           </div>
         )}
 
-        <div className="mt-10 space-y-5 max-w-[70ch] text-gray-700 leading-relaxed">
-          {item.body.map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
+        <div className="mt-10">
+          <MarkdownBody body={getBody(item)} />
         </div>
 
         {item.url && (

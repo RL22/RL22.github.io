@@ -3,14 +3,14 @@ import PlaceholderChip from "../components/building/PlaceholderChip";
 import MarkdownBody from "./MarkdownBody";
 import { formatDate, getBody, readingTime, type BuildingItem } from "./content";
 
-export default function ArticleLayout({ item }: { item: BuildingItem }) {
+export default function RepoReviewLayout({ item }: { item: BuildingItem }) {
   const body = getBody(item);
 
   return (
     <article className="py-20">
       <div className="max-w-3xl mx-auto px-6">
         <p className="text-xs font-bold uppercase tracking-widest text-brand-dark mb-4 flex items-center gap-2 flex-wrap">
-          Thoughts
+          Repo Review
           {item.category.map((tag) => (
             <span className="tag" key={tag}>{tag}</span>
           ))}
@@ -25,7 +25,7 @@ export default function ArticleLayout({ item }: { item: BuildingItem }) {
         <div
           className="w-full aspect-[2/1] rounded-2xl bg-brand/10 flex items-center justify-center mb-10"
           role="img"
-          aria-label="Article hero image placeholder"
+          aria-label="Repo review hero image placeholder"
         >
           <PlaceholderChip />
         </div>
@@ -35,7 +35,7 @@ export default function ArticleLayout({ item }: { item: BuildingItem }) {
         {item.url && (
           <div className="mt-10">
             <a href={item.url} target="_blank" rel="noopener noreferrer" className="btn-outline">
-              {item.ctaLabel ?? "Read the original piece"}
+              {item.ctaLabel ?? "View the repo"}
             </a>
           </div>
         )}
