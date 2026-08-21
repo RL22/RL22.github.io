@@ -1,152 +1,142 @@
 {
+  "featuredHero": ["on-brand-stock-photos", "matt-pocock-vs-obra-superpowers", "code-over-willpower"],
   "featured": {
     "type": "video",
     "layout": "video",
     "slug": "on-brand-stock-photos",
-    "category": "AI",
-    "title": "Augment Your On-Brand Stock Photos",
+    "category": ["AI", "DESIGN", "MARKETING"],
+    "status": "published",
+    "title": "Batching On-Brand Photography with AI, AI User Group San Francisco 08/24",
     "blurb": "A live demo for the AI User Group on using Midjourney and ChatGPT to generate on-brand stock photography without a photoshoot.",
     "url": "https://www.youtube.com/watch?v=MP-uprxKMnQ",
-    "meta": "YouTube · Aug 2024",
+    "meta": "Video · AI · Aug 2024",
     "videoId": "MP-uprxKMnQ",
     "duration": "PT24M58S",
     "publishedAt": "2024-08-06",
-    "body": [
-      "A talk for the AI User Group walking through Midjourney's imagine and describe prompts, and the parameters that actually change the output: aspect ratio, chaos, style raw, and character reference for keeping a subject consistent across generations.",
-      "The demo rebuilds stock photography for the brand Envoy on camera, showing how to go from a generic stock photo to something that reads as shot for the brand, using Midjourney and ChatGPT together instead of a photoshoot."
-    ]
+    "bodyFile": "content-strategy/posts/on-brand-stock-photos.md"
   },
   "items": [
     {
-      "type": "article",
+      "type": "thoughts",
       "layout": "article",
       "slug": "agnostic-ai-stack",
-      "category": "Thoughts",
-      "title": "The case for an agnostic AI stack",
+      "category": ["AI", "ENGINEERING", "PRODUCT"],
+      "status": "published",
+      "title": "Model-Agnostic by Design",
       "blurb": "Betting a workflow on one model provider is a bet against how fast this market moves. Design for swappable backends instead.",
       "url": null,
-      "meta": "Essay · Aug 2026",
+      "meta": "Thoughts · AI · Aug 2026",
       "publishedAt": "2026-08-15",
-      "body": [
-        "I don't build workflows around a single model provider anymore, and I think anyone doing serious engineering work with AI tools should think twice before they do either. The market for models is moving too fast for that kind of commitment to make sense: pricing shifts by the month, capability rankings flip between releases, and the model that was clearly best for a task in January can be a worse choice by summer, not because it got worse, but because something else got better or cheaper. Locking a workflow to one vendor's API is a bet that this volatility settles down soon. It won't.",
-        "The deeper argument isn't about churn, it's about fit. Different models are good at different things, and that gap is real, not marketing. Some models reason well through ambiguous, multi-step problems and are worth the extra latency and cost for planning or architecture decisions. Others are fast and cheap enough to run on every triage pass, every classification, every small decision that doesn't need deep reasoning. A third kind is tuned specifically for code generation and does that one job better than a generalist model twice its price. If your workflow only speaks to one provider, you're stuck applying that provider's average competence to tasks that vary wildly in what they actually need. You end up either overpaying for simple work or underpowering hard work, because you built the tool to fit the model instead of the model to fit the task.",
-        "Vendor lock-in also carries a risk that's easy to ignore until it isn't: a provider can deprecate an API, change rate limits, restructure pricing tiers, or simply have a bad outage during a week you needed the tool most. None of that is hypothetical; it has happened to every major provider at some point. When your workflow's plumbing is wired directly to one vendor's SDK, an interruption on their end becomes an interruption in your ability to work. That's an unnecessary dependency for something as replaceable as model inference.",
-        "The practical fix isn't complicated. Build a thin abstraction layer between your workflow logic and the model call: define what a task needs (reasoning depth, latency tolerance, cost ceiling) and route the actual API call through a layer that can swap providers without touching the rest of the system. Keep your tooling CLI-agnostic where you can, so the interface your scripts and agents talk to doesn't assume a specific vendor's conventions. This is the same instinct that makes engineers reach for an interface instead of a concrete class: you're not predicting which implementation wins, you're making sure the choice doesn't cost you anything later.",
-        "The cost of building this way up front is small: a bit more design discipline, a routing layer instead of a direct call, maybe a config file mapping task types to model tiers. The cost of not building this way shows up later, when you've got months of workflow logic wired to one vendor's quirks and a better or cheaper option ships that you can't easily adopt without a rewrite. I'd rather pay the small cost early than the large one later.",
-        "None of this is about chasing every new release or overengineering a routing system for its own sake. It's about recognizing that in a market this volatile, the model is the least stable part of your stack, so it shouldn't be the part everything else is built around. Design for the swap you'll eventually need to make, and you'll never be stuck making it under pressure."
-      ]
+      "bodyFile": "content-strategy/posts/agnostic-ai-stack.md"
     },
     {
-      "type": "article",
+      "type": "thoughts",
       "layout": "article",
       "slug": "code-over-willpower",
-      "category": "Thoughts",
-      "title": "Code over willpower: deterministic vs. probabilistic agentic outputs",
+      "category": ["AI", "ENGINEERING"],
+      "status": "published",
+      "title": "Stop Trusting Agents to Remember the Rules",
       "blurb": "Don't ask an agent to remember the rule every time. Write the rule once and let a script or test enforce it structurally.",
       "url": null,
-      "meta": "Essay · Aug 2026",
+      "meta": "Thoughts · AI · Aug 2026",
       "publishedAt": "2026-08-14",
-      "body": [
-        "An agent's judgment is probabilistic, no matter how good the model or how carefully worded the prompt. Ask it to follow the same instruction a hundred times and you'll get a hundred outputs that are close, not identical, and the gap between close and correct is exactly where bugs, style drift, and broken conventions live. The moment I noticed how much of my own agentic workflow depended on an agent simply remembering to do something right, every time, through instruction-following alone, I started treating that as a design smell rather than an acceptable cost.",
-        "The fix is one every senior engineer already knows from years before LLMs existed: don't rely on a person, or an agent, to remember a rule when you can encode the rule as code and make violating it impossible or loud. Nobody prompts a teammate before every commit to please remember to format your code consistently. A formatter runs in CI and fails the build if it doesn't. Nobody trusts a reviewer to catch every unused import or type mismatch by eye. A linter and a type checker catch it before a human ever looks at the diff. The entire discipline of tooling-as-enforcement exists because human judgment, applied consistently across thousands of repetitions, degrades. An LLM agent degrades the same way, just faster, because its memory of your instructions is a prompt it re-reads with no persistent state and no accumulated habit.",
-        "This changes how I think about what belongs in a prompt versus what belongs in a script. If a task requires judgment, contextual reasoning, weighing tradeoffs, that's legitimately agent work, and I let the model do it. But if a task has one correct outcome every time, it doesn't belong in the agent's judgment at all. It belongs in a test that fails when the output is wrong, a lint rule that blocks the commit, a type check that refuses to compile, or a CI gate that won't merge until the deterministic checks pass. The agent can call into those checks, react to their failures, and iterate against them, but the check itself doesn't ask the agent to be reliable. It replaces the need for reliability with a guarantee.",
-        "A concrete example: I don't ask an agent to remember to run tests before claiming a change works. I write a verification step that has to pass, with real output the agent has to observe, before the task can be marked done. I don't ask an agent to try to check for a specific class of bug I've seen before. I write a test that encodes that specific failure mode so it fails loudly and specifically if it recurs. The difference matters because trying to remember fails silently, quietly, the one time out of twenty when the prompt gets long or the context gets crowded and the instruction slips. A failing test doesn't slip. It stops the pipeline and says exactly what went wrong.",
-        "This isn't a knock on what agents are good at. Agents are good at exactly the kind of variable, judgment-heavy work that doesn't reduce cleanly to a rule, and that's most of what makes them useful. The mistake is asking them to also carry the load that should never have been probabilistic in the first place: formatting, structural conventions, known failure modes, invariants you've already identified. Every time I catch myself writing a prompt instruction that starts with always remember to, I ask whether that instruction could instead be a script, a rule, or a test. Almost always, it can.",
-        "The broader takeaway is that reliability isn't a property you get by asking harder or writing a clearer prompt. It's a property you get by moving the parts that must always happen the same way out of the agent's judgment entirely and into something structural. Willpower, human or artificial, is not a control mechanism. Code is."
-      ]
+      "bodyFile": "content-strategy/posts/code-over-willpower.md"
     },
     {
-      "type": "article",
-      "layout": "article",
+      "type": "repo review",
+      "layout": "comparison",
       "slug": "matt-pocock-vs-obra-superpowers",
-      "category": "Repo Review",
-      "title": "Agentic workflows compared: Matt Pocock's skills vs. Obra's Superpowers",
+      "category": ["AI", "ENGINEERING", "PRODUCT"],
+      "status": "published",
+      "title": "Operator-Led vs. Process-Led: Two Ways to Structure Agent Work",
       "blurb": "A technical comparison of two agent-skill libraries: granular developer-steered control versus a process that runs autonomously for hours.",
       "url": "https://github.com/mattpocock/skills",
       "ctaLabel": "View both repos",
-      "meta": "Repo review · Aug 2026",
+      "meta": "Repo Review · AI · Aug 2026",
       "publishedAt": "2026-08-13",
-      "body": [
-        "Matt Pocock and Jesse Vincent (Obra) both start from the same diagnosis: the default failure mode of an AI coding agent is a lack of engineering discipline. Left alone, an agent writes unverified code that skips tests, ignores existing architecture, and drifts from what was actually asked. Both published their personal agent-skill directories to fix that, and reading them side by side, their implementations reveal genuinely different philosophies about how a human should sit relative to the agent.",
-        "Pocock's repo (github.com/mattpocock/skills) is built for composability and explicit developer control. Skills split into two tiers: user-invoked orchestrators, like /triage and /to-spec, and model-invoked execution units the agent reaches for on its own. The standout is /grill-with-docs, a routine that forces the agent to interview the developer before writing any code. The whole shape treats the agent as a fast typist that needs constant, high-bandwidth alignment, tight feedback loops built around test-driven development and disciplined debugging cycles.",
-        "Obra's Superpowers (github.com/obra/superpowers) is closer to an end-to-end methodology that takes over the standard agent loop. Once triggered, it forces a rigid sequence: requirement gathering, plan generation, then a handoff to subagents for execution the documentation describes running independently for hours. Superpowers treats the agent less like a tool you steer turn by turn and more like a junior developer you manage through process guardrails.",
-        "The two shine in different conditions. Pocock's modular approach fits established, complex codebases where you need targeted help on one feature at a time. You pull the exact skill for the moment, which keeps the blast radius small, at the cost of more orchestration overhead for the human. Superpowers is built for large-scale, closer-to-fire-and-forget execution: scaffolding a new service, running a well-defined refactor across a big surface area, anywhere the risk is the agent wandering off-task without a heavy process holding it to a plan.",
-        "The tradeoff each makes is visible in its weak spot. Pocock's system asks more of the operator on every task, even small ones. Superpowers' spec-and-plan ceremony is a real bottleneck on a two-line fix. Which one earns its keep depends entirely on the shape of the work in front of you: drive the agent by hand through familiar territory, or hand it a large, well-scoped job and let the process keep it honest."
-      ]
+      "repos": [
+        {
+          "name": "mattpocock/skills",
+          "url": "https://github.com/mattpocock/skills",
+          "ogImage": "/og-cache/mattpocock-skills.png"
+        },
+        {
+          "name": "obra/superpowers",
+          "url": "https://github.com/obra/superpowers",
+          "ogImage": "/og-cache/obra-superpowers.png"
+        }
+      ],
+      "bodyFile": "content-strategy/posts/matt-pocock-vs-obra-superpowers.md"
     },
     {
-      "type": "article",
-      "layout": "article",
+      "type": "repo review",
+      "layout": "review",
       "slug": "typeui-repo-review",
-      "category": "Repo Review",
-      "title": "TypeUI: forcing agents to care about design",
-      "blurb": "An open-source CLI that injects typographic and layout constraints into an agent's context, so generated UI stops defaulting to generic.",
+      "category": ["AI", "DESIGN", "ENGINEERING"],
+      "status": "published",
+      "title": "Version-Controlling Design Taste for Agents",
+      "blurb": "An open-source toolkit for putting typography, layout, and interaction guidance into an agent's working context.",
       "url": "https://github.com/bergside/typeui",
       "ctaLabel": "View the repo",
-      "meta": "Repo review · Aug 2026",
+      "meta": "Repo Review · AI · Aug 2026",
       "publishedAt": "2026-08-12",
-      "body": [
-        "Left alone, an agent generating a UI defaults to a recognizable baseline: functional, generic, visually cheap. It's not that the model can't render a nice interface, it's that nothing in a typical prompt tells it what good actually means in a way it can act on. TypeUI (github.com/bergside/typeui) treats that as an engineering problem, not a prompting problem: turn design principles into explicit constraints the agent reads before it writes a line of frontend code.",
-        "The project ships as a command-line tool, typeui.sh, that pulls specific design systems into a local workspace instead of leaving \"make it look good\" to chance. Rules live as SKILL.md or DESIGN.md files the agent reads directly, and the repo maintains a registry of named aesthetics, from Brutalism to Neumorphism, each one translated from a visual concept into text a model can actually follow.",
-        "What stands out is treating a subjective problem mechanically. The tool holds the agent to spacing scales, typographic hierarchy, and contrast ratios, so the model stops inventing arbitrary pixel values or mixing incompatible patterns across components it generates in the same session. That's a real constraint, not a suggestion.",
-        "The limit is the medium: text can only steer visual output so far. TypeUI stops the worst offenses and establishes a coherent floor, but the render still needs a human to look at it before it ships. Nobody's automating taste from a markdown file yet.",
-        "Even with that limit, moving design out of ad hoc prompt engineering and into version-controlled configuration is a real improvement over the default. For anyone shipping UI with an agent in the loop, it's a sensible floor to build on rather than reinvent."
-      ]
+      "repos": [
+        {
+          "name": "bergside/typeui",
+          "url": "https://github.com/bergside/typeui",
+          "ogImage": "/og-cache/bergside-typeui.png"
+        }
+      ],
+      "bodyFile": "content-strategy/posts/typeui-repo-review.md"
     },
     {
-      "type": "article",
-      "layout": "article",
+      "type": "repo review",
+      "layout": "review",
       "slug": "marketingskills-repo-review",
-      "category": "Repo Review",
-      "title": "Marketing Skills: engineering discipline for growth work",
+      "category": ["AI", "ENGINEERING", "MARKETING", "SEO"],
+      "status": "published",
+      "title": "One Source of Truth for Every Marketing Skill",
       "blurb": "A skill library that treats marketing operations as a dependency graph, anchoring every task to one source of product truth.",
       "url": "https://github.com/coreyhaines31/marketingskills",
       "ctaLabel": "View the repo",
-      "meta": "Repo review · Aug 2026",
+      "meta": "Repo Review · AI · Aug 2026",
       "publishedAt": "2026-08-11",
-      "body": [
-        "Marketing work is usually short on engineering rigor: conversion optimization, copywriting, and technical SEO tend to live in fragmented docs and disconnected processes. Corey Haines built marketingskills (github.com/coreyhaines31/marketingskills) to treat those functions as structured, agent-executable tasks instead, a set of markdown instructions that teach a coding agent how to run marketing workflows with some precision.",
-        "The defining architectural choice is a strict dependency graph. The skills aren't isolated prompts; every specialized skill requires the agent to first read a foundational product-marketing file. That root dependency forces the agent to anchor every output in a concrete read on audience and positioning before it generates anything new.",
-        "That structure forces cross-discipline alignment by construction. Run the ai-seo skill and it cross-references the core positioning and adjacent skills like schema. Copywriting informs A/B testing, revenue-ops informs sales enablement. It's a software-engineering habit, dependency management, applied directly to go-to-market work.",
-        "The weak point is exactly what makes it strong: everything downstream inherits the root config, so vagueness or bad reasoning in that one foundational file cascades through the whole system. The agent will execute flawlessly against a bad premise if the human operator doesn't get the initial product definition right.",
-        "What it demonstrates is bigger than the repo itself: agentic workflows extending past code generation into growth work, with the same version control and dependency discipline a codebase gets. It turns marketing operations into an engineering problem, for better and for worse."
-      ]
-    }
-  ],
-  "repoPages": [
-    {
-      "slug": "readworthy",
-      "repo": "readworthy",
-      "category": "Code",
-      "publishedAt": "2026-05-21",
-      "tagline": "AI-native docs optimized for readability, structure, and context efficiency.",
-      "body": [
-        "Readworthy is an AI-native documentation format built to be readable by both humans and language models, optimizing for structure and context efficiency.",
-        "Placeholder: additional detail on the motivation behind the project and how it fits into the broader documentation tooling landscape.",
-        "Placeholder: notes on current status and what is planned next."
+      "repos": [
+        {
+          "name": "coreyhaines31/marketingskills",
+          "url": "https://github.com/coreyhaines31/marketingskills",
+          "ogImage": "/og-cache/coreyhaines31-marketingskills.png"
+        }
       ],
-      "highlights": [
-        "Placeholder highlight 1: the core problem readworthy solves.",
-        "Placeholder highlight 2: a notable design decision in the format.",
-        "Placeholder highlight 3: how it is used in practice today."
-      ]
+      "bodyFile": "content-strategy/posts/marketingskills-repo-review.md"
     },
     {
+      "type": "product",
+      "layout": "announcement",
+      "slug": "readworthy",
+      "repo": "readworthy",
+      "category": ["AI", "ENGINEERING", "PRODUCT", "DESIGN"],
+      "status": "unpublished",
+      "title": "readworthy",
+      "blurb": "AI-native docs optimized for readability, structure, and context efficiency.",
+      "url": "https://github.com/RL22/readworthy",
+      "meta": "Product · AI · May 2026",
+      "publishedAt": "2026-05-21",
+      "bodyFile": "content-strategy/posts/readworthy.md"
+    },
+    {
+      "type": "product",
+      "layout": "announcement",
       "slug": "character-md",
       "repo": "character.md",
-      "category": "Code",
+      "category": ["AI", "DESIGN", "PRODUCT"],
+      "status": "unpublished",
+      "title": "character.md",
+      "blurb": "A free, open-source starter system for consistent photorealistic AI characters.",
+      "url": "https://github.com/RL22/character.md",
+      "meta": "Product · AI · May 2026",
       "publishedAt": "2026-05-20",
-      "tagline": "A free, open-source starter system for consistent photorealistic AI characters.",
-      "body": [
-        "character.md is a free, open-source starter system for creating consistent photorealistic AI characters with GPT-5 Image 2 and other image generation tools.",
-        "Placeholder: additional detail on the workflow and the problem of character consistency across generations.",
-        "Placeholder: notes on current status and what is planned next."
-      ],
-      "highlights": [
-        "Placeholder highlight 1: the consistency problem this starter system addresses.",
-        "Placeholder highlight 2: the structure of the character definition format.",
-        "Placeholder highlight 3: which image models it has been tested with."
-      ]
+      "bodyFile": "content-strategy/posts/character-md.md"
     }
   ]
 }

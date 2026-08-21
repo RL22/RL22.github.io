@@ -8,7 +8,7 @@ const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Experience", href: "/#experience" },
   ...(SHOW_WORK ? [{ label: "Work", href: "/work/" }] : []),
-  ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Building in Public", href: "/#building" }] : []),
+  ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Building", href: "/building" }] : []),
   { label: "Skills", href: "/#skills" },
   { label: "Resume", href: "/resume" },
 ];

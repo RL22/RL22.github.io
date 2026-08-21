@@ -2,16 +2,57 @@
 
 ## Building in Public
 
-Still gated behind `SHOW_BUILDING_IN_PUBLIC` in [app/config.ts](app/config.ts),
-currently `false`. That one flag controls the homepage section, the navbar and
-footer links, the `/blog` URLs in `sitemap.xml`, and `noindex` on the blog pages.
+`SHOW_BUILDING_IN_PUBLIC` in [app/config.ts](app/config.ts) is now `true`
+(flipped 2026-08-16). That flag controls the homepage section, `/building`,
+`/blog`, the navbar/footer links, the `/blog` URLs in `sitemap.xml`, and
+indexing on the blog pages. Per-item visibility is separate: each entry in
+[app/data/building.json](app/data/building.json) carries its own
+`"status": "published" | "unpublished"`, filtered centrally in
+[app/blog/content.ts](app/blog/content.ts) — `readworthy` and `character-md`
+are `unpublished` and excluded from every public surface (homepage, `/blog`,
+`/building`, sitemap, feed.xml, static params) regardless of the site-wide flag.
+
+**2026-08-16 schema migration:** `body: string[]` arrays replaced with
+`bodyFile` pointers into `content-strategy/posts/<slug>.md` (plain
+CommonMark, no frontmatter/H1, rendered via `react-markdown` through
+`app/blog/MarkdownBody.tsx`). `repoPages` was folded into `items` as
+`type: "product"` / `layout: "announcement"`. `category` was repurposed from
+a single format label into a multi-select discipline array (`ENGINEERING`,
+`PRODUCT`, `MARKETING`, `ANALYTICS`, `AI`, `DESIGN`, `SEO`); format is now
+carried by `type` (`video` / `thoughts` / `repo review` / `product`) and
+`layout` (`video` / `article` / `comparison` / `review` / `announcement`).
+Repo-review pieces gained a `repos: [{ name, url, ogImage }]` field with each
+repo's real GitHub `og:image` URL, embedded inline in the Markdown body.
+Full rationale in [content-strategy/guidance.md](content-strategy/guidance.md);
+per-piece revision notes and Pinker prose reports in
+`content-strategy/revisions/<slug>/`.
 
 **Done**, in [app/data/building.json](app/data/building.json): featured video
 is real, the two unfilled video slots were dropped, five real articles
 (two Thoughts essays, three Repo Review pieces) replace the old generic
-article placeholders, and a `category` field (`BlogCategory` in
-[app/blog/content.ts](app/blog/content.ts)) is wired across all three
-content types, shown as a label only.
+article placeholders, each essay expanded to its target word count with H2
+structure, and the video writeup expanded from ~75 to ~245 words in
+first-person voice. All run through the `improve_writing` →
+`analyze_prose_pinker` → ai-seo → `enrich_blog_post` Fabric pipeline.
+
+**Image-gen backlog** — asset placeholders left as `<!-- asset: slug | brief:
+... | alt: ... -->` markers in the Markdown bodies (not yet generated,
+routed per the model-delegation skill's image-routing guide; all lean
+`image-text`/GPT Image since they're diagrams with labels and directional
+flow, not photoreal scenes):
+
+| Slug / marker | Prompt | Route |
+|---|---|---|
+| `agnostic-ai-stack-routing` | Clean technical diagram, provider-agnostic AI model-routing layer. Left to right flow: "Workflow" box → "Task requirements" box (labeled with small tags: reasoning depth, latency, cost) → "Provider adapter" box → "Selected model" box. Flat modern style, single accent color, generous whitespace, sans-serif labels, on white background. | image-text |
+| `agnostic-ai-stack-fallback` | Clean technical diagram showing a fallback flow across two model providers. "Primary model" box with a broken/red connector labeled "failure" pointing down to "Fallback provider" box, then both merging into a "Normalized response" box. Flat modern style, single accent color, sans-serif labels, on white background. | image-text |
+| `code-over-willpower-boundary` | Split diagram, two labeled halves. Left half "Agent judgment" (icon: a thought bubble or dotted/soft-edged shapes suggesting ambiguity) — labeled with "ambiguity", "tradeoffs". Right half "Deterministic checks" (icon: sharp checkmark/gate shapes) — labeled with "tests", "linters", "types", "CI gates". A clear vertical boundary line down the middle labeled "handoff". Flat modern style, single accent color, on white background. | image-text |
+| `code-over-willpower-ci-loop` | Circular/looping technical diagram: "Agent change" → "Deterministic checks" → "Failure feedback" (branch back to Agent change) or "Pass" → "Protected merge". Flat modern style, single accent color, clear arrows, sans-serif labels, on white background. | image-text |
+| `matt-pocock-vs-obra-superpowers-hero` | Editorial hero image, two contrasting agent-workflow systems branching from one shared root problem. Left branch: modular, composable blocks (operator-led). Right branch: a single connected sequential pipeline (process-led). Abstract/geometric, not literal UI screenshots, single accent color on a neutral background, wide aspect ratio suitable for an article hero. | image-text |
+| `typeui-repo-review-hero` | Editorial hero, split view. Left side: a generic, visually flat interface mockup (default spacing, no hierarchy). Right side: the same layout made coherent — clear typographic hierarchy, consistent spacing scale, defined contrast. Abstract UI blocks, not real screenshots, single accent color, wide aspect ratio suitable for an article hero. | image-text |
+| `marketingskills-repo-review-hero` | Editorial hero, a single root document/context file at the top branching down into multiple labeled workflow paths (copywriting, SEO, analytics, growth). Flat modern diagram style, single accent color, wide aspect ratio suitable for an article hero. | image-text |
+| `on-brand-stock-photos` resources block | No image — reserved for the real talk deck/slide links once verified. Not an image-gen task. | — |
+
+Nothing generated yet — waiting on explicit go-ahead, same as before.
 
 **Also done:** per-post OG images, generated automatically at build time via
 Next's `opengraph-image.tsx` file convention (Satori/`ImageResponse`), not
@@ -27,17 +68,16 @@ next time they're added to `work.json`/`building.json` and the site builds —
 no manual step. `/blog` and `/work` index pages still use the sitewide
 `og-default.png` fallback; only the detail pages were in scope.
 
-1. **Repo pages** (`readworthy`, `character-md`): still have placeholder
-   `body` paragraphs and `highlights`. **On hold** — the plan is to shrink
-   these to a brief intro with a primary CTA out to the long-form
-   piece/video on Sprintz, but that needs the actual Sprintz URLs first.
-2. **Hero images for the 5 real blog posts**: prompts are drafted and
-   model-routed (3 → Nano Banana Pro / "image", 2 → GPT Image /
-   "image-text", see conversation history for the full prompts). Nothing
-   generated yet — waiting on explicit go-ahead. Separate from OG images.
-3. Flip `SHOW_BUILDING_IN_PUBLIC` to `true` — blocked on 1–2 above. The
-   blog pages' bottom CTA links to `/#building`, currently a dead anchor;
-   resolves itself on unhide.
+1. **Products** (`readworthy`, `character-md`, now `type: "product"` /
+   `layout: "announcement"` in `items`): still `"status": "unpublished"`,
+   still placeholder body copy. **On hold** — same reason as before: shrink
+   to a brief intro with a primary CTA out to the long-form piece/video on
+   Sprintz, needs the actual Sprintz URLs first.
+2. ~~Hero images for the 5 real blog posts~~ — **superseded** by the
+   per-piece asset-placeholder backlog table above (2026-08-16 content
+   pass); the earlier draft prompts referenced "conversation history" that
+   no longer applies to the current post structure.
+3. ~~Flip `SHOW_BUILDING_IN_PUBLIC` to `true`~~ — **done**, 2026-08-16.
 
 A running list of future article ideas, tailored to this site's audience and
 inspired by codeline.co/thoughts, lives at [blog-ideas.json](blog-ideas.json)
