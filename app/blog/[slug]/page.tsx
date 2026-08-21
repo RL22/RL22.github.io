@@ -3,14 +3,9 @@ import { notFound } from "next/navigation";
 import { BlogHeader, BlogFooter } from "../BlogChrome";
 import VideoLayout from "../VideoLayout";
 import ArticleLayout from "../ArticleLayout";
-import RepoLayout from "../RepoLayout";
-import {
-  getAllSlugs,
-  getRepoMeta,
-  getRepoPageBySlug,
-  getVideoOrArticleBySlug,
-  wordCount,
-} from "../content";
+import RepoReviewLayout from "../RepoReviewLayout";
+import AnnouncementLayout from "../AnnouncementLayout";
+import { getAllSlugs, getBody, getItemBySlug, getRepoMeta, wordCount } from "../content";
 import { SHOW_BUILDING_IN_PUBLIC } from "../../config";
 
 const SITE_URL = "https://rl22.github.io";
@@ -36,144 +31,79 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const canonical = `${SITE_URL}/blog/${slug}/`;
 
-  const post = getVideoOrArticleBySlug(slug);
-  if (post) {
-    const title = `${post.title} | Rodney L. Lewis`;
-    const isArticle = post.type !== "video";
-    return {
-      title,
-      description: post.blurb,
-      alternates: { canonical },
-      ...(SHOW_BUILDING_IN_PUBLIC ? {} : { robots: { index: false, follow: false } }),
-      openGraph: {
-        title,
-        description: post.blurb,
-        url: canonical,
-        siteName: "Rodney L. Lewis",
-        type: post.type === "video" ? "video.other" : "article",
-        ...(isArticle ? { publishedTime: post.publishedAt, authors: ["Rodney L. Lewis"] } : {}),
-      },
-      twitter: {
-        card: post.type === "video" ? "summary_large_image" : "summary",
-        title,
-        description: post.blurb,
-      },
-    };
-  }
+  const item = getItemBySlug(slug);
+  if (!item) return { title: "Not found | Rodney L. Lewis" };
 
-  const repoPage = getRepoPageBySlug(slug);
-  if (repoPage) {
-    const title = `${repoPage.repo} | Rodney L. Lewis`;
-    return {
+  const title = `${item.title} | Rodney L. Lewis`;
+  return {
+    title,
+    description: item.blurb,
+    alternates: { canonical },
+    ...(SHOW_BUILDING_IN_PUBLIC ? {} : { robots: { index: false, follow: false } }),
+    openGraph: {
       title,
-      description: repoPage.tagline,
-      alternates: { canonical },
-      ...(SHOW_BUILDING_IN_PUBLIC ? {} : { robots: { index: false, follow: false } }),
-      openGraph: {
-        title,
-        description: repoPage.tagline,
-        url: canonical,
-        siteName: "Rodney L. Lewis",
-        type: "article",
-        publishedTime: repoPage.publishedAt,
-        authors: ["Rodney L. Lewis"],
-      },
-      twitter: {
-        card: "summary",
-        title,
-        description: repoPage.tagline,
-      },
-    };
-  }
-
-  return { title: "Not found | Rodney L. Lewis" };
+      description: item.blurb,
+      url: canonical,
+      siteName: "Rodney L. Lewis",
+      type: item.type === "video" ? "video.other" : "article",
+      ...(item.type !== "video" ? { publishedTime: item.publishedAt, authors: ["Rodney L. Lewis"] } : {}),
+    },
+    twitter: {
+      card: item.type === "video" ? "summary_large_image" : "summary",
+      title,
+      description: item.blurb,
+    },
+  };
 }
 
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const canonical = `${SITE_URL}/blog/${slug}/`;
 
-  const post = getVideoOrArticleBySlug(slug);
-  if (post) {
-    if (post.type === "video") {
-      const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "VideoObject",
-        name: post.title,
-        description: post.blurb,
-        uploadDate: post.publishedAt,
-        author: AUTHOR,
-        mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
-        ...(post.videoId
-          ? {
-              embedUrl: `https://www.youtube-nocookie.com/embed/${post.videoId}`,
-              thumbnailUrl: `https://img.youtube.com/vi/${post.videoId}/maxresdefault.jpg`,
-            }
-          : {}),
-        ...(post.duration ? { duration: post.duration } : {}),
-      };
-      return (
-        <>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(post.title, canonical)) }}
-          />
-          <BlogHeader />
-          <main id="main" className="bg-white">
-            <VideoLayout item={post} />
-          </main>
-          <BlogFooter />
-        </>
-      );
-    }
+  const item = getItemBySlug(slug);
+  if (!item) notFound();
 
+  if (item.type === "video") {
     const jsonLd = {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      headline: post.title,
-      description: post.blurb,
-      datePublished: post.publishedAt,
-      dateModified: post.publishedAt,
-      articleSection: post.category,
-      wordCount: wordCount(post.body),
-      ...("image" in post && post.image ? { image: post.image } : {}),
+      "@type": "VideoObject",
+      name: item.title,
+      description: item.blurb,
+      uploadDate: item.publishedAt,
       author: AUTHOR,
-      publisher: AUTHOR,
-      url: canonical,
       mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+      ...(item.videoId
+        ? {
+            embedUrl: `https://www.youtube-nocookie.com/embed/${item.videoId}`,
+            thumbnailUrl: `https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`,
+          }
+        : {}),
+      ...(item.duration ? { duration: item.duration } : {}),
     };
     return (
       <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(post.title, canonical)) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(item.title, canonical)) }}
         />
         <BlogHeader />
         <main id="main" className="bg-white">
-          <ArticleLayout item={post} />
+          <VideoLayout item={item} />
         </main>
         <BlogFooter />
       </>
     );
   }
 
-  const repoPage = getRepoPageBySlug(slug);
-  if (repoPage) {
-    const meta = getRepoMeta(repoPage.repo);
+  if (item.type === "product") {
+    const meta = item.repo ? getRepoMeta(item.repo) : undefined;
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "SoftwareSourceCode",
-      name: repoPage.repo,
-      description: meta?.description ?? repoPage.tagline,
-      codeRepository: meta?.url,
+      name: item.title,
+      description: meta?.description ?? item.blurb,
+      codeRepository: meta?.url ?? item.url,
       programmingLanguage: meta?.language,
       author: AUTHOR,
       url: canonical,
@@ -181,22 +111,47 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
     };
     return (
       <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(repoPage.repo, canonical)) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(item.title, canonical)) }}
         />
         <BlogHeader />
         <main id="main" className="bg-white">
-          <RepoLayout page={repoPage} meta={meta} />
+          <AnnouncementLayout item={item} />
         </main>
         <BlogFooter />
       </>
     );
   }
 
-  notFound();
+  // "thoughts" and "repo review"
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: item.title,
+    description: item.blurb,
+    datePublished: item.publishedAt,
+    dateModified: item.publishedAt,
+    articleSection: item.category[0],
+    wordCount: wordCount(getBody(item)),
+    author: AUTHOR,
+    publisher: AUTHOR,
+    url: canonical,
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+  };
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(item.title, canonical)) }}
+      />
+      <BlogHeader />
+      <main id="main" className="bg-white">
+        {item.type === "repo review" ? <RepoReviewLayout item={item} /> : <ArticleLayout item={item} />}
+      </main>
+      <BlogFooter />
+    </>
+  );
 }

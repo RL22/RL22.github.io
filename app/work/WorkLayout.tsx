@@ -143,7 +143,7 @@ export default function WorkLayout({ item }: { item: CaseStudy }) {
                 <figure key={img.src}>
                   {/* next/image is unusable here: images.unoptimized is set for
                       the static export, so the repo uses raw <img> throughout. */}
-                  <picture>
+                  <picture className="block max-w-[62ch]">
                     {img.webp && <source srcSet={img.webp} type="image/webp" />}
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -156,7 +156,7 @@ export default function WorkLayout({ item }: { item: CaseStudy }) {
                     />
                   </picture>
                   {img.caption && (
-                    <figcaption className="text-gray-600 text-sm mt-3">{img.caption}</figcaption>
+                    <figcaption className="text-gray-600 text-sm mt-3 max-w-[62ch]">{img.caption}</figcaption>
                   )}
                 </figure>
               ))}

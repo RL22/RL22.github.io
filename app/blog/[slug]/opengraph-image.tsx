@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { loadOgFonts, loadAvatarDataUri } from "../../lib/og-assets";
 import { OG_SIZE, ogTokens, TopRow, Byline } from "../../lib/og-theme";
-import { featured, items, repoPages, getAllSlugs } from "../content";
+import { getAllSlugs, getItemBySlug } from "../content";
 
 export const alt = "Rodney L. Lewis";
 export const size = OG_SIZE;
@@ -12,28 +12,14 @@ export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
 
-function findEntry(slug: string) {
-  if (featured.slug === slug) return { kind: "video" as const, item: featured };
-  const post = items.find((i) => i.slug === slug);
-  if (post) return { kind: post.type, item: post };
-  const repo = repoPages.find((r) => r.slug === slug);
-  if (repo) return { kind: "repo" as const, item: repo };
-  return null;
-}
-
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const entry = findEntry(slug);
+  const entry = getItemBySlug(slug);
   const fonts = loadOgFonts();
 
-  const title = entry ? ("repo" === entry.kind ? entry.item.repo : entry.item.title) : "Rodney L. Lewis";
-  const kicker =
-    entry?.kind === "repo"
-      ? "OPEN SOURCE"
-      : entry
-        ? entry.item.category.toUpperCase()
-        : "BLOG";
-  const isVideo = entry?.kind === "video";
+  const title = entry?.title ?? "Rodney L. Lewis";
+  const kicker = entry ? entry.category.join(" · ") : "BLOG";
+  const isVideo = entry?.type === "video";
 
   return new ImageResponse(
     (
@@ -98,7 +84,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             >
               {title}
             </div>
-            {entry?.kind === "repo" && (
+            {entry?.type === "product" && (
               <div
                 style={{
                   display: "flex",
@@ -109,7 +95,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
                   maxWidth: 900,
                 }}
               >
-                {entry.item.tagline}
+                {entry.blurb}
               </div>
             )}
           </div>

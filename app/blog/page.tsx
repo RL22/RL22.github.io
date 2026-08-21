@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
-import FeaturedBlock from "../components/building/FeaturedBlock";
-import FeedRow from "../components/building/FeedRow";
-import { feed, repoItems } from "../components/building/feed";
+import FeaturedHero from "../components/building/FeaturedHero";
+import BuildingList from "../building/BuildingList";
+import { featured, featuredHero, items } from "./content";
 import { SHOW_BUILDING_IN_PUBLIC } from "../config";
 
 export const metadata: Metadata = {
@@ -29,24 +29,23 @@ export const metadata: Metadata = {
   },
 };
 
-// Complete inventory: repos join the written/video feed here (they render
-// separately in the featured column on the homepage section).
-const allFeedItems = [...feed, ...repoItems];
+const allItems = [featured, ...items];
 
 const itemListJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  itemListElement: allFeedItems
-    .filter((item) => !item.placeholder)
-    .map((item, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: item.title,
-      url: item.url,
-    })),
+  itemListElement: allItems.map((item, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: item.title,
+    url: `https://rl22.github.io/blog/${item.slug}/`,
+  })),
 };
 
 export default function BlogPage() {
+  const heroSlugs = new Set(featuredHero.map((i) => i.slug));
+  const rest = items.filter((i) => !heroSlugs.has(i.slug));
+
   return (
     <main id="main" className="py-24 bg-white">
       <script
@@ -69,21 +68,9 @@ export default function BlogPage() {
           </p>
         </div>
 
-        <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-6">
-          Featured
-        </h2>
-        <FeaturedBlock />
+        <FeaturedHero />
 
-        <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">
-          All resources
-        </h2>
-        <ul className="grid md:grid-cols-2 gap-x-14">
-          {allFeedItems.map((item, i) => (
-            <li key={item.title} className="list-none">
-              <FeedRow item={item} delay={(i % 2) * 0.05} />
-            </li>
-          ))}
-        </ul>
+        <BuildingList items={rest} />
 
         <div className="border-t border-gray-200 pt-10 mt-2">
           <a

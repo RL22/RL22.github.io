@@ -1,44 +1,23 @@
 import type { MetadataRoute } from "next";
-import buildingDataRaw from "./data/building.json";
 import githubData from "./data/github.json";
 import { SHOW_BUILDING_IN_PUBLIC, SHOW_WORK } from "./config";
 import { caseStudies } from "./work/content";
+import { featured, items } from "./blog/content";
+import type { BuildingItem } from "./blog/content";
 
 export const dynamic = "force-static";
 
 const SITE_URL = "https://rl22.github.io";
 
-type BuildingItem = {
-  slug: string;
-  publishedAt?: string;
-};
-
-type RepoPage = {
-  slug: string;
-  repo?: string;
-  publishedAt?: string;
-};
-
-type BuildingData = {
-  featured: BuildingItem;
-  items: BuildingItem[];
-  repoPages: RepoPage[];
-};
-
-const buildingData = buildingDataRaw as unknown as BuildingData;
-
-function lastModifiedFor(item: BuildingItem | RepoPage): Date | undefined {
+function lastModifiedFor(item: BuildingItem): Date | undefined {
   if (item.publishedAt) return new Date(item.publishedAt);
-  const repo = "repo" in item ? githubData.repos.find((r) => r.name === item.repo) : undefined;
+  const repo = item.repo ? githubData.repos.find((r) => r.name === item.repo) : undefined;
   return repo?.pushedAt ? new Date(repo.pushedAt) : undefined;
 }
 
 function blogEntries(): MetadataRoute.Sitemap {
-  const all: (BuildingItem | RepoPage)[] = [
-    buildingData.featured,
-    ...(buildingData.items ?? []),
-    ...(buildingData.repoPages ?? []),
-  ].filter(Boolean);
+  // content.ts's `items`/`featured` exports are already filtered to published-only.
+  const all: BuildingItem[] = [featured, ...items];
 
   // De-dupe by slug (the featured item also appears in items/repoPages in
   // some data shapes) so each /blog/<slug>/ is listed once.
@@ -92,6 +71,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     ...(SHOW_WORK ? workEntries() : []),
-    ...(SHOW_BUILDING_IN_PUBLIC ? blogEntries() : []),
+    ...(SHOW_BUILDING_IN_PUBLIC
+      ? [{ url: `${SITE_URL}/building/`, lastModified: new Date("2026-08-16"), priority: 0.8 }, ...blogEntries()]
+      : []),
   ];
 }

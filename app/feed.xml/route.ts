@@ -1,4 +1,4 @@
-import { featured, items, repoPages, getRepoMeta } from "../blog/content";
+import { featured, items } from "../blog/content";
 import { SHOW_BUILDING_IN_PUBLIC } from "../config";
 
 export const dynamic = "force-static";
@@ -27,16 +27,7 @@ function toFeedEntries(): FeedEntry[] {
     pubDate: new Date(p.publishedAt).toUTCString(),
   }));
 
-  const repos = repoPages.map((r) => ({
-    title: r.repo,
-    link: `${SITE_URL}/blog/${r.slug}/`,
-    description: r.tagline,
-    pubDate: new Date(getRepoMeta(r.repo)?.pushedAt ?? r.publishedAt).toUTCString(),
-  }));
-
-  return [...posts, ...repos].sort(
-    (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
-  );
+  return posts.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
 }
 
 export async function GET() {
