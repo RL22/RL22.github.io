@@ -55,7 +55,7 @@ export const variants: Record<ResumeVariant, ResumeContent> = {
     path: "/resume",
     headline: "Senior Web Platform Engineer",
     summary:
-      "Nine years owning marketing-site lifecycles: CMS architecture, reusable component systems, and the performance work that turns a website into a compounding asset. Senior IC who owns the platform end to end, from inherited site to a system marketing can self-serve on, with an AI-native workflow underneath.",
+      "Nine years owning marketing-site lifecycles: architecture, component systems, and the publishing workflows that let marketing ship without opening a ticket. Senior IC who owns the platform end to end, from inherited site to a system marketing can self-serve on, with an AI-native workflow underneath.",
     experience: [
       {
         org: "Sprintz",

@@ -68,7 +68,7 @@ export default function Hero() {
 
           <Reveal delay={0.35}>
             <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-lg">
-              Nine years owning marketing-site lifecycles: CMS architecture, reusable component systems, and the performance work that turns a website into a compounding asset. I work across design, engineering, and marketing, with an AI-native workflow underneath.
+              Nine years owning marketing-site lifecycles: architecture, component systems, and the publishing workflows that let marketing ship without opening a ticket. I work across design, engineering, and marketing, with an AI-native workflow underneath.
             </p>
             <div className="flex items-center gap-4 mb-10">
               <a href={SHOW_WORK ? "/work/" : "#experience"} className="btn-primary inline-flex items-center gap-2">
