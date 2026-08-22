@@ -93,4 +93,28 @@ describe("claim policy", () => {
       expect(proseOf(c)).not.toMatch(banned);
     }
   });
+
+  // The 30% Carrot figure is self-reported and unverifiable by a reader, so
+  // per SITE_COPY.md's 2026-08-06 note it stays confined to exactly one
+  // field on exactly one study rather than repeated as a sitewide claim, and
+  // no other percent/multiplier claim is allowed into case-study prose at
+  // all. This is the enforcement that note describes.
+  it("confines quantified claims (N%, Nx) to one field on one study", () => {
+    const QUANTIFIED = /\b\d+(\.\d+)?%|\b\d+(\.\d+)?\s+percent\b|\b\d+x\b/i;
+    const NON_OUTCOME_FIELDS = ["title", "blurb", "challenge", "solution"] as const;
+
+    for (const c of caseStudies) {
+      for (const field of NON_OUTCOME_FIELDS) {
+        expect(c[field]).not.toMatch(QUANTIFIED);
+      }
+      for (const line of c.body) expect(line).not.toMatch(QUANTIFIED);
+      for (const img of c.images) {
+        expect(img.alt).not.toMatch(QUANTIFIED);
+        expect(img.caption ?? "").not.toMatch(QUANTIFIED);
+      }
+    }
+
+    const studiesWithQuantifiedOutcome = caseStudies.filter((c) => QUANTIFIED.test(c.outcome));
+    expect(studiesWithQuantifiedOutcome.map((c) => c.slug)).toEqual(["carrot-cms-architecture"]);
+  });
 });

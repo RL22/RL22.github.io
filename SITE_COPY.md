@@ -24,7 +24,7 @@ Same set and order as desktop; Contact renders as the CTA button at the bottom o
 ## Page Metadata (`app/layout.tsx`)
 
 **Title:** Rodney L. Lewis | Senior Web Platform Engineer  
-**Description:** Nine years owning marketing-site lifecycles for Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems. Architecture, performance, reusable components, and the publishing workflows that let marketing ship without an engineering ticket.
+**Description:** Nine years owning marketing-site lifecycles for Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems: architecture, component systems, and the publishing workflows that let marketing ship without opening a ticket.
 
 ## Page Loader (`PageLoader.tsx`)
 
@@ -45,7 +45,7 @@ Build platforms.
 Scale marketing impact.
 
 ### Description
-Nine years owning marketing-site lifecycles: CMS architecture, reusable component systems, and the performance work that turns a website into a compounding asset. I work across design, engineering, and marketing, with an AI-native workflow underneath.
+Nine years owning marketing-site lifecycles: architecture, component systems, and the publishing workflows that let marketing ship without opening a ticket. I work across design, engineering, and marketing, with an AI-native workflow underneath.
 
 ### Call-to-Action Buttons
 - Primary: "Let's talk" (with arrow icon) → `#contact`
@@ -465,12 +465,25 @@ I build marketing platforms that scale by working across design, dev, and market
   in that study's blurb or body, in any other case study, or anywhere else on
   the site. This supersedes the 2026-07-21 removal for `/work` only; the hero
   card, Experience section, and all three resume variants remain metric-free.
-- The constraint is enforced by test, not by convention:
-  `app/work/content.test.ts` fails the build if the metric appears in more than
-  one study, appears outside the `outcome` field, or if any other quantified
-  claim (`N%`, `N percent`, `Nx`) is introduced into case-study prose. The same
-  file also fails on management verbs and on the banned marketing register from
-  `PRODUCT.md`. `tests/work.spec.ts` re-checks the metric against rendered HTML.
+- **2026-08-21 correction:** this note previously claimed the scoping was
+  "enforced by test," but no such test existed in `app/work/content.test.ts`
+  until this date — the file guarded copy register only (management verbs,
+  banned buzzwords), not claims. It now also fails the build if a percent or
+  multiplier claim (`N%`, `N percent`, `Nx`) appears outside `outcome`, in any
+  study other than `carrot-cms-architecture`, or more than once. `tests/work.spec.ts`
+  does **not** check the metric — that claim was also inaccurate and is
+  retracted here rather than repeated. `tests/work.spec.ts` has 18 unrelated
+  pre-existing failures (see `TODO.md`) and wasn't a safe place to add
+  coverage without a separate repair pass.
+- Also as of 2026-08-21: the figure is self-reported and not on either resume
+  of record (see `PRODUCT.md` principle 3 and `docs/product-marketing.md`).
+  It is confirmed by the owner as accurate to memory, kept in this one scoped
+  location, and deliberately not promoted to a lead claim. The site's lead
+  proof points are durability facts a reader can verify independently: a
+  Mednition landing page still live and unchanged years after a five-month
+  contract, Pendo's `/{family}/{use-case}/` URL architecture still in
+  production, and Carrot's careers page still rendering live from the
+  Greenhouse API.
 - The owner is responsible for defending the figure on demand. That was the
   original objection in the 2026-07-21 removal, and it is the only thing
   standing behind the reinstatement.
