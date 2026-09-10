@@ -1,28 +1,15 @@
-// Three tailored resume variants. Facts (orgs, dates, held titles) are
-// identical everywhere; only summary, bullet emphasis, headline title, and
-// skills ordering shift per target-role archetype. Titles match the 2023
-// resume of record.
-
-export type ResumeVariant = "marketing" | "platform" | "design";
+// Single resume of record. Facts synced from the job-search core-cv.md
+// resume of record (Sep 2026); Revel Systems is kept here even though
+// core-cv.md's condensed one-pager omits it.
 
 export type Entry = {
   org: string;
   role: string;
   dates: string;
-  bullets: string[];
+  description: string;
 };
 
 export type SkillLine = { group: string; tags: string };
-
-export type ResumeContent = {
-  variant: ResumeVariant;
-  label: string;
-  path: string;
-  headline: string;
-  summary: string;
-  experience: Entry[];
-  skills: SkillLine[];
-};
 
 export type EducationEntry = {
   school: string;
@@ -48,211 +35,60 @@ export const education: EducationEntry[] = [
 
 export const contactLine = ["Oakland, CA", "lewis.rodneyl@gmail.com", "rl22.github.io"];
 
-export const variants: Record<ResumeVariant, ResumeContent> = {
-  marketing: {
-    variant: "marketing",
-    label: "Marketing Web",
-    path: "/resume",
-    headline: "Senior Web Platform Engineer",
-    summary:
-      "Nine years owning marketing-site lifecycles: architecture, component systems, and the publishing workflows that let marketing ship without opening a ticket. Senior IC who owns the platform end to end, from inherited site to a system marketing can self-serve on, with an AI-native workflow underneath.",
-    experience: [
-      {
-        org: "Sprintz",
-        role: "Founder",
-        dates: "Jun 2023 - Present",
-        bullets: [
-          "Partner with founders and marketing teams to audit what blocks conversion, then design and build the solution.",
-        ],
-      },
-      {
-        org: "Pendo.io",
-        role: "Sr. Marketing Engineer",
-        dates: "Oct 2022 - Jun 2023",
-        bullets: [
-          "Built reusable landing-page modules and marketing templates on a headless WordPress stack; marketing launched campaigns without an engineering ticket.",
-          "Partnered with demand gen on A/B tests and SEO; shipped data-integrated components for personalization and analytics.",
-        ],
-      },
-      {
-        org: "Carrot Fertility",
-        role: "Sr. Web Developer",
-        dates: "Sep 2021 - Jul 2022",
-        bullets: [
-          "Owned the marketing-site lifecycle end-to-end: Core Web Vitals, responsiveness, page speed, mobile-first performance.",
-          "Built modular Webflow templates that let marketing launch pages without a developer in the loop, giving engineering their roadmap back.",
-        ],
-      },
-      {
-        org: "Kiddom",
-        role: "Sr. Web Developer",
-        dates: "Apr - Sep 2021",
-        bullets: [
-          "Shipped SEO-optimized components and front-end refactors that lifted Lighthouse scores and gave marketing a base to iterate on.",
-        ],
-      },
-      {
-        org: "Andersen Digital",
-        role: "Sr. Web Developer",
-        dates: "Aug 2020 - May 2021",
-        bullets: [
-          "Led CMS and mar-tech migrations for Rancher IO, AppZen, and Illumio, including Marketo to HubSpot.",
-        ],
-      },
-      {
-        org: "Revel Systems",
-        role: "Web Developer to Sr. Web Developer",
-        dates: "Oct 2016 - Feb 2020",
-        bullets: [
-          "Rebuilt the company's web properties around SEO and growth priorities over four years, and contributed to an on-demand customer training platform.",
-        ],
-      },
-    ],
-    skills: [
-      { group: "Frontend & Backend", tags: "TypeScript, React, Next.js, Tailwind, Supabase" },
-      { group: "CMS Platforms", tags: "Sanity, Headless WordPress, WordPress, Webflow, GraphQL" },
-      { group: "Mar-Tech & Data", tags: "HubSpot, Marketo, Salesforce, GA4, Vercel" },
-      { group: "Conversion & SEO", tags: "A/B Testing, Technical SEO, Core Web Vitals, Lighthouse, Reusable Components" },
-      { group: "Design", tags: "Figma, Sketch, Photoshop, Illustrator, Lightroom" },
-      { group: "AI-Native Stack", tags: "Claude Code, Codex, Gemini, MCP, Agentic Workflows" },
-    ],
-  },
+export const headline = "Web Developer, Marketing Site";
 
-  platform: {
-    variant: "platform",
-    label: "Platform",
-    path: "/resume/platform",
-    headline: "Senior Frontend Platform Engineer",
-    summary:
-      "Nine years building the platform layer under marketing web: reusable component systems, CMS architecture, and the conventions that keep teams shipping in one direction. I own abstractions end to end, from templates and publishing workflows to performance budgets, so stakeholders build on the platform instead of around it.",
-    experience: [
-      {
-        org: "Sprintz",
-        role: "Founder",
-        dates: "Jun 2023 - Present",
-        bullets: [
-          "Own conventions, tooling, and delivery end to end for client marketing sites, from audit through handoff.",
-        ],
-      },
-      {
-        org: "Pendo.io",
-        role: "Sr. Marketing Engineer",
-        dates: "Oct 2022 - Jun 2023",
-        bullets: [
-          "Built a reusable landing-page component system on headless WordPress, wired for personalization and analytics; consumers launched campaigns without an engineering ticket.",
-          "Established template and testing conventions with demand gen across A/B and SEO programs.",
-        ],
-      },
-      {
-        org: "Carrot Fertility",
-        role: "Sr. Web Developer",
-        dates: "Sep 2021 - Jul 2022",
-        bullets: [
-          "Architected a modular Webflow template system that let marketing operate the site without engineering involvement.",
-          "Owned Core Web Vitals, page speed, and mobile-first performance across the site.",
-        ],
-      },
-      {
-        org: "Kiddom",
-        role: "Sr. Web Developer",
-        dates: "Apr - Sep 2021",
-        bullets: [
-          "Drove Lighthouse-led refactors and SEO-optimized components that gave the team a stable base to iterate on.",
-        ],
-      },
-      {
-        org: "Andersen Digital",
-        role: "Sr. Web Developer",
-        dates: "Aug 2020 - May 2021",
-        bullets: [
-          "Led CMS and mar-tech platform migrations for Rancher IO, AppZen, and Illumio, including Marketo to HubSpot.",
-        ],
-      },
-      {
-        org: "Revel Systems",
-        role: "Web Developer to Sr. Web Developer",
-        dates: "Oct 2016 - Feb 2020",
-        bullets: [
-          "Built the template foundation and standards the company's properties were rebuilt on over four years, plus an on-demand customer training platform.",
-        ],
-      },
-    ],
-    skills: [
-      { group: "Frontend & Backend", tags: "TypeScript, React, Next.js, Tailwind, Supabase" },
-      { group: "Component Systems", tags: "Reusable Components, Modular Templates, Publishing Workflows, Design Handoff, Conventions" },
-      { group: "CMS Platforms", tags: "Sanity, Headless WordPress, WordPress, Webflow, GraphQL" },
-      { group: "Performance & SEO", tags: "Core Web Vitals, Lighthouse, Technical SEO, A/B Testing, Vercel" },
-      { group: "AI-Native Stack", tags: "Claude Code, Codex, Gemini, MCP, Agentic Workflows" },
-      { group: "Mar-Tech & Data", tags: "HubSpot, Marketo, Salesforce, GA4, Analytics Integration" },
-    ],
-  },
+export const summary =
+  "Nine years owning marketing-site lifecycles — architecting the component systems and self-serve publishing workflows that create operational leverage, so marketing ships without opening a ticket. Full-funnel growth engineer with a repeated pattern: inherit a site under strain, rebuild it into one marketing runs itself, shipped through AI-assisted, agent-driven development workflows.";
 
-  design: {
-    variant: "design",
-    label: "Design",
-    path: "/resume/design",
-    headline: "Design Engineer",
-    summary:
-      "Designer who builds what he designs. Nine years across web design and engineering: Figma to production, motion and interaction written in code, and component systems that survive contact with real content. AI tools are collaborators in the workflow, from image generation to agent-driven builds.",
-    experience: [
-      {
-        org: "Sprintz",
-        role: "Founder",
-        dates: "Jun 2023 - Present",
-        bullets: [
-          "Design, art-direct, and build client marketing sites end to end, from brief through launch.",
-        ],
-      },
-      {
-        org: "Pendo.io",
-        role: "Sr. Marketing Engineer",
-        dates: "Oct 2022 - Jun 2023",
-        bullets: [
-          "Built reusable landing-page modules and marketing templates with pixel-accurate design fidelity on headless WordPress.",
-          "Partnered with design and demand gen on A/B tests; shipped data-integrated components for personalization.",
-        ],
-      },
-      {
-        org: "Carrot Fertility",
-        role: "Sr. Web Developer",
-        dates: "Sep 2021 - Jul 2022",
-        bullets: [
-          "Built modular Webflow templates with mobile-first, responsive design that let marketing run the site themselves.",
-          "Owned Core Web Vitals and page speed so the design never shipped slower than it looked.",
-        ],
-      },
-      {
-        org: "Kiddom",
-        role: "Sr. Web Developer",
-        dates: "Apr - Sep 2021",
-        bullets: [
-          "Shipped SEO-optimized components and refactors that lifted Lighthouse scores without compromising the design system.",
-        ],
-      },
-      {
-        org: "Andersen Digital",
-        role: "Sr. Web Developer",
-        dates: "Aug 2020 - May 2021",
-        bullets: [
-          "Delivered CMS and mar-tech migrations for Rancher IO, AppZen, and Illumio, including Marketo to HubSpot.",
-        ],
-      },
-      {
-        org: "Revel Systems",
-        role: "Web Developer to Sr. Web Developer",
-        dates: "Oct 2016 - Feb 2020",
-        bullets: [
-          "Designed and rebuilt the company's web properties around SEO and growth priorities over four years, plus an on-demand product training platform.",
-        ],
-      },
-    ],
-    skills: [
-      { group: "Design", tags: "Figma, Sketch, Photoshop, Illustrator, Lightroom" },
-      { group: "Motion & Interaction", tags: "GSAP, Motion, Lenis, Micro-interactions, Scroll Choreography" },
-      { group: "AI-Native Stack", tags: "Claude Code, Codex, Gemini, Image Generation, MCP" },
-      { group: "Frontend", tags: "TypeScript, React, Next.js, Tailwind, Supabase" },
-      { group: "CMS Platforms", tags: "Sanity, Headless WordPress, WordPress, Webflow, GraphQL" },
-      { group: "Conversion & SEO", tags: "A/B Testing, Core Web Vitals, Technical SEO, Lighthouse, Mobile-First" },
-    ],
+export const experience: Entry[] = [
+  {
+    org: "Sprintz",
+    role: "Principal Marketing Engineer",
+    dates: "Jul 2023 - Present",
+    description:
+      "Migrated the platform from Webflow to custom React and built a full acquisition funnel for client Deliberate Canine on Go High Level—paid Facebook campaigns into a free video-course lead magnet—capturing 227 leads and closing 44 customers for a ~19.4% conversion rate, powered by 2+ years of AI-assisted workflows and automations across the client roster.",
   },
-};
+  {
+    org: "Pendo.io",
+    role: "Sr. Marketing Engineer",
+    dates: "Oct 2022 - Jun 2023",
+    description:
+      "Empowered demand generation to launch 30+ campaign landing pages with zero engineering tickets via a suite of reusable Marketo templates, including a 16-section dynamic master, and maintained 75 pages across 3 verified page families, while engineering a consent-aware measurement and lead-routing stack across Segment, OneTrust, ZoomInfo, Marketo, and Salesforce.",
+  },
+  {
+    org: "Carrot Fertility",
+    role: "Sr. Web Developer",
+    dates: "Sep 2021 - Jul 2022",
+    description:
+      "In-housed marketing web operations from an external agency, reclaiming ~30% of routine development time via modular Webflow templates and self-service publishing workflows, implementing 5+ major process improvements, while owning QA, release quality, and GA4/GTM/A-B-test instrumentation across 20+ cross-functional projects.",
+  },
+  {
+    org: "Kiddom",
+    role: "Sr. Web Developer",
+    dates: "Apr - Sep 2021",
+    description:
+      "Owned a 40+ component Gatsby/React frontend connected to headless WordPress via REST and GraphQL, and turned Lighthouse, funnel, and conversion findings into prioritized UX improvements across 20+ components, expanding the sitemap from 51 to 54 URLs with 3 new lead-gen pages—earning a performance-based contract renewal.",
+  },
+  {
+    org: "Andersen Digital",
+    role: "Sr. Web Developer",
+    dates: "Aug 2020 - May 2021",
+    description:
+      "Migrated CMS/mar-tech systems for three B2B clients—87 verified Rancher Labs landing pages in Marketo, a Marketo-to-HubSpot migration for AppZen, and 36 distinct Illumio landing pages—and built a reusable AppZen ROI-calculator (React, jsPDF, HubSpot) for real-time sales reports.",
+  },
+  {
+    org: "Revel Systems",
+    role: "Web Developer to Sr. Web Developer",
+    dates: "Oct 2016 - Feb 2020",
+    description:
+      "Owned Revel's web properties over three years, building Angular experiences—an annual user-event microsite and ROI calculators—plus an on-demand customer training platform, optimizing Marketo email and landing-page templates with Salesforce Sales Cloud CRM integration for lead-handoff automation, and hiring and directing two junior developers in the final five months.",
+  },
+];
+
+export const skills: SkillLine[] = [
+  { group: "CMS Platforms", tags: "Sanity, Contentful, Headless WordPress, WordPress, Webflow, GraphQL" },
+  { group: "Frontend & Backend", tags: "TypeScript, React, Next.js, Node.js, Tailwind, Supabase, Figma, Docker, Vercel" },
+  { group: "MarTech", tags: "HubSpot, Marketo, Salesforce, GA4, GTM, Segment, OneTrust, Mutiny" },
+  { group: "Performance & Growth", tags: "CRO, A/B Testing, Technical SEO, Core Web Vitals, Lighthouse, Accessibility Testing" },
+  { group: "AI & Automation", tags: "Claude Code, Codex, Gemini, MCP, Agentic Workflows, n8n, Groq, OpenRouter" },
+];
