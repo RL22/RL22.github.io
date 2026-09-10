@@ -14,25 +14,23 @@ export default function BuildingList({ items }: { items: BuildingItem[] }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: (i % 2) * 0.08 }}
-          className="group border-t border-gray-200 py-6 flex gap-5 items-start"
+          className="group border-t border-gray-200 py-6 block"
         >
           <img
             src={`/blog/${item.slug}/opengraph-image`}
             alt=""
-            className="w-32 sm:w-40 aspect-video object-cover rounded-lg shrink-0 bg-brand/10"
+            className="w-full aspect-video object-cover rounded-lg mb-4 bg-brand/10"
             loading="lazy"
           />
-          <div className="min-w-0 flex-1">
-            <h3 className="font-semibold text-lg mb-1 flex items-center gap-1.5">
-              <span className="group-hover:text-brand-dark transition-colors">{item.title}</span>
-              <ArrowUpRight
-                className="w-4 h-4 text-brand-dark opacity-0 group-hover:opacity-100 transition-opacity"
-                aria-hidden="true"
-              />
-            </h3>
-            <p className="text-sm font-medium text-gray-600 mb-2">{item.meta}</p>
-            <p className="text-gray-600 text-sm leading-relaxed">{item.blurb}</p>
-          </div>
+          <h3 className="font-semibold text-lg mb-1 flex items-center gap-1.5">
+            <span className="group-hover:text-brand-dark transition-colors">{item.title}</span>
+            <ArrowUpRight
+              className="w-4 h-4 text-brand-dark opacity-0 group-hover:opacity-100 transition-opacity"
+              aria-hidden="true"
+            />
+          </h3>
+          <p className="text-sm font-medium text-gray-600 mb-2">{item.meta}</p>
+          <p className="text-gray-600 text-sm leading-relaxed">{item.blurb}</p>
         </motion.a>
       ))}
     </div>
