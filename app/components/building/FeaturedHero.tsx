@@ -48,6 +48,12 @@ export default function FeaturedHero() {
               href={`/blog/${item.slug}/`}
               className="group flex-1 flex flex-col bg-cream rounded-2xl border border-cream-dark p-6"
             >
+              <img
+                src={`/blog/${item.slug}/opengraph-image`}
+                alt=""
+                className="w-full aspect-video object-cover rounded-lg mb-4 bg-brand/10"
+                loading="lazy"
+              />
               <p className="text-xs font-semibold uppercase tracking-widest text-brand-dark mb-2">
                 {typeLabel[item.type]}
               </p>
