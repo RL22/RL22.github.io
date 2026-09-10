@@ -32,7 +32,7 @@
   border-radius: 6px;
   color: #1c1b1a;
   font-family: var(--font-body), Arial, sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.38;
 }
 
@@ -50,12 +50,18 @@
   letter-spacing: -0.01em;
 }
 
+.resume-name-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
 .resume-title {
   font-family: var(--font-display), Georgia, serif;
   font-weight: 600;
   font-size: 16px;
   color: #a5423d;
-  margin-top: 2px;
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
 }
@@ -81,7 +87,7 @@
 }
 
 .resume-sheet section h2 {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -116,36 +122,26 @@
 }
 
 .resume-entry-head h3 {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
 }
 
 .resume-entry-role {
   font-family: var(--font-body), Arial, sans-serif;
-  font-size: 12.5px;
+  font-size: 11.5px;
   color: #4a4744;
   font-weight: 500;
 }
 
 .resume-entry-dates {
-  font-size: 12.5px;
+  font-size: 11.5px;
   color: #4a4744;
   font-weight: 500;
   white-space: nowrap;
 }
 
-.resume-entry ul {
+.resume-entry-text {
   margin: 4px 0 0;
-  padding-left: 18px;
-  list-style: disc;
-}
-
-.resume-entry ul li::marker {
-  color: #a5423d;
-}
-
-.resume-entry li {
-  margin-bottom: 1px;
 }
 
 .resume-edu {
@@ -167,12 +163,12 @@
 }
 
 .resume-edu-head h3 {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
 }
 
 .resume-edu-credential {
-  font-size: 12.5px;
+  font-size: 11.5px;
   color: #4a4744;
   margin-top: 1px;
 }
@@ -188,22 +184,22 @@
 .resume-oss-name {
   font-weight: 700;
   font-family: var(--font-display), Georgia, serif;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .resume-oss-url {
   color: #4a4744;
-  font-size: 12.5px;
+  font-size: 11.5px;
 }
 
 .resume-oss-desc {
   margin-top: 2px;
-  font-size: 13.5px;
+  font-size: 12.5px;
 }
 
 .resume-skills-line {
   margin-bottom: 5px;
-  font-size: 13.5px;
+  font-size: 12.5px;
 }
 
 .resume-skills-line:last-child {
