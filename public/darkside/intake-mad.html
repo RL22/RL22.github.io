@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprintz Marketer Labs · Mad Libs Conversational Intake</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orange: {
+              DEFAULT: '#ED5724',
+              press: '#C9471B',
+              hover: '#B84018'
+            },
+            tint: '#FFF0E8',
+            black: '#141413',
+            neutral: '#FFFEF8',
+            canvas: '#F7F3EC',
+            muted: '#EFE4DA',
+            darktheme: '#2E2A28',
+            ink: '#2B2623',
+            body: '#57514C',
+            stone: '#7A746E',
+            taupe: '#A29A92',
+            ondark: '#D8D1C8',
+            brandborder: {
+              DEFAULT: '#EEE6DC',
+              strong: '#DDC6B4'
+            }
+          },
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          borderRadius: {
+            'md': '12px',
+            'xl': '20px',
+            '2xl': '24px'
+          },
+          boxShadow: {
+            'subtle': '0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.02)',
+            'card': '0 4px 12px 0 rgba(43, 38, 35, 0.04)',
+            'elevated': '0 20px 25px -5px rgba(20, 20, 19, 0.2), 0 8px 10px -6px rgba(20, 20, 19, 0.2)'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: #DDC6B4 #F7F3EC;
+    }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #FFFEF8;
+      color: #2B2623;
+    }
+    pre, code, .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F7F3EC;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #DDC6B4;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7A746E;
+    }
+    .label-caps {
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+    }
+
+    /* Mad Libs Inline Input & Dropdown Styling */
+    .mad-blank-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-color: #FFF9F3;
+      border: 1.5px solid #F3DFD1;
+      color: #C9471B;
+      font-weight: 600;
+      padding: 0.35rem 2.2rem 0.35rem 0.85rem;
+      border-radius: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      transition: all 0.18s ease-in-out;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23C9471B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 0.95rem;
+      vertical-align: middle;
+      box-shadow: 0 1px 2px rgba(201, 71, 27, 0.06);
+    }
+    .mad-blank-select:hover {
+      border-color: #ED5724;
+      background-color: #FFF0E8;
+    }
+    .mad-blank-select:focus {
+      outline: none;
+      border-color: #C9471B;
+      background-color: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(201, 71, 27, 0.15);
+    }
+
+    .mad-blank-input {
+      background-color: #FFF9F3;
+      border: 1.5px solid #F3DFD1;
+      color: #C9471B;
+      font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      display: inline-block;
+      min-height: 44px;
+      transition: all 0.18s ease-in-out;
+      vertical-align: middle;
+      box-shadow: 0 1px 2px rgba(201, 71, 27, 0.06);
+    }
+    .mad-blank-input:hover {
+      border-color: #ED5724;
+      background-color: #FFF0E8;
+    }
+    .mad-blank-input:focus {
+      outline: none;
+      border-color: #C9471B;
+      background-color: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(201, 71, 27, 0.15);
+    }
+    .mad-blank-input::placeholder {
+      color: #A29A92;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .mad-blank-textarea {
+      background-color: #FFF9F3;
+      border: 1.5px solid #F3DFD1;
+      color: #C9471B;
+      font-weight: 600;
+      padding: 0.65rem 0.85rem;
+      border-radius: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      display: block;
+      width: 100%;
+      min-height: 52px;
+      transition: all 0.18s ease-in-out;
+      box-shadow: 0 1px 2px rgba(201, 71, 27, 0.06);
+      resize: vertical;
+    }
+    .mad-blank-textarea:hover {
+      border-color: #ED5724;
+      background-color: #FFF0E8;
+    }
+    .mad-blank-textarea:focus {
+      outline: none;
+      border-color: #C9471B;
+      background-color: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(201, 71, 27, 0.15);
+    }
+    .mad-blank-textarea::placeholder {
+      color: #A29A92;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    /* Section Multi-Select Pills */
+    .section-pill {
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease-in-out;
+      border-radius: 12px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0.4rem 0.9rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+    .section-pill.selected {
+      background-color: #FFF0E8;
+      color: #C9471B;
+      border: 1.5px solid #ED5724;
+      box-shadow: 0 1px 3px rgba(201, 71, 27, 0.1);
+    }
+    .section-pill:not(.selected) {
+      background-color: #F7F3EC;
+      color: #57514C;
+      border: 1.5px solid #EEE6DC;
+    }
+    .section-pill:not(.selected):hover {
+      background-color: #FFFFFF;
+      border-color: #DDC6B4;
+      color: #2B2623;
+    }
+
+    /* Sentence line height and spacing */
+    .sentence-row {
+      line-height: 2.6rem;
+    }
+    @media (max-width: 640px) {
+      .sentence-row {
+        line-height: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body class="bg-canvas text-body font-sans min-h-screen flex flex-col selection:bg-tint selection:text-orange-press">
+
+  <!-- ========================================================================= -->
+  <!-- 1. TOP SWITCHER NAVBAR (#marketer-nav)                                    -->
+  <!-- ========================================================================= -->
+  <header id="marketer-nav" class="border-b border-brandborder bg-white/95 backdrop-blur sticky top-0 z-50 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-2.5 flex flex-wrap items-center justify-between gap-3">
+      
+      <!-- Brand Mark & Identity -->
+      <div class="flex items-center space-x-3 shrink-0">
+        <a href="/intake-mad.html" class="flex items-center space-x-2.5 group">
+          <div class="w-9 h-9 rounded-xl bg-orange-press text-white font-bold flex items-center justify-center font-sans text-xl shadow-sm group-hover:bg-orange transition">Z</div>
+          <div class="flex items-center space-x-2">
+            <span class="font-bold text-lg tracking-tight text-ink font-sans">SPRINTZ</span>
+            <span class="label-caps px-2 py-0.5 rounded-md bg-canvas text-stone border border-brandborder">MARKETER LABS</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigation Links / Pills -->
+      <nav aria-label="Marketer Navigation" class="flex items-center bg-canvas p-1 rounded-xl border border-brandborder overflow-x-auto max-w-full">
+        <a href="/intake-new.html" class="text-xs sm:text-sm font-medium px-3.5 py-2 min-h-[44px] rounded-lg text-stone hover:text-ink border border-transparent transition flex items-center space-x-1.5 whitespace-nowrap">
+          <span>🎯</span>
+          <span>Campaign Brief</span>
+        </a>
+        <a href="/intake-mad.html" class="active text-xs sm:text-sm font-semibold px-3.5 py-2 min-h-[44px] rounded-lg bg-tint text-orange-press border border-orange/30 transition flex items-center space-x-1.5 whitespace-nowrap">
+          <span>📝</span>
+          <span>Mad Libs Form</span>
+        </a>
+        <a href="/intake-alt.html" class="text-xs sm:text-sm font-medium px-3.5 py-2 min-h-[44px] rounded-lg text-stone hover:text-ink border border-transparent transition flex items-center space-x-1.5 whitespace-nowrap">
+          <span>🔬</span>
+          <span>Predictive Labs</span>
+        </a>
+        <a href="/intake.html" class="text-xs sm:text-sm font-medium px-3.5 py-2 min-h-[44px] rounded-lg text-stone hover:text-ink border border-transparent transition flex items-center space-x-1.5 whitespace-nowrap">
+          <span>⚙️</span>
+          <span>Dev Queue</span>
+        </a>
+      </nav>
+
+      <!-- Quick Action Controls -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <button id="btn-top-example" type="button" onclick="fillProvenExample()" class="text-xs font-mono font-medium px-3.5 py-2 min-h-[44px] rounded-xl bg-tint hover:bg-orange/15 text-orange-press border border-orange/30 transition flex items-center space-x-1.5 shadow-subtle">
+          <span>⚡</span>
+          <span class="hidden sm:inline">Fill Proven Example</span>
+          <span class="sm:hidden">Example</span>
+        </button>
+        <button id="btn-top-reset" type="button" onclick="resetStory()" class="text-xs font-mono px-3 py-2 min-h-[44px] rounded-xl bg-canvas hover:bg-muted text-stone hover:text-ink border border-brandborder transition">
+          Reset Story
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN EDITORIAL CONTENT CONTAINER                                          -->
+  <!-- ========================================================================= -->
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 pb-36 space-y-8 flex-1 w-full">
+
+    <!-- Hero Context Header -->
+    <div class="space-y-2">
+      <div class="flex items-center space-x-2">
+        <span class="label-caps px-2.5 py-1 rounded-md bg-tint text-orange-press border border-orange/20">CONVERSATIONAL SPEC WRITER</span>
+        <span class="label-caps px-2.5 py-1 rounded-md bg-white text-stone border border-brandborder hidden sm:inline">AUTONOMOUS WEBOPS CONTRACT</span>
+      </div>
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-ink font-sans">
+        Draft your campaign ticket in plain English.
+      </h1>
+      <p class="text-sm sm:text-base text-body max-w-3xl leading-relaxed">
+        Fill in the blanks below to create an unambiguous, production-grade Darkside WebXP ticket. Every input is automatically verified against engineering invariants before dispatch.
+      </p>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- 2. MAD LIBS SENTENCE FORM INTERFACE                                       -->
+    <!-- ========================================================================= -->
+    <section class="bg-white border border-brandborder rounded-2xl p-6 sm:p-10 shadow-card space-y-8 relative">
+      
+      <!-- Top Action Bar inside Card -->
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-brandborder">
+        <div class="flex items-center space-x-2.5">
+          <span class="w-3 h-3 rounded-full bg-orange-press"></span>
+          <span class="font-mono text-xs font-bold text-ink uppercase tracking-wider">Natural Language Brief Specification</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button type="button" onclick="fillProvenExample()" class="text-xs font-mono font-medium px-3 py-1.5 min-h-[44px] rounded-lg bg-tint hover:bg-orange/15 text-orange-press border border-orange/30 transition flex items-center space-x-1.5">
+            <span>⚡</span>
+            <span>Fill Proven Example</span>
+          </button>
+          <button type="button" onclick="resetStory()" class="text-xs font-mono px-3 py-1.5 min-h-[44px] rounded-lg bg-canvas hover:bg-muted text-stone hover:text-ink border border-brandborder transition">
+            Reset Story
+          </button>
+        </div>
+      </div>
+
+      <!-- Natural Language Mad Libs Paragraph / Sentences -->
+      <div class="space-y-7 text-base sm:text-lg md:text-xl text-ink font-normal leading-relaxed sm:leading-loose">
+        
+        <!-- SENTENCE 1: Action, Page, Property -->
+        <div class="sentence-row">
+          <span class="font-mono text-xs text-stone uppercase tracking-wider block sm:inline mr-2.5">Sentence 01</span>
+          We need to 
+          <label for="action-select" class="sr-only">Campaign Action</label>
+          <select id="action-select" class="mad-blank-select mx-1 my-1" onchange="handleInputChange()">
+            <option value="" disabled selected>— Select Action —</option>
+            <option value="edit_existing">Edit Existing</option>
+            <option value="new_page">Launch New Page</option>
+            <option value="fix_bug">Fix a Bug / UX Regress</option>
+          </select>
+          the
+          <label for="page-select" class="sr-only">Target Page</label>
+          <select id="page-select" class="mad-blank-select mx-1 my-1" onchange="handleInputChange()">
+            <option value="" disabled selected>— Select Page —</option>
+            <option value="Homepage (/)">Homepage (/)</option>
+            <option value="Pricing Page (/pricing)">Pricing Page (/pricing)</option>
+            <option value="Platform Features (/features)">Platform Features (/features)</option>
+            <option value="Interactive Demo (/demo)">Interactive Demo (/demo)</option>
+            <option value="Enterprise Security (/enterprise)">Enterprise Security (/enterprise)</option>
+          </select>
+          on our
+          <label for="property-select" class="sr-only">Web Property</label>
+          <select id="property-select" class="mad-blank-select mx-1 my-1" onchange="handleInputChange()">
+            <option value="" disabled selected>— Select Property —</option>
+            <option value="Main Marketing Site (sprintz.io)">Main Marketing Site (sprintz.io)</option>
+            <option value="Everlaw Growth Hub (everlaw.com/growth)">Everlaw Growth Hub (everlaw.com/growth)</option>
+            <option value="Darkside App Portal (darkside.app)">Darkside App Portal (darkside.app)</option>
+          </select>.
+        </div>
+
+        <!-- SENTENCE 2: Section Pills Multi-Select -->
+        <div class="pt-2">
+          <div class="flex items-center space-x-2 mb-2">
+            <span class="font-mono text-xs text-stone uppercase tracking-wider">Sentence 02</span>
+            <span class="text-xs text-stone italic">(Tap to toggle target sections)</span>
+          </div>
+          <div class="leading-relaxed">
+            Specifically, we are modifying the following sections on this page:
+            <div id="section-pills-container" class="flex flex-wrap gap-2.5 mt-3 mb-1 items-center" role="group" aria-label="Page Sections to Modify">
+              <button type="button" class="section-pill" data-section="hero" onclick="toggleSection('hero')">
+                <span class="pill-check mr-1.5 font-bold">○</span>
+                <span>Hero & CTA</span>
+              </button>
+              <button type="button" class="section-pill" data-section="social_proof" onclick="toggleSection('social_proof')">
+                <span class="pill-check mr-1.5 font-bold">○</span>
+                <span>Social Proof & Logos</span>
+              </button>
+              <button type="button" class="section-pill" data-section="pricing_table" onclick="toggleSection('pricing_table')">
+                <span class="pill-check mr-1.5 font-bold">○</span>
+                <span>Pricing Table</span>
+              </button>
+              <button type="button" class="section-pill" data-section="faq" onclick="toggleSection('faq')">
+                <span class="pill-check mr-1.5 font-bold">○</span>
+                <span>FAQ Accordion</span>
+              </button>
+              <button type="button" class="section-pill" data-section="lead_form" onclick="toggleSection('lead_form')">
+                <span class="pill-check mr-1.5 font-bold">○</span>
+                <span>Lead Capture Form</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SENTENCE 3: Audience ICP -->
+        <div class="sentence-row pt-2">
+          <span class="font-mono text-xs text-stone uppercase tracking-wider block sm:inline mr-2.5">Sentence 03</span>
+          This campaign is designed specifically for 
+          <label for="input-audience" class="sr-only">Target Audience</label>
+          <input 
+            type="text" 
+            id="input-audience" 
+            placeholder="e.g. B2B Founders & VPs of Marketing" 
+            class="mad-blank-input w-full sm:w-80 md:w-96 mx-1 my-1" 
+            oninput="handleInputChange()" 
+          />.
+        </div>
+
+        <!-- SENTENCE 4: Goal and Baseline -->
+        <div class="sentence-row pt-2">
+          <span class="font-mono text-xs text-stone uppercase tracking-wider block sm:inline mr-2.5">Sentence 04</span>
+          Our primary marketing objective is to 
+          <label for="goal-select" class="sr-only">Primary Goal</label>
+          <select id="goal-select" class="mad-blank-select mx-1 my-1" onchange="handleInputChange()">
+            <option value="" disabled selected>— Select Objective —</option>
+            <option value="boost demo bookings">boost demo bookings</option>
+            <option value="increase trial signups">increase trial signups</option>
+            <option value="lift enterprise pipeline">lift enterprise pipeline</option>
+            <option value="reduce landing page bounce rate">reduce landing page bounce rate</option>
+            <option value="accelerate sales velocity">accelerate sales velocity</option>
+          </select>
+          from baseline 
+          <label for="input-baseline" class="sr-only">Baseline Metric</label>
+          <input 
+            type="text" 
+            id="input-baseline" 
+            placeholder="e.g. 1.8%" 
+            class="mad-blank-input w-28 sm:w-32 mx-1 my-1 text-center" 
+            oninput="handleInputChange()" 
+          />
+          to 
+          <label for="input-target" class="sr-only">Target Metric</label>
+          <input 
+            type="text" 
+            id="input-target" 
+            placeholder="e.g. 2.5%+" 
+            class="mad-blank-input w-28 sm:w-32 mx-1 my-1 text-center" 
+            oninput="handleInputChange()" 
+          />.
+        </div>
+
+        <!-- SENTENCE 5: Headline, CTA Button Text, Destination Link -->
+        <div class="sentence-row pt-2">
+          <span class="font-mono text-xs text-stone uppercase tracking-wider block sm:inline mr-2.5">Sentence 05</span>
+          The new headline will say: 
+          <label for="input-headline" class="sr-only">New Headline</label>
+          <input 
+            type="text" 
+            id="input-headline" 
+            placeholder="e.g. Autonomous WebOps for High-Velocity Marketing Teams" 
+            class="mad-blank-input w-full sm:w-96 md:w-[28rem] mx-1 my-1" 
+            oninput="handleInputChange()" 
+          />
+          with the CTA button labeled 
+          <label for="input-cta-text" class="sr-only">CTA Button Text</label>
+          <input 
+            type="text" 
+            id="input-cta-text" 
+            placeholder="e.g. Start 14-Day Pilot" 
+            class="mad-blank-input w-full sm:w-56 mx-1 my-1" 
+            oninput="handleInputChange()" 
+          />
+          leading to 
+          <label for="input-cta-link" class="sr-only">Destination Link</label>
+          <input 
+            type="text" 
+            id="input-cta-link" 
+            placeholder="e.g. /demo/growth-engine" 
+            class="mad-blank-input w-full sm:w-64 mx-1 my-1 font-mono text-sm" 
+            oninput="handleInputChange()" 
+          />.
+        </div>
+
+        <!-- SENTENCE 6: Performance Hypothesis -->
+        <div class="pt-2">
+          <div class="flex items-center space-x-2 mb-2">
+            <span class="font-mono text-xs text-stone uppercase tracking-wider">Sentence 06</span>
+            <span class="text-xs text-stone italic">(Provide your strategic reasoning)</span>
+          </div>
+          <div class="space-y-2">
+            <span>We hypothesize this will lift performance because:</span>
+            <label for="input-hypothesis" class="sr-only">Performance Hypothesis</label>
+            <textarea 
+              id="input-hypothesis" 
+              rows="3" 
+              placeholder="e.g. Directly addressing the 3-week developer ticket backlog with self-verifying marketing changes will eliminate bounce hesitation and lift qualified pipeline by >35%." 
+              class="mad-blank-textarea mt-1" 
+              oninput="handleInputChange()"></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Live Story Summary Strip -->
+      <div id="story-summary-box" class="bg-canvas border border-brandborder rounded-xl p-4 sm:p-5 mt-6 transition-all duration-200">
+        <div class="flex items-center justify-between gap-2 mb-2">
+          <div class="flex items-center space-x-2">
+            <span class="label-caps text-stone">Real-Time Spec Digest</span>
+            <span id="story-status-indicator" class="label-caps text-[10px] px-2 py-0.5 rounded bg-white text-stone border border-brandborder">DRAFTING</span>
+          </div>
+          <span id="story-word-count" class="font-mono text-xs text-stone">0 fields completed</span>
+        </div>
+        <p id="story-summary-text" class="text-xs sm:text-sm text-ink leading-relaxed font-sans italic">
+          Select actions and fill in the blanks above to preview your compiled campaign narrative here.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 3. GUARANTEED ENGINEERING INVARIANTS (NON-OPTIONAL)                       -->
+    <!-- ========================================================================= -->
+    <section class="bg-white border border-brandborder rounded-2xl p-6 sm:p-8 shadow-card space-y-6">
+      
+      <!-- Card Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-brandborder pb-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-tint flex items-center justify-center text-lg text-orange-press border border-orange/20 shrink-0">🛡️</div>
+          <div>
+            <h2 class="font-bold text-base sm:text-lg text-ink font-sans tracking-tight">GUARANTEED BY ENGINEERING (AUTOMATICALLY VERIFIED)</h2>
+            <p class="text-xs text-stone">Pre-flight verification contracts locked in Darkside CI. Zero developer meetings required.</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-2 text-xs font-mono text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-lg shrink-0">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="font-semibold">5 / 5 INVARIANTS ACTIVE</span>
+        </div>
+      </div>
+
+      <!-- Invariant Grid (5 Badges) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+        
+        <!-- Badge 1: Mobile/Tablet QA -->
+        <div class="p-4 rounded-xl bg-canvas border border-brandborder flex items-start space-x-3 hover:border-brandborder-strong transition">
+          <div class="w-8 h-8 rounded-lg bg-white border border-brandborder flex items-center justify-center text-base shrink-0 mt-0.5">📱</div>
+          <div class="space-y-1 min-w-0">
+            <div class="flex items-center justify-between gap-1">
+              <span class="text-xs font-bold text-ink font-sans">Mobile/Tablet QA</span>
+              <span class="text-[10px] font-mono font-medium text-emerald-700 px-1.5 py-0.5 bg-emerald-50 rounded border border-emerald-200">390-1440px</span>
+            </div>
+            <p class="text-xs text-stone leading-relaxed">Automated visual snapshot tests across Chromium, WebKit & Firefox on 6 breakpoints.</p>
+          </div>
+        </div>
+
+        <!-- Badge 2: Zero-Wildcard Blast Radius -->
+        <div class="p-4 rounded-xl bg-canvas border border-brandborder flex items-start space-x-3 hover:border-brandborder-strong transition">
+          <div class="w-8 h-8 rounded-lg bg-white border border-brandborder flex items-center justify-center text-base shrink-0 mt-0.5">🎯</div>
+          <div class="space-y-1 min-w-0">
+            <div class="flex items-center justify-between gap-1">
+              <span class="text-xs font-bold text-ink font-sans">Zero-Wildcard Blast Radius</span>
+              <span class="text-[10px] font-mono font-medium text-emerald-700 px-1.5 py-0.5 bg-emerald-50 rounded border border-emerald-200">ISOLATED</span>
+            </div>
+            <p class="text-xs text-stone leading-relaxed">Changes bounded strictly to selected sections; global CSS cascade alterations rejected.</p>
+          </div>
+        </div>
+
+        <!-- Badge 3: CRM Pipeline Integrity -->
+        <div class="p-4 rounded-xl bg-canvas border border-brandborder flex items-start space-x-3 hover:border-brandborder-strong transition">
+          <div class="w-8 h-8 rounded-lg bg-white border border-brandborder flex items-center justify-center text-base shrink-0 mt-0.5">🔌</div>
+          <div class="space-y-1 min-w-0">
+            <div class="flex items-center justify-between gap-1">
+              <span class="text-xs font-bold text-ink font-sans">CRM Pipeline Integrity</span>
+              <span class="text-[10px] font-mono font-medium text-stone px-1.5 py-0.5 bg-white rounded border border-brandborder">HUBSPOT/SFDC</span>
+            </div>
+            <p class="text-xs text-stone leading-relaxed">Webhook endpoints, hidden attribution parameters, and analytics click streams preserved.</p>
+          </div>
+        </div>
+
+        <!-- Badge 4: Core Brand Token Protection -->
+        <div class="p-4 rounded-xl bg-canvas border border-brandborder flex items-start space-x-3 hover:border-brandborder-strong transition">
+          <div class="w-8 h-8 rounded-lg bg-white border border-brandborder flex items-center justify-center text-base shrink-0 mt-0.5">🎨</div>
+          <div class="space-y-1 min-w-0">
+            <div class="flex items-center justify-between gap-1">
+              <span class="text-xs font-bold text-ink font-sans">Core Brand Token Protection</span>
+              <span class="text-[10px] font-mono font-medium text-orange-press px-1.5 py-0.5 bg-tint rounded border border-orange/20">LOCKED</span>
+            </div>
+            <p class="text-xs text-stone leading-relaxed">Enforces Sprintz tokens (#FFFEF8 base, #C9471B button, Space Grotesk, 44px touch targets).</p>
+          </div>
+        </div>
+
+        <!-- Badge 5: Automated Regression Test Suite -->
+        <div class="p-4 rounded-xl bg-canvas border border-brandborder flex items-start space-x-3 md:col-span-2 lg:col-span-2 hover:border-brandborder-strong transition">
+          <div class="w-8 h-8 rounded-lg bg-white border border-brandborder flex items-center justify-center text-base shrink-0 mt-0.5">🧪</div>
+          <div class="space-y-1 min-w-0">
+            <div class="flex items-center justify-between gap-1">
+              <span class="text-xs font-bold text-ink font-sans">Automated Regression Test Suite</span>
+              <span class="text-[10px] font-mono font-medium text-emerald-700 px-1.5 py-0.5 bg-emerald-50 rounded border border-emerald-200">110 CONTRACTS</span>
+            </div>
+            <p class="text-xs text-stone leading-relaxed">Playwright end-to-end tests verify demo forms, navigation headers, and purchase flows before branch merges.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- 4. LIVE CAMPAIGN READINESS & DISPATCH DOCK (Sticky Bottom)                 -->
+  <!-- ========================================================================= -->
+  <aside id="dispatch-dock" class="fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur border-t border-brandborder z-40 shadow-card">
+    
+    <!-- Collapsible Drawer Container (Spec Inspector) -->
+    <div id="spec-drawer" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden transition-all duration-300 max-h-0 bg-canvas/70 border-b border-brandborder">
+      <div class="py-4 space-y-3">
+        
+        <!-- Drawer Header & Controls -->
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center space-x-3">
+            <span class="font-mono text-xs font-bold text-ink uppercase tracking-wider">Compiled Darkside Spec Contract</span>
+            <div class="flex items-center bg-white p-0.5 rounded-lg border border-brandborder">
+              <button id="tab-drawer-md" type="button" onclick="setDrawerTab('md')" class="text-xs px-3 py-1.5 min-h-[36px] rounded-md bg-tint text-orange-press font-mono font-medium border border-orange/20">
+                Markdown (.md)
+              </button>
+              <button id="tab-drawer-json" type="button" onclick="setDrawerTab('json')" class="text-xs px-3 py-1.5 min-h-[36px] rounded-md bg-transparent text-stone hover:text-ink font-mono font-medium border border-transparent">
+                JSON Contract (.json)
+              </button>
+            </div>
+          </div>
+          <div class="flex items-center space-x-2">
+            <button type="button" onclick="copyCurrentSpec()" class="text-xs font-mono px-3 py-1.5 min-h-[38px] rounded-lg bg-white hover:bg-muted text-ink border border-brandborder transition flex items-center space-x-1">
+              <span>📋</span>
+              <span>Copy Active Spec</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Spec Code Preview Block -->
+        <pre id="drawer-code-preview" class="bg-black text-ondark p-4 rounded-xl font-mono text-xs max-h-72 overflow-y-auto border border-darktheme leading-relaxed"></pre>
+      
+      </div>
+    </div>
+
+    <!-- Persistent Bottom Bar -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3 min-h-16">
+      
+      <!-- Left: Score, Progress Bar, Status Badge -->
+      <div class="flex items-center space-x-4 min-w-0">
+        
+        <!-- Score Digits -->
+        <div class="flex items-center space-x-2.5">
+          <span class="label-caps text-stone hidden md:inline">Readiness:</span>
+          <div class="flex items-center space-x-1.5">
+            <span id="score-counter" class="text-2xl sm:text-3xl font-bold font-mono text-stone">0</span>
+            <span class="text-xs font-mono text-stone">/ 100</span>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="w-24 sm:w-36 h-2.5 rounded-full bg-muted overflow-hidden">
+          <div id="score-progress-bar" class="h-full bg-stone transition-all duration-300" style="width: 0%;"></div>
+        </div>
+
+        <!-- Status Chip Badge -->
+        <span id="score-status-chip" class="label-caps px-2.5 py-1 rounded-full font-mono text-xs font-semibold bg-canvas text-stone border border-brandborder whitespace-nowrap">
+          DRAFTING STORY (< 80)
+        </span>
+
+      </div>
+
+      <!-- Right: Action Buttons -->
+      <div class="flex items-center space-x-2 shrink-0">
+        
+        <!-- Toggle Drawer Button -->
+        <button id="toggle-spec-drawer" type="button" onclick="toggleDrawer()" class="text-xs font-mono px-3 py-2 min-h-[44px] rounded-xl bg-canvas hover:bg-muted text-ink border border-brandborder transition flex items-center space-x-1.5">
+          <span id="drawer-toggle-icon">▲</span>
+          <span id="drawer-toggle-text" class="hidden sm:inline">View Compiled GitHub Spec</span>
+          <span class="sm:hidden">Spec</span>
+        </button>
+
+        <!-- Copy Campaign Spec -->
+        <button id="btn-copy-spec" type="button" onclick="copyMarkdownSpec()" class="text-xs font-mono px-3 py-2 min-h-[44px] rounded-xl bg-white hover:bg-muted text-ink border border-brandborder transition flex items-center space-x-1.5">
+          <span>📋</span>
+          <span class="hidden sm:inline">Copy Spec</span>
+        </button>
+
+        <!-- Primary CTA: Dispatch to Autonomous WebOps -->
+        <button id="btn-dispatch-webops" type="button" onclick="handleDispatch()" class="text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2 min-h-[44px] rounded-xl bg-orange-press hover:bg-orange-hover text-white transition flex items-center space-x-2 shadow-subtle cursor-pointer">
+          <span>🚀</span>
+          <span>Dispatch to Autonomous WebOps</span>
+        </button>
+
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- DISPATCH CONFIRMATION MODAL                                               -->
+  <!-- ========================================================================= -->
+  <div id="dispatch-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-white border border-brandborder rounded-2xl max-w-xl w-full shadow-elevated overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+      
+      <!-- Modal Header -->
+      <div class="bg-neutral px-6 py-4 border-b border-brandborder flex items-center justify-between">
+        <div class="flex items-center space-x-2.5">
+          <span class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></span>
+          <span class="font-mono text-xs font-bold text-ink uppercase tracking-wider">WebOps Autonomous Pipeline Dispatched</span>
+        </div>
+        <button type="button" onclick="closeDispatchModal()" class="text-stone hover:text-ink font-mono text-sm p-1">
+          ✕
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 space-y-5">
+        <div class="flex items-start space-x-3.5">
+          <div class="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center text-xl shrink-0">✓</div>
+          <div>
+            <h3 class="font-bold text-lg text-ink font-sans">Campaign Spec Successfully Locked & Queued</h3>
+            <p class="text-xs sm:text-sm text-body mt-0.5">
+              Darkside WebOps agent <span class="font-mono text-orange-press font-semibold">cro-experimentation.orchestrator</span> has provisioned an autonomous branch with locked invariant verification.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-canvas border border-brandborder rounded-xl p-4 space-y-2.5 font-mono text-xs">
+          <div class="flex justify-between">
+            <span class="text-stone">Target Branch:</span>
+            <span id="modal-branch-name" class="font-bold text-ink">darkside/webxp-cro-hero-oct</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-stone">Autonomous Agent:</span>
+            <span class="text-ink">cro-experimentation.orchestrator</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-stone">Invariant Status:</span>
+            <span class="text-emerald-700 font-semibold">5/5 Passed Pre-flight</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-stone">Readiness Score:</span>
+            <span id="modal-score-badge" class="text-emerald-700 font-bold">100 / 100</span>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <span class="label-caps text-stone">What happens next:</span>
+          <ul class="text-xs text-body space-y-1.5 list-disc list-inside">
+            <li>Synthesizes variant code directly into isolated section React component.</li>
+            <li>Executes Playwright snapshot tests against Chromium & WebKit viewports.</li>
+            <li>Validates HubSpot CRM attribution query strings and webhook listeners.</li>
+            <li>Opens verified PR with preview URL for 1-click marketing signoff.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="bg-neutral px-6 py-3.5 border-t border-brandborder flex items-center justify-end space-x-3">
+        <button type="button" onclick="copyCurrentSpec(); closeDispatchModal();" class="text-xs font-mono px-4 py-2 min-h-[40px] rounded-xl bg-white hover:bg-muted text-ink border border-brandborder transition">
+          Copy Spec Contract
+        </button>
+        <button type="button" onclick="closeDispatchModal()" class="text-xs font-mono font-medium px-4 py-2 min-h-[40px] rounded-xl bg-orange-press hover:bg-orange-hover text-white transition">
+          Done
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Pill -->
+  <div id="toast" class="fixed bottom-20 right-6 z-50 transform translate-y-2 opacity-0 transition-all duration-200 pointer-events-none bg-black text-white font-mono text-xs px-4 py-2.5 rounded-xl shadow-elevated flex items-center space-x-2">
+    <span>✓</span>
+    <span id="toast-message">Spec copied to clipboard</span>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- VANILLA JAVASCRIPT LOGIC                                                  -->
+  <!-- ========================================================================= -->
+  <script>
+    // Story and Spec State
+    const storyState = {
+      action: '',
+      page: '',
+      property: '',
+      sections: [],
+      audience: '',
+      goal: '',
+      baseline: '',
+      target: '',
+      headline: '',
+      ctaText: '',
+      ctaLink: '',
+      hypothesis: '',
+      score: 0,
+      drawerOpen: false,
+      drawerTab: 'md'
+    };
+
+    // DOM Elements Cache
+    const elAction = document.getElementById('action-select');
+    const elPage = document.getElementById('page-select');
+    const elProperty = document.getElementById('property-select');
+    const elAudience = document.getElementById('input-audience');
+    const elGoal = document.getElementById('goal-select');
+    const elBaseline = document.getElementById('input-baseline');
+    const elTarget = document.getElementById('input-target');
+    const elHeadline = document.getElementById('input-headline');
+    const elCtaText = document.getElementById('input-cta-text');
+    const elCtaLink = document.getElementById('input-cta-link');
+    const elHypothesis = document.getElementById('input-hypothesis');
+
+    const elScoreCounter = document.getElementById('score-counter');
+    const elProgressBar = document.getElementById('score-progress-bar');
+    const elStatusChip = document.getElementById('score-status-chip');
+    const elStoryDigest = document.getElementById('story-summary-text');
+    const elStoryIndicator = document.getElementById('story-status-indicator');
+    const elStoryCount = document.getElementById('story-word-count');
+    const elCodePreview = document.getElementById('drawer-code-preview');
+    const elSpecDrawer = document.getElementById('spec-drawer');
+    const elDrawerToggleIcon = document.getElementById('drawer-toggle-icon');
+    const elDrawerToggleText = document.getElementById('drawer-toggle-text');
+    const elDispatchModal = document.getElementById('dispatch-modal');
+    const elModalScoreBadge = document.getElementById('modal-score-badge');
+    const elModalBranchName = document.getElementById('modal-branch-name');
+
+    // Section Toggle Handler
+    function toggleSection(sectionKey) {
+      const idx = storyState.sections.indexOf(sectionKey);
+      if (idx === -1) {
+        storyState.sections.push(sectionKey);
+      } else {
+        storyState.sections.splice(idx, 1);
+      }
+      updateSectionPillUI();
+      handleInputChange();
+    }
+
+    function updateSectionPillUI() {
+      const buttons = document.querySelectorAll('.section-pill');
+      buttons.forEach(btn => {
+        const key = btn.getAttribute('data-section');
+        const checkSpan = btn.querySelector('.pill-check');
+        if (storyState.sections.includes(key)) {
+          btn.classList.add('selected');
+          if (checkSpan) checkSpan.textContent = '✓';
+        } else {
+          btn.classList.remove('selected');
+          if (checkSpan) checkSpan.textContent = '○';
+        }
+      });
+    }
+
+    // Input Change Handler & Real-Time Recalculation
+    function handleInputChange() {
+      storyState.action = elAction.value.trim();
+      storyState.page = elPage.value.trim();
+      storyState.property = elProperty.value.trim();
+      storyState.audience = elAudience.value.trim();
+      storyState.goal = elGoal.value.trim();
+      storyState.baseline = elBaseline.value.trim();
+      storyState.target = elTarget.value.trim();
+      storyState.headline = elHeadline.value.trim();
+      storyState.ctaText = elCtaText.value.trim();
+      storyState.ctaLink = elCtaLink.value.trim();
+      storyState.hypothesis = elHypothesis.value.trim();
+
+      calculateScore();
+      updateStoryDigest();
+      renderSpecPreview();
+    }
+
+    // Calculate Spec Readiness Score (0 - 100)
+    function calculateScore() {
+      let score = 0;
+      let completedCount = 0;
+
+      // Action: 10 pts
+      if (storyState.action) { score += 10; completedCount++; }
+      // Page: 10 pts
+      if (storyState.page) { score += 10; completedCount++; }
+      // Property: 10 pts
+      if (storyState.property) { score += 10; completedCount++; }
+      // Sections: 15 pts (requires >= 1 section)
+      if (storyState.sections.length > 0) { score += 15; completedCount++; }
+      // Audience: 10 pts (min 4 chars)
+      if (storyState.audience.length >= 4) { score += 10; completedCount++; }
+      // Goal & Baseline/Target: 15 pts (Goal: 5, Baseline: 5, Target: 5)
+      if (storyState.goal) { score += 5; completedCount++; }
+      if (storyState.baseline.length >= 1) { score += 5; completedCount++; }
+      if (storyState.target.length >= 1) { score += 5; completedCount++; }
+      // Headline: 10 pts (min 5 chars)
+      if (storyState.headline.length >= 5) { score += 10; completedCount++; }
+      // CTA Button & Link: 10 pts (CTA: 5, Link: 5)
+      if (storyState.ctaText.length >= 2) { score += 5; completedCount++; }
+      if (storyState.ctaLink.length >= 2) { score += 5; completedCount++; }
+      // Hypothesis: 15 pts (min 15 chars)
+      if (storyState.hypothesis.length >= 15) { score += 10; completedCount++; }
+
+      // Cap at 100
+      storyState.score = Math.min(100, score);
+
+      // Update UI
+      elScoreCounter.textContent = storyState.score;
+      elProgressBar.style.width = `${storyState.score}%`;
+      elStoryCount.textContent = `${completedCount} / 11 fields complete`;
+
+      if (storyState.score >= 80) {
+        // High confidence / ready to dispatch
+        elScoreCounter.className = 'text-2xl sm:text-3xl font-bold font-mono text-emerald-600';
+        elProgressBar.className = 'h-full bg-emerald-600 transition-all duration-300';
+        elStatusChip.className = 'label-caps px-2.5 py-1 rounded-full font-mono text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-300 whitespace-nowrap';
+        elStatusChip.textContent = 'READY TO DISPATCH (≥ 80)';
+        elStoryIndicator.className = 'label-caps text-[10px] px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200';
+        elStoryIndicator.textContent = 'SPEC READY';
+      } else if (storyState.score >= 40) {
+        // In-progress drafting
+        elScoreCounter.className = 'text-2xl sm:text-3xl font-bold font-mono text-orange-press';
+        elProgressBar.className = 'h-full bg-orange-press transition-all duration-300';
+        elStatusChip.className = 'label-caps px-2.5 py-1 rounded-full font-mono text-xs font-semibold bg-tint text-orange-press border border-orange/30 whitespace-nowrap';
+        elStatusChip.textContent = `DRAFTING STORY (${storyState.score}/100)`;
+        elStoryIndicator.className = 'label-caps text-[10px] px-2 py-0.5 rounded bg-tint text-orange-press border border-orange/20';
+        elStoryIndicator.textContent = 'IN PROGRESS';
+      } else {
+        // Initial state
+        elScoreCounter.className = 'text-2xl sm:text-3xl font-bold font-mono text-stone';
+        elProgressBar.className = 'h-full bg-stone transition-all duration-300';
+        elStatusChip.className = 'label-caps px-2.5 py-1 rounded-full font-mono text-xs font-semibold bg-canvas text-stone border border-brandborder whitespace-nowrap';
+        elStatusChip.textContent = 'DRAFTING STORY (< 80)';
+        elStoryIndicator.className = 'label-caps text-[10px] px-2 py-0.5 rounded bg-white text-stone border border-brandborder';
+        elStoryIndicator.textContent = 'INCOMPLETE';
+      }
+    }
+
+    // Friendly Section Display Names
+    function formatSectionNames(keys) {
+      const map = {
+        'hero': 'Hero & CTA',
+        'social_proof': 'Social Proof & Logos',
+        'pricing_table': 'Pricing Table',
+        'faq': 'FAQ Accordion',
+        'lead_form': 'Lead Capture Form'
+      };
+      return keys.map(k => map[k] || k).join(', ');
+    }
+
+    function formatActionName(action) {
+      if (action === 'edit_existing') return 'Edit Existing';
+      if (action === 'new_page') return 'Launch New Page';
+      if (action === 'fix_bug') return 'Fix Bug';
+      return action || '[Action]';
+    }
+
+    // Update Editorial Story Digest
+    function updateStoryDigest() {
+      if (!storyState.action && !storyState.page && !storyState.headline) {
+        elStoryDigest.textContent = 'Select actions and fill in the blanks above to preview your compiled campaign narrative here.';
+        return;
+      }
+
+      const act = formatActionName(storyState.action);
+      const pg = storyState.page || '[Page]';
+      const prop = storyState.property || '[Property]';
+      const sec = storyState.sections.length > 0 ? formatSectionNames(storyState.sections) : '[Sections]';
+      const aud = storyState.audience || '[Target ICP]';
+      const gl = storyState.goal || '[Objective]';
+      const bsl = storyState.baseline || '—';
+      const tgt = storyState.target || '—';
+      const hd = storyState.headline ? `"${storyState.headline}"` : '[Headline]';
+      const cta = storyState.ctaText ? `"${storyState.ctaText}"` : '[CTA Button]';
+      const lnk = storyState.ctaLink || '[Link]';
+
+      elStoryDigest.innerHTML = `
+        We are executing a <strong>${act}</strong> initiative on <strong>${pg}</strong> (${prop}), strictly modifying <strong>${sec}</strong> for <strong>${aud}</strong>. Objective: <strong>${gl}</strong> (baseline <strong>${bsl}</strong> &rarr; target <strong>${tgt}</strong>). Headline: <em>${hd}</em> with button <em>${cta}</em> routing to <code>${lnk}</code>.
+      `;
+    }
+
+    // Fill Proven High-Confidence Example (1-click)
+    function fillProvenExample() {
+      elAction.value = 'edit_existing';
+      elPage.value = 'Homepage (/)';
+      elProperty.value = 'Main Marketing Site (sprintz.io)';
+      storyState.sections = ['hero', 'social_proof'];
+      updateSectionPillUI();
+
+      elAudience.value = 'B2B SaaS Growth Leaders & VPs of Marketing';
+      elGoal.value = 'boost demo bookings';
+      elBaseline.value = '1.8%';
+      elTarget.value = '2.5%+';
+      elHeadline.value = 'Autonomous WebOps for High-Velocity Marketing Teams';
+      elCtaText.value = 'Book Instant Architecture Walkthrough';
+      elCtaLink.value = '/demo/growth-engine';
+      elHypothesis.value = 'Directly addressing the 3-week developer ticket backlog with self-verifying marketing changes will eliminate bounce hesitation and lift qualified pipeline by >35%.';
+
+      handleInputChange();
+      showToast('⚡ High-confidence example filled (Score: 100/100)');
+    }
+
+    // Reset Story Form
+    function resetStory() {
+      elAction.value = '';
+      elPage.value = '';
+      elProperty.value = '';
+      storyState.sections = [];
+      updateSectionPillUI();
+
+      elAudience.value = '';
+      elGoal.value = '';
+      elBaseline.value = '';
+      elTarget.value = '';
+      elHeadline.value = '';
+      elCtaText.value = '';
+      elCtaLink.value = '';
+      elHypothesis.value = '';
+
+      handleInputChange();
+      showToast('Story blanks reset');
+    }
+
+    // Generate Markdown Darkside Contract
+    function generateMarkdownSpec() {
+      const act = formatActionName(storyState.action);
+      const pg = storyState.page || 'Not Specified';
+      const prop = storyState.property || 'Not Specified';
+      const sec = storyState.sections.length > 0 ? formatSectionNames(storyState.sections) : 'None';
+      const aud = storyState.audience || 'Not Specified';
+      const gl = storyState.goal || 'Not Specified';
+      const bsl = storyState.baseline || 'N/A';
+      const tgt = storyState.target || 'N/A';
+      const hd = storyState.headline || 'Not Specified';
+      const cta = storyState.ctaText || 'Not Specified';
+      const lnk = storyState.ctaLink || 'Not Specified';
+      const hypo = storyState.hypothesis || 'Not Specified';
+
+      return `# Darkside WebXP Campaign Spec: ${act} ${pg}
+**Property**: ${prop}
+**Specification Format**: Mad Libs Conversational Spec v2.1
+**Readiness Score**: ${storyState.score}/100
+**Timestamp**: ${new Date().toISOString()}
+
+## 1. Executive Marketing Brief
+- **Action Type**: ${act}
+- **Target Page Route**: ${pg}
+- **Web Property**: ${prop}
+- **Target ICP / Persona**: ${aud}
+- **Primary Objective**: ${gl}
+- **Conversion Metric**: Baseline ${bsl} → Target ${tgt}
+
+## 2. Creative Scope & Copy Assets
+- **Modified Page Sections**: ${sec}
+- **Primary Headline**: "${hd}"
+- **CTA Button Label**: "${cta}"
+- **Destination Target**: \`${lnk}\`
+
+## 3. Strategic Hypothesis
+${hypo}
+
+## 4. Guaranteed Engineering Invariants (CI Locked)
+- [x] **Mobile/Tablet QA**: Automated viewport regression tests (390px to 1440px)
+- [x] **Zero-Wildcard Blast Radius**: CSS module isolation restricted to [${sec}]
+- [x] **CRM Pipeline Integrity**: Form submissions & analytics attribution events verified
+- [x] **Core Brand Token Protection**: Typography (Space Grotesk), #C9471B button tokens locked
+- [x] **Automated Regression Test Suite**: Playwright end-to-end checkout & booking flows green
+`;
+    }
+
+    // Generate JSON Spec Contract
+    function generateJSONSpec() {
+      return JSON.stringify({
+        schema: "https://skills.sh/schema/v1/webxp-spec.json",
+        domain: "cro-experimentation",
+        action: storyState.action || null,
+        property: storyState.property || null,
+        targetRoute: storyState.page || null,
+        sections: storyState.sections,
+        icpPersona: storyState.audience || null,
+        objective: storyState.goal || null,
+        metrics: {
+          baseline: storyState.baseline || null,
+          target: storyState.target || null
+        },
+        creative: {
+          headline: storyState.headline || null,
+          ctaText: storyState.ctaText || null,
+          ctaLink: storyState.ctaLink || null
+        },
+        hypothesis: storyState.hypothesis || null,
+        engineeringInvariants: {
+          mobileTabletQa: true,
+          zeroWildcardBlastRadius: true,
+          crmPipelineIntegrity: true,
+          brandTokenProtection: true,
+          regressionTestSuite: true
+        },
+        readinessScore: storyState.score,
+        status: storyState.score >= 80 ? "ready_for_dispatch" : "drafting"
+      }, null, 2);
+    }
+
+    // Render Spec Preview in Code Drawer
+    function renderSpecPreview() {
+      if (!elCodePreview) return;
+      if (storyState.drawerTab === 'md') {
+        elCodePreview.textContent = generateMarkdownSpec();
+      } else {
+        elCodePreview.textContent = generateJSONSpec();
+      }
+    }
+
+    // Drawer Tabs Toggle
+    function setDrawerTab(tab) {
+      storyState.drawerTab = tab;
+      const tabMd = document.getElementById('tab-drawer-md');
+      const tabJson = document.getElementById('tab-drawer-json');
+
+      if (tab === 'md') {
+        tabMd.className = 'text-xs px-3 py-1.5 min-h-[36px] rounded-md bg-tint text-orange-press font-mono font-medium border border-orange/20';
+        tabJson.className = 'text-xs px-3 py-1.5 min-h-[36px] rounded-md bg-transparent text-stone hover:text-ink font-mono font-medium border border-transparent';
+      } else {
+        tabJson.className = 'text-xs px-3 py-1.5 min-h-[36px] rounded-md bg-tint text-orange-press font-mono font-medium border border-orange/20';
+        tabMd.className = 'text-xs px-3 py-1.5 min-h-[36px] rounded-md bg-transparent text-stone hover:text-ink font-mono font-medium border border-transparent';
+      }
+      renderSpecPreview();
+    }
+
+    // Drawer Expand / Collapse
+    function toggleDrawer() {
+      storyState.drawerOpen = !storyState.drawerOpen;
+      if (storyState.drawerOpen) {
+        elSpecDrawer.style.maxHeight = '420px';
+        elDrawerToggleIcon.textContent = '▼';
+        elDrawerToggleText.textContent = 'Collapse Spec Drawer';
+      } else {
+        elSpecDrawer.style.maxHeight = '0px';
+        elDrawerToggleIcon.textContent = '▲';
+        elDrawerToggleText.textContent = 'View Compiled GitHub Spec';
+      }
+    }
+
+    // Copy Handlers
+    function copyMarkdownSpec() {
+      const md = generateMarkdownSpec();
+      navigator.clipboard.writeText(md).then(() => {
+        showToast('✓ Markdown Campaign Spec copied to clipboard');
+      }).catch(() => {
+        showToast('Spec generated (clipboard permission denied)');
+      });
+    }
+
+    function copyCurrentSpec() {
+      const content = storyState.drawerTab === 'md' ? generateMarkdownSpec() : generateJSONSpec();
+      navigator.clipboard.writeText(content).then(() => {
+        showToast(`✓ ${storyState.drawerTab.toUpperCase()} Spec copied to clipboard`);
+      }).catch(() => {
+        showToast('Spec generated');
+      });
+    }
+
+    // Dispatch Action Handler
+    function handleDispatch() {
+      if (storyState.score < 80) {
+        showToast(`⚠️ Readiness score is ${storyState.score}/100. Complete blanks to reach 80.`);
+        // Highlight first missing element
+        if (!storyState.action) { elAction.focus(); return; }
+        if (!storyState.page) { elPage.focus(); return; }
+        if (!storyState.property) { elProperty.focus(); return; }
+        if (storyState.sections.length === 0) { showToast('⚠️ Select at least one section'); return; }
+        if (!storyState.audience) { elAudience.focus(); return; }
+        if (!storyState.goal) { elGoal.focus(); return; }
+        if (!storyState.headline) { elHeadline.focus(); return; }
+        if (!storyState.hypothesis) { elHypothesis.focus(); return; }
+        return;
+      }
+
+      // Open dispatch confirmation modal
+      const branchSlug = (storyState.page.split(' ')[0] || 'homepage').toLowerCase().replace(/[^a-z0-9]/g, '');
+      elModalBranchName.textContent = `darkside/webxp-${branchSlug || 'cro'}-${Math.floor(Math.random()*8999+1000)}`;
+      elModalScoreBadge.textContent = `${storyState.score} / 100`;
+      elDispatchModal.classList.remove('hidden');
+      elDispatchModal.classList.add('flex');
+    }
+
+    function closeDispatchModal() {
+      elDispatchModal.classList.add('hidden');
+      elDispatchModal.classList.remove('flex');
+    }
+
+    // Floating Toast Notification Helper
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      toastMsg.textContent = msg;
+      toast.classList.remove('opacity-0', 'translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 2800);
+    }
+
+    // Initialize Default State
+    document.addEventListener('DOMContentLoaded', () => {
+      handleInputChange();
+    });
+  </script>
+
+</body>
+</html>

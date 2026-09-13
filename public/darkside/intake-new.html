@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprintz Marketer Labs · Campaign Brief & Growth Playbooks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orange: {
+              DEFAULT: '#ED5724',
+              press: '#C9471B',
+              hover: '#B84018'
+            },
+            tint: '#FFF0E8',
+            black: '#141413',
+            neutral: '#FFFEF8',
+            canvas: '#F7F3EC',
+            muted: '#EFE4DA',
+            darktheme: '#2E2A28',
+            ink: '#2B2623',
+            body: '#57514C',
+            stone: '#7A746E',
+            taupe: '#A29A92',
+            ondark: '#D8D1C8',
+            brandborder: {
+              DEFAULT: '#EEE6DC',
+              strong: '#DDC6B4'
+            }
+          },
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          borderRadius: {
+            'md': '12px',
+            'xl': '20px',
+            '2xl': '24px'
+          },
+          boxShadow: {
+            'subtle': '0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.02)',
+            'card': '0 4px 12px 0 rgba(43, 38, 35, 0.04)',
+            'elevated': '0 20px 25px -5px rgba(20, 20, 19, 0.2), 0 8px 10px -6px rgba(20, 20, 19, 0.2)'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: #DDC6B4 #F7F3EC;
+    }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #FFFEF8;
+      color: #2B2623;
+    }
+    pre, code, .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F7F3EC;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #DDC6B4;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7A746E;
+    }
+    .label-caps {
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+    }
+    .playbook-card {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .playbook-card:hover {
+      border-color: #C9471B;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px 0 rgba(201, 71, 27, 0.08);
+    }
+    .playbook-card.active-playbook {
+      border-color: #C9471B;
+      background-color: #FFF0E8;
+    }
+    .touch-target {
+      min-height: 44px;
+    }
+    .custom-checkbox:checked + label {
+      border-color: #C9471B;
+      background-color: #FFF0E8;
+      color: #C9471B;
+    }
+    .custom-checkbox:checked + label .check-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body class="bg-canvas text-body font-sans min-h-screen flex flex-col selection:bg-tint selection:text-orange-press">
+
+  <!-- ========================================================================= -->
+  <!-- TOP SWITCHER NAVBAR (#marketer-nav)                                      -->
+  <!-- ========================================================================= -->
+  <header id="marketer-nav" class="border-b border-brandborder bg-white/95 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-2.5 flex flex-wrap items-center justify-between gap-3">
+      <!-- Left: SPRINTZ Brand Mark & Title -->
+      <div class="flex items-center space-x-3 shrink-0">
+        <a href="intake-new.html" class="flex items-center space-x-2.5 group">
+          <div class="w-9 h-9 rounded-xl bg-orange-press text-white font-bold flex items-center justify-center font-sans text-xl shadow-sm group-hover:bg-orange transition">Z</div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="font-bold text-lg tracking-tight text-ink">SPRINTZ</span>
+              <span class="label-caps px-2 py-0.5 rounded-md bg-canvas text-stone border border-brandborder">MARKETER LABS</span>
+              <span class="label-caps px-2 py-0.5 rounded-md bg-tint text-orange-press border border-orange/20 hidden md:inline">AUTONOMOUS WEBOPS</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Center: Switcher Navigation Pills -->
+      <nav aria-label="Intake Experience Switcher" class="flex items-center bg-canvas p-1 rounded-xl border border-brandborder overflow-x-auto max-w-full">
+        <!-- 1. Campaign Brief (Active) -->
+        <a href="intake-new.html" class="touch-target text-xs sm:text-sm font-medium px-3.5 py-2 rounded-lg bg-tint text-orange-press border border-orange/40 font-mono flex items-center space-x-2 whitespace-nowrap shadow-sm">
+          <span>🎯</span>
+          <span>Campaign Brief</span>
+          <span class="text-[10px] px-1.5 py-0.2 bg-white/80 text-orange-press rounded font-bold uppercase tracking-wider ml-1">Live</span>
+        </a>
+        <!-- 2. Mad Libs Form -->
+        <a href="intake-mad.html" class="touch-target text-xs sm:text-sm font-medium px-3.5 py-2 rounded-lg text-stone hover:text-ink hover:bg-white/60 border border-transparent transition flex items-center space-x-2 whitespace-nowrap">
+          <span>📝</span>
+          <span>Mad Libs Form</span>
+        </a>
+        <!-- 3. Predictive Labs -->
+        <a href="intake-alt.html" class="touch-target text-xs sm:text-sm font-medium px-3.5 py-2 rounded-lg text-stone hover:text-ink hover:bg-white/60 border border-transparent transition flex items-center space-x-2 whitespace-nowrap">
+          <span>🔬</span>
+          <span>Predictive Labs</span>
+        </a>
+        <!-- 4. Dev Queue -->
+        <a href="intake.html" class="touch-target text-xs sm:text-sm font-medium px-3.5 py-2 rounded-lg text-stone hover:text-ink hover:bg-white/60 border border-transparent transition flex items-center space-x-2 whitespace-nowrap">
+          <span>⚙️</span>
+          <span>Dev Queue</span>
+        </a>
+      </nav>
+
+      <!-- Right: Utility Actions -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <button id="btn-reset-form" type="button" onclick="resetFormState()" class="touch-target text-xs font-mono px-3 py-2 rounded-xl bg-canvas hover:bg-muted text-stone hover:text-ink border border-brandborder transition flex items-center space-x-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+          <span class="hidden sm:inline">Reset Brief</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN CONTAINER                                                            -->
+  <!-- ========================================================================= -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 pb-32 flex-1 w-full">
+
+    <!-- Page Header Banner -->
+    <div class="mb-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <div class="flex items-center space-x-2 mb-2">
+            <span class="label-caps px-2 py-0.5 rounded bg-tint text-orange-press border border-orange/20 font-bold">HYBRID INTAKE SURFACE</span>
+            <span class="text-xs text-stone font-mono">· Systems-First WebOps</span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-ink tracking-tight">Marketer Campaign Brief & Playbooks</h1>
+          <p class="text-sm sm:text-base text-body mt-1.5 max-w-3xl">
+            Author high-conversion growth campaigns with zero engineering delays. Select a battle-tested Growth Playbook or define structured parameters verified against Darkside Autonomous WebOps invariants.
+          </p>
+        </div>
+        <div class="flex items-center space-x-2 shrink-0">
+          <span class="text-xs font-mono text-stone bg-white px-3 py-1.5 rounded-lg border border-brandborder flex items-center space-x-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Autonomy Level: Guarded Synthesis</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 1: GROWTH PLAYBOOK QUICK-STARTS                                 -->
+    <!-- ======================================================================= -->
+    <section class="mb-10" aria-labelledby="playbooks-heading">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center space-x-2">
+          <span class="text-lg">⚡</span>
+          <h2 id="playbooks-heading" class="text-xs sm:text-sm font-bold font-mono uppercase tracking-wider text-ink">
+            Growth Playbook Quick-Starts
+          </h2>
+          <span class="text-[11px] font-mono text-stone hidden sm:inline">(1-Click Pre-fill)</span>
+        </div>
+        <span class="text-xs font-mono text-stone">4 Standard Models</span>
+      </div>
+
+      <!-- Playbook Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="playbook-grid">
+
+        <!-- Playbook 1: Hero Social Proof Boost -->
+        <button type="button" onclick="applyPlaybook('hero-proof')" id="playbook-hero-proof" class="playbook-card text-left p-4 sm:p-5 rounded-xl bg-white border border-brandborder cursor-pointer flex flex-col justify-between group relative overflow-hidden touch-target">
+          <div class="w-full">
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="text-2xl">🎯</span>
+              <span class="label-caps px-2 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200 text-[10px]">CRO & TRUST</span>
+            </div>
+            <h3 class="font-bold text-ink text-sm sm:text-base group-hover:text-orange-press transition">
+              Hero Social Proof Boost
+            </h3>
+            <p class="text-xs text-body mt-1.5 leading-relaxed">
+              Anchor hero value proposition with enterprise logos and validated retention proof points above the fold.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-brandborder/60 flex items-center justify-between text-xs font-mono">
+            <span class="text-stone">Target Lift:</span>
+            <span class="font-bold text-emerald-700">+25% - 40% CVR</span>
+          </div>
+        </button>
+
+        <!-- Playbook 2: Pricing Friction Reducer -->
+        <button type="button" onclick="applyPlaybook('pricing-friction')" id="playbook-pricing-friction" class="playbook-card text-left p-4 sm:p-5 rounded-xl bg-white border border-brandborder cursor-pointer flex flex-col justify-between group relative overflow-hidden touch-target">
+          <div class="w-full">
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="text-2xl">💳</span>
+              <span class="label-caps px-2 py-0.5 rounded bg-blue-50 text-blue-800 border border-blue-200 text-[10px]">TIER CONVERSION</span>
+            </div>
+            <h3 class="font-bold text-ink text-sm sm:text-base group-hover:text-orange-press transition">
+              Pricing Friction Reducer
+            </h3>
+            <p class="text-xs text-body mt-1.5 leading-relaxed">
+              Eliminate tier ambiguity with transparent annual toggle and upfront answers to legal/SLA objections.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-brandborder/60 flex items-center justify-between text-xs font-mono">
+            <span class="text-stone">Target Lift:</span>
+            <span class="font-bold text-emerald-700">+18% Tier Select</span>
+          </div>
+        </button>
+
+        <!-- Playbook 3: High-Intent Demo Lander -->
+        <button type="button" onclick="applyPlaybook('demo-lander')" id="playbook-demo-lander" class="playbook-card text-left p-4 sm:p-5 rounded-xl bg-white border border-brandborder cursor-pointer flex flex-col justify-between group relative overflow-hidden touch-target">
+          <div class="w-full">
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="text-2xl">⚡</span>
+              <span class="label-caps px-2 py-0.5 rounded bg-purple-50 text-purple-800 border border-purple-200 text-[10px]">ENTERPRISE PIPELINE</span>
+            </div>
+            <h3 class="font-bold text-ink text-sm sm:text-base group-hover:text-orange-press transition">
+              High-Intent Demo Lander
+            </h3>
+            <p class="text-xs text-body mt-1.5 leading-relaxed">
+              Dedicated distraction-free enterprise route featuring 3-field calendar qualification and SOC2 badge verification.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-brandborder/60 flex items-center justify-between text-xs font-mono">
+            <span class="text-stone">Target Lift:</span>
+            <span class="font-bold text-emerald-700">2.4x Demo Velocity</span>
+          </div>
+        </button>
+
+        <!-- Playbook 4: Search Intent Matcher -->
+        <button type="button" onclick="applyPlaybook('search-matcher')" id="playbook-search-matcher" class="playbook-card text-left p-4 sm:p-5 rounded-xl bg-white border border-brandborder cursor-pointer flex flex-col justify-between group relative overflow-hidden touch-target">
+          <div class="w-full">
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="text-2xl">🔍</span>
+              <span class="label-caps px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px]">SEO & INTENT</span>
+            </div>
+            <h3 class="font-bold text-ink text-sm sm:text-base group-hover:text-orange-press transition">
+              Search Intent Matcher
+            </h3>
+            <p class="text-xs text-body mt-1.5 leading-relaxed">
+              Align feature matrix copy and metadata with high-intent queries: 'autonomous webops experimentation'.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-brandborder/60 flex items-center justify-between text-xs font-mono">
+            <span class="text-stone">Target Lift:</span>
+            <span class="font-bold text-emerald-700">+190% Inbound Visits</span>
+          </div>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 2: MARKETER-FRIENDLY STRUCTURED CAMPAIGN BRIEF                 -->
+    <!-- ======================================================================= -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- LEFT COLUMN: Structured Form Inputs (8 cols) -->
+      <div class="lg:col-span-8 space-y-6">
+
+        <!-- Card 1: Property & Action Scope -->
+        <div class="bg-white border border-brandborder rounded-2xl p-6 sm:p-7 shadow-subtle space-y-6">
+          <div class="flex items-center justify-between border-b border-brandborder pb-4">
+            <div>
+              <span class="label-caps text-stone">STEP 01</span>
+              <h2 class="text-lg font-bold text-ink">Property & Action Scope</h2>
+            </div>
+            <span class="label-caps px-2.5 py-1 rounded bg-canvas text-stone border border-brandborder">RUNTIME ROUTING</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- Property Selector -->
+            <div>
+              <label for="field-property" class="block label-caps text-stone mb-2">
+                Target Marketing Property <span class="text-orange-press">*</span>
+              </label>
+              <div class="relative">
+                <select id="field-property" onchange="handleInputChange()" class="touch-target w-full rounded-md border border-brandborder bg-canvas px-3.5 py-2.5 text-sm text-ink font-medium focus:border-orange-press focus:bg-white focus:outline-none transition appearance-none cursor-pointer">
+                  <option value="minimal-demo-site" selected>Main Marketing Site (minimal-demo-site)</option>
+                  <option value="everlaw-enterprise">Everlaw Enterprise Hub</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-stone">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Page / Template Dropdown -->
+            <div>
+              <label for="field-page" class="block label-caps text-stone mb-2">
+                Page / Route Template <span class="text-orange-press">*</span>
+              </label>
+              <div class="relative">
+                <select id="field-page" onchange="handlePageChange()" class="touch-target w-full rounded-md border border-brandborder bg-canvas px-3.5 py-2.5 text-sm text-ink font-medium focus:border-orange-press focus:bg-white focus:outline-none transition appearance-none cursor-pointer">
+                  <option value="Homepage" selected>Homepage (pages/index.html)</option>
+                  <option value="Pricing Page">Pricing Page (pages/pricing.html)</option>
+                  <option value="Features / Overview">Features / Overview (pages/features.html)</option>
+                  <option value="Demo Request Page">Demo Request Page (pages/demo.html)</option>
+                  <option value="Blog / Resources">Blog / Resources (pages/resources.html)</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-stone">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Type Selector (Segmented Pill Buttons) -->
+          <div>
+            <label class="block label-caps text-stone mb-2">
+              Action Type <span class="text-orange-press">*</span>
+            </label>
+            <div class="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Action Type Selector">
+              <button type="button" onclick="setActionType('new-page')" id="action-new-page" class="touch-target action-pill px-3 py-2.5 rounded-md border border-brandborder bg-canvas text-stone hover:text-ink font-medium text-xs sm:text-sm transition flex items-center justify-center space-x-1.5">
+                <span class="text-sm">+</span>
+                <span>New Page</span>
+              </button>
+              <button type="button" onclick="setActionType('edit-existing')" id="action-edit-existing" class="touch-target action-pill px-3 py-2.5 rounded-md border border-orange/40 bg-tint text-orange-press font-semibold text-xs sm:text-sm transition flex items-center justify-center space-x-1.5 shadow-sm">
+                <span class="text-sm">✎</span>
+                <span>Edit Existing</span>
+              </button>
+              <button type="button" onclick="setActionType('fix-bug')" id="action-fix-bug" class="touch-target action-pill px-3 py-2.5 rounded-md border border-brandborder bg-canvas text-stone hover:text-ink font-medium text-xs sm:text-sm transition flex items-center justify-center space-x-1.5">
+                <span class="text-sm">🪲</span>
+                <span>Fix a Bug</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Confinement Route Path Confirmation -->
+          <div class="p-3.5 rounded-xl bg-canvas border border-brandborder flex items-center justify-between text-xs font-mono">
+            <div class="flex items-center space-x-2">
+              <span class="text-stone">Target Route:</span>
+              <span id="display-target-route" class="font-bold text-ink">pages/index.html</span>
+            </div>
+            <span class="text-stone">Write Scope: Isolated Page</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Sections Touching (Responsive Grid) -->
+        <div class="bg-white border border-brandborder rounded-2xl p-6 sm:p-7 shadow-subtle space-y-6">
+          <div class="flex items-center justify-between border-b border-brandborder pb-4">
+            <div>
+              <span class="label-caps text-stone">STEP 02</span>
+              <h2 class="text-lg font-bold text-ink">Sections Touching</h2>
+            </div>
+            <span id="badge-sections-count" class="label-caps px-2.5 py-1 rounded bg-tint text-orange-press border border-orange/20 font-bold">2 Selected</span>
+          </div>
+
+          <p class="text-xs text-body">
+            Select every DOM section modified by this campaign. Darkside uses these tags to restrict write bounds and enforce deterministic containment.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" id="sections-grid">
+            <!-- 1. Hero & Primary CTA -->
+            <div class="relative">
+              <input type="checkbox" id="sec-hero" value="Hero & Primary CTA" onchange="handleSectionChange()" checked class="custom-checkbox sr-only">
+              <label for="sec-hero" class="touch-target flex items-center justify-between p-3.5 rounded-xl border border-brandborder bg-canvas hover:bg-white text-xs sm:text-sm font-medium cursor-pointer transition select-none">
+                <span class="flex items-center space-x-2 truncate">
+                  <span class="text-base">🚀</span>
+                  <span class="truncate">Hero & Primary CTA</span>
+                </span>
+                <span class="check-icon opacity-0 transition-all transform scale-75 text-orange-press font-bold">✓</span>
+              </label>
+            </div>
+
+            <!-- 2. Customer Proof / Logos -->
+            <div class="relative">
+              <input type="checkbox" id="sec-logos" value="Customer Proof / Logos" onchange="handleSectionChange()" checked class="custom-checkbox sr-only">
+              <label for="sec-logos" class="touch-target flex items-center justify-between p-3.5 rounded-xl border border-brandborder bg-canvas hover:bg-white text-xs sm:text-sm font-medium cursor-pointer transition select-none">
+                <span class="flex items-center space-x-2 truncate">
+                  <span class="text-base">🏆</span>
+                  <span class="truncate">Customer Proof / Logos</span>
+                </span>
+                <span class="check-icon opacity-0 transition-all transform scale-75 text-orange-press font-bold">✓</span>
+              </label>
+            </div>
+
+            <!-- 3. Feature Grid & Cards -->
+            <div class="relative">
+              <input type="checkbox" id="sec-features" value="Feature Grid & Cards" onchange="handleSectionChange()" class="custom-checkbox sr-only">
+              <label for="sec-features" class="touch-target flex items-center justify-between p-3.5 rounded-xl border border-brandborder bg-canvas hover:bg-white text-xs sm:text-sm font-medium cursor-pointer transition select-none">
+                <span class="flex items-center space-x-2 truncate">
+                  <span class="text-base">🧩</span>
+                  <span class="truncate">Feature Grid & Cards</span>
+                </span>
+                <span class="check-icon opacity-0 transition-all transform scale-75 text-orange-press font-bold">✓</span>
+              </label>
+            </div>
+
+            <!-- 4. Pricing Table & Toggle -->
+            <div class="relative">
+              <input type="checkbox" id="sec-pricing" value="Pricing Table & Toggle" onchange="handleSectionChange()" class="custom-checkbox sr-only">
+              <label for="sec-pricing" class="touch-target flex items-center justify-between p-3.5 rounded-xl border border-brandborder bg-canvas hover:bg-white text-xs sm:text-sm font-medium cursor-pointer transition select-none">
+                <span class="flex items-center space-x-2 truncate">
+                  <span class="text-base">💳</span>
+                  <span class="truncate">Pricing Table & Toggle</span>
+                </span>
+                <span class="check-icon opacity-0 transition-all transform scale-75 text-orange-press font-bold">✓</span>
+              </label>
+            </div>
+
+            <!-- 5. FAQ Accordion -->
+            <div class="relative">
+              <input type="checkbox" id="sec-faq" value="FAQ Accordion" onchange="handleSectionChange()" class="custom-checkbox sr-only">
+              <label for="sec-faq" class="touch-target flex items-center justify-between p-3.5 rounded-xl border border-brandborder bg-canvas hover:bg-white text-xs sm:text-sm font-medium cursor-pointer transition select-none">
+                <span class="flex items-center space-x-2 truncate">
+                  <span class="text-base">💬</span>
+                  <span class="truncate">FAQ Accordion</span>
+                </span>
+                <span class="check-icon opacity-0 transition-all transform scale-75 text-orange-press font-bold">✓</span>
+              </label>
+            </div>
+
+            <!-- 6. Lead Capture Form -->
+            <div class="relative">
+              <input type="checkbox" id="sec-form" value="Lead Capture Form" onchange="handleSectionChange()" class="custom-checkbox sr-only">
+              <label for="sec-form" class="touch-target flex items-center justify-between p-3.5 rounded-xl border border-brandborder bg-canvas hover:bg-white text-xs sm:text-sm font-medium cursor-pointer transition select-none">
+                <span class="flex items-center space-x-2 truncate">
+                  <span class="text-base">📋</span>
+                  <span class="truncate">Lead Capture Form</span>
+                </span>
+                <span class="check-icon opacity-0 transition-all transform scale-75 text-orange-press font-bold">✓</span>
+              </label>
+            </div>
+
+            <!-- 7. Footer & Legal -->
+            <div class="relative sm:col-span-2 lg:col-span-3">
+              <input type="checkbox" id="sec-footer" value="Footer & Legal" onchange="handleSectionChange()" class="custom-checkbox sr-only">
+              <label for="sec-footer" class="touch-target flex items-center justify-between p-3.5 rounded-xl border border-brandborder bg-canvas hover:bg-white text-xs sm:text-sm font-medium cursor-pointer transition select-none">
+                <span class="flex items-center space-x-2 truncate">
+                  <span class="text-base">⚖️</span>
+                  <span class="truncate">Footer & Legal Compliance Links</span>
+                </span>
+                <span class="check-icon opacity-0 transition-all transform scale-75 text-orange-press font-bold">✓</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Target Audience & Proposed Copy Message -->
+        <div class="bg-white border border-brandborder rounded-2xl p-6 sm:p-7 shadow-subtle space-y-6">
+          <div class="flex items-center justify-between border-b border-brandborder pb-4">
+            <div>
+              <span class="label-caps text-stone">STEP 03</span>
+              <h2 class="text-lg font-bold text-ink">Proposed Copy & Positioning</h2>
+            </div>
+            <span class="label-caps px-2.5 py-1 rounded bg-canvas text-stone border border-brandborder">MESSAGING ARCHITECTURE</span>
+          </div>
+
+          <!-- Target Audience / ICP -->
+          <div>
+            <label for="field-icp" class="block label-caps text-stone mb-2">
+              Target Audience / ICP Persona <span class="text-orange-press">*</span>
+            </label>
+            <input type="text" id="field-icp" oninput="handleInputChange()" placeholder="e.g. Growth leaders and VP Marketing seeking autonomous web operations without dev bottlenecks" value="Growth leaders and VP Marketing looking to reduce homepage bounce rate" class="touch-target w-full rounded-md border border-brandborder bg-canvas px-3.5 py-2.5 text-sm text-ink placeholder-taupe focus:border-orange-press focus:bg-white focus:outline-none transition">
+          </div>
+
+          <!-- Proposed Headline / Value Prop -->
+          <div>
+            <label for="field-headline" class="block label-caps text-stone mb-2">
+              Proposed Headline / Value Proposition <span class="text-orange-press">*</span>
+            </label>
+            <input type="text" id="field-headline" oninput="handleInputChange()" placeholder="e.g. Autonomous WebOps for High-Velocity Marketing Teams" value="Autonomous WebOps for High-Velocity Marketing Teams" class="touch-target w-full rounded-md border border-brandborder bg-canvas px-3.5 py-2.5 text-sm font-medium text-ink placeholder-taupe focus:border-orange-press focus:bg-white focus:outline-none transition">
+          </div>
+
+          <!-- Core Rationale / Big Idea -->
+          <div>
+            <label for="field-rationale" class="block label-caps text-stone mb-2">
+              Core Rationale / Big Idea <span class="text-orange-press">*</span>
+            </label>
+            <textarea id="field-rationale" rows="3" oninput="handleInputChange()" placeholder="Why will this change improve performance? Describe the customer friction being resolved." class="w-full rounded-md border border-brandborder bg-canvas p-3.5 text-sm text-ink placeholder-taupe focus:border-orange-press focus:bg-white focus:outline-none transition leading-relaxed">Replace generic platform promise with validated customer retention proof and enterprise logos above the fold to drive immediate trust and lift pilot signups.</textarea>
+          </div>
+
+          <!-- Primary Button Text & Destination -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="field-cta-text" class="block label-caps text-stone mb-2">
+                Primary Button Text (CTA) <span class="text-orange-press">*</span>
+              </label>
+              <input type="text" id="field-cta-text" oninput="handleInputChange()" placeholder="e.g. Start 14-Day Pilot" value="Start 14-Day Pilot" class="touch-target w-full rounded-md border border-brandborder bg-canvas px-3.5 py-2.5 text-sm text-ink placeholder-taupe focus:border-orange-press focus:bg-white focus:outline-none transition">
+            </div>
+            <div>
+              <label for="field-cta-link" class="block label-caps text-stone mb-2">
+                Button Destination URL / Route <span class="text-orange-press">*</span>
+              </label>
+              <input type="text" id="field-cta-link" oninput="handleInputChange()" placeholder="e.g. /signup?intent=pilot" value="/signup?intent=pilot" class="touch-target w-full rounded-md border border-brandborder bg-canvas px-3.5 py-2.5 text-sm font-mono text-ink placeholder-taupe focus:border-orange-press focus:bg-white focus:outline-none transition">
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Campaign Metric & Target Lift -->
+        <div class="bg-white border border-brandborder rounded-2xl p-6 sm:p-7 shadow-subtle space-y-6">
+          <div class="flex items-center justify-between border-b border-brandborder pb-4">
+            <div>
+              <span class="label-caps text-stone">STEP 04</span>
+              <h2 class="text-lg font-bold text-ink">Campaign Metric & Target</h2>
+            </div>
+            <span class="label-caps px-2.5 py-1 rounded bg-canvas text-stone border border-brandborder">EVALUATION METRIC</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- Metric Selector Dropdown -->
+            <div>
+              <label for="field-metric" class="block label-caps text-stone mb-2">
+                Primary Evaluation Metric <span class="text-orange-press">*</span>
+              </label>
+              <div class="relative">
+                <select id="field-metric" onchange="handleInputChange()" class="touch-target w-full rounded-md border border-brandborder bg-canvas px-3.5 py-2.5 text-sm text-ink font-medium focus:border-orange-press focus:bg-white focus:outline-none transition appearance-none cursor-pointer">
+                  <option value="Trial / Pilot Signups" selected>Trial / Pilot Signups</option>
+                  <option value="Demo Bookings">Qualified Demo Bookings</option>
+                  <option value="Pricing Tier Conversions">Pricing Tier Conversions</option>
+                  <option value="Organic SEO Traffic">High-Intent Organic Search Traffic</option>
+                  <option value="Pipeline Acceleration">Sales Pipeline Acceleration</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-stone">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Target Lift Text -->
+            <div>
+              <label for="field-baseline-target" class="block label-caps text-stone mb-2">
+                Baseline & Target Outcome <span class="text-orange-press">*</span>
+              </label>
+              <input type="text" id="field-baseline-target" oninput="handleInputChange()" placeholder="e.g. Baseline: 2.1% -> Target: 3.4% (+35% lift)" value="Baseline: 2.1% -> Target: 3.4% (+38% relative lift)" class="touch-target w-full rounded-md border border-brandborder bg-canvas px-3.5 py-2.5 text-sm text-ink placeholder-taupe focus:border-orange-press focus:bg-white focus:outline-none transition">
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Fixed Engineering Guardrails (NON-OPTIONAL) -->
+        <div class="bg-white border-2 border-brandborder rounded-2xl p-6 sm:p-7 shadow-subtle space-y-6">
+          <div class="flex items-center justify-between border-b border-brandborder pb-4">
+            <div>
+              <span class="label-caps text-orange-press font-bold">NON-OPTIONAL REPOSITORY CONTRACT</span>
+              <h2 class="text-lg font-bold text-ink flex items-center space-x-2 mt-0.5">
+                <span>🛡️ GUARANTEED ENGINEERING INVARIANTS</span>
+              </h2>
+            </div>
+            <span class="label-caps px-2.5 py-1 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold">
+              AUTOMATICALLY VERIFIED
+            </span>
+          </div>
+
+          <p class="text-xs text-body leading-relaxed">
+            These system invariants are automatically compiled into the Darkside execution contract. Marketers cannot disable them, guaranteeing that autonomous synthesis never breaks design tokens, viewports, or production telemetry.
+          </p>
+
+          <!-- 5 Fixed Locked Verification Badges -->
+          <div class="space-y-3">
+
+            <!-- Invariant 1 -->
+            <div class="p-3.5 rounded-xl bg-canvas border border-brandborder/80 flex items-start space-x-3">
+              <span class="text-base text-stone shrink-0 mt-0.5">🔒</span>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center space-x-2">
+                  <span class="text-xs font-bold text-ink">Mobile & Tablet QA Guarantee</span>
+                  <span class="label-caps text-[9px] px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-semibold">Enforced</span>
+                </div>
+                <p class="text-[11px] text-body mt-0.5 leading-normal">
+                  Viewports 390px (Mobile), 768px (Tablet), and 1280px (Desktop) pass headless automated visual regression before any PR merge.
+                </p>
+              </div>
+            </div>
+
+            <!-- Invariant 2 -->
+            <div class="p-3.5 rounded-xl bg-canvas border border-brandborder/80 flex items-start space-x-3">
+              <span class="text-base text-stone shrink-0 mt-0.5">🔒</span>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center space-x-2">
+                  <span class="text-xs font-bold text-ink">Zero-Wildcard Section Confinement</span>
+                  <span class="label-caps text-[9px] px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-semibold">Enforced</span>
+                </div>
+                <p class="text-[11px] text-body mt-0.5 leading-normal">
+                  Autonomous agents are strictly confined to touched DOM sections. Global templates, shared head tags, and navigation headers remain untouched.
+                </p>
+              </div>
+            </div>
+
+            <!-- Invariant 3 -->
+            <div class="p-3.5 rounded-xl bg-canvas border border-brandborder/80 flex items-start space-x-3">
+              <span class="text-base text-stone shrink-0 mt-0.5">🔒</span>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center space-x-2">
+                  <span class="text-xs font-bold text-ink">CRM & Lead Pipeline Integrity</span>
+                  <span class="label-caps text-[9px] px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-semibold">Enforced</span>
+                </div>
+                <p class="text-[11px] text-body mt-0.5 leading-normal">
+                  Form action targets, hidden UTM attribution inputs, and webhook endpoints are protected by cryptographic AST schema checks.
+                </p>
+              </div>
+            </div>
+
+            <!-- Invariant 4 -->
+            <div class="p-3.5 rounded-xl bg-canvas border border-brandborder/80 flex items-start space-x-3">
+              <span class="text-base text-stone shrink-0 mt-0.5">🔒</span>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center space-x-2">
+                  <span class="text-xs font-bold text-ink">Core Brand Token Protection</span>
+                  <span class="label-caps text-[9px] px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-semibold">Enforced</span>
+                </div>
+                <p class="text-[11px] text-body mt-0.5 leading-normal">
+                  Color palette tokens (#FFFEF8, #C9471B, #141413), Space Grotesk type scale, and radius rules (12px/24px) are locked against drift.
+                </p>
+              </div>
+            </div>
+
+            <!-- Invariant 5 -->
+            <div class="p-3.5 rounded-xl bg-canvas border border-brandborder/80 flex items-start space-x-3">
+              <span class="text-base text-stone shrink-0 mt-0.5">🔒</span>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center space-x-2">
+                  <span class="text-xs font-bold text-ink">Automated Regression Test Suite</span>
+                  <span class="label-caps text-[9px] px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded font-semibold">Enforced</span>
+                </div>
+                <p class="text-[11px] text-body mt-0.5 leading-normal">
+                  Every dispatch generates automated Playwright tests asserting CTA links, CWV performance budget (LCP &lt; 1.2s), and clean DOM nodes.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Real-Time Spec Readiness & Diagnostics (4 cols) -->
+      <div class="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
+
+        <!-- Readiness Score Card -->
+        <div class="bg-white border border-brandborder rounded-2xl p-6 shadow-subtle space-y-5">
+          <div class="flex items-center justify-between border-b border-brandborder pb-3">
+            <span class="label-caps text-stone">CAMPAIGN READINESS</span>
+            <span id="diagnostic-status-chip" class="label-caps px-2 py-0.5 rounded font-mono font-semibold text-[11px] bg-emerald-50 text-emerald-800 border border-emerald-200">
+              READY FOR DISPATCH
+            </span>
+          </div>
+
+          <!-- Score & Progress Bar -->
+          <div>
+            <div class="flex items-baseline justify-between mb-2">
+              <div class="flex items-baseline space-x-1.5">
+                <span id="diagnostic-score-num" class="text-4xl font-bold font-mono text-emerald-600">95</span>
+                <span class="text-sm font-mono text-stone">/ 100</span>
+              </div>
+              <span id="score-threshold-text" class="text-xs font-mono text-emerald-700 font-medium">Verified &ge; 80</span>
+            </div>
+            <div class="w-full h-2.5 rounded-full bg-muted overflow-hidden">
+              <div id="diagnostic-progress-bar" class="h-full bg-emerald-600 transition-all duration-300 rounded-full" style="width: 95%;"></div>
+            </div>
+          </div>
+
+          <!-- Diagnostic Rubric Checklist -->
+          <div class="space-y-2.5 pt-2 border-t border-brandborder/60 text-xs font-mono" id="rubric-checklist">
+            <div class="flex items-center justify-between" id="check-property">
+              <span class="flex items-center space-x-2 text-ink">
+                <span class="text-emerald-600 font-bold" id="icon-check-property">✓</span>
+                <span>Property & Action Defined</span>
+              </span>
+              <span class="text-stone font-bold">+20 pts</span>
+            </div>
+            <div class="flex items-center justify-between" id="check-sections">
+              <span class="flex items-center space-x-2 text-ink">
+                <span class="text-emerald-600 font-bold" id="icon-check-sections">✓</span>
+                <span>Sections Touching Set</span>
+              </span>
+              <span class="text-stone font-bold">+25 pts</span>
+            </div>
+            <div class="flex items-center justify-between" id="check-copy">
+              <span class="flex items-center space-x-2 text-ink">
+                <span class="text-emerald-600 font-bold" id="icon-check-copy">✓</span>
+                <span>ICP & Value Prop Structured</span>
+              </span>
+              <span class="text-stone font-bold">+30 pts</span>
+            </div>
+            <div class="flex items-center justify-between" id="check-cta">
+              <span class="flex items-center space-x-2 text-ink">
+                <span class="text-emerald-600 font-bold" id="icon-check-cta">✓</span>
+                <span>CTA Text & Link Specified</span>
+              </span>
+              <span class="text-stone font-bold">+15 pts</span>
+            </div>
+            <div class="flex items-center justify-between" id="check-metric">
+              <span class="flex items-center space-x-2 text-ink">
+                <span class="text-emerald-600 font-bold" id="icon-check-metric">✓</span>
+                <span>Target Lift & Evaluation Metric</span>
+              </span>
+              <span class="text-stone font-bold">+10 pts</span>
+            </div>
+          </div>
+
+          <!-- Dynamic Guidance Message -->
+          <div id="guidance-box" class="p-3.5 rounded-xl bg-canvas border border-brandborder text-xs text-body leading-relaxed">
+            <span class="font-bold text-ink">Contract Status:</span>
+            <span id="guidance-text">All parameters satisfy autonomous WebOps requirements. Ready to dispatch.</span>
+          </div>
+        </div>
+
+        <!-- Real-Time Spec Preview Card -->
+        <div class="bg-white border border-brandborder rounded-2xl p-6 shadow-subtle space-y-4">
+          <div class="flex items-center justify-between border-b border-brandborder pb-3">
+            <span class="label-caps text-stone">ENGINEERING CONTRACT METADATA</span>
+            <span class="text-[11px] font-mono text-stone">v2.4 AST</span>
+          </div>
+
+          <div class="space-y-2 text-xs font-mono">
+            <div class="flex justify-between py-1 border-b border-canvas">
+              <span class="text-stone">Target Repo:</span>
+              <span class="text-ink font-semibold" id="meta-repo">RL22/minimal-demo-site</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-canvas">
+              <span class="text-stone">Target File:</span>
+              <span class="text-ink font-semibold" id="meta-file">pages/index.html</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-canvas">
+              <span class="text-stone">Risk Rating:</span>
+              <span class="text-emerald-700 font-semibold" id="meta-risk">LOW (Scoped AST)</span>
+            </div>
+            <div class="flex justify-between py-1 border-b border-canvas">
+              <span class="text-stone">Agent Roles:</span>
+              <span class="text-ink" id="meta-agents">CRO + QA Verifier</span>
+            </div>
+            <div class="flex justify-between py-1">
+              <span class="text-stone">Guardrails:</span>
+              <span class="text-emerald-700 font-semibold">5 of 5 Locked</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- PERSISTENT CAMPAIGN READINESS DOCK & COMPILED SPEC DRAWER                  -->
+  <!-- ========================================================================= -->
+  <aside class="fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur border-t border-brandborder z-40 shadow-card">
+
+    <!-- Collapsible Spec Preview Drawer -->
+    <div id="spec-drawer" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 overflow-hidden" style="max-height: 0px;">
+      <div class="py-4 border-b border-brandborder">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+          <div class="flex items-center space-x-2">
+            <button id="tab-drawer-md" type="button" onclick="setDrawerTab('md')" class="touch-target text-xs px-3.5 py-1.5 rounded-lg bg-tint text-orange-press font-mono font-semibold border border-orange/30">
+              Markdown Issue Spec
+            </button>
+            <button id="tab-drawer-json" type="button" onclick="setDrawerTab('json')" class="touch-target text-xs px-3.5 py-1.5 rounded-lg bg-canvas text-stone hover:text-ink font-mono font-medium border border-brandborder">
+              Darkside Contract JSON
+            </button>
+          </div>
+          <div class="flex items-center space-x-2">
+            <button type="button" onclick="copyCurrentTabSpec()" class="touch-target text-xs font-mono px-3.5 py-1.5 rounded-lg bg-canvas hover:bg-muted text-ink border border-brandborder transition">
+              Copy Current Tab
+            </button>
+            <button type="button" onclick="toggleDrawer()" class="touch-target text-xs font-mono px-2.5 py-1.5 rounded-lg text-stone hover:text-ink">
+              ✕ Close
+            </button>
+          </div>
+        </div>
+        <pre id="drawer-code-preview" class="bg-black text-ondark p-4 sm:p-5 rounded-xl font-mono text-xs max-h-72 overflow-y-auto border border-darktheme leading-relaxed"></pre>
+      </div>
+    </div>
+
+    <!-- Sticky Dock Bar -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3 min-h-16">
+      
+      <!-- Left: Score Indicator & Status Badge -->
+      <div class="flex items-center space-x-3 sm:space-x-4 min-w-0">
+        <div class="flex items-center space-x-2 shrink-0">
+          <span class="label-caps text-stone hidden md:inline">Readiness:</span>
+          <div class="flex items-baseline space-x-1">
+            <span id="dock-score-num" class="text-2xl sm:text-3xl font-bold font-mono text-emerald-600">95</span>
+            <span class="text-xs font-mono text-stone">/ 100</span>
+          </div>
+        </div>
+
+        <div class="hidden sm:block w-24 md:w-32 h-2.5 rounded-full bg-muted overflow-hidden shrink-0">
+          <div id="dock-progress-bar" class="h-full bg-emerald-600 transition-all duration-300 rounded-full" style="width: 95%;"></div>
+        </div>
+
+        <span id="dock-status-badge" class="label-caps px-2.5 py-1 rounded-full font-mono text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 truncate">
+          READY FOR DISPATCH (&ge; 80)
+        </span>
+      </div>
+
+      <!-- Right: Action Buttons & Secondary CTAs -->
+      <div class="flex items-center space-x-2 sm:space-x-3 shrink-0">
+        <!-- View Compiled GitHub Spec -->
+        <button id="toggle-spec-drawer" type="button" onclick="toggleDrawer()" class="touch-target text-xs font-mono px-3 py-2 rounded-xl bg-canvas hover:bg-muted text-ink border border-brandborder transition flex items-center space-x-1.5">
+          <span id="drawer-toggle-icon">▲</span>
+          <span id="drawer-toggle-text">View Compiled GitHub Spec</span>
+        </button>
+
+        <!-- Copy Campaign Spec -->
+        <button id="btn-copy-campaign-spec" type="button" onclick="copyCampaignSpec()" class="touch-target text-xs font-mono px-3.5 py-2 rounded-xl bg-white hover:bg-canvas text-ink border border-brandborder transition hidden sm:inline-flex items-center space-x-1.5">
+          <svg class="w-3.5 h-3.5 text-stone" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
+          <span>Copy Campaign Spec</span>
+        </button>
+
+        <!-- Primary CTA: Dispatch to Autonomous WebOps -->
+        <button id="btn-dispatch-webops" type="button" onclick="dispatchCampaign()" class="touch-target text-xs sm:text-sm font-semibold px-4 sm:px-6 py-2.5 rounded-xl bg-orange-press hover:bg-orange-hover active:bg-orange text-white shadow-sm transition flex items-center space-x-2">
+          <span class="text-sm">⚡</span>
+          <span>Dispatch to Autonomous WebOps</span>
+        </button>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- DISPATCH CONFIRMATION MODAL                                              -->
+  <!-- ========================================================================= -->
+  <div id="dispatch-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden" onclick="handleModalBackdropClick(event)">
+    <div class="bg-white border border-brandborder rounded-2xl max-w-lg w-full p-6 sm:p-7 shadow-elevated space-y-5 animate-scale-in" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between border-b border-brandborder pb-3">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-base">✓</div>
+          <div>
+            <h3 class="text-base font-bold text-ink">Campaign Spec Dispatched</h3>
+            <p class="text-xs text-stone font-mono">Autonomous WebOps Queue · Node N2</p>
+          </div>
+        </div>
+        <button type="button" onclick="closeDispatchModal()" class="touch-target text-stone hover:text-ink text-sm px-2 py-1">✕</button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div class="p-3.5 rounded-xl bg-canvas border border-brandborder space-y-1.5 font-mono">
+          <div class="flex justify-between">
+            <span class="text-stone">Contract Hash:</span>
+            <span id="modal-contract-hash" class="text-ink font-bold">sha256:7f8e...4b92</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-stone">Target Property:</span>
+            <span id="modal-target-property" class="text-ink">RL22/minimal-demo-site</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-stone">Target Route:</span>
+            <span id="modal-target-route" class="text-ink">pages/index.html</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-stone">Invariants Verified:</span>
+            <span class="text-emerald-700 font-bold">5 / 5 Guaranteed</span>
+          </div>
+        </div>
+
+        <p class="text-body text-xs leading-relaxed">
+          The campaign brief has been compiled into a deterministic Darkside Contract. Autonomous agents will scaffold changes, run visual QA regression tests, and open a verified pull request.
+        </p>
+      </div>
+
+      <div class="flex items-center justify-end space-x-3 pt-2">
+        <button type="button" onclick="copyCampaignSpec(); closeDispatchModal();" class="touch-target text-xs font-mono px-3.5 py-2 rounded-xl bg-canvas hover:bg-muted text-ink border border-brandborder transition">
+          Copy GitHub Spec
+        </button>
+        <button type="button" onclick="closeDispatchModal()" class="touch-target text-xs font-semibold px-4 py-2 rounded-xl bg-orange-press hover:bg-orange-hover text-white transition">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- TOAST NOTIFICATION                                                        -->
+  <!-- ========================================================================= -->
+  <div id="toast-notification" class="fixed top-20 right-4 sm:right-6 bg-ink text-white px-4 py-3 rounded-xl shadow-elevated border border-darktheme text-xs font-mono z-50 flex items-center space-x-2.5 transition-all duration-300 transform translate-y-[-20px] opacity-0 pointer-events-none">
+    <span class="text-orange text-sm font-bold">✓</span>
+    <span id="toast-message">Spec copied to clipboard!</span>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT CONTROLLER                                                     -->
+  <!-- ========================================================================= -->
+  <script>
+    // State
+    const state = {
+      property: 'minimal-demo-site',
+      actionType: 'edit-existing',
+      page: 'Homepage',
+      sections: ['Hero & Primary CTA', 'Customer Proof / Logos'],
+      icp: 'Growth leaders and VP Marketing looking to reduce homepage bounce rate',
+      headline: 'Autonomous WebOps for High-Velocity Marketing Teams',
+      rationale: 'Replace generic platform promise with validated customer retention proof and enterprise logos above the fold to drive immediate trust and lift pilot signups.',
+      ctaText: 'Start 14-Day Pilot',
+      ctaLink: '/signup?intent=pilot',
+      metric: 'Trial / Pilot Signups',
+      baselineTarget: 'Baseline: 2.1% -> Target: 3.4% (+38% relative lift)',
+      score: 95,
+      activePlaybook: 'hero-proof',
+      drawerOpen: false,
+      drawerTab: 'md'
+    };
+
+    // Playbook Presets Database
+    const playbooks = {
+      'hero-proof': {
+        property: 'minimal-demo-site',
+        actionType: 'edit-existing',
+        page: 'Homepage',
+        sections: ['Hero & Primary CTA', 'Customer Proof / Logos'],
+        icp: 'Growth leaders and VP Marketing looking to reduce homepage bounce rate',
+        headline: 'Autonomous WebOps for High-Velocity Marketing Teams',
+        rationale: 'Replace generic platform promise with validated customer retention proof and enterprise logos above the fold to drive immediate trust and lift pilot signups.',
+        ctaText: 'Start 14-Day Pilot',
+        ctaLink: '/signup?intent=pilot',
+        metric: 'Trial / Pilot Signups',
+        baselineTarget: 'Baseline: 2.1% -> Target: 3.4% (+38% relative lift)'
+      },
+      'pricing-friction': {
+        property: 'minimal-demo-site',
+        actionType: 'edit-existing',
+        page: 'Pricing Page',
+        sections: ['Pricing Table & Toggle', 'FAQ Accordion'],
+        icp: 'Self-serve buyers and mid-market marketing directors evaluating tier pricing',
+        headline: 'Transparent Pricing Designed for Relentless Velocity',
+        rationale: 'Eliminate hidden enterprise fee ambiguity by adding an upfront billing toggle (Monthly / Annual with 20% discount) and direct FAQ answers on SLA commitments.',
+        ctaText: 'Select Growth Tier',
+        ctaLink: '/checkout?tier=growth',
+        metric: 'Pricing Tier Conversions',
+        baselineTarget: 'Baseline: 1.4% -> Target: 2.5% (+18% tier select)'
+      },
+      'demo-lander': {
+        property: 'everlaw-enterprise',
+        actionType: 'new-page',
+        page: 'Demo Request Page',
+        sections: ['Hero & Primary CTA', 'Lead Capture Form', 'Customer Proof / Logos'],
+        icp: 'Enterprise CMOs and Revenue Ops teams evaluating autonomous governance',
+        headline: 'Schedule a Live Architecture Briefing with Sprintz WebOps Engineers',
+        rationale: 'Create a distraction-free, zero-header dedicated landing route with a streamlined 3-field demo calendar embed and real-time SOC2 enterprise verification seals.',
+        ctaText: 'Confirm VIP Briefing',
+        ctaLink: '/demo/calendar',
+        metric: 'Demo Bookings',
+        baselineTarget: 'Baseline: 4.2% -> Target: 7.8% (2.4x demo velocity)'
+      },
+      'search-matcher': {
+        property: 'minimal-demo-site',
+        actionType: 'edit-existing',
+        page: 'Features / Overview',
+        sections: ['Feature Grid & Cards', 'Lead Capture Form'],
+        icp: 'Inbound searchers looking for automated web deployment and continuous CRO workflows',
+        headline: 'Continuous Web Experimentation Without Engineering Bottlenecks',
+        rationale: 'Align organic landing copy with high-value search intent keyword cluster "autonomous webops experimentation" and provide a live interactive calculator widget.',
+        ctaText: 'Explore Feature Matrix',
+        ctaLink: '/features#matrix',
+        metric: 'Organic SEO Traffic',
+        baselineTarget: 'Baseline: 1,200 visits/mo -> Target: 3,500 visits/mo (+190% visits)'
+      }
+    };
+
+    // DOM Section mapping to routes
+    const routeMap = {
+      'Homepage': 'pages/index.html',
+      'Pricing Page': 'pages/pricing.html',
+      'Features / Overview': 'pages/features.html',
+      'Demo Request Page': 'pages/demo.html',
+      'Blog / Resources': 'pages/resources.html'
+    };
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      syncFormFromState();
+      calculateReadiness();
+      updateCompiledCodePreview();
+    });
+
+    // Handle Action Type Switch
+    function setActionType(type) {
+      state.actionType = type;
+      state.activePlaybook = null;
+      updateActionPillsUI();
+      calculateReadiness();
+      updateCompiledCodePreview();
+    }
+
+    function updateActionPillsUI() {
+      const pills = ['new-page', 'edit-existing', 'fix-bug'];
+      pills.forEach(p => {
+        const btn = document.getElementById(`action-${p}`);
+        if (!btn) return;
+        if (p === state.actionType) {
+          btn.className = 'touch-target action-pill px-3 py-2.5 rounded-md border border-orange/40 bg-tint text-orange-press font-semibold text-xs sm:text-sm transition flex items-center justify-center space-x-1.5 shadow-sm';
+        } else {
+          btn.className = 'touch-target action-pill px-3 py-2.5 rounded-md border border-brandborder bg-canvas text-stone hover:text-ink font-medium text-xs sm:text-sm transition flex items-center justify-center space-x-1.5';
+        }
+      });
+    }
+
+    // Apply Growth Playbook
+    function applyPlaybook(id) {
+      const preset = playbooks[id];
+      if (!preset) return;
+
+      state.activePlaybook = id;
+      state.property = preset.property;
+      state.actionType = preset.actionType;
+      state.page = preset.page;
+      state.sections = [...preset.sections];
+      state.icp = preset.icp;
+      state.headline = preset.headline;
+      state.rationale = preset.rationale;
+      state.ctaText = preset.ctaText;
+      state.ctaLink = preset.ctaLink;
+      state.metric = preset.metric;
+      state.baselineTarget = preset.baselineTarget;
+
+      syncFormFromState();
+      updatePlaybookCardsUI();
+      calculateReadiness();
+      updateCompiledCodePreview();
+      showToast(`Applied Playbook: ${preset.headline.slice(0, 32)}...`);
+    }
+
+    function updatePlaybookCardsUI() {
+      ['hero-proof', 'pricing-friction', 'demo-lander', 'search-matcher'].forEach(id => {
+        const card = document.getElementById(`playbook-${id}`);
+        if (!card) return;
+        if (state.activePlaybook === id) {
+          card.classList.add('active-playbook');
+        } else {
+          card.classList.remove('active-playbook');
+        }
+      });
+    }
+
+    // Sync Form UI from State
+    function syncFormFromState() {
+      const propSelect = document.getElementById('field-property');
+      if (propSelect) propSelect.value = state.property;
+
+      const pageSelect = document.getElementById('field-page');
+      if (pageSelect) pageSelect.value = state.page;
+
+      const icpInput = document.getElementById('field-icp');
+      if (icpInput) icpInput.value = state.icp;
+
+      const headlineInput = document.getElementById('field-headline');
+      if (headlineInput) headlineInput.value = state.headline;
+
+      const rationaleInput = document.getElementById('field-rationale');
+      if (rationaleInput) rationaleInput.value = state.rationale;
+
+      const ctaTextInput = document.getElementById('field-cta-text');
+      if (ctaTextInput) ctaTextInput.value = state.ctaText;
+
+      const ctaLinkInput = document.getElementById('field-cta-link');
+      if (ctaLinkInput) ctaLinkInput.value = state.ctaLink;
+
+      const metricSelect = document.getElementById('field-metric');
+      if (metricSelect) metricSelect.value = state.metric;
+
+      const baselineInput = document.getElementById('field-baseline-target');
+      if (baselineInput) baselineInput.value = state.baselineTarget;
+
+      // Sync checkboxes
+      const checkboxMap = {
+        'Hero & Primary CTA': 'sec-hero',
+        'Customer Proof / Logos': 'sec-logos',
+        'Feature Grid & Cards': 'sec-features',
+        'Pricing Table & Toggle': 'sec-pricing',
+        'FAQ Accordion': 'sec-faq',
+        'Lead Capture Form': 'sec-form',
+        'Footer & Legal': 'sec-footer'
+      };
+
+      Object.entries(checkboxMap).forEach(([name, id]) => {
+        const cb = document.getElementById(id);
+        if (cb) cb.checked = state.sections.includes(name);
+      });
+
+      updateActionPillsUI();
+      updateRouteDisplay();
+      updateSectionsCountBadge();
+      updatePlaybookCardsUI();
+    }
+
+    // Handle standard input changes
+    function handleInputChange() {
+      state.activePlaybook = null;
+      updatePlaybookCardsUI();
+
+      const propSelect = document.getElementById('field-property');
+      if (propSelect) state.property = propSelect.value;
+
+      const icpInput = document.getElementById('field-icp');
+      if (icpInput) state.icp = icpInput.value;
+
+      const headlineInput = document.getElementById('field-headline');
+      if (headlineInput) state.headline = headlineInput.value;
+
+      const rationaleInput = document.getElementById('field-rationale');
+      if (rationaleInput) state.rationale = rationaleInput.value;
+
+      const ctaTextInput = document.getElementById('field-cta-text');
+      if (ctaTextInput) state.ctaText = ctaTextInput.value;
+
+      const ctaLinkInput = document.getElementById('field-cta-link');
+      if (ctaLinkInput) state.ctaLink = ctaLinkInput.value;
+
+      const metricSelect = document.getElementById('field-metric');
+      if (metricSelect) state.metric = metricSelect.value;
+
+      const baselineInput = document.getElementById('field-baseline-target');
+      if (baselineInput) state.baselineTarget = baselineInput.value;
+
+      calculateReadiness();
+      updateCompiledCodePreview();
+    }
+
+    function handlePageChange() {
+      state.activePlaybook = null;
+      updatePlaybookCardsUI();
+
+      const pageSelect = document.getElementById('field-page');
+      if (pageSelect) state.page = pageSelect.value;
+
+      updateRouteDisplay();
+      calculateReadiness();
+      updateCompiledCodePreview();
+    }
+
+    function handleSectionChange() {
+      state.activePlaybook = null;
+      updatePlaybookCardsUI();
+
+      const checkboxMap = {
+        'Hero & Primary CTA': 'sec-hero',
+        'Customer Proof / Logos': 'sec-logos',
+        'Feature Grid & Cards': 'sec-features',
+        'Pricing Table & Toggle': 'sec-pricing',
+        'FAQ Accordion': 'sec-faq',
+        'Lead Capture Form': 'sec-form',
+        'Footer & Legal': 'sec-footer'
+      };
+
+      const selected = [];
+      Object.entries(checkboxMap).forEach(([name, id]) => {
+        const cb = document.getElementById(id);
+        if (cb && cb.checked) selected.push(name);
+      });
+      state.sections = selected;
+
+      updateSectionsCountBadge();
+      calculateReadiness();
+      updateCompiledCodePreview();
+    }
+
+    function updateSectionsCountBadge() {
+      const badge = document.getElementById('badge-sections-count');
+      if (!badge) return;
+      const count = state.sections.length;
+      badge.textContent = `${count} Selected`;
+      if (count === 0) {
+        badge.className = 'label-caps px-2.5 py-1 rounded bg-red-50 text-red-700 border border-red-200 font-bold';
+      } else {
+        badge.className = 'label-caps px-2.5 py-1 rounded bg-tint text-orange-press border border-orange/20 font-bold';
+      }
+    }
+
+    function updateRouteDisplay() {
+      const display = document.getElementById('display-target-route');
+      const metaFile = document.getElementById('meta-file');
+      const route = routeMap[state.page] || 'pages/index.html';
+      if (display) display.textContent = route;
+      if (metaFile) metaFile.textContent = route;
+    }
+
+    // Reset Form
+    function resetFormState() {
+      applyPlaybook('hero-proof');
+      showToast('Form reset to default Hero Proof spec.');
+    }
+
+    // Calculate Campaign Readiness Score
+    function calculateReadiness() {
+      let score = 0;
+
+      // 1. Property & Action Scope (+20)
+      const hasProp = !!state.property;
+      const hasAction = !!state.actionType;
+      const hasPage = !!state.page;
+      const step1Valid = hasProp && hasAction && hasPage;
+      if (step1Valid) score += 20;
+      updateCheckItem('check-property', 'icon-check-property', step1Valid);
+
+      // 2. Sections Touching (+25)
+      const hasSections = state.sections.length > 0;
+      if (hasSections) {
+        score += Math.min(25, 15 + state.sections.length * 5);
+      }
+      updateCheckItem('check-sections', 'icon-check-sections', hasSections);
+
+      // 3. ICP & Value Prop (+30)
+      const hasIcp = state.icp.trim().length >= 8;
+      const hasHeadline = state.headline.trim().length >= 5;
+      const hasRationale = state.rationale.trim().length >= 15;
+      const step3Valid = hasIcp && hasHeadline && hasRationale;
+      if (hasIcp) score += 10;
+      if (hasHeadline) score += 10;
+      if (hasRationale) score += 10;
+      updateCheckItem('check-copy', 'icon-check-copy', step3Valid);
+
+      // 4. CTA Text & Link (+15)
+      const hasCtaText = state.ctaText.trim().length >= 2;
+      const hasCtaLink = state.ctaLink.trim().length >= 1;
+      const step4Valid = hasCtaText && hasCtaLink;
+      if (step4Valid) score += 15;
+      updateCheckItem('check-cta', 'icon-check-cta', step4Valid);
+
+      // 5. Target Lift & Metric (+10)
+      const hasMetric = !!state.metric;
+      const hasTarget = state.baselineTarget.trim().length >= 5;
+      const step5Valid = hasMetric && hasTarget;
+      if (step5Valid) score += 10;
+      updateCheckItem('check-metric', 'icon-check-metric', step5Valid);
+
+      // Cap at 100
+      state.score = Math.min(100, score);
+      renderScoreDisplays();
+    }
+
+    function updateCheckItem(rowId, iconId, isValid) {
+      const icon = document.getElementById(iconId);
+      if (!icon) return;
+      if (isValid) {
+        icon.textContent = '✓';
+        icon.className = 'text-emerald-600 font-bold';
+      } else {
+        icon.textContent = '✕';
+        icon.className = 'text-red-500 font-bold';
+      }
+    }
+
+    function renderScoreDisplays() {
+      const s = state.score;
+
+      // Color Progression: Red (<60), Amber (60-79), Emerald (>=80)
+      let colorClass = 'text-emerald-600';
+      let bgBarClass = 'bg-emerald-600';
+      let badgeBg = 'bg-emerald-50 text-emerald-800 border-emerald-200';
+      let statusLabel = 'READY FOR DISPATCH (>= 80)';
+      let thresholdLabel = 'Verified >= 80';
+      let guidanceText = 'All parameters satisfy autonomous WebOps requirements. Ready to dispatch.';
+
+      if (s < 60) {
+        colorClass = 'text-red-600';
+        bgBarClass = 'bg-red-500';
+        badgeBg = 'bg-red-50 text-red-800 border-red-200';
+        statusLabel = 'NEEDS CRITICAL INPUTS (< 60)';
+        thresholdLabel = 'Incomplete Spec';
+        guidanceText = 'Please provide target sections touching, ICP persona, and primary headline to meet baseline dispatch threshold.';
+      } else if (s < 80) {
+        colorClass = 'text-amber-600';
+        bgBarClass = 'bg-amber-500';
+        badgeBg = 'bg-amber-50 text-amber-800 border-amber-200';
+        statusLabel = 'SPEC REFINING (60-79)';
+        thresholdLabel = 'Threshold: >= 80';
+        guidanceText = 'Spec is close. Complete CTA destination URL and core rationale to reach dispatch-ready confidence.';
+      }
+
+      // Update Diagnostic Card
+      const diagScore = document.getElementById('diagnostic-score-num');
+      const diagBar = document.getElementById('diagnostic-progress-bar');
+      const diagChip = document.getElementById('diagnostic-status-chip');
+      const threshText = document.getElementById('score-threshold-text');
+      const guideTextEl = document.getElementById('guidance-text');
+
+      if (diagScore) {
+        diagScore.textContent = s;
+        diagScore.className = `text-4xl font-bold font-mono ${colorClass}`;
+      }
+      if (diagBar) {
+        diagBar.style.width = `${s}%`;
+        diagBar.className = `h-full ${bgBarClass} transition-all duration-300 rounded-full`;
+      }
+      if (diagChip) {
+        diagChip.textContent = s >= 80 ? 'READY FOR DISPATCH' : (s < 60 ? 'INCOMPLETE SPEC' : 'SPEC REFINING');
+        diagChip.className = `label-caps px-2 py-0.5 rounded font-mono font-semibold text-[11px] ${badgeBg} border`;
+      }
+      if (threshText) {
+        threshText.textContent = thresholdLabel;
+        threshText.className = `text-xs font-mono font-medium ${colorClass}`;
+      }
+      if (guideTextEl) guideTextEl.textContent = guidanceText;
+
+      // Update Bottom Dock
+      const dockScore = document.getElementById('dock-score-num');
+      const dockBar = document.getElementById('dock-progress-bar');
+      const dockBadge = document.getElementById('dock-status-badge');
+
+      if (dockScore) {
+        dockScore.textContent = s;
+        dockScore.className = `text-2xl sm:text-3xl font-bold font-mono ${colorClass}`;
+      }
+      if (dockBar) {
+        dockBar.style.width = `${s}%`;
+        dockBar.className = `h-full ${bgBarClass} transition-all duration-300 rounded-full`;
+      }
+      if (dockBadge) {
+        dockBadge.textContent = statusLabel;
+        dockBadge.className = `label-caps px-2.5 py-1 rounded-full font-mono text-[11px] font-bold ${badgeBg} border truncate`;
+      }
+    }
+
+    // Markdown & JSON Spec Compiler
+    function generateMarkdownSpec() {
+      const route = routeMap[state.page] || 'pages/index.html';
+
+      return `## Objective
+${state.headline} (${state.metric})
+
+## Target
+${state.property === 'everlaw-enterprise' ? 'everlaw' : 'minimal'}
+
+## Work type
+${state.actionType === 'new-page' ? 'new-route' : (state.actionType === 'fix-bug' ? 'bugfix' : 'page')}
+
+## Team hints
+- Experimentation & CRO
+- Marketer Growth Brief
+- Copywriting & Brand
+
+## Allowed write scope
+- ${route}
+- tests/**
+
+## Acceptance criteria
+1. Value proposition reflects: "${state.headline}".
+2. Primary CTA anchor text is "${state.ctaText}" pointing to "${state.ctaLink}".
+3. Confinement strictly limited to sections: ${state.sections.join(', ')}.
+4. Pass automated mobile visual QA (390px, 768px, 1280px) with 0 regressions.
+5. Invariant verified: CRM tracking and UTM parameters preserved.
+
+## Sources
+- AGENTS.md
+- brand.md
+- site.md
+
+## Constraints
+- Zero external JS runtime dependencies.
+- Enforce Sprintz brand kit tokens (#FFFEF8, #C9471B, #141413).
+- 44px min-height touch targets on interactive controls.
+- 5 Locked Invariants enforced by Darkside Autonomous Engine.
+
+## Dependencies
+none
+
+## Human decisions
+none
+
+## Risk
+low
+Automated scoped section rewrite with 5 locked engineering invariants.
+
+### Target Route
+${route}
+
+### ICP Persona
+${state.icp}
+
+### Baseline / Target Metric
+${state.metric}: ${state.baselineTarget}
+
+### Proposed Copy & Rationale
+${state.rationale}
+
+### Guaranteed Invariants
+- Mobile & Tablet QA Guarantee
+- Zero-Wildcard Section Confinement
+- CRM & Lead Pipeline Integrity
+- Core Brand Token Protection
+- Automated Regression Test Suite
+`;
+    }
+
+    function generateJsonContract() {
+      const route = routeMap[state.page] || 'pages/index.html';
+      const contract = {
+        issueNumber: 104,
+        title: `Campaign Brief: ${state.headline}`,
+        target: state.property === 'everlaw-enterprise' ? 'everlaw' : 'minimal',
+        workType: state.actionType === 'new-page' ? 'new-route' : (state.actionType === 'fix-bug' ? 'bugfix' : 'page'),
+        targetRoute: route,
+        readinessScore: state.score,
+        sectionsTouching: state.sections,
+        icpPersona: state.icp,
+        copy: {
+          headline: state.headline,
+          rationale: state.rationale,
+          cta: {
+            text: state.ctaText,
+            destination: state.ctaLink
+          }
+        },
+        metric: {
+          name: state.metric,
+          baselineAndTarget: state.baselineTarget
+        },
+        allowedWriteScope: [
+          route,
+          "tests/**"
+        ],
+        acceptanceCriteria: [
+          `Headline updated to: "${state.headline}"`,
+          `CTA anchor configured to: "${state.ctaText}" -> ${state.ctaLink}`,
+          `Scoped DOM modification limited to: ${state.sections.join(', ')}`,
+          "Pass mobile viewport 390px regression assertions"
+        ],
+        engineeringInvariants: [
+          "MOBILE_TABLET_QA_GUARANTEE",
+          "ZERO_WILDCARD_CONFINEMENT",
+          "CRM_LEAD_PIPELINE_INTEGRITY",
+          "CORE_BRAND_TOKEN_PROTECTION",
+          "AUTOMATED_REGRESSION_TEST_SUITE"
+        ],
+        risk: {
+          level: "low",
+          reason: "Deterministic scoped section edit with locked invariants"
+        }
+      };
+      return JSON.stringify(contract, null, 2);
+    }
+
+    // Spec Drawer Controls
+    function toggleDrawer() {
+      const drawer = document.getElementById('spec-drawer');
+      const icon = document.getElementById('drawer-toggle-icon');
+      const btnText = document.getElementById('drawer-toggle-text');
+      if (!drawer) return;
+
+      if (state.drawerOpen) {
+        drawer.style.maxHeight = '0px';
+        state.drawerOpen = false;
+        if (icon) icon.textContent = '▲';
+        if (btnText) btnText.textContent = 'View Compiled GitHub Spec';
+      } else {
+        drawer.style.maxHeight = '360px';
+        state.drawerOpen = true;
+        if (icon) icon.textContent = '▼';
+        if (btnText) btnText.textContent = 'Hide Compiled GitHub Spec';
+        updateCompiledCodePreview();
+      }
+    }
+
+    function setDrawerTab(tab) {
+      state.drawerTab = tab;
+      const tabMd = document.getElementById('tab-drawer-md');
+      const tabJson = document.getElementById('tab-drawer-json');
+
+      if (tab === 'md') {
+        if (tabMd) tabMd.className = 'touch-target text-xs px-3.5 py-1.5 rounded-lg bg-tint text-orange-press font-mono font-semibold border border-orange/30';
+        if (tabJson) tabJson.className = 'touch-target text-xs px-3.5 py-1.5 rounded-lg bg-canvas text-stone hover:text-ink font-mono font-medium border border-brandborder';
+      } else {
+        if (tabJson) tabJson.className = 'touch-target text-xs px-3.5 py-1.5 rounded-lg bg-tint text-orange-press font-mono font-semibold border border-orange/30';
+        if (tabMd) tabMd.className = 'touch-target text-xs px-3.5 py-1.5 rounded-lg bg-canvas text-stone hover:text-ink font-mono font-medium border border-brandborder';
+      }
+      updateCompiledCodePreview();
+    }
+
+    function updateCompiledCodePreview() {
+      const preview = document.getElementById('drawer-code-preview');
+      if (!preview) return;
+      if (state.drawerTab === 'md') {
+        preview.textContent = generateMarkdownSpec();
+      } else {
+        preview.textContent = generateJsonContract();
+      }
+    }
+
+    function copyCurrentTabSpec() {
+      const text = state.drawerTab === 'md' ? generateMarkdownSpec() : generateJsonContract();
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(state.drawerTab === 'md' ? 'Markdown Spec copied to clipboard!' : 'Darkside Contract JSON copied!');
+      }).catch(() => {
+        showToast('Spec copied to clipboard!');
+      });
+    }
+
+    function copyCampaignSpec() {
+      const text = generateMarkdownSpec();
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Campaign Spec copied to clipboard!');
+      }).catch(() => {
+        showToast('Campaign Spec copied!');
+      });
+    }
+
+    // Dispatch Action
+    function dispatchCampaign() {
+      if (state.score < 60) {
+        showToast('Score too low for dispatch (< 60). Please fill required inputs.');
+        return;
+      }
+
+      const modal = document.getElementById('dispatch-modal');
+      const hashEl = document.getElementById('modal-contract-hash');
+      const propEl = document.getElementById('modal-target-property');
+      const routeEl = document.getElementById('modal-target-route');
+
+      // Deterministic simulated body hash preview
+      const hash = 'sha256:' + Math.random().toString(16).substring(2, 10) + Math.random().toString(16).substring(2, 10);
+      if (hashEl) hashEl.textContent = hash;
+      if (propEl) propEl.textContent = state.property === 'everlaw-enterprise' ? 'RL22/everlaw-hub' : 'RL22/minimal-demo-site';
+      if (routeEl) routeEl.textContent = routeMap[state.page] || 'pages/index.html';
+
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeDispatchModal() {
+      const modal = document.getElementById('dispatch-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function handleModalBackdropClick(e) {
+      if (e.target.id === 'dispatch-modal') {
+        closeDispatchModal();
+      }
+    }
+
+    // Toast helper
+    let toastTimeout = null;
+    function showToast(msg) {
+      const toast = document.getElementById('toast-notification');
+      const toastMsg = document.getElementById('toast-message');
+      if (!toast) return;
+
+      if (toastMsg) toastMsg.textContent = msg;
+      toast.classList.remove('opacity-0', 'translate-y-[-20px]', 'pointer-events-none');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'translate-y-[-20px]', 'pointer-events-none');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
