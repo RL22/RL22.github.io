@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Darkside WebXP Intake Surface · Node N2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+        tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orange: { DEFAULT: '#ED5724', press: '#C9471B', hover: '#B84018' },
+            tint: '#FFF0E8',
+            black: '#141413',
+            neutral: '#FFFEF8',
+            canvas: '#F7F3EC',
+            muted: '#EFE4DA',
+            darktheme: '#2E2A28',
+            ink: '#2B2623',
+            body: '#57514C',
+            stone: '#7A746E',
+            taupe: '#A29A92',
+            ondark: '#D8D1C8',
+            brandborder: { DEFAULT: '#EEE6DC', strong: '#DDC6B4' },
+          },
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          borderRadius: {
+            'md': '12px',
+            'xl': '24px',
+          },
+          boxShadow: {
+            'subtle': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+            'flat': 'none',
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html { scrollbar-width: thin; scrollbar-color: #DDC6B4 #F7F3EC; }
+    body {
+      font-family: 'Space Grotesk', sans-serif; background-color: #FFFEF8; color: #2B2623;
+    }
+    pre, code, .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    /* Custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F7F3EC;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #DDC6B4;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7A746E;
+    }
+  
+    .label-caps {
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+  </style>
+
+</head>
+<body class="bg-neutral text-ink min-h-screen selection:bg-orange/30 selection:text-ink">
+  <!-- Top Navigation & Status Bar -->
+  <header class="border-b border-brandborder bg-white/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-lg bg-orange text-white font-bold flex items-center justify-center font-sans text-xl shadow-sm">Z</div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="font-bold text-lg tracking-tight text-ink font-sans">SPRINTZ</span>
+            <span class="text-[11px] px-2 py-0.5 rounded-md bg-canvas text-stone font-mono border border-brandborder">DARKSIDE FACTORY</span>
+            <span class="text-[11px] px-2 py-0.5 rounded-md bg-tint text-orange-press font-mono border border-orange/20">WEBXP INTAKE</span>
+          </div>
+          <p class="text-xs text-body">Systems-first autonomous webops · 100-Pt Graded Queue</p>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-3">
+        <button id="btn-load-preset" type="button" class="text-xs px-3 py-2 min-h-[44px] rounded-md bg-white hover:bg-brandborder text-ink hover:text-ink border border-brandborder transition flex items-center space-x-1.5">
+          <svg class="w-3.5 h-3.5 text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+          </svg>
+          <span>Load High-Confidence Spec</span>
+        </button>
+        <button id="btn-reset-form" type="button" class="text-xs px-3 py-2 min-h-[44px] rounded-md bg-muted hover:bg-brandborder text-ink border border-transparent hover:border-brandborder transition">
+          Reset
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Two-Column Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- LEFT COLUMN: Form Inputs (7 cols) -->
+      <div class="lg:col-span-7 bg-white border border-brandborder rounded-2xl p-6 sm:p-8 shadow-subtle space-y-8">
+
+        <!-- Domain Selection Tabs -->
+        <div>
+          <label class="block text-[11px] label-caps text-stone uppercase tracking-wider mb-2 px-1">
+            Select WebXP Operating Domain
+          </label>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="domain-tabs" role="tablist" aria-label="WebXP Operating Domains">
+            <button type="button" role="tab" aria-selected="true" data-domain="cro" class="domain-tab active px-3 py-2.5 rounded-md text-xs font-medium border flex items-center space-x-2 transition bg-tint text-orange-press border-orange/50 min-h-[44px]">
+              <span class="text-base">🎯</span>
+              <span class="truncate">CRO & Copy</span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" data-domain="seo" class="domain-tab px-3 py-2.5 rounded-md text-xs font-medium border border-brandborder bg-canvas text-ink hover:bg-white transition flex items-center space-x-2 min-h-[44px]">
+              <span class="text-base">🔍</span>
+              <span class="truncate">SEO & AEO</span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" data-domain="performance" class="domain-tab px-3 py-2.5 rounded-md text-xs font-medium border border-brandborder bg-canvas text-ink hover:bg-white transition flex items-center space-x-2 min-h-[44px]">
+              <span class="text-base">⚡</span>
+              <span class="truncate">Performance & CWV</span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" data-domain="brand" class="domain-tab px-3 py-2.5 rounded-md text-xs font-medium border border-brandborder bg-canvas text-ink hover:bg-white transition flex items-center space-x-2 min-h-[44px]">
+              <span class="text-base">🎨</span>
+              <span class="truncate">Brand & Design</span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" data-domain="analytics" class="domain-tab px-3 py-2.5 rounded-md text-xs font-medium border border-brandborder bg-canvas text-ink hover:bg-white transition flex items-center space-x-2 min-h-[44px]">
+              <span class="text-base">📊</span>
+              <span class="truncate">Analytics</span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" data-domain="campaign" class="domain-tab px-3 py-2.5 rounded-md text-xs font-medium border border-brandborder bg-canvas text-ink hover:bg-white transition flex items-center space-x-2 min-h-[44px]">
+              <span class="text-base">🚀</span>
+              <span class="truncate">Growth Campaign</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Section 1: Universal Foundation -->
+        <div class="space-y-5 border-t border-brandborder/60 pt-6">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-bold text-ink uppercase tracking-wider flex items-center space-x-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-orange inline-block"></span>
+              <span>01 · Universal Foundation</span>
+            </h2>
+            <span class="text-xs font-mono text-orange bg-tint px-2 py-0.5 rounded border border-orange/20" id="uf-score-badge">0 / 40 pts</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <!-- Target Repository -->
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label for="field-target" class="block text-xs font-semibold text-ink">
+                  Target Repository <span class="text-orange">*</span>
+                </label>
+                <button type="button" id="btn-open-onboard-modal" class="text-xs text-orange hover:text-orange-press font-medium flex items-center space-x-1 focus:outline-none transition min-h-[32px] px-1">
+                  <span>+ Onboard</span>
+                </button>
+              </div>
+              <select id="field-target" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition">
+                <option value="minimal" selected>minimal (Minimal Demo Site)</option>
+              </select>
+            </div>
+
+            <!-- Work Type -->
+            <div>
+              <label for="field-work-type" class="block text-xs font-semibold text-ink mb-1.5">
+                Work Type <span class="text-orange">*</span>
+              </label>
+              <select id="field-work-type" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition">
+                <option value="page" selected>page</option>
+                <option value="foundation">foundation</option>
+                <option value="repair">repair</option>
+                <option value="migration">migration</option>
+              </select>
+            </div>
+
+            <!-- Risk Level -->
+            <div>
+              <label for="field-risk-level" class="block text-xs font-semibold text-ink mb-1.5">
+                Risk Level <span class="text-orange">*</span>
+              </label>
+              <select id="field-risk-level" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition">
+                <option value="low" selected>low</option>
+                <option value="medium">medium</option>
+                <option value="high">high</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Objective -->
+          <div>
+            <label for="field-objective" class="block text-xs font-semibold text-ink mb-1.5">
+              Objective <span class="text-orange">*</span>
+              <span class="text-stone font-normal text-[11px] ml-1.5">(&ge; 15 chars)</span>
+            </label>
+            <input type="text" id="field-objective" placeholder="e.g. Redesign hero value proposition and CTA to boost conversion on homepage" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition" />
+          </div>
+
+          <!-- Allowed Write Scope -->
+          <div>
+            <label for="field-allowed-write-scope" class="block text-xs font-semibold text-ink mb-1.5">
+              Allowed Write Scope <span class="text-orange">*</span>
+              <span class="text-stone font-normal text-[11px] ml-1.5">(Paths/globs, one per line)</span>
+            </label>
+            <textarea id="field-allowed-write-scope" rows="2" placeholder="- pages/index.html&#10;- design/**" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-mono placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition"></textarea>
+          </div>
+
+          <!-- Risk Rationale -->
+          <div>
+            <label for="field-risk-rationale" class="block text-xs font-semibold text-ink mb-1.5">
+              Risk Rationale <span class="text-orange">*</span>
+              <span class="text-stone font-normal text-[11px] ml-1.5">(&ge; 10 chars)</span>
+            </label>
+            <input type="text" id="field-risk-rationale" placeholder="e.g. Isolated static copy iteration with zero schema or dependency changes" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition" />
+          </div>
+        </div>
+
+        <!-- Section 2: Domain-Specific Depth (Dynamic) -->
+        <div class="space-y-5 border-t border-brandborder/60 pt-6">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-bold text-ink uppercase tracking-wider flex items-center space-x-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-orange inline-block"></span>
+              <span id="domain-section-title">02 · Domain Depth</span>
+            </h2>
+            <span class="text-xs font-mono text-orange bg-canvas px-2 py-0.5 rounded border border-brandborder" id="dd-score-badge">0 / 40 pts</span>
+          </div>
+
+          <!-- DYNAMIC DOMAIN FIELDS CONTAINER -->
+          <div id="dynamic-domain-fields" class="space-y-4">
+            <!-- Populated via JavaScript according to active domain -->
+          </div>
+        </div>
+
+        <!-- Section 3: Deterministic Verifiability -->
+        <div class="space-y-5 border-t border-brandborder/60 pt-6">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-bold text-ink uppercase tracking-wider flex items-center space-x-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-orange inline-block"></span>
+              <span>03 · Deterministic Verifiability</span>
+            </h2>
+            <span class="text-xs font-mono text-orange bg-canvas px-2 py-0.5 rounded border border-brandborder" id="dv-score-badge">0 / 20 pts</span>
+          </div>
+
+          <!-- Acceptance Criteria -->
+          <div>
+            <label for="field-acceptance-criteria" class="block text-xs font-semibold text-ink mb-1.5">
+              Acceptance Criteria <span class="text-orange">*</span>
+              <span class="text-stone font-normal text-[11px] ml-1.5">(&ge; 2 numbered statements)</span>
+            </label>
+            <textarea id="field-acceptance-criteria" rows="3" placeholder="1. Hero headline articulates the core value proposition.&#10;2. CTA button links directly to /signup.&#10;3. All target repository validation tests pass without regression." class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition"></textarea>
+          </div>
+
+          <!-- Verification Commands -->
+          <div>
+            <label for="field-deterministic-commands" class="block text-xs font-semibold text-ink mb-1.5">
+              Deterministic Verification Commands
+              <span class="text-stone font-normal text-[11px] ml-1.5">(test/lint/holdout)</span>
+            </label>
+            <input type="text" id="field-deterministic-commands" placeholder="npm test && npm run validate" value="npm test" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-mono placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition" />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Constraints -->
+            <div>
+              <label for="field-constraints" class="block text-xs font-semibold text-ink mb-1.5">
+                Constraints <span class="text-stone font-normal text-[11px] ml-1.5">(or 'none')</span>
+              </label>
+              <textarea id="field-constraints" rows="2" placeholder="- Zero external runtime JS&#10;- Preserve brand colors" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-mono placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition"></textarea>
+            </div>
+
+            <!-- Dependencies -->
+            <div>
+              <label for="field-dependencies" class="block text-xs font-semibold text-ink mb-1.5">
+                Dependencies <span class="text-stone font-normal text-[11px] ml-1.5">(or 'none')</span>
+              </label>
+              <input type="text" id="field-dependencies" value="none" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-mono placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition" />
+
+              <label for="field-sources" class="block text-xs font-semibold text-ink mt-3 mb-1.5">
+                Sources <span class="text-stone font-normal text-[11px] ml-1.5">(reference files)</span>
+              </label>
+              <input type="text" id="field-sources" value="AGENTS.md, brand.md, site.md" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-mono placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Real-Time Score Meter & Export (5 cols) -->
+      <div class="lg:col-span-5 bg-white border border-brandborder rounded-2xl p-6 shadow-subtle lg:sticky lg:top-20 space-y-6">
+
+        <!-- SCORE GAUGE -->
+        <div class="relative overflow-hidden">
+          <div id="gauge-glow" class="absolute -top-24 -right-24 w-48 h-48 bg-tint rounded-full blur-3xl pointer-events-none transition-all duration-500 hidden"></div>
+
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[11px] label-caps text-stone">WebXP Confidence Score</span>
+            <span id="score-status-chip" class="text-xs px-2.5 py-1 rounded-full font-semibold bg-tint text-orange-press border border-orange/20">
+              Low (< 60)
+            </span>
+          </div>
+
+          <!-- Big Number Display -->
+          <div class="flex items-baseline space-x-3 mb-4">
+            <span id="total-score-value" class="text-6xl font-extrabold tracking-tight font-mono text-orange transition-colors duration-300">0</span>
+            <span class="text-xl text-stone font-mono">/ 100</span>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="w-full bg-canvas rounded-full h-1.5 mb-6 overflow-hidden">
+            <div id="score-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Confidence score progress" class="h-full rounded-full transition-all duration-500 bg-orange w-0"></div>
+          </div>
+
+          <!-- Three Pillar Points Breakdown -->
+          <div class="grid grid-cols-3 gap-2 border-t border-brandborder/60 pt-4 text-center">
+            <div>
+              <div class="text-[10px] uppercase font-bold text-stone">Universal</div>
+              <div id="summary-uf-pts" class="text-base font-bold font-mono text-orange mt-0.5">0/40</div>
+            </div>
+            <div>
+              <div class="text-[10px] uppercase font-bold text-stone">Domain</div>
+              <div id="summary-dd-pts" class="text-base font-bold font-mono text-orange mt-0.5">0/40</div>
+            </div>
+            <div>
+              <div class="text-[10px] uppercase font-bold text-stone">Verifiable</div>
+              <div id="summary-dv-pts" class="text-base font-bold font-mono text-orange mt-0.5">0/20</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LIVE RUBRIC CHECKLIST -->
+        <div class="space-y-3 border-t border-brandborder/60 pt-6">
+          <div class="flex items-center justify-between border-b border-brandborder/60 pb-2.5">
+            <h3 class="text-[11px] label-caps text-ink">100-Point Rubric Breakdown</h3>
+            <span class="text-[11px] text-stone">Real-time validation</span>
+          </div>
+
+          <div class="space-y-2 max-h-80 overflow-y-auto pr-1" id="rubric-checklist-container">
+            <!-- Populated via JavaScript with interactive tick marks -->
+          </div>
+        </div>
+
+        <!-- EXPORT & OUTPUT ACTIONS -->
+        <div class="space-y-4 border-t border-brandborder/60 pt-6">
+          <div class="flex items-center justify-between">
+            <div class="flex space-x-2" role="tablist" aria-label="Issue Specification Format">
+              <button id="tab-preview-md" role="tab" aria-selected="true" type="button" class="text-xs px-3 py-2 min-h-[44px] rounded bg-white text-ink font-medium border border-brandborder">Markdown</button>
+              <button id="tab-preview-json" role="tab" aria-selected="false" type="button" class="text-xs px-3 py-2 min-h-[44px] rounded bg-canvas text-stone hover:text-ink border border-brandborder">JSON</button>
+            </div>
+            <span class="text-[11px] text-stone font-mono" id="output-meta">Contract Valid</span>
+          </div>
+
+          <!-- Code preview container -->
+          <div class="relative">
+            <pre id="code-preview" class="w-full h-44 bg-black text-ondark border border-darktheme rounded-md p-3 text-[11px] font-mono overflow-x-auto overflow-y-auto leading-relaxed"></pre>
+          </div>
+
+          <!-- Buttons -->
+          <div class="grid grid-cols-2 gap-2">
+            <button id="btn-copy-md" type="button" class="px-3 py-2 rounded-md bg-orange-press hover:bg-orange-hover text-white text-[11px] label-caps shadow-subtle transition flex items-center justify-center space-x-1.5 min-h-[44px]">
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+              </svg>
+              <span>Copy Markdown</span>
+            </button>
+            <button id="btn-copy-json" type="button" class="px-3 py-2 rounded-md bg-white hover:bg-brandborder text-ink text-[11px] label-caps border border-brandborder transition flex items-center justify-center space-x-1.5 min-h-[44px]">
+              <svg class="w-3.5 h-3.5 text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+              <span>Copy JSON</span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <button id="btn-download-md" type="button" class="px-3 py-1.5 rounded-md bg-canvas hover:bg-white text-stone hover:text-ink text-xs font-medium border border-brandborder transition flex items-center justify-center space-x-1 min-h-[44px]">
+              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              <span>Download .md</span>
+            </button>
+            <a id="link-github-issue" href="https://github.com/RL22/darkside/issues/new" target="_blank" class="px-3 py-1.5 rounded-md bg-canvas hover:bg-white text-stone hover:text-orange text-xs font-medium border border-brandborder transition flex items-center justify-center space-x-1 min-h-[44px]">
+              <span>Open on GitHub &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="fixed bottom-5 right-5 bg-white border border-orange/50 text-ink text-xs px-4 py-2.5 rounded-md shadow-flat transition-all duration-300 opacity-0 pointer-events-none transform translate-y-2 z-50 flex items-center space-x-2">
+    <svg class="w-4 h-4 text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+    </svg>
+    <span id="toast-message">Copied to clipboard</span>
+  </div>
+
+  <!-- Client JavaScript -->
+  <script>
+    // State management
+    const state = {
+      activeDomain: 'cro',
+      previewTab: 'md', // 'md' or 'json'
+      fields: {
+        // Universal
+        target: 'minimal',
+        workType: 'page',
+        riskLevel: 'low',
+        riskRationale: '',
+        objective: '',
+        allowedWriteScope: '',
+        // Domain specific
+        cro: {
+          route: 'pages/index.html',
+          icpPersona: '',
+          baselineRate: '',
+          hypothesis: '',
+          ctaAnchor: ''
+        },
+        seo: {
+          routePath: 'pages/overview.html',
+          keywords: '',
+          targetAiQueries: '',
+          schemaType: 'SoftwareApplication',
+          indexationDirective: 'index, follow (canonical: self)'
+        },
+        performance: {
+          route: 'pages/index.html',
+          cwvMetric: 'LCP (Largest Contentful Paint)',
+          deviceProfile: 'Mobile (Moto G4 / Slow 4G)',
+          performanceBudget: '',
+          assetStrategy: ''
+        },
+        brand: {
+          writePath: 'design/minimal-design-system.html',
+          componentTypes: '',
+          wcagLevel: 'WCAG 2.2 AA (Required)',
+          designTokens: '',
+          runtimeConstraints: ''
+        },
+        analytics: {
+          funnelScope: '',
+          eventSchema: '',
+          toolingPlatform: 'GA4 + Mixpanel',
+          baselineKpi: '',
+          privacyStandard: 'GDPR / Cookie-less Consent'
+        },
+        campaign: {
+          campaignName: '',
+          involvedTeams: ['Brand & Design Systems', 'Experimentation & CRO'],
+          launchMilestone: '',
+          crossTeamSequence: '',
+          governanceSignoff: ''
+        },
+        // Deterministic Verifiability
+        acceptanceCriteria: '',
+        deterministicCommands: 'npm test',
+        constraints: 'none',
+        dependencies: 'none',
+        sources: 'AGENTS.md, brand.md, site.md'
+      }
+    };
+
+    // Domain Configurations
+    const DOMAIN_CONFIG = {
+      cro: {
+        name: 'Conversion & Copywriting',
+        title: '02 · Domain Depth: CRO & Copywriting',
+        hints: ['Experimentation & CRO', 'Copywriting'],
+        defaultScope: '- pages/index.html'
+      },
+      seo: {
+        name: 'SEO & AI Answer Optimization',
+        title: '02 · Domain Depth: SEO & AI Answer Optimization',
+        hints: ['SEO & AEO', 'AI Visibility'],
+        defaultScope: '- pages/**\n- schemas/**'
+      },
+      performance: {
+        name: 'Performance & Core Web Vitals',
+        title: '02 · Domain Depth: Performance & Core Web Vitals',
+        hints: ['Performance & Core Web Vitals'],
+        defaultScope: '- pages/**\n- scripts/**'
+      },
+      brand: {
+        name: 'Brand & Design System Specimen',
+        title: '02 · Domain Depth: Brand & Design System Specimen',
+        hints: ['Brand & Design Systems', 'UI Architecture'],
+        defaultScope: '- design/**\n- tests/**'
+      },
+      analytics: {
+        name: 'Analytics & Funnel Measurement',
+        title: '02 · Domain Depth: Analytics & Reporting',
+        hints: ['Analytics & Reporting'],
+        defaultScope: '- pages/**\n- analytics/**'
+      },
+      campaign: {
+        name: 'Multi-Team Growth Campaign',
+        title: '02 · Domain Depth: Multi-Team Growth Campaign',
+        hints: ['Brand & Design Systems', 'Experimentation & CRO', 'SEO & AEO', 'Performance & Core Web Vitals'],
+        defaultScope: '- pages/**\n- design/**\n- schemas/**\n- tests/**'
+      }
+    };
+
+    // High-Confidence Presets for quick testing and authoring
+    const PRESETS = {
+      cro: {
+        objective: 'Redesign hero value proposition and primary CTA to increase visitor-to-pilot conversion',
+        allowedWriteScope: '- pages/index.html\n- tests/cro.test.ts',
+        riskLevel: 'low',
+        riskRationale: 'Static copy iteration on hero section with zero backend breaking changes.',
+        domain: {
+          route: 'pages/index.html',
+          icpPersona: 'B2B Engineering VP and Founder seeking autonomous marketing site operations',
+          baselineRate: '1.8% visitor-to-pilot signup rate',
+          hypothesis: 'Replacing feature-heavy bullets with outcome-driven proof points and a zero-friction CTA will elevate conversion by 25%.',
+          ctaAnchor: 'Start Free Darkside Pilot (/signup)'
+        },
+        acceptanceCriteria: '1. Hero headline articulates the core value proposition within 10 words.\n2. CTA button links directly to /signup with prominent high-contrast styling.\n3. All repository validation tests and holdout suites pass without regression.',
+        deterministicCommands: 'npm test && npm run validate',
+        constraints: '- Preserve original typography modular scale\n- Zero external runtime JS frameworks'
+      },
+      seo: {
+        objective: 'Implement SoftwareApplication schema markup and optimize meta tags for AI search citations',
+        allowedWriteScope: '- pages/**\n- schemas/**',
+        riskLevel: 'low',
+        riskRationale: 'Non-breaking structured data additions to document head and schema validation tests.',
+        domain: {
+          routePath: 'pages/overview.html',
+          keywords: '- Primary: autonomous software factory\n- Secondary: b2b marketing site engineering, dark software factory',
+          targetAiQueries: '- What is an autonomous dark software factory for B2B websites?\n- How does Darkside automate marketing webops with deterministic gates?',
+          schemaType: 'SoftwareApplication',
+          indexationDirective: 'index, follow (canonical: self)'
+        },
+        acceptanceCriteria: '1. JSON-LD schema renders without syntax errors and validates against schema.org.\n2. Title and meta description contain target keywords within character limits.\n3. Schema test suite passes.',
+        deterministicCommands: 'npm test && npm run validate',
+        constraints: '- Enclose JSON-LD within script type=application/ld+json\n- Zero external schema libraries'
+      },
+      performance: {
+        objective: 'Optimize critical path rendering and hero asset delivery to achieve LCP < 2.0s on mobile',
+        allowedWriteScope: '- pages/**\n- scripts/**',
+        riskLevel: 'medium',
+        riskRationale: 'Alters asset loading strategy and adds link rel=preload directives.',
+        domain: {
+          route: 'pages/index.html',
+          cwvMetric: 'LCP (Largest Contentful Paint)',
+          deviceProfile: 'Mobile (Moto G4 / Slow 4G)',
+          performanceBudget: '- LCP: < 2.0s\n- CLS: < 0.05\n- INP: < 150ms\n- Total JavaScript: < 120KB',
+          assetStrategy: 'Inline critical CSS and preload above-the-fold hero imagery with WebP format'
+        },
+        acceptanceCriteria: '1. Target route satisfies all Core Web Vitals thresholds under 4G emulation.\n2. Zero layout shift caused by un-dimensioned imagery.\n3. Lighthouse performance score >= 95.',
+        deterministicCommands: 'npm test && npm run validate',
+        constraints: '- No third-party heavy tracking libraries'
+      },
+      brand: {
+        objective: 'Build comprehensive design system specimen page with foundation tokens and component families',
+        allowedWriteScope: '- design/minimal-design-system.html\n- tests/**',
+        riskLevel: 'low',
+        riskRationale: 'Isolated HTML specimen in design/ directory with zero impact on production routes.',
+        domain: {
+          writePath: 'design/minimal-design-system.html',
+          componentTypes: '- Foundations (Colors, typography, spacing)\n- Controls (Buttons, badges, inputs)\n- Layout (Header nav, hero, cards, footer)',
+          wcagLevel: 'WCAG 2.2 AA (Required)',
+          designTokens: '- Neutral dark: #09090b\n- Accent: #6366f1\n- Typography: Inter, 1.25 modular scale\n- Spacing: 8pt grid',
+          runtimeConstraints: 'Self-contained standalone HTML file runnable directly in browser with zero build step'
+        },
+        acceptanceCriteria: '1. Design system specimen renders completely with interactive states.\n2. Color contrast ratios meet or exceed WCAG 2.2 AA standards.\n3. Zero browser console errors upon load.',
+        deterministicCommands: 'npm test && npm run validate',
+        constraints: '- Zero external runtime framework dependencies'
+      },
+      analytics: {
+        objective: 'Implement event instrumentation for primary conversion funnel and pilot activation flow',
+        allowedWriteScope: '- pages/**\n- analytics/**',
+        riskLevel: 'low',
+        riskRationale: 'Client-side event dispatch instrumentation with zero layout or UX alterations.',
+        domain: {
+          funnelScope: 'Visitor Landing -> Spec Generation -> GitHub Issue Export -> Pilot Started',
+          eventSchema: '- spec_generated (domain, confidence_score)\n- export_clicked (format: md | json)\n- pilot_initiated (target_repo)',
+          toolingPlatform: 'GA4 + Mixpanel',
+          baselineKpi: '+30% tracking accuracy with zero dropped checkout/intake events',
+          privacyStandard: 'GDPR / Cookie-less Consent (No PII logged)'
+        },
+        acceptanceCriteria: '1. All funnel steps trigger corresponding telemetry events.\n2. Event payloads validate against defined schema.\n3. Telemetry fails silently without impacting user experience.',
+        deterministicCommands: 'npm test',
+        constraints: '- Zero blocking network calls'
+      },
+      campaign: {
+        objective: 'Execute unified Q4 Growth Campaign across Brand specimen, CRO hero copy, and SEO schema',
+        allowedWriteScope: '- pages/**\n- design/**\n- schemas/**\n- tests/**',
+        riskLevel: 'medium',
+        riskRationale: 'Coordinated multi-domain change across multiple project files.',
+        domain: {
+          campaignName: 'Darkside Minimal Q4 Growth Foundation',
+          involvedTeams: ['Brand & Design Systems', 'Experimentation & CRO', 'SEO & AEO', 'Performance & Core Web Vitals'],
+          launchMilestone: 'Milestone 2 - Ready for Dispatch (2026-10-01)',
+          crossTeamSequence: '1. Brand specifies token updates\n2. CRO updates hero copy\n3. SEO optimizes schema\n4. Performance audits bundle',
+          governanceSignoff: 'Rodney Lewis (Owner Approval Required)'
+        },
+        acceptanceCriteria: '1. All cross-team dependencies execute in valid DAG sequence.\n2. Each team deliverable meets acceptance criteria.\n3. Full test and holdout suite passes cleanly.',
+        deterministicCommands: 'npm test && npm run validate',
+        constraints: '- DAG nodes must execute with isolated worktree contexts'
+      }
+    };
+
+    // Render Dynamic Domain Fields
+    function renderDynamicFields(domain) {
+      const container = document.getElementById('dynamic-domain-fields');
+      const titleElem = document.getElementById('domain-section-title');
+      titleElem.textContent = DOMAIN_CONFIG[domain].title;
+
+      let html = '';
+
+      if (domain === 'cro') {
+        const d = state.fields.cro;
+        html = `
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-ink mb-1.5">Target Route <span class="text-orange">*</span></label>
+              <input type="text" id="cro-route" value="${escapeHtml(d.route)}" placeholder="e.g. pages/index.html" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-ink mb-1.5">Baseline Conversion Rate <span class="text-orange">*</span></label>
+              <input type="text" id="cro-baseline" value="${escapeHtml(d.baselineRate)}" placeholder="e.g. 1.8% visitor-to-lead rate" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">ICP Persona <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 10 chars)</span></label>
+            <input type="text" id="cro-icp" value="${escapeHtml(d.icpPersona)}" placeholder="e.g. B2B SaaS Founders and Engineering Leaders" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">Testable Hypothesis <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 20 chars)</span></label>
+            <textarea id="cro-hypothesis" rows="2" placeholder="e.g. If we replace the generic feature list with outcome-oriented proof points and a low-friction CTA, conversion will increase by 20%." class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition">${escapeHtml(d.hypothesis)}</textarea>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">CTA Anchor & Destination <span class="text-orange">*</span></label>
+            <input type="text" id="cro-cta" value="${escapeHtml(d.ctaAnchor)}" placeholder="e.g. Start Free Pilot (/signup)" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition" />
+          </div>
+        `;
+      } else if (domain === 'seo') {
+        const d = state.fields.seo;
+        html = `
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-ink mb-1.5">Route Path <span class="text-orange">*</span></label>
+              <input type="text" id="seo-route" value="${escapeHtml(d.routePath)}" placeholder="e.g. pages/overview.html" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-ink mb-1.5">Structured Data Schema Type <span class="text-orange">*</span></label>
+              <select id="seo-schema" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">
+                <option value="SoftwareApplication" ${d.schemaType === 'SoftwareApplication' ? 'selected' : ''}>SoftwareApplication</option>
+                <option value="WebPage" ${d.schemaType === 'WebPage' ? 'selected' : ''}>WebPage</option>
+                <option value="Organization" ${d.schemaType === 'Organization' ? 'selected' : ''}>Organization</option>
+                <option value="Article" ${d.schemaType === 'Article' ? 'selected' : ''}>Article</option>
+                <option value="FAQPage" ${d.schemaType === 'FAQPage' ? 'selected' : ''}>FAQPage</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">Primary & Secondary Keywords <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 10 chars)</span></label>
+            <textarea id="seo-keywords" rows="2" placeholder="- Primary: autonomous software factory&#10;- Secondary: b2b marketing webops" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">${escapeHtml(d.keywords)}</textarea>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">Target AI Queries for Perplexity/ChatGPT <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 15 chars)</span></label>
+            <textarea id="seo-ai-queries" rows="2" placeholder="e.g. What is an autonomous software factory for B2B websites?&#10;Best tools for agentic website CRO and SEO" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition">${escapeHtml(d.targetAiQueries)}</textarea>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">Indexation Directive <span class="text-orange">*</span></label>
+            <select id="seo-indexation" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">
+              <option value="index, follow (canonical: self)" ${d.indexationDirective.includes('canonical: self') ? 'selected' : ''}>index, follow (canonical: self)</option>
+              <option value="index, follow (canonical: custom)" ${d.indexationDirective.includes('canonical: custom') ? 'selected' : ''}>index, follow (canonical: custom)</option>
+              <option value="noindex, follow" ${d.indexationDirective.includes('noindex') ? 'selected' : ''}>noindex, follow</option>
+            </select>
+          </div>
+        `;
+      } else if (domain === 'performance') {
+        const d = state.fields.performance;
+        html = `
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-ink mb-1.5">Route Under Audit <span class="text-orange">*</span></label>
+              <input type="text" id="perf-route" value="${escapeHtml(d.route)}" placeholder="e.g. pages/index.html" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-ink mb-1.5">Target CWV Metric <span class="text-orange">*</span></label>
+              <select id="perf-metric" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">
+                <option value="LCP (Largest Contentful Paint)" ${d.cwvMetric.includes('LCP') ? 'selected' : ''}>LCP (Largest Contentful Paint)</option>
+                <option value="CLS (Cumulative Layout Shift)" ${d.cwvMetric.includes('CLS') ? 'selected' : ''}>CLS (Cumulative Layout Shift)</option>
+                <option value="INP (Interaction to Next Paint)" ${d.cwvMetric.includes('INP') ? 'selected' : ''}>INP (Interaction to Next Paint)</option>
+                <option value="All Core Web Vitals" ${d.cwvMetric.includes('All') ? 'selected' : ''}>All Core Web Vitals</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">Device Profile <span class="text-orange">*</span></label>
+            <select id="perf-device" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">
+              <option value="Mobile (Moto G4 / Slow 4G)" ${d.deviceProfile.includes('Slow 4G') ? 'selected' : ''}>Mobile (Moto G4 / Slow 4G)</option>
+              <option value="Mobile (Fast 4G)" ${d.deviceProfile.includes('Fast 4G') ? 'selected' : ''}>Mobile (Fast 4G)</option>
+              <option value="Desktop (Broadband)" ${d.deviceProfile.includes('Desktop') ? 'selected' : ''}>Desktop (Broadband)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">Performance Budget <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 10 chars)</span></label>
+            <textarea id="perf-budget" rows="2" placeholder="- LCP: < 2.5s&#10;- CLS: < 0.1&#10;- INP: < 200ms" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">${escapeHtml(d.performanceBudget)}</textarea>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">Optimization Strategy <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 15 chars)</span></label>
+            <input type="text" id="perf-strategy" value="${escapeHtml(d.assetStrategy)}" placeholder="e.g. Critical CSS inlining, font-display: swap, and responsive WebP imagery" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition" />
+          </div>
+        `;
+      } else if (domain === 'brand') {
+        const d = state.fields.brand;
+        html = `
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-ink mb-1.5">Write Path <span class="text-orange">*</span></label>
+              <input type="text" id="brand-path" value="${escapeHtml(d.writePath)}" placeholder="design/minimal-design-system.html" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-ink mb-1.5">WCAG Accessibility Level <span class="text-orange">*</span></label>
+              <select id="brand-wcag" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">
+                <option value="WCAG 2.2 AA (Required)" ${d.wcagLevel.includes('AA') ? 'selected' : ''}>WCAG 2.2 AA (Required)</option>
+                <option value="WCAG 2.2 AAA" ${d.wcagLevel.includes('AAA') ? 'selected' : ''}>WCAG 2.2 AAA</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">Component Types <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 10 chars)</span></label>
+            <textarea id="brand-components" rows="2" placeholder="- Foundations (color, typography, spacing)&#10;- Navigation header & buttons&#10;- Feature card & pricing table" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">${escapeHtml(d.componentTypes)}</textarea>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">Design Tokens <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 15 chars)</span></label>
+            <textarea id="brand-tokens" rows="2" placeholder="- Surface: #09090b, Accent: #6366f1&#10;- Typography: Inter, 1.25 scale" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">${escapeHtml(d.designTokens)}</textarea>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">Runtime Constraints <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 10 chars)</span></label>
+            <input type="text" id="brand-constraints" value="${escapeHtml(d.runtimeConstraints)}" placeholder="Zero build step; standalone HTML file runnable directly via file://" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition" />
+          </div>
+        `;
+      } else if (domain === 'analytics') {
+        const d = state.fields.analytics;
+        html = `
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-ink mb-1.5">Tooling Platform <span class="text-orange">*</span></label>
+              <select id="analytics-tool" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">
+                <option value="GA4 + Mixpanel" ${d.toolingPlatform.includes('Mixpanel') ? 'selected' : ''}>GA4 + Mixpanel</option>
+                <option value="GA4 Standalone" ${d.toolingPlatform === 'GA4 Standalone' ? 'selected' : ''}>GA4 Standalone</option>
+                <option value="PostHog" ${d.toolingPlatform === 'PostHog' ? 'selected' : ''}>PostHog</option>
+                <option value="Segment" ${d.toolingPlatform === 'Segment' ? 'selected' : ''}>Segment</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-ink mb-1.5">Privacy Standard <span class="text-orange">*</span></label>
+              <input type="text" id="analytics-privacy" value="${escapeHtml(d.privacyStandard)}" placeholder="GDPR / Cookie-less Consent" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">Measurement Scope / Funnel <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 5 chars)</span></label>
+            <input type="text" id="analytics-scope" value="${escapeHtml(d.funnelScope)}" placeholder="e.g. Landing Page View -> CTA Click -> Signup Complete" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">Event Schema & Properties <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 10 chars)</span></label>
+            <textarea id="analytics-events" rows="2" placeholder="- cta_clicked (button_id, page_route)&#10;- signup_submitted (method)" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">${escapeHtml(d.eventSchema)}</textarea>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">Baseline KPI & Target <span class="text-orange">*</span></label>
+            <input type="text" id="analytics-kpi" value="${escapeHtml(d.baselineKpi)}" placeholder="e.g. Current signup rate: 2.1%; Target: 3.0%" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition" />
+          </div>
+        `;
+      } else if (domain === 'campaign') {
+        const d = state.fields.campaign;
+        const allTeams = [
+          'Brand & Design Systems',
+          'Experimentation & CRO',
+          'SEO & AEO',
+          'Performance & Core Web Vitals',
+          'Analytics & Reporting',
+          'CMS Operations',
+          'Product Strategy & Discovery'
+        ];
+        html = `
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-ink mb-1.5">Campaign Name <span class="text-orange">*</span></label>
+              <input type="text" id="campaign-name" value="${escapeHtml(d.campaignName)}" placeholder="e.g. Minimal Q4 Growth Sprint" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-ink mb-1.5">Launch Milestone <span class="text-orange">*</span></label>
+              <input type="text" id="campaign-milestone" value="${escapeHtml(d.launchMilestone)}" placeholder="e.g. 2026-10-01 / v1.2 Release" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">Involved WebXP Teams <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 2 teams required)</span></label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1 bg-canvas p-3 rounded-md border border-brandborder">
+              ${allTeams.map((t) => {
+                const checked = d.involvedTeams.includes(t) ? 'checked' : '';
+                return `
+                  <label class="flex items-center space-x-2 text-xs text-ink cursor-pointer">
+                    <input type="checkbox" name="campaign-team" value="${escapeHtml(t)}" ${checked} class="rounded border-brandborder text-orange focus:ring-orange accent-orange bg-white" />
+                    <span>${escapeHtml(t)}</span>
+                  </label>
+                `;
+              }).join('')}
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">Cross-Team Sequence <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 20 chars)</span></label>
+            <textarea id="campaign-sequence" rows="2" placeholder="1. Brand creates token specimen&#10;2. CRO drafts headline and CTA&#10;3. SEO validates schema" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">${escapeHtml(d.crossTeamSequence)}</textarea>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-ink mb-1.5">Governance Sign-off <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 10 chars)</span></label>
+            <input type="text" id="campaign-signoff" value="${escapeHtml(d.governanceSignoff)}" placeholder="e.g. Rodney Lewis (Affirmative Human Sign-off)" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition" />
+          </div>
+        `;
+      }
+
+      container.innerHTML = html;
+      bindDynamicListeners();
+    }
+
+    // Helper: Escape HTML
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    // Calculate Rubric Points
+    function calculateRubric() {
+      const f = state.fields;
+      const dom = state.activeDomain;
+
+      // 1. Universal Foundation (40 pts)
+      const ufChecks = [
+        {
+          id: 'uf-target',
+          name: 'Target Repository Selected',
+          pts: 8,
+          passed: !!f.target && f.target.trim().length > 0,
+          hint: 'Select registered target (minimal)'
+        },
+        {
+          id: 'uf-objective',
+          name: 'Clear Observable Objective',
+          pts: 10,
+          passed: !!f.objective && f.objective.trim().length >= 15,
+          hint: 'Objective must be at least 15 characters'
+        },
+        {
+          id: 'uf-worktype',
+          name: 'Work Type Classification',
+          pts: 6,
+          passed: ['foundation', 'page', 'repair', 'migration'].includes(f.workType),
+          hint: 'foundation, page, repair, or migration'
+        },
+        {
+          id: 'uf-scope',
+          name: 'Bounded Allowed Write Scope',
+          pts: 8,
+          passed: !!f.allowedWriteScope && f.allowedWriteScope.trim().length > 0,
+          hint: 'Declare exact paths/globs implementation may touch'
+        },
+        {
+          id: 'uf-risk',
+          name: 'Risk Level & Rationale',
+          pts: 8,
+          passed: ['low', 'medium', 'high'].includes(f.riskLevel) && !!f.riskRationale && f.riskRationale.trim().length >= 10,
+          hint: 'Select risk level and write at least 10 chars rationale'
+        }
+      ];
+
+      // 2. Domain Depth (40 pts)
+      let ddChecks = [];
+      if (dom === 'cro') {
+        const d = f.cro;
+        ddChecks = [
+          { id: 'dd-route', name: 'Target Route Specified', pts: 8, passed: !!d.route && d.route.trim().length > 0, hint: 'e.g. pages/index.html' },
+          { id: 'dd-icp', name: 'ICP Persona Defined', pts: 8, passed: !!d.icpPersona && d.icpPersona.trim().length >= 10, hint: 'At least 10 characters' },
+          { id: 'dd-rate', name: 'Baseline Conversion Metric', pts: 8, passed: !!d.baselineRate && d.baselineRate.trim().length >= 3, hint: 'e.g. 1.8% signup rate' },
+          { id: 'dd-hypo', name: 'Testable Conversion Hypothesis', pts: 8, passed: !!d.hypothesis && d.hypothesis.trim().length >= 20, hint: 'At least 20 characters' },
+          { id: 'dd-cta', name: 'CTA Anchor Defined', pts: 8, passed: !!d.ctaAnchor && d.ctaAnchor.trim().length >= 3, hint: 'e.g. Start Free Pilot' }
+        ];
+      } else if (dom === 'seo') {
+        const d = f.seo;
+        ddChecks = [
+          { id: 'dd-route', name: 'Route Path Specified', pts: 8, passed: !!d.routePath && d.routePath.trim().length > 0, hint: 'e.g. pages/overview.html' },
+          { id: 'dd-kw', name: 'Primary & Secondary Keywords', pts: 8, passed: !!d.keywords && d.keywords.trim().length >= 10, hint: 'At least 10 characters' },
+          { id: 'dd-ai', name: 'Target AI Queries (Perplexity/ChatGPT)', pts: 8, passed: !!d.targetAiQueries && d.targetAiQueries.trim().length >= 15, hint: 'At least 15 characters' },
+          { id: 'dd-schema', name: 'Structured Data Schema Type', pts: 8, passed: !!d.schemaType && d.schemaType.length > 0, hint: 'e.g. SoftwareApplication' },
+          { id: 'dd-idx', name: 'Indexation Directive', pts: 8, passed: !!d.indexationDirective && d.indexationDirective.length > 0, hint: 'e.g. index, follow' }
+        ];
+      } else if (dom === 'performance') {
+        const d = f.performance;
+        ddChecks = [
+          { id: 'dd-route', name: 'Route Specified', pts: 8, passed: !!d.route && d.route.trim().length > 0, hint: 'e.g. pages/index.html' },
+          { id: 'dd-metric', name: 'Core Web Vital Metric Targeted', pts: 8, passed: !!d.cwvMetric && d.cwvMetric.length > 0, hint: 'LCP, CLS, INP' },
+          { id: 'dd-dev', name: 'Device Profile Declared', pts: 8, passed: !!d.deviceProfile && d.deviceProfile.length > 0, hint: 'Mobile / Desktop' },
+          { id: 'dd-budget', name: 'Performance Budget Thresholds', pts: 8, passed: !!d.performanceBudget && d.performanceBudget.trim().length >= 10, hint: 'At least 10 characters' },
+          { id: 'dd-strat', name: 'Optimization Strategy', pts: 8, passed: !!d.assetStrategy && d.assetStrategy.trim().length >= 15, hint: 'At least 15 characters' }
+        ];
+      } else if (dom === 'brand') {
+        const d = f.brand;
+        ddChecks = [
+          { id: 'dd-path', name: 'Write Path Specified', pts: 8, passed: !!d.writePath && d.writePath.trim().endsWith('.html'), hint: 'Target .html file path' },
+          { id: 'dd-comps', name: 'Component Types Enumerated', pts: 8, passed: !!d.componentTypes && d.componentTypes.trim().length >= 10, hint: 'At least 10 characters' },
+          { id: 'dd-wcag', name: 'WCAG Accessibility Level', pts: 8, passed: !!d.wcagLevel && d.wcagLevel.length > 0, hint: 'WCAG 2.2 AA' },
+          { id: 'dd-tokens', name: 'Design Tokens Defined', pts: 8, passed: !!d.designTokens && d.designTokens.trim().length >= 15, hint: 'At least 15 characters' },
+          { id: 'dd-const', name: 'Runtime Constraints Defined', pts: 8, passed: !!d.runtimeConstraints && d.runtimeConstraints.trim().length >= 10, hint: 'At least 10 characters' }
+        ];
+      } else if (dom === 'analytics') {
+        const d = f.analytics;
+        ddChecks = [
+          { id: 'dd-scope', name: 'Funnel Scope Defined', pts: 8, passed: !!d.funnelScope && d.funnelScope.trim().length >= 5, hint: 'At least 5 characters' },
+          { id: 'dd-events', name: 'Event Schema & Properties', pts: 8, passed: !!d.eventSchema && d.eventSchema.trim().length >= 10, hint: 'At least 10 characters' },
+          { id: 'dd-tool', name: 'Tooling Platform Selected', pts: 8, passed: !!d.toolingPlatform && d.toolingPlatform.length > 0, hint: 'e.g. GA4 + Mixpanel' },
+          { id: 'dd-kpi', name: 'Baseline KPI & Target', pts: 8, passed: !!d.baselineKpi && d.baselineKpi.trim().length >= 5, hint: 'At least 5 characters' },
+          { id: 'dd-priv', name: 'Privacy Standard Compliant', pts: 8, passed: !!d.privacyStandard && d.privacyStandard.trim().length >= 5, hint: 'At least 5 characters' }
+        ];
+      } else if (dom === 'campaign') {
+        const d = f.campaign;
+        ddChecks = [
+          { id: 'dd-name', name: 'Campaign Name Specified', pts: 8, passed: !!d.campaignName && d.campaignName.trim().length >= 5, hint: 'At least 5 characters' },
+          { id: 'dd-teams', name: 'Involved Teams (>= 2 teams)', pts: 8, passed: Array.isArray(d.involvedTeams) && d.involvedTeams.length >= 2, hint: 'Select at least 2 teams' },
+          { id: 'dd-mile', name: 'Launch Milestone Specified', pts: 8, passed: !!d.launchMilestone && d.launchMilestone.trim().length >= 5, hint: 'At least 5 characters' },
+          { id: 'dd-seq', name: 'Cross-Team Sequence Defined', pts: 8, passed: !!d.crossTeamSequence && d.crossTeamSequence.trim().length >= 20, hint: 'At least 20 characters' },
+          { id: 'dd-sign', name: 'Governance Sign-off Declared', pts: 8, passed: !!d.governanceSignoff && d.governanceSignoff.trim().length >= 10, hint: 'At least 10 characters' }
+        ];
+      }
+
+      // 3. Deterministic Verifiability (20 pts)
+      const criteriaLines = (f.acceptanceCriteria || '')
+        .split('\n')
+        .map((l) => l.trim())
+        .filter((l) => l.length > 0);
+
+      const dvChecks = [
+        {
+          id: 'dv-criteria',
+          name: 'Acceptance Criteria (>= 2 testable)',
+          pts: 10,
+          passed: criteriaLines.length >= 2,
+          hint: criteriaLines.length >= 3 ? '3+ criteria (full 10 pts)' : (criteriaLines.length >= 2 ? '2 criteria (10 pts)' : 'Add at least 2 testable criteria')
+        },
+        {
+          id: 'dv-commands',
+          name: 'Deterministic Verification Commands',
+          pts: 5,
+          passed: !!f.deterministicCommands && f.deterministicCommands.trim().length >= 4,
+          hint: 'e.g. npm test or npm run validate'
+        },
+        {
+          id: 'dv-constraints',
+          name: 'Explicit Constraints & Dependencies',
+          pts: 5,
+          passed: !!f.constraints && f.constraints.trim().length > 0 && !!f.dependencies && f.dependencies.trim().length > 0,
+          hint: 'Explicitly specify constraints or none'
+        }
+      ];
+
+      const ufScore = ufChecks.reduce((acc, c) => acc + (c.passed ? c.pts : 0), 0);
+      const ddScore = ddChecks.reduce((acc, c) => acc + (c.passed ? c.pts : 0), 0);
+      const dvScore = dvChecks.reduce((acc, c) => acc + (c.passed ? c.pts : 0), 0);
+      const totalScore = ufScore + ddScore + dvScore;
+
+      return {
+        totalScore,
+        ufScore,
+        ddScore,
+        dvScore,
+        ufChecks,
+        ddChecks,
+        dvChecks
+      };
+    }
+
+    // Update UI elements based on rubric
+    function updateUI() {
+      const rubric = calculateRubric();
+
+      // Badges on section headers
+      document.getElementById('uf-score-badge').textContent = `${rubric.ufScore} / 40 pts`;
+      document.getElementById('dd-score-badge').textContent = `${rubric.ddScore} / 40 pts`;
+      document.getElementById('dv-score-badge').textContent = `${rubric.dvScore} / 20 pts`;
+
+      // Summary points under score
+      document.getElementById('summary-uf-pts').textContent = `${rubric.ufScore}/40`;
+      document.getElementById('summary-dd-pts').textContent = `${rubric.ddScore}/40`;
+      document.getElementById('summary-dv-pts').textContent = `${rubric.dvScore}/20`;
+
+      // Main Score value & color
+      const scoreElem = document.getElementById('total-score-value');
+      scoreElem.textContent = rubric.totalScore;
+
+      const progressBar = document.getElementById('score-progress-bar');
+      progressBar.style.width = `${rubric.totalScore}%`;
+      progressBar.setAttribute('aria-valuenow', rubric.totalScore);
+
+      const statusChip = document.getElementById('score-status-chip');
+      const gaugeGlow = document.getElementById('gauge-glow');
+
+      // Color coding: Red < 60, Yellow 60-79, Green >= 80
+      if (rubric.totalScore < 60) {
+        scoreElem.className = 'text-6xl font-extrabold tracking-tight font-mono text-orange transition-colors duration-300';
+        progressBar.className = 'h-full rounded-full transition-all duration-500 bg-orange';
+        statusChip.className = 'text-xs px-2.5 py-1 rounded-full font-semibold bg-tint text-orange-press border border-orange/20';
+        statusChip.textContent = 'Low Confidence (< 60) · Blocked';
+        gaugeGlow.className = 'absolute -top-24 -right-24 w-48 h-48 bg-orange/15 rounded-full blur-3xl pointer-events-none transition-all duration-500';
+      } else if (rubric.totalScore < 80) {
+        scoreElem.className = 'text-6xl font-extrabold tracking-tight font-mono text-amber-400 transition-colors duration-300';
+        progressBar.className = 'h-full rounded-full transition-all duration-500 bg-amber-500';
+        statusChip.className = 'text-xs px-2.5 py-1 rounded-full font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20';
+        statusChip.textContent = 'Moderate (60-79) · Human Review';
+        gaugeGlow.className = 'absolute -top-24 -right-24 w-48 h-48 bg-amber-500/15 rounded-full blur-3xl pointer-events-none transition-all duration-500';
+      } else {
+        scoreElem.className = 'text-6xl font-extrabold tracking-tight font-mono text-orange transition-colors duration-300';
+        progressBar.className = 'h-full rounded-full transition-all duration-500 bg-emerald-500';
+        statusChip.className = 'text-xs px-2.5 py-1 rounded-full font-semibold bg-canvas text-orange border border-brandborder';
+        statusChip.textContent = 'High Confidence (>= 80) · Dispatch Ready';
+        gaugeGlow.className = 'absolute -top-24 -right-24 w-48 h-48 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none transition-all duration-500';
+      }
+
+      // Render Checklist Breakdown
+      renderChecklist(rubric);
+
+      // Render Preview Output
+      renderPreview();
+    }
+
+    // Render Checklist UI
+    function renderChecklist(rubric) {
+      const container = document.getElementById('rubric-checklist-container');
+      const allSections = [
+        { title: 'Universal Foundation', pts: rubric.ufScore, max: 40, checks: rubric.ufChecks, color: 'text-orange' },
+        { title: 'Domain Depth', pts: rubric.ddScore, max: 40, checks: rubric.ddChecks, color: 'text-orange' },
+        { title: 'Deterministic Verifiability', pts: rubric.dvScore, max: 20, checks: rubric.dvChecks, color: 'text-orange' }
+      ];
+
+      let html = '';
+      allSections.forEach((sec) => {
+        html += `
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between text-[11px] font-semibold text-stone">
+              <span class="${sec.color}">${sec.title}</span>
+              <span class="font-mono text-stone">${sec.pts} / ${sec.max}</span>
+            </div>
+            <div class="space-y-1">
+              ${sec.checks.map((c) => `
+                <div class="flex items-center justify-between py-1.5 border-b border-brandborder/40 last:border-0 text-xs">
+                  <div class="flex items-center space-x-2 truncate">
+                    ${c.passed
+                      ? `<svg class="w-3.5 h-3.5 text-orange shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>`
+                      : `<div class="w-3.5 h-3.5 rounded-full border border-brandborder shrink-0"></div>`
+                    }
+                    <span class="${c.passed ? 'text-ink' : 'text-stone'} truncate">${escapeHtml(c.name)}</span>
+                  </div>
+                  <div class="flex items-center space-x-1.5 shrink-0 font-mono text-[11px]">
+                    <span class="${c.passed ? 'text-orange font-semibold' : 'text-stone'}">+${c.passed ? c.pts : 0}/${c.pts}</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    // Generate GitHub Issue Markdown
+    function generateMarkdown() {
+      const f = state.fields;
+      const dom = state.activeDomain;
+      const config = DOMAIN_CONFIG[dom];
+
+      let domainSpecificLines = '';
+      if (dom === 'cro') {
+        domainSpecificLines = `
+### Target Route
+${f.cro.route || 'pages/index.html'}
+
+### ICP Persona
+${f.cro.icpPersona || 'none'}
+
+### Baseline Conversion Rate
+${f.cro.baselineRate || 'none'}
+
+### Hypothesis
+${f.cro.hypothesis || 'none'}
+
+### CTA Anchor
+${f.cro.ctaAnchor || 'none'}
+`;
+      } else if (dom === 'seo') {
+        domainSpecificLines = `
+### Route Path
+${f.seo.routePath || 'pages/overview.html'}
+
+### Primary & Secondary Keywords
+${f.seo.keywords || 'none'}
+
+### Target AI Queries
+${f.seo.targetAiQueries || 'none'}
+
+### Structured Data Schema Type
+${f.seo.schemaType}
+
+### Indexation Directive
+${f.seo.indexationDirective}
+`;
+      } else if (dom === 'performance') {
+        domainSpecificLines = `
+### Route
+${f.performance.route || 'pages/index.html'}
+
+### Target CWV Metric
+${f.performance.cwvMetric}
+
+### Device Profile
+${f.performance.deviceProfile}
+
+### Performance Budget
+${f.performance.performanceBudget || 'none'}
+
+### Optimization Strategy
+${f.performance.assetStrategy || 'none'}
+`;
+      } else if (dom === 'brand') {
+        domainSpecificLines = `
+### Write Path
+${f.brand.writePath || 'design/minimal-design-system.html'}
+
+### Component Types
+${f.brand.componentTypes || 'none'}
+
+### WCAG Accessibility Level
+${f.brand.wcagLevel}
+
+### Design Tokens
+${f.brand.designTokens || 'none'}
+
+### Runtime Constraints
+${f.brand.runtimeConstraints || 'none'}
+`;
+      } else if (dom === 'analytics') {
+        domainSpecificLines = `
+### Funnel Scope
+${f.analytics.funnelScope || 'none'}
+
+### Event Schema
+${f.analytics.eventSchema || 'none'}
+
+### Tooling Platform
+${f.analytics.toolingPlatform}
+
+### Baseline KPI
+${f.analytics.baselineKpi || 'none'}
+
+### Privacy Standard
+${f.analytics.privacyStandard || 'none'}
+`;
+      } else if (dom === 'campaign') {
+        domainSpecificLines = `
+### Campaign Name
+${f.campaign.campaignName || 'none'}
+
+### Involved Teams
+${(f.campaign.involvedTeams || []).map((t) => `- ${t}`).join('\n') || '- None'}
+
+### Launch Milestone
+${f.campaign.launchMilestone || 'none'}
+
+### Cross-Team Sequence
+${f.campaign.crossTeamSequence || 'none'}
+
+### Governance Sign-off
+${f.campaign.governanceSignoff || 'none'}
+`;
+      }
+
+      // Assemble full markdown with universal headings required by issue-schema.ts
+      return `## Objective
+${f.objective || 'Objective required for WebXP specification'}
+
+## Target
+${f.target || 'minimal'}
+
+## Work type
+${f.workType || 'page'}
+
+## Team hints
+${config.hints.map((h) => `- ${h}`).join('\n')}
+
+## Allowed write scope
+${f.allowedWriteScope ? f.allowedWriteScope.split('\n').map((l) => l.trim()).filter((l) => l.length > 0).map((l) => l.startsWith('-') ? l : `- ${l}`).join('\n') : '- pages/*'}
+
+## Acceptance criteria
+${f.acceptanceCriteria || '1. Pass repository validation checks.'}
+
+## Sources
+${(f.sources || 'AGENTS.md, brand.md, site.md').split(',').map((s) => `- ${s.trim()}`).join('\n')}
+
+## Constraints
+${f.constraints ? f.constraints.split('\n').map((c) => c.trim()).filter((c) => c.length > 0).map((c) => c.startsWith('-') ? c : `- ${c}`).join('\n') : '- none'}
+
+## Dependencies
+${f.dependencies || 'none'}
+
+## Human decisions
+${f.dependencies && f.dependencies.includes('needs-human') ? 'Required' : 'none'}
+
+## Risk
+${f.riskLevel || 'low'}
+${f.riskRationale || 'Standard operational risk profile.'}
+${domainSpecificLines}`.trim();
+    }
+
+    // Generate JSON Contract Payload
+    function generateJSON() {
+      const f = state.fields;
+      const dom = state.activeDomain;
+      const config = DOMAIN_CONFIG[dom];
+      const rubric = calculateRubric();
+
+      const payload = {
+        webxpVersion: '1.0.0',
+        domain: dom,
+        target: f.target,
+        workType: f.workType,
+        objective: f.objective,
+        teamHints: config.hints,
+        allowedWriteScope: f.allowedWriteScope.split('\n').map((l) => l.replace(/^[-*]\s*/, '').trim()).filter((l) => l.length > 0),
+        acceptanceCriteria: f.acceptanceCriteria.split('\n').map((l) => l.replace(/^[-*•\d.]+\s*/, '').trim()).filter((l) => l.length > 0),
+        risk: {
+          level: f.riskLevel,
+          rationale: f.riskRationale
+        },
+        constraints: f.constraints.split('\n').map((l) => l.replace(/^[-*]\s*/, '').trim()).filter((l) => l.length > 0 && l !== 'none'),
+        dependencies: f.dependencies === 'none' ? [] : [f.dependencies],
+        sources: f.sources.split(',').map((s) => s.trim()).filter((s) => s.length > 0),
+        deterministicCommands: f.deterministicCommands.split('&&').map((c) => c.trim()),
+        confidenceScore: {
+          total: rubric.totalScore,
+          universal: rubric.ufScore,
+          domainDepth: rubric.ddScore,
+          deterministicVerifiability: rubric.dvScore,
+          status: rubric.totalScore >= 80 ? 'ready' : (rubric.totalScore >= 60 ? 'needs-review' : 'blocked')
+        },
+        domainPayload: f[dom]
+      };
+
+      return JSON.stringify(payload, null, 2);
+    }
+
+    // Render Preview Box
+    function renderPreview() {
+      const codeElem = document.getElementById('code-preview');
+      const metaElem = document.getElementById('output-meta');
+
+      if (state.previewTab === 'md') {
+        codeElem.textContent = generateMarkdown();
+        metaElem.textContent = 'GitHub Markdown Spec';
+      } else {
+        codeElem.textContent = generateJSON();
+        metaElem.textContent = 'Darkside Contract JSON';
+      }
+
+      // Update GitHub Issue Link href
+      const title = encodeURIComponent(`[WebXP: ${DOMAIN_CONFIG[state.activeDomain].name}] ${state.fields.objective || 'New Ticket'}`);
+      const body = encodeURIComponent(generateMarkdown());
+      const label = encodeURIComponent(`webxp,domain:${state.activeDomain},intake`);
+      document.getElementById('link-github-issue').href = `https://github.com/RL22/darkside/issues/new?title=${title}&body=${body}&labels=${label}`;
+    }
+
+    // Toast Notification helper
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-message').textContent = message;
+      toast.classList.remove('opacity-0', 'translate-y-2', 'pointer-events-none');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'translate-y-2', 'pointer-events-none');
+      }, 2500);
+    }
+
+    // Bind Dynamic Form Input Listeners
+    function bindDynamicListeners() {
+      const dom = state.activeDomain;
+
+      if (dom === 'cro') {
+        const bind = (id, prop) => {
+          const el = document.getElementById(id);
+          if (el) el.addEventListener('input', (e) => { state.fields.cro[prop] = e.target.value; updateUI(); });
+        };
+        bind('cro-route', 'route');
+        bind('cro-baseline', 'baselineRate');
+        bind('cro-icp', 'icpPersona');
+        bind('cro-hypothesis', 'hypothesis');
+        bind('cro-cta', 'ctaAnchor');
+      } else if (dom === 'seo') {
+        const bind = (id, prop) => {
+          const el = document.getElementById(id);
+          if (el) el.addEventListener('input', (e) => { state.fields.seo[prop] = e.target.value; updateUI(); });
+        };
+        bind('seo-route', 'routePath');
+        bind('seo-schema', 'schemaType');
+        bind('seo-keywords', 'keywords');
+        bind('seo-ai-queries', 'targetAiQueries');
+        bind('seo-indexation', 'indexationDirective');
+      } else if (dom === 'performance') {
+        const bind = (id, prop) => {
+          const el = document.getElementById(id);
+          if (el) el.addEventListener('input', (e) => { state.fields.performance[prop] = e.target.value; updateUI(); });
+        };
+        bind('perf-route', 'route');
+        bind('perf-metric', 'cwvMetric');
+        bind('perf-device', 'deviceProfile');
+        bind('perf-budget', 'performanceBudget');
+        bind('perf-strategy', 'assetStrategy');
+      } else if (dom === 'brand') {
+        const bind = (id, prop) => {
+          const el = document.getElementById(id);
+          if (el) el.addEventListener('input', (e) => { state.fields.brand[prop] = e.target.value; updateUI(); });
+        };
+        bind('brand-path', 'writePath');
+        bind('brand-wcag', 'wcagLevel');
+        bind('brand-components', 'componentTypes');
+        bind('brand-tokens', 'designTokens');
+        bind('brand-constraints', 'runtimeConstraints');
+      } else if (dom === 'analytics') {
+        const bind = (id, prop) => {
+          const el = document.getElementById(id);
+          if (el) el.addEventListener('input', (e) => { state.fields.analytics[prop] = e.target.value; updateUI(); });
+        };
+        bind('analytics-tool', 'toolingPlatform');
+        bind('analytics-privacy', 'privacyStandard');
+        bind('analytics-scope', 'funnelScope');
+        bind('analytics-events', 'eventSchema');
+        bind('analytics-kpi', 'baselineKpi');
+      } else if (dom === 'campaign') {
+        const bind = (id, prop) => {
+          const el = document.getElementById(id);
+          if (el) el.addEventListener('input', (e) => { state.fields.campaign[prop] = e.target.value; updateUI(); });
+        };
+        bind('campaign-name', 'campaignName');
+        bind('campaign-milestone', 'launchMilestone');
+        bind('campaign-sequence', 'crossTeamSequence');
+        bind('campaign-signoff', 'governanceSignoff');
+
+        // Checkbox group for involved teams
+        const cbs = document.querySelectorAll('input[name="campaign-team"]');
+        cbs.forEach((cb) => {
+          cb.addEventListener('change', () => {
+            const selected = Array.from(document.querySelectorAll('input[name="campaign-team"]:checked')).map((c) => c.value);
+            state.fields.campaign.involvedTeams = selected;
+            updateUI();
+          });
+        });
+      }
+    }
+
+    // Set Domain Tab
+    function setDomain(domain) {
+      state.activeDomain = domain;
+
+      // Update tab styling
+      document.querySelectorAll('.domain-tab').forEach((tab) => {
+        if (tab.getAttribute('data-domain') === domain) {
+          tab.className = 'domain-tab active px-3 py-2.5 rounded-md text-xs font-medium border flex items-center space-x-2 transition bg-tint text-orange-press border-orange/50 min-h-[44px]';
+          tab.setAttribute('aria-selected', 'true');
+        } else {
+          tab.className = 'domain-tab px-3 py-2.5 rounded-md text-xs font-medium border border-brandborder bg-canvas text-ink hover:bg-white transition flex items-center space-x-2 min-h-[44px]';
+          tab.setAttribute('aria-selected', 'false');
+        }
+      });
+
+      // Update default write scope if empty
+      if (!state.fields.allowedWriteScope) {
+        state.fields.allowedWriteScope = DOMAIN_CONFIG[domain].defaultScope;
+        document.getElementById('field-allowed-write-scope').value = state.fields.allowedWriteScope;
+      }
+
+      renderDynamicFields(domain);
+      updateUI();
+    }
+
+    // Load High-Confidence Preset
+    function loadPreset(domain) {
+      const p = PRESETS[domain];
+      if (!p) return;
+
+      state.fields.objective = p.objective;
+      state.fields.allowedWriteScope = p.allowedWriteScope;
+      state.fields.riskLevel = p.riskLevel;
+      state.fields.riskRationale = p.riskRationale;
+      state.fields.acceptanceCriteria = p.acceptanceCriteria;
+      state.fields.deterministicCommands = p.deterministicCommands;
+      state.fields.constraints = p.constraints;
+
+      // Update domain specific field values
+      Object.assign(state.fields[domain], p.domain);
+
+      // Sync form DOM
+      document.getElementById('field-objective').value = p.objective;
+      document.getElementById('field-allowed-write-scope').value = p.allowedWriteScope;
+      document.getElementById('field-risk-level').value = p.riskLevel;
+      document.getElementById('field-risk-rationale').value = p.riskRationale;
+      document.getElementById('field-acceptance-criteria').value = p.acceptanceCriteria;
+      document.getElementById('field-deterministic-commands').value = p.deterministicCommands;
+      document.getElementById('field-constraints').value = p.constraints;
+
+      renderDynamicFields(domain);
+      updateUI();
+      showToast(`Loaded High-Confidence Spec for ${DOMAIN_CONFIG[domain].name}`);
+    }
+
+    // Reset Form
+    function resetForm() {
+      state.fields.objective = '';
+      state.fields.allowedWriteScope = DOMAIN_CONFIG[state.activeDomain].defaultScope;
+      state.fields.riskLevel = 'low';
+      state.fields.riskRationale = '';
+      state.fields.acceptanceCriteria = '';
+      state.fields.deterministicCommands = 'npm test';
+      state.fields.constraints = 'none';
+
+      // Clear current domain values
+      const currentDom = state.activeDomain;
+      Object.keys(state.fields[currentDom]).forEach((k) => {
+        if (Array.isArray(state.fields[currentDom][k])) state.fields[currentDom][k] = [];
+        else state.fields[currentDom][k] = '';
+      });
+
+      // Update DOM
+      document.getElementById('field-objective').value = '';
+      document.getElementById('field-allowed-write-scope').value = state.fields.allowedWriteScope;
+      document.getElementById('field-risk-level').value = 'low';
+      document.getElementById('field-risk-rationale').value = '';
+      document.getElementById('field-acceptance-criteria').value = '';
+      document.getElementById('field-deterministic-commands').value = 'npm test';
+      document.getElementById('field-constraints').value = 'none';
+
+      renderDynamicFields(currentDom);
+      updateUI();
+      showToast('Form reset to blank state');
+    }
+
+    // Initialize Page
+    document.addEventListener('DOMContentLoaded', () => {
+      // Domain Tabs click handlers
+      document.querySelectorAll('.domain-tab').forEach((tab) => {
+        tab.addEventListener('click', () => {
+          setDomain(tab.getAttribute('data-domain'));
+        });
+      });
+
+      // Universal Form Inputs
+      document.getElementById('field-target').addEventListener('change', (e) => { state.fields.target = e.target.value; updateUI(); });
+      document.getElementById('field-work-type').addEventListener('change', (e) => { state.fields.workType = e.target.value; updateUI(); });
+      document.getElementById('field-risk-level').addEventListener('change', (e) => { state.fields.riskLevel = e.target.value; updateUI(); });
+      document.getElementById('field-objective').addEventListener('input', (e) => { state.fields.objective = e.target.value; updateUI(); });
+      document.getElementById('field-allowed-write-scope').addEventListener('input', (e) => { state.fields.allowedWriteScope = e.target.value; updateUI(); });
+      document.getElementById('field-risk-rationale').addEventListener('input', (e) => { state.fields.riskRationale = e.target.value; updateUI(); });
+
+      // Verifiability Inputs
+      document.getElementById('field-acceptance-criteria').addEventListener('input', (e) => { state.fields.acceptanceCriteria = e.target.value; updateUI(); });
+      document.getElementById('field-deterministic-commands').addEventListener('input', (e) => { state.fields.deterministicCommands = e.target.value; updateUI(); });
+      document.getElementById('field-constraints').addEventListener('input', (e) => { state.fields.constraints = e.target.value; updateUI(); });
+      document.getElementById('field-dependencies').addEventListener('input', (e) => { state.fields.dependencies = e.target.value; updateUI(); });
+      document.getElementById('field-sources').addEventListener('input', (e) => { state.fields.sources = e.target.value; updateUI(); });
+
+      // Preset and Reset buttons
+      document.getElementById('btn-load-preset').addEventListener('click', () => loadPreset(state.activeDomain));
+      document.getElementById('btn-reset-form').addEventListener('click', resetForm);
+
+      // Preview tabs (Markdown vs JSON)
+      const tabMd = document.getElementById('tab-preview-md');
+      const tabJson = document.getElementById('tab-preview-json');
+      tabMd.addEventListener('click', () => {
+        state.previewTab = 'md';
+        tabMd.className = 'text-xs px-3 py-2 min-h-[44px] rounded bg-white text-ink font-medium border border-brandborder';
+        tabMd.setAttribute('aria-selected', 'true');
+        tabJson.className = 'text-xs px-3 py-2 min-h-[44px] rounded bg-canvas text-stone hover:text-ink border border-brandborder';
+        tabJson.setAttribute('aria-selected', 'false');
+        renderPreview();
+      });
+      tabJson.addEventListener('click', () => {
+        state.previewTab = 'json';
+        tabJson.className = 'text-xs px-3 py-2 min-h-[44px] rounded bg-white text-ink font-medium border border-brandborder';
+        tabJson.setAttribute('aria-selected', 'true');
+        tabMd.className = 'text-xs px-3 py-2 min-h-[44px] rounded bg-canvas text-stone hover:text-ink border border-brandborder';
+        tabMd.setAttribute('aria-selected', 'false');
+        renderPreview();
+      });
+
+      // Copy Markdown Button
+      document.getElementById('btn-copy-md').addEventListener('click', () => {
+        navigator.clipboard.writeText(generateMarkdown()).then(() => {
+          showToast('Markdown specification copied to clipboard!');
+        });
+      });
+
+      // Copy JSON Button
+      document.getElementById('btn-copy-json').addEventListener('click', () => {
+        navigator.clipboard.writeText(generateJSON()).then(() => {
+          showToast('JSON contract payload copied to clipboard!');
+        });
+      });
+
+      // Download .md File Button
+      document.getElementById('btn-download-md').addEventListener('click', () => {
+        const md = generateMarkdown();
+        const blob = new Blob([md], { type: 'text/markdown;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `webxp-${state.activeDomain}-spec.md`;
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast('Downloaded specification markdown file');
+      });
+
+      // Target Onboarding & Dynamic Discovery
+      const modal = document.getElementById('modal-onboard-target');
+      const openModalBtn = document.getElementById('btn-open-onboard-modal');
+      const closeModalBtn = document.getElementById('btn-close-onboard-modal');
+      const cancelModalBtn = document.getElementById('btn-cancel-onboard');
+      const probeBtn = document.getElementById('btn-probe-repo');
+      const saveTargetBtn = document.getElementById('btn-confirm-save-target');
+      const repoInput = document.getElementById('onboard-repo-input');
+      const localPathInput = document.getElementById('onboard-local-path-input');
+      const probeResults = document.getElementById('onboard-probe-results');
+      const probeSummary = document.getElementById('probe-summary');
+      const reposDatalist = document.getElementById('accessible-repos-list');
+
+      let currentProbeData = null;
+
+      async function loadTargets() {
+        try {
+          const res = await fetch('/api/targets');
+          if (!res.ok) return;
+          const targets = await res.json();
+          if (Array.isArray(targets) && targets.length > 0) {
+            const select = document.getElementById('field-target');
+            const curVal = select.value || state.fields.target;
+            select.innerHTML = targets.map(t => `<option value="${escapeHtml(t.id)}" ${t.id === curVal ? 'selected' : ''}>${escapeHtml(t.id)} (${escapeHtml(t.name || t.repository)})</option>`).join('');
+            if (targets.some(t => t.id === curVal)) {
+              select.value = curVal;
+            } else {
+              select.value = targets[0].id;
+              state.fields.target = targets[0].id;
+            }
+          }
+        } catch (err) {
+          console.warn('Could not fetch dynamic targets:', err);
+        }
+      }
+
+      async function loadAccessibleRepos() {
+        try {
+          const res = await fetch('/api/github/repos');
+          if (!res.ok) return;
+          const repos = await res.json();
+          if (Array.isArray(repos) && repos.length > 0) {
+            reposDatalist.innerHTML = repos.map(r => `<option value="${escapeHtml(r.fullName)}">${escapeHtml(r.description || '')}</option>`).join('');
+          }
+        } catch (err) {
+          console.warn('Could not fetch accessible repositories:', err);
+        }
+      }
+
+      if (openModalBtn && modal) {
+        openModalBtn.addEventListener('click', () => {
+          modal.classList.remove('hidden');
+          loadAccessibleRepos();
+        });
+      }
+
+      function closeModal() {
+        if (modal) modal.classList.add('hidden');
+        if (probeResults) probeResults.classList.add('hidden');
+        currentProbeData = null;
+      }
+
+      if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+      if (cancelModalBtn) cancelModalBtn.addEventListener('click', closeModal);
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+          closeModal();
+        }
+      });
+
+      if (probeBtn) {
+        probeBtn.addEventListener('click', async () => {
+          const repo = (repoInput?.value || '').trim();
+          if (!repo) {
+            alert('Please enter or select a repository name (e.g. RL22/minimal-demo-site)');
+            return;
+          }
+
+          probeBtn.disabled = true;
+          probeBtn.textContent = 'Probing Repository...';
+
+          try {
+            const localPath = (localPathInput?.value || '').trim() || undefined;
+            const res = await fetch('/api/targets/probe', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ repository: repo, localPath })
+            });
+
+            if (!res.ok) {
+              const errData = await res.json().catch(() => ({}));
+              throw new Error(errData.error || 'Failed to probe repository');
+            }
+
+            currentProbeData = await res.json();
+            probeResults.classList.remove('hidden');
+            saveTargetBtn.classList.remove('hidden');
+
+            const p = currentProbeData;
+            probeSummary.innerHTML = `
+              <div class="grid grid-cols-2 gap-3 text-xs">
+                <div class="p-2.5 rounded-md bg-white border border-brandborder">
+                  <span class="text-stone block text-[10px] uppercase font-bold tracking-wider">Framework</span>
+                  <span class="font-mono text-orange font-semibold text-sm">${escapeHtml(p.framework || 'unknown')}</span>
+                </div>
+                <div class="p-2.5 rounded-md bg-white border border-brandborder">
+                  <span class="text-stone block text-[10px] uppercase font-bold tracking-wider">Package Manager</span>
+                  <span class="font-mono text-orange font-semibold text-sm">${escapeHtml(p.packageManager || 'none')}</span>
+                </div>
+              </div>
+              <div class="mt-3 p-2.5 rounded-md bg-white border border-brandborder text-xs">
+                <span class="text-stone block text-[10px] uppercase font-bold tracking-wider mb-1">Detected Check Commands</span>
+                <div class="font-mono text-ink text-[11px]">${(p.detectedCheckCommands || []).map(c => `<div>• ${escapeHtml(c)}</div>`).join('') || '<div class="text-stone">None detected (defaults to git diff check)</div>'}</div>
+              </div>
+              <div class="mt-3 p-2.5 rounded-md bg-white border border-brandborder text-xs">
+                <span class="text-stone block text-[10px] uppercase font-bold tracking-wider mb-1">Synthesized Safe Write Scopes (Zero-Wildcard)</span>
+                <div class="font-mono text-orange text-[11px]">
+                  <div>• <b>page</b>: ${(p.detectedLayoutPaths || ['pages/**']).join(', ')}</div>
+                  <div>• <b>foundation</b>: design/**, styles/**, schemas/**, tests/**</div>
+                  <div>• <b>repair</b>: tests/**, scripts/**</div>
+                </div>
+              </div>
+            `;
+          } catch (err) {
+            alert('Error probing repository: ' + err.message);
+          } finally {
+            probeBtn.disabled = false;
+            probeBtn.textContent = 'Inspect & Probe Structure';
+          }
+        });
+      }
+
+      if (saveTargetBtn) {
+        saveTargetBtn.addEventListener('click', async () => {
+          const repo = (repoInput?.value || '').trim();
+          if (!repo || !currentProbeData) return;
+
+          saveTargetBtn.disabled = true;
+          saveTargetBtn.textContent = 'Saving Target...';
+
+          try {
+            const localPath = (localPathInput?.value || '').trim() || undefined;
+            const res = await fetch('/api/targets', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ repository: repo, probe: currentProbeData, localPath })
+            });
+
+            if (!res.ok) {
+              const errData = await res.json().catch(() => ({}));
+              throw new Error(errData.error || 'Failed to onboard target');
+            }
+
+            const result = await res.json();
+            showToast(`Target '${result.targetId}' successfully onboarded!`);
+            await loadTargets();
+            document.getElementById('field-target').value = result.targetId;
+            state.fields.target = result.targetId;
+            updateUI();
+            closeModal();
+          } catch (err) {
+            alert('Error onboarding target: ' + err.message);
+          } finally {
+            saveTargetBtn.disabled = false;
+            saveTargetBtn.textContent = 'Save & Activate Target';
+          }
+        });
+      }
+
+      // Initial target dynamic load
+      loadTargets();
+
+      // Initialize with default domain and load high-confidence preset
+      setDomain('cro');
+      loadPreset('cro');
+    });
+  </script>
+
+  <!-- Target Onboarding Modal -->
+  <div id="modal-onboard-target" role="dialog" aria-modal="true" aria-labelledby="modal-onboard-title" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white border border-brandborder rounded-2xl w-full max-w-xl overflow-hidden shadow-flat animate-fade-in flex flex-col max-h-[90vh]">
+      <!-- Header -->
+      <div class="px-5 py-4 border-b border-brandborder flex items-center justify-between bg-canvas">
+        <div class="flex items-center space-x-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-orange animate-pulse"></span>
+          <h3 id="modal-onboard-title" class="text-base font-bold text-ink tracking-wide">Onboard Target Marketing Repository</h3>
+        </div>
+        <button id="btn-close-onboard-modal" aria-label="Close onboarding modal" class="text-stone hover:text-ink text-lg font-bold leading-none p-1 min-h-[44px] min-w-[44px] flex items-center justify-center focus:outline-none">&times;</button>
+      </div>
+
+      <!-- Body -->
+      <div class="p-5 space-y-4 overflow-y-auto flex-1">
+        <div>
+          <label class="block text-xs font-semibold text-ink mb-1.5">
+            GitHub Repository <span class="text-orange">*</span>
+          </label>
+          <input id="onboard-repo-input" list="accessible-repos-list" type="text" placeholder="e.g. RL22/minimal-demo-site" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition placeholder-stone/60 focus:outline-none focus:ring-2 focus:ring-orange font-mono" />
+          <datalist id="accessible-repos-list"></datalist>
+          <p class="text-[11px] text-stone mt-1">Select from your accessible repositories or type any valid `owner/repo`.</p>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-ink mb-1.5">
+            Local Worktree / Clone Path <span class="text-stone font-normal">(optional)</span>
+          </label>
+          <input id="onboard-local-path-input" type="text" placeholder="Defaults to ../<repo-name>" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition placeholder-stone/60 focus:outline-none focus:ring-2 focus:ring-orange font-mono" />
+        </div>
+
+        <div>
+          <button type="button" id="btn-probe-repo" class="w-full py-2 px-3 rounded-md bg-orange-press hover:bg-orange-hover text-white text-[11px] label-caps transition flex items-center justify-center space-x-1.5 focus:outline-none">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <span>Inspect & Probe Structure</span>
+          </button>
+        </div>
+
+        <!-- Probe Results & Preview -->
+        <div id="onboard-probe-results" class="hidden border-t border-brandborder pt-4 space-y-3">
+          <div class="flex items-center space-x-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span class="text-xs font-bold text-ink uppercase tracking-wider">Topological Inspection Results</span>
+          </div>
+          <div id="probe-summary"></div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="px-5 py-3 border-t border-brandborder bg-canvas flex items-center justify-end space-x-2">
+        <button type="button" id="btn-cancel-onboard" class="px-3 py-1.5 rounded-md bg-white hover:bg-brandborder text-ink text-xs font-medium border border-brandborder transition">
+          Cancel
+        </button>
+        <button type="button" id="btn-confirm-save-target" class="hidden px-4 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition flex items-center space-x-1">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          <span>Save & Activate Target</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
