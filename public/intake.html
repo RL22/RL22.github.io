@@ -44,6 +44,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
     html { scrollbar-width: thin; scrollbar-color: #DDC6B4 #F7F3EC; }
     body {
       font-family: 'Space Grotesk', sans-serif; background-color: #FFFEF8; color: #2B2623;
@@ -75,30 +79,31 @@
   </style>
 
 </head>
-<body class="bg-neutral text-ink min-h-screen selection:bg-orange/30 selection:text-ink">
+<body class="bg-canvas text-body font-sans min-h-screen">
   <!-- Top Navigation & Status Bar -->
   <header class="border-b border-brandborder bg-white/90 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <div class="w-9 h-9 rounded-lg bg-orange text-white font-bold flex items-center justify-center font-sans text-xl shadow-sm">Z</div>
-        <div>
-          <div class="flex items-center space-x-2">
-            <span class="font-bold text-lg tracking-tight text-ink font-sans">SPRINTZ</span>
-            <span class="text-[11px] px-2 py-0.5 rounded-md bg-canvas text-stone font-mono border border-brandborder">DARKSIDE FACTORY</span>
-            <span class="text-[11px] px-2 py-0.5 rounded-md bg-tint text-orange-press font-mono border border-orange/20">WEBXP INTAKE</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-2.5 flex items-center justify-between gap-3">
+      <div class="flex items-center space-x-2.5 sm:space-x-3 shrink min-w-0">
+        <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-orange text-white font-bold flex items-center justify-center font-sans text-lg sm:text-xl shadow-sm shrink-0">Z</div>
+        <div class="min-w-0">
+          <div class="flex items-center space-x-1.5 sm:space-x-2 flex-wrap">
+            <span class="font-bold text-base sm:text-lg tracking-tight text-ink font-sans">SPRINTZ</span>
+            <span class="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded-md bg-canvas text-stone font-mono border border-brandborder hidden xs:inline">DARKSIDE</span>
+            <span class="text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded-md bg-tint text-orange-press font-mono border border-orange/20">WEBXP INTAKE</span>
           </div>
-          <p class="text-xs text-body">Systems-first autonomous webops · 100-Pt Graded Queue</p>
+          <p class="text-xs text-body hidden sm:block truncate">Systems-first autonomous webops · 100-Pt Graded Queue</p>
         </div>
       </div>
 
-      <div class="flex items-center space-x-3">
-        <button id="btn-load-preset" type="button" class="text-xs px-3 py-2 min-h-[44px] rounded-md bg-white hover:bg-brandborder text-ink hover:text-ink border border-brandborder transition flex items-center space-x-1.5">
-          <svg class="w-3.5 h-3.5 text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div class="flex items-center space-x-2 shrink-0">
+        <button id="btn-load-preset" type="button" class="text-xs px-2.5 sm:px-3 py-2 min-h-[40px] sm:min-h-[44px] rounded-md bg-white hover:bg-brandborder text-ink hover:text-ink border border-brandborder transition flex items-center space-x-1.5">
+          <svg class="w-3.5 h-3.5 text-orange shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
           </svg>
-          <span>Load High-Confidence Spec</span>
+          <span class="hidden sm:inline">Load High-Confidence Spec</span>
+          <span class="sm:hidden">Load Spec</span>
         </button>
-        <button id="btn-reset-form" type="button" class="text-xs px-3 py-2 min-h-[44px] rounded-md bg-muted hover:bg-brandborder text-ink border border-transparent hover:border-brandborder transition">
+        <button id="btn-reset-form" type="button" class="text-xs px-2.5 sm:px-3 py-2 min-h-[40px] sm:min-h-[44px] rounded-md bg-muted hover:bg-brandborder text-ink border border-transparent hover:border-brandborder transition">
           Reset
         </button>
       </div>
@@ -106,7 +111,7 @@
   </header>
 
   <!-- Main Container -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 pb-24 sm:pb-8">
     <!-- Two-Column Layout -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
@@ -119,28 +124,28 @@
             Select WebXP Operating Domain
           </label>
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="domain-tabs" role="tablist" aria-label="WebXP Operating Domains">
-            <button type="button" role="tab" aria-selected="true" data-domain="cro" class="domain-tab active px-3 py-2.5 rounded-md text-xs font-medium border flex items-center space-x-2 transition bg-tint text-orange-press border-orange/50 min-h-[44px]">
-              <span class="text-base">🎯</span>
+            <button type="button" role="tab" aria-selected="true" data-domain="cro" class="domain-tab active px-2.5 sm:px-3 py-2 sm:py-2.5 rounded-md text-[11px] sm:text-xs font-medium border flex items-center space-x-1.5 sm:space-x-2 transition bg-tint text-orange-press border-orange/50 min-h-[44px]">
+              <span class="text-sm sm:text-base shrink-0">🎯</span>
               <span class="truncate">CRO & Copy</span>
             </button>
-            <button type="button" role="tab" aria-selected="false" data-domain="seo" class="domain-tab px-3 py-2.5 rounded-md text-xs font-medium border border-brandborder bg-canvas text-ink hover:bg-white transition flex items-center space-x-2 min-h-[44px]">
-              <span class="text-base">🔍</span>
+            <button type="button" role="tab" aria-selected="false" data-domain="seo" class="domain-tab px-2.5 sm:px-3 py-2 sm:py-2.5 rounded-md text-[11px] sm:text-xs font-medium border border-brandborder bg-canvas text-ink hover:bg-white transition flex items-center space-x-1.5 sm:space-x-2 min-h-[44px]">
+              <span class="text-sm sm:text-base shrink-0">🔍</span>
               <span class="truncate">SEO & AEO</span>
             </button>
-            <button type="button" role="tab" aria-selected="false" data-domain="performance" class="domain-tab px-3 py-2.5 rounded-md text-xs font-medium border border-brandborder bg-canvas text-ink hover:bg-white transition flex items-center space-x-2 min-h-[44px]">
-              <span class="text-base">⚡</span>
+            <button type="button" role="tab" aria-selected="false" data-domain="performance" class="domain-tab px-2.5 sm:px-3 py-2 sm:py-2.5 rounded-md text-[11px] sm:text-xs font-medium border border-brandborder bg-canvas text-ink hover:bg-white transition flex items-center space-x-1.5 sm:space-x-2 min-h-[44px]">
+              <span class="text-sm sm:text-base shrink-0">⚡</span>
               <span class="truncate">Performance & CWV</span>
             </button>
-            <button type="button" role="tab" aria-selected="false" data-domain="brand" class="domain-tab px-3 py-2.5 rounded-md text-xs font-medium border border-brandborder bg-canvas text-ink hover:bg-white transition flex items-center space-x-2 min-h-[44px]">
-              <span class="text-base">🎨</span>
+            <button type="button" role="tab" aria-selected="false" data-domain="brand" class="domain-tab px-2.5 sm:px-3 py-2 sm:py-2.5 rounded-md text-[11px] sm:text-xs font-medium border border-brandborder bg-canvas text-ink hover:bg-white transition flex items-center space-x-1.5 sm:space-x-2 min-h-[44px]">
+              <span class="text-sm sm:text-base shrink-0">🎨</span>
               <span class="truncate">Brand & Design</span>
             </button>
-            <button type="button" role="tab" aria-selected="false" data-domain="analytics" class="domain-tab px-3 py-2.5 rounded-md text-xs font-medium border border-brandborder bg-canvas text-ink hover:bg-white transition flex items-center space-x-2 min-h-[44px]">
-              <span class="text-base">📊</span>
+            <button type="button" role="tab" aria-selected="false" data-domain="analytics" class="domain-tab px-2.5 sm:px-3 py-2 sm:py-2.5 rounded-md text-[11px] sm:text-xs font-medium border border-brandborder bg-canvas text-ink hover:bg-white transition flex items-center space-x-1.5 sm:space-x-2 min-h-[44px]">
+              <span class="text-sm sm:text-base shrink-0">📊</span>
               <span class="truncate">Analytics</span>
             </button>
-            <button type="button" role="tab" aria-selected="false" data-domain="campaign" class="domain-tab px-3 py-2.5 rounded-md text-xs font-medium border border-brandborder bg-canvas text-ink hover:bg-white transition flex items-center space-x-2 min-h-[44px]">
-              <span class="text-base">🚀</span>
+            <button type="button" role="tab" aria-selected="false" data-domain="campaign" class="domain-tab px-2.5 sm:px-3 py-2 sm:py-2.5 rounded-md text-[11px] sm:text-xs font-medium border border-brandborder bg-canvas text-ink hover:bg-white transition flex items-center space-x-1.5 sm:space-x-2 min-h-[44px]">
+              <span class="text-sm sm:text-base shrink-0">🚀</span>
               <span class="truncate">Growth Campaign</span>
             </button>
           </div>
@@ -148,12 +153,12 @@
 
         <!-- Section 1: Universal Foundation -->
         <div class="space-y-5 border-t border-brandborder/60 pt-6">
-          <div class="flex items-center justify-between">
+          <div class="flex items-center justify-between gap-2">
             <h2 class="text-sm font-bold text-ink uppercase tracking-wider flex items-center space-x-2">
               <span class="w-1.5 h-1.5 rounded-full bg-orange inline-block"></span>
               <span>01 · Universal Foundation</span>
             </h2>
-            <span class="text-xs font-mono text-orange bg-tint px-2 py-0.5 rounded border border-orange/20" id="uf-score-badge">0 / 40 pts</span>
+            <span class="text-xs font-mono text-orange bg-tint px-2 py-0.5 rounded border border-orange/20 shrink-0" id="uf-score-badge">0 / 40 pts</span>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -213,7 +218,7 @@
               Allowed Write Scope <span class="text-orange">*</span>
               <span class="text-stone font-normal text-[11px] ml-1.5">(Paths/globs, one per line)</span>
             </label>
-            <textarea id="field-allowed-write-scope" rows="2" placeholder="- pages/index.html&#10;- design/**" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-mono placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition"></textarea>
+            <textarea id="field-allowed-write-scope" rows="3" placeholder="- pages/index.html&#10;- design/**" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2.5 text-sm min-h-[88px] text-ink font-mono placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition leading-relaxed"></textarea>
           </div>
 
           <!-- Risk Rationale -->
@@ -228,12 +233,12 @@
 
         <!-- Section 2: Domain-Specific Depth (Dynamic) -->
         <div class="space-y-5 border-t border-brandborder/60 pt-6">
-          <div class="flex items-center justify-between">
-            <h2 class="text-sm font-bold text-ink uppercase tracking-wider flex items-center space-x-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-orange inline-block"></span>
-              <span id="domain-section-title">02 · Domain Depth</span>
+          <div class="flex items-center justify-between gap-2">
+            <h2 class="text-sm font-bold text-ink uppercase tracking-wider flex items-center space-x-2 min-w-0">
+              <span class="w-1.5 h-1.5 rounded-full bg-orange inline-block shrink-0"></span>
+              <span id="domain-section-title" class="truncate">02 · Domain Depth</span>
             </h2>
-            <span class="text-xs font-mono text-orange bg-canvas px-2 py-0.5 rounded border border-brandborder" id="dd-score-badge">0 / 40 pts</span>
+            <span class="text-xs font-mono text-orange bg-canvas px-2 py-0.5 rounded border border-brandborder shrink-0" id="dd-score-badge">0 / 40 pts</span>
           </div>
 
           <!-- DYNAMIC DOMAIN FIELDS CONTAINER -->
@@ -244,12 +249,12 @@
 
         <!-- Section 3: Deterministic Verifiability -->
         <div class="space-y-5 border-t border-brandborder/60 pt-6">
-          <div class="flex items-center justify-between">
+          <div class="flex items-center justify-between gap-2">
             <h2 class="text-sm font-bold text-ink uppercase tracking-wider flex items-center space-x-2">
               <span class="w-1.5 h-1.5 rounded-full bg-orange inline-block"></span>
               <span>03 · Deterministic Verifiability</span>
             </h2>
-            <span class="text-xs font-mono text-orange bg-canvas px-2 py-0.5 rounded border border-brandborder" id="dv-score-badge">0 / 20 pts</span>
+            <span class="text-xs font-mono text-orange bg-canvas px-2 py-0.5 rounded border border-brandborder shrink-0" id="dv-score-badge">0 / 20 pts</span>
           </div>
 
           <!-- Acceptance Criteria -->
@@ -258,7 +263,7 @@
               Acceptance Criteria <span class="text-orange">*</span>
               <span class="text-stone font-normal text-[11px] ml-1.5">(&ge; 2 numbered statements)</span>
             </label>
-            <textarea id="field-acceptance-criteria" rows="3" placeholder="1. Hero headline articulates the core value proposition.&#10;2. CTA button links directly to /signup.&#10;3. All target repository validation tests pass without regression." class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition"></textarea>
+            <textarea id="field-acceptance-criteria" rows="3" placeholder="1. Hero headline articulates the core value proposition.&#10;2. CTA button links directly to /signup.&#10;3. All target repository validation tests pass without regression." class="w-full bg-white border border-brandborder rounded-lg px-3 py-2.5 text-sm min-h-[96px] text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition leading-relaxed"></textarea>
           </div>
 
           <!-- Verification Commands -->
@@ -276,7 +281,7 @@
               <label for="field-constraints" class="block text-xs font-semibold text-ink mb-1.5">
                 Constraints <span class="text-stone font-normal text-[11px] ml-1.5">(or 'none')</span>
               </label>
-              <textarea id="field-constraints" rows="2" placeholder="- Zero external runtime JS&#10;- Preserve brand colors" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-mono placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition"></textarea>
+              <textarea id="field-constraints" rows="2" placeholder="- Zero external runtime JS&#10;- Preserve brand colors" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2.5 text-sm min-h-[80px] text-ink font-mono placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition leading-relaxed"></textarea>
             </div>
 
             <!-- Dependencies -->
@@ -399,8 +404,24 @@
     </div>
   </main>
 
+  <!-- Sticky Mobile Bottom Score Bar -->
+  <div id="mobile-sticky-bar" class="sm:hidden fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur border-t border-brandborder px-4 py-2.5 flex items-center justify-between z-40 shadow-lg">
+    <div class="flex items-center space-x-2.5">
+      <div class="flex items-baseline space-x-1 font-mono">
+        <span id="mobile-score-display" class="text-xl font-bold text-orange">0</span>
+        <span class="text-[10px] text-stone">/ 100</span>
+      </div>
+      <div class="h-4 w-px bg-brandborder"></div>
+      <span id="mobile-status-summary" class="text-[11px] font-semibold text-stone truncate max-w-[140px]">Evaluating...</span>
+    </div>
+    <button type="button" id="btn-mobile-copy" class="px-3.5 py-1.5 rounded-lg bg-orange-press hover:bg-orange-hover text-white text-xs font-semibold shadow-sm transition flex items-center space-x-1.5 active:scale-95">
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+      <span>Copy Spec</span>
+    </button>
+  </div>
+
   <!-- Notification Toast -->
-  <div id="toast" class="fixed bottom-5 right-5 bg-white border border-orange/50 text-ink text-xs px-4 py-2.5 rounded-md shadow-flat transition-all duration-300 opacity-0 pointer-events-none transform translate-y-2 z-50 flex items-center space-x-2">
+  <div id="toast" class="fixed bottom-16 sm:bottom-5 right-5 bg-white border border-orange/50 text-ink text-xs px-4 py-2.5 rounded-md shadow-flat transition-all duration-300 opacity-0 pointer-events-none transform translate-y-2 z-50 flex items-center space-x-2">
     <svg class="w-4 h-4 text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
     </svg>
@@ -640,7 +661,7 @@
           </div>
           <div>
             <label class="block text-xs font-semibold text-ink mb-1.5">Testable Hypothesis <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 20 chars)</span></label>
-            <textarea id="cro-hypothesis" rows="2" placeholder="e.g. If we replace the generic feature list with outcome-oriented proof points and a low-friction CTA, conversion will increase by 20%." class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition">${escapeHtml(d.hypothesis)}</textarea>
+            <textarea id="cro-hypothesis" rows="3" placeholder="e.g. If we replace the generic feature list with outcome-oriented proof points and a low-friction CTA, conversion will increase by 20%." class="w-full bg-white border border-brandborder rounded-lg px-3 py-2.5 text-sm min-h-[88px] text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition leading-relaxed">${escapeHtml(d.hypothesis)}</textarea>
           </div>
           <div>
             <label class="block text-xs font-semibold text-ink mb-1.5">CTA Anchor & Destination <span class="text-orange">*</span></label>
@@ -668,11 +689,11 @@
           </div>
           <div>
             <label class="block text-xs font-semibold text-ink mb-1.5">Primary & Secondary Keywords <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 10 chars)</span></label>
-            <textarea id="seo-keywords" rows="2" placeholder="- Primary: autonomous software factory&#10;- Secondary: b2b marketing webops" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">${escapeHtml(d.keywords)}</textarea>
+            <textarea id="seo-keywords" rows="3" placeholder="- Primary: autonomous software factory&#10;- Secondary: b2b marketing webops" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2.5 text-sm min-h-[88px] text-ink font-mono placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition leading-relaxed">${escapeHtml(d.keywords)}</textarea>
           </div>
           <div>
             <label class="block text-xs font-semibold text-ink mb-1.5">Target AI Queries for Perplexity/ChatGPT <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 15 chars)</span></label>
-            <textarea id="seo-ai-queries" rows="2" placeholder="e.g. What is an autonomous software factory for B2B websites?&#10;Best tools for agentic website CRO and SEO" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition">${escapeHtml(d.targetAiQueries)}</textarea>
+            <textarea id="seo-ai-queries" rows="3" placeholder="e.g. What is an autonomous software factory for B2B websites?&#10;Best tools for agentic website CRO and SEO" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2.5 text-sm min-h-[88px] text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition leading-relaxed">${escapeHtml(d.targetAiQueries)}</textarea>
           </div>
           <div>
             <label class="block text-xs font-semibold text-ink mb-1.5">Indexation Directive <span class="text-orange">*</span></label>
@@ -711,7 +732,7 @@
           </div>
           <div>
             <label class="block text-xs font-semibold text-ink mb-1.5">Performance Budget <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 10 chars)</span></label>
-            <textarea id="perf-budget" rows="2" placeholder="- LCP: < 2.5s&#10;- CLS: < 0.1&#10;- INP: < 200ms" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">${escapeHtml(d.performanceBudget)}</textarea>
+            <textarea id="perf-budget" rows="3" placeholder="- LCP: < 2.5s&#10;- CLS: < 0.1&#10;- INP: < 200ms" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2.5 text-sm min-h-[88px] text-ink font-mono placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition leading-relaxed">${escapeHtml(d.performanceBudget)}</textarea>
           </div>
           <div>
             <label class="block text-xs font-semibold text-ink mb-1.5">Optimization Strategy <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 15 chars)</span></label>
@@ -736,11 +757,11 @@
           </div>
           <div>
             <label class="block text-xs font-semibold text-ink mb-1.5">Component Types <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 10 chars)</span></label>
-            <textarea id="brand-components" rows="2" placeholder="- Foundations (color, typography, spacing)&#10;- Navigation header & buttons&#10;- Feature card & pricing table" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">${escapeHtml(d.componentTypes)}</textarea>
+            <textarea id="brand-components" rows="3" placeholder="- Foundations (color, typography, spacing)&#10;- Navigation header & buttons&#10;- Feature card & pricing table" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2.5 text-sm min-h-[88px] text-ink font-mono placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition leading-relaxed">${escapeHtml(d.componentTypes)}</textarea>
           </div>
           <div>
             <label class="block text-xs font-semibold text-ink mb-1.5">Design Tokens <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 15 chars)</span></label>
-            <textarea id="brand-tokens" rows="2" placeholder="- Surface: #09090b, Accent: #6366f1&#10;- Typography: Inter, 1.25 scale" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">${escapeHtml(d.designTokens)}</textarea>
+            <textarea id="brand-tokens" rows="3" placeholder="- Surface: #09090b, Accent: #6366f1&#10;- Typography: Inter, 1.25 scale" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2.5 text-sm min-h-[88px] text-ink font-mono placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition leading-relaxed">${escapeHtml(d.designTokens)}</textarea>
           </div>
           <div>
             <label class="block text-xs font-semibold text-ink mb-1.5">Runtime Constraints <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 10 chars)</span></label>
@@ -771,7 +792,7 @@
           </div>
           <div>
             <label class="block text-xs font-semibold text-ink mb-1.5">Event Schema & Properties <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 10 chars)</span></label>
-            <textarea id="analytics-events" rows="2" placeholder="- cta_clicked (button_id, page_route)&#10;- signup_submitted (method)" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">${escapeHtml(d.eventSchema)}</textarea>
+            <textarea id="analytics-events" rows="3" placeholder="- cta_clicked (button_id, page_route)&#10;- signup_submitted (method)" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2.5 text-sm min-h-[88px] text-ink font-mono placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition leading-relaxed">${escapeHtml(d.eventSchema)}</textarea>
           </div>
           <div>
             <label class="block text-xs font-semibold text-ink mb-1.5">Baseline KPI & Target <span class="text-orange">*</span></label>
@@ -816,7 +837,7 @@
           </div>
           <div>
             <label class="block text-xs font-semibold text-ink mb-1.5">Cross-Team Sequence <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 20 chars)</span></label>
-            <textarea id="campaign-sequence" rows="2" placeholder="1. Brand creates token specimen&#10;2. CRO drafts headline and CTA&#10;3. SEO validates schema" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2 text-sm h-12 text-ink font-sans placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition font-mono">${escapeHtml(d.crossTeamSequence)}</textarea>
+            <textarea id="campaign-sequence" rows="3" placeholder="1. Brand creates token specimen&#10;2. CRO drafts headline and CTA&#10;3. SEO validates schema" class="w-full bg-white border border-brandborder rounded-lg px-3 py-2.5 text-sm min-h-[88px] text-ink font-mono placeholder-stone/60 focus:outline-none focus:border-orange focus:ring-1 focus:ring-orange/20 transition leading-relaxed">${escapeHtml(d.crossTeamSequence)}</textarea>
           </div>
           <div>
             <label class="block text-xs font-semibold text-ink mb-1.5">Governance Sign-off <span class="text-orange">*</span> <span class="text-stone font-normal ml-1">(&ge; 10 chars)</span></label>
@@ -1032,6 +1053,32 @@
         statusChip.className = 'text-xs px-2.5 py-1 rounded-full font-semibold bg-canvas text-orange border border-brandborder';
         statusChip.textContent = 'High Confidence (>= 80) · Dispatch Ready';
         gaugeGlow.className = 'absolute -top-24 -right-24 w-48 h-48 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none transition-all duration-500';
+      }
+
+      // Update Mobile Sticky Bar
+      const mobileScore = document.getElementById('mobile-score-display');
+      const mobileStatus = document.getElementById('mobile-status-summary');
+      if (mobileScore) {
+        mobileScore.textContent = rubric.totalScore;
+        if (rubric.totalScore < 60) {
+          mobileScore.className = 'text-xl font-bold font-mono text-orange';
+          if (mobileStatus) {
+            mobileStatus.textContent = 'Blocked (< 60)';
+            mobileStatus.className = 'text-[11px] font-semibold text-orange-press truncate max-w-[140px]';
+          }
+        } else if (rubric.totalScore < 80) {
+          mobileScore.className = 'text-xl font-bold font-mono text-amber-500';
+          if (mobileStatus) {
+            mobileStatus.textContent = 'Review (60-79)';
+            mobileStatus.className = 'text-[11px] font-semibold text-amber-500 truncate max-w-[140px]';
+          }
+        } else {
+          mobileScore.className = 'text-xl font-bold font-mono text-emerald-600';
+          if (mobileStatus) {
+            mobileStatus.textContent = 'Ready (>= 80)';
+            mobileStatus.className = 'text-[11px] font-semibold text-emerald-600 truncate max-w-[140px]';
+          }
+        }
       }
 
       // Render Checklist Breakdown
@@ -1515,6 +1562,16 @@ ${domainSpecificLines}`.trim();
           showToast('Markdown specification copied to clipboard!');
         });
       });
+
+      // Mobile Copy Spec Button
+      const mobileCopyBtn = document.getElementById('btn-mobile-copy');
+      if (mobileCopyBtn) {
+        mobileCopyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(generateMarkdown()).then(() => {
+            showToast('Markdown specification copied to clipboard!');
+          });
+        });
+      }
 
       // Copy JSON Button
       document.getElementById('btn-copy-json').addEventListener('click', () => {
