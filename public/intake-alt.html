@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprintz Intake Labs · Spec Paradigms (Alt Surface)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orange: {
+              DEFAULT: '#ED5724',
+              press: '#C9471B',
+              hover: '#B84018'
+            },
+            tint: '#FFF0E8',
+            black: '#141413',
+            neutral: '#FFFEF8',
+            canvas: '#F7F3EC',
+            muted: '#EFE4DA',
+            darktheme: '#2E2A28',
+            ink: '#2B2623',
+            body: '#57514C',
+            stone: '#7A746E',
+            taupe: '#A29A92',
+            ondark: '#D8D1C8',
+            brandborder: {
+              DEFAULT: '#EEE6DC',
+              strong: '#DDC6B4'
+            }
+          },
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          borderRadius: {
+            'md': '12px',
+            'xl': '20px',
+            '2xl': '24px'
+          },
+          boxShadow: {
+            'subtle': '0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.02)',
+            'card': '0 4px 12px 0 rgba(43, 38, 35, 0.04)',
+            'elevated': '0 20px 25px -5px rgba(20, 20, 19, 0.2), 0 8px 10px -6px rgba(20, 20, 19, 0.2)'
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: #DDC6B4 #F7F3EC;
+    }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #FFFEF8;
+      color: #2B2623;
+    }
+    pre, code, .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F7F3EC;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #DDC6B4;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7A746E;
+    }
+    .label-caps {
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+    }
+    .concept-nav-tab.active {
+      background-color: #FFF0E8;
+      color: #C9471B;
+      border-color: #ED5724;
+    }
+    .ghost-card {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ghost-card:hover {
+      border-color: #C9471B;
+      background-color: #FFF0E8;
+      transform: translateY(-1px);
+    }
+    .ghost-card.accepted {
+      background-color: #F0FDF4;
+      border-color: #86EFAC;
+      color: #166534;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-body font-sans min-h-screen flex flex-col selection:bg-tint selection:text-orange-press">
+
+  <!-- Top Switcher Header & Navigation -->
+  <header id="concept-switcher-nav" class="border-b border-brandborder bg-white/95 backdrop-blur sticky top-0 z-50 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-2.5 flex flex-wrap items-center justify-between gap-3">
+      <!-- Left: Brand Mark & Title -->
+      <div class="flex items-center space-x-3 shrink-0">
+        <a href="intake.html" class="flex items-center space-x-2.5 group">
+          <div class="w-9 h-9 rounded-xl bg-orange-press text-white font-bold flex items-center justify-center font-sans text-xl shadow-sm group-hover:bg-orange transition">Z</div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="font-bold text-lg tracking-tight text-ink">SPRINTZ</span>
+              <span class="label-caps px-2 py-0.5 rounded-md bg-canvas text-stone border border-brandborder">INTAKE LABS</span>
+              <span class="label-caps px-2 py-0.5 rounded-md bg-tint text-orange-press border border-orange/20 hidden sm:inline">ALT SURFACES</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Center: Concept Switcher Segmented Navbar -->
+      <nav aria-label="Intake Concepts" class="flex items-center bg-canvas p-1 rounded-xl border border-brandborder overflow-x-auto max-w-full">
+        <button id="nav-compiler" type="button" onclick="switchConcept('compiler')" class="concept-nav-tab active text-xs sm:text-sm font-medium px-3.5 py-2 min-h-[44px] rounded-lg border border-transparent transition flex items-center space-x-2 whitespace-nowrap">
+          <span class="font-mono text-xs opacity-70">01</span>
+          <span>Spec Compiler</span>
+        </button>
+        <button id="nav-hud" type="button" onclick="switchConcept('hud')" class="concept-nav-tab text-xs sm:text-sm font-medium px-3.5 py-2 min-h-[44px] rounded-lg text-stone hover:text-ink border border-transparent transition flex items-center space-x-2 whitespace-nowrap">
+          <span class="font-mono text-xs opacity-70">02</span>
+          <span>Command HUD</span>
+          <span class="label-caps text-[10px] px-1.5 py-0.5 rounded bg-white text-stone border border-brandborder ml-1 hidden md:inline">⌘K</span>
+        </button>
+        <button id="nav-canvas" type="button" onclick="switchConcept('canvas')" class="concept-nav-tab text-xs sm:text-sm font-medium px-3.5 py-2 min-h-[44px] rounded-lg text-stone hover:text-ink border border-transparent transition flex items-center space-x-2 whitespace-nowrap">
+          <span class="font-mono text-xs opacity-70">03</span>
+          <span>Route Canvas</span>
+        </button>
+      </nav>
+
+      <!-- Right: Link back to standard form & preset actions -->
+      <div class="flex items-center space-x-2.5 shrink-0">
+        <a href="intake.html" class="text-xs sm:text-sm font-medium px-3 py-2 min-h-[44px] rounded-xl bg-white hover:bg-muted text-ink border border-brandborder transition flex items-center space-x-1.5">
+          <span>&larr; Standard Form</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container with 3 Concept Views -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 pb-36 flex-1 w-full">
+
+    <!-- ========================================================================= -->
+    <!-- CONCEPT 1: Natural Language Spec Compiler (#view-compiler)               -->
+    <!-- ========================================================================= -->
+    <section id="view-compiler" class="space-y-6">
+      <!-- Section Header -->
+      <div class="bg-white border border-brandborder rounded-2xl p-6 sm:p-8 shadow-subtle">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-brandborder pb-5 mb-6">
+          <div>
+            <div class="flex items-center space-x-2 mb-1">
+              <span class="label-caps px-2 py-0.5 rounded bg-tint text-orange-press font-mono">PARADIGM 01</span>
+              <h1 class="text-xl sm:text-2xl font-bold text-ink">Natural Language Spec Compiler</h1>
+            </div>
+            <p class="text-sm text-body">
+              Type an operational intent in plain English. The compiler extracts deterministic entities and suggests ghost cards to lift rubric confidence &ge; 80.
+            </p>
+          </div>
+          <div class="flex items-center space-x-2 shrink-0">
+            <button id="btn-compiler-example" type="button" onclick="loadCompilerExample()" class="text-xs px-3.5 py-2 min-h-[44px] rounded-xl bg-canvas hover:bg-muted text-ink border border-brandborder font-medium transition flex items-center space-x-1.5">
+              <svg class="w-4 h-4 text-orange-press" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+              <span>Try Example Prompt</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Editorial Intent Input -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <label for="compiler-intent-input" class="label-caps text-stone font-semibold">Intent Stream (Plain English)</label>
+            <span class="text-xs font-mono text-stone" id="compiler-char-count">0 chars</span>
+          </div>
+          <textarea
+            id="compiler-intent-input"
+            rows="3"
+            class="w-full text-base sm:text-lg font-sans text-ink bg-neutral border border-brandborder focus:border-orange-press focus:ring-1 focus:ring-orange-press rounded-xl p-4 transition placeholder:text-taupe placeholder:font-normal leading-relaxed outline-none"
+            placeholder="e.g. Redesign hero headline and primary CTA on minimal demo site to increase signup conversion, running npm test without touching schemas."
+            oninput="handleCompilerInput(this.value)"
+          ></textarea>
+        </div>
+
+        <!-- Real-Time Entity Tokenizer -->
+        <div class="mt-6 pt-5 border-t border-brandborder/70">
+          <div class="flex items-center justify-between mb-3">
+            <span class="label-caps text-stone">Real-Time Extracted Entities</span>
+            <span class="text-xs text-stone font-mono" id="tokens-status">Awaiting prompt stream...</span>
+          </div>
+          <div id="compiler-tokens" class="flex flex-wrap gap-2.5 min-h-[40px] items-center">
+            <div class="text-xs text-taupe italic font-sans py-1">Type in the prompt above or click "Try Example Prompt" to see real-time parsing.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Predictive Gap-Filling ("Ghost Field Suggestions") -->
+      <div class="bg-white border border-brandborder rounded-2xl p-6 sm:p-8 shadow-subtle space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-ink flex items-center space-x-2">
+              <span>Predictive Gap-Filling</span>
+              <span class="label-caps px-2 py-0.5 rounded bg-canvas text-stone border border-brandborder">Ghost Field Suggestions</span>
+            </h2>
+            <p class="text-xs sm:text-sm text-body mt-0.5">
+              Deterministic gaps detected in the parsed stream. Click any ghost card below to incorporate it into the live spec and boost the score.
+            </p>
+          </div>
+          <span class="text-xs font-mono px-2.5 py-1 rounded bg-tint text-orange-press border border-orange/20" id="ghost-counter">3 suggestions available</span>
+        </div>
+
+        <div id="ghost-suggestions" class="grid grid-cols-1 md:grid-cols-3 gap-3.5 pt-2">
+          <!-- Card A: Baseline Conversion -->
+          <div id="ghost-card-baseline" onclick="acceptGhostCard('baseline')" class="ghost-card cursor-pointer p-4 rounded-xl border border-dashed border-brandborder-strong bg-neutral hover:bg-tint/40 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="label-caps text-orange-press font-mono font-semibold">+ Accept Baseline</span>
+                <span class="text-xs font-mono text-stone bg-white px-1.5 py-0.5 rounded border border-brandborder">+8 pts</span>
+              </div>
+              <p class="text-xs font-mono font-medium text-ink">1.8% visitor-to-pilot signup rate</p>
+              <p class="text-[11px] text-stone mt-1">Grounds CRO evaluation with deterministic pre-test baseline metric.</p>
+            </div>
+            <div class="mt-3 pt-2 border-t border-brandborder/50 flex items-center text-xs font-medium text-orange-press">
+              <span class="action-label">Click to incorporate &rarr;</span>
+            </div>
+          </div>
+
+          <!-- Card B: Testable Hypothesis -->
+          <div id="ghost-card-hypo" onclick="acceptGhostCard('hypo')" class="ghost-card cursor-pointer p-4 rounded-xl border border-dashed border-brandborder-strong bg-neutral hover:bg-tint/40 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="label-caps text-orange-press font-mono font-semibold">+ Add Hypothesis</span>
+                <span class="text-xs font-mono text-stone bg-white px-1.5 py-0.5 rounded border border-brandborder">+8 pts</span>
+              </div>
+              <p class="text-xs font-mono font-medium text-ink">Outcome-driven headline lifts conversion by &ge; 20%</p>
+              <p class="text-[11px] text-stone mt-1">Provides testable hypothesis required by Darkside CRO contract.</p>
+            </div>
+            <div class="mt-3 pt-2 border-t border-brandborder/50 flex items-center text-xs font-medium text-orange-press">
+              <span class="action-label">Click to incorporate &rarr;</span>
+            </div>
+          </div>
+
+          <!-- Card C: Acceptance Criteria -->
+          <div id="ghost-card-criteria" onclick="acceptGhostCard('criteria')" class="ghost-card cursor-pointer p-4 rounded-xl border border-dashed border-brandborder-strong bg-neutral hover:bg-tint/40 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="label-caps text-orange-press font-mono font-semibold">+ Add Acceptance Criteria</span>
+                <span class="text-xs font-mono text-stone bg-white px-1.5 py-0.5 rounded border border-brandborder">+10 pts</span>
+              </div>
+              <p class="text-xs font-mono font-medium text-ink">1. Headline &le; 10 words. 2. CTA links to /signup.</p>
+              <p class="text-[11px] text-stone mt-1">Fulfills deterministic verifiability requirement (&ge; 2 criteria).</p>
+            </div>
+            <div class="mt-3 pt-2 border-t border-brandborder/50 flex items-center text-xs font-medium text-orange-press">
+              <span class="action-label">Click to incorporate &rarr;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- CONCEPT 2: Command HUD / Raycast Stepper (#view-hud)                      -->
+    <!-- ========================================================================= -->
+    <section id="view-hud" class="hidden space-y-6">
+      <div class="bg-white border border-brandborder rounded-2xl p-6 sm:p-8 shadow-subtle">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-brandborder pb-5 mb-6">
+          <div>
+            <div class="flex items-center space-x-2 mb-1">
+              <span class="label-caps px-2 py-0.5 rounded bg-tint text-orange-press font-mono">PARADIGM 02</span>
+              <h1 class="text-xl sm:text-2xl font-bold text-ink">Command HUD / Raycast Stepper</h1>
+            </div>
+            <p class="text-sm text-body">
+              A keyboard-driven modal HUD engineered for speed. Press <kbd class="px-1.5 py-0.5 bg-canvas rounded border border-brandborder text-xs font-mono">⌘K</kbd> anywhere or click below to launch.
+            </p>
+          </div>
+          <div>
+            <button id="btn-open-hud" type="button" onclick="openCommandHud()" class="min-h-[44px] px-4 py-2 rounded-xl bg-black hover:bg-darktheme text-ondark font-mono text-xs font-semibold tracking-wider flex items-center space-x-2 transition shadow-sm">
+              <svg class="w-4 h-4 text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+              <span>[ Open Command HUD ]</span>
+              <span class="bg-white/10 px-1.5 py-0.5 rounded text-[10px] text-ondark">⌘K</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- In-Page HUD Container (Always visible & interactive inline) -->
+        <div class="border border-brandborder rounded-2xl bg-neutral p-5 sm:p-6 shadow-sm">
+          <!-- Stepper Tab Bar -->
+          <div class="flex items-center justify-between border-b border-brandborder pb-4 mb-6">
+            <div class="flex items-center space-x-2 sm:space-x-4">
+              <button id="hud-step-tab-1" type="button" onclick="setHudStep(1)" class="hud-step-tab text-xs font-mono font-medium px-3 py-1.5 rounded-lg border border-orange-press bg-tint text-orange-press">
+                [1] Target & Route
+              </button>
+              <button id="hud-step-tab-2" type="button" onclick="setHudStep(2)" class="hud-step-tab text-xs font-mono font-medium px-3 py-1.5 rounded-lg border border-transparent text-stone hover:text-ink">
+                [2] Objective Packs
+              </button>
+              <button id="hud-step-tab-3" type="button" onclick="setHudStep(3)" class="hud-step-tab text-xs font-mono font-medium px-3 py-1.5 rounded-lg border border-transparent text-stone hover:text-ink">
+                [3] Verification Tuner
+              </button>
+            </div>
+            <span class="text-xs font-mono text-stone hidden sm:inline">Use [1, 2, 3] keys or click</span>
+          </div>
+
+          <!-- STEP 1: Fuzzy Target & Route Selector -->
+          <div id="hud-step-1" class="space-y-4">
+            <div>
+              <label for="hud-target-input" class="label-caps text-stone block mb-1.5">Fuzzy Target Query (type @ to filter)</label>
+              <div class="relative">
+                <input
+                  id="hud-target-input"
+                  type="text"
+                  value="@minimal"
+                  class="w-full text-sm font-mono text-ink bg-white border border-brandborder focus:border-orange-press rounded-xl px-4 py-3 min-h-[44px] outline-none"
+                  placeholder="@minimal or @everlaw"
+                  oninput="handleHudTargetChange(this.value)"
+                />
+                <span class="absolute right-3 top-3 text-xs font-mono text-stone bg-canvas px-2 py-0.5 rounded border border-brandborder">Minimal Demo Site</span>
+              </div>
+            </div>
+
+            <div>
+              <label for="hud-route-select" class="label-caps text-stone block mb-1.5">Target Route Selection</label>
+              <select
+                id="hud-route-select"
+                class="w-full text-sm font-mono text-ink bg-white border border-brandborder focus:border-orange-press rounded-xl px-4 py-3 min-h-[44px] outline-none"
+                onchange="handleHudRouteChange(this.value)"
+              >
+                <option value="pages/index.html">pages/index.html (Primary Hero & Conversion Gate)</option>
+                <option value="pages/overview.html">pages/overview.html (Product Architecture Overview)</option>
+                <option value="pages/pricing.html">pages/pricing.html (Tier & Seat Checkout)</option>
+                <option value="styles/main.css">styles/main.css (Global Design Token System)</option>
+              </select>
+            </div>
+
+            <div class="pt-2 flex justify-end">
+              <button type="button" onclick="setHudStep(2)" class="text-xs font-mono px-4 py-2 min-h-[44px] rounded-xl bg-orange-press text-white hover:bg-orange transition">
+                Proceed to Objective Packs &rarr;
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2: 1-Click Objective Packs -->
+          <div id="hud-step-2" class="hidden space-y-4">
+            <label class="label-caps text-stone block">Select 1-Click High-Confidence Pack (Press 1, 2, or 3)</label>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+              <!-- Pack 1: CRO -->
+              <div id="pack-card-cro" onclick="selectHudPack('cro')" class="cursor-pointer p-4 rounded-xl border border-brandborder bg-white hover:border-orange-press transition flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-mono font-bold text-orange-press">[1] CRO Hero Elevation</span>
+                    <span class="text-[11px] font-mono px-1.5 py-0.5 rounded bg-tint text-orange-press border border-orange/20">+40 pts</span>
+                  </div>
+                  <p class="text-xs text-body">Pre-wires B2B ICP, 1.8% baseline rate, outcome-oriented proof hypothesis, and CTA anchor.</p>
+                </div>
+                <div class="mt-3 pt-2 border-t border-brandborder/50 text-[11px] font-mono text-stone flex items-center justify-between">
+                  <span>Target: pages/index.html</span>
+                  <span class="pack-badge text-orange-press font-semibold">Select</span>
+                </div>
+              </div>
+
+              <!-- Pack 2: CWV -->
+              <div id="pack-card-cwv" onclick="selectHudPack('performance')" class="cursor-pointer p-4 rounded-xl border border-brandborder bg-white hover:border-orange-press transition flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-mono font-bold text-ink">[2] CWV LCP Optimization</span>
+                    <span class="text-[11px] font-mono px-1.5 py-0.5 rounded bg-canvas text-stone border border-brandborder">+40 pts</span>
+                  </div>
+                  <p class="text-xs text-body">Pre-wires performance budget (LCP &lt; 2.5s, CLS &lt; 0.1), critical asset preloading, and mobile device profile.</p>
+                </div>
+                <div class="mt-3 pt-2 border-t border-brandborder/50 text-[11px] font-mono text-stone flex items-center justify-between">
+                  <span>Target: pages/index.html</span>
+                  <span class="pack-badge text-stone">Select</span>
+                </div>
+              </div>
+
+              <!-- Pack 3: SEO -->
+              <div id="pack-card-seo" onclick="selectHudPack('seo')" class="cursor-pointer p-4 rounded-xl border border-brandborder bg-white hover:border-orange-press transition flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-mono font-bold text-ink">[3] SEO Schema & AEO Inject</span>
+                    <span class="text-[11px] font-mono px-1.5 py-0.5 rounded bg-canvas text-stone border border-brandborder">+40 pts</span>
+                  </div>
+                  <p class="text-xs text-body">Pre-wires SoftwareApplication schema, Perplexity/ChatGPT AI queries, and canonical indexing tags.</p>
+                </div>
+                <div class="mt-3 pt-2 border-t border-brandborder/50 text-[11px] font-mono text-stone flex items-center justify-between">
+                  <span>Target: pages/overview.html</span>
+                  <span class="pack-badge text-stone">Select</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-2 flex items-center justify-between">
+              <button type="button" onclick="setHudStep(1)" class="text-xs font-mono px-3 py-2 min-h-[44px] rounded-xl text-stone hover:text-ink">
+                &larr; Back to Step 1
+              </button>
+              <button type="button" onclick="setHudStep(3)" class="text-xs font-mono px-4 py-2 min-h-[44px] rounded-xl bg-orange-press text-white hover:bg-orange transition">
+                Proceed to Verification Tuner &rarr;
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Verification Tuner -->
+          <div id="hud-step-3" class="hidden space-y-4">
+            <div class="bg-white p-4 rounded-xl border border-brandborder space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="label-caps text-stone">Holdout Verification Command</span>
+                <span class="text-xs font-mono text-emerald-600 font-medium">Auto-Populated</span>
+              </div>
+              <input
+                id="hud-holdout-cmd"
+                type="text"
+                value="npm test && npm run validate"
+                class="w-full text-xs font-mono text-ink bg-canvas border border-brandborder rounded-lg px-3 py-2.5 min-h-[44px]"
+                readonly
+              />
+            </div>
+
+            <div class="space-y-2">
+              <label class="label-caps text-stone block">Deterministic Rubric Criteria Checkboxes</label>
+              
+              <label class="flex items-start space-x-3 p-3 rounded-xl border border-brandborder bg-white cursor-pointer hover:bg-canvas/50">
+                <input id="chk-rubric-zero-regression" type="checkbox" checked onchange="toggleHudCriterion('zero-regression')" class="mt-0.5 rounded text-orange-press focus:ring-orange-press">
+                <div class="text-xs">
+                  <span class="font-mono font-medium text-ink">Zero regression on existing holdout test suite (+5 pts)</span>
+                  <p class="text-stone">Verifies all 255 existing unit and integration suites pass in isolated worktree.</p>
+                </div>
+              </label>
+
+              <label class="flex items-start space-x-3 p-3 rounded-xl border border-brandborder bg-white cursor-pointer hover:bg-canvas/50">
+                <input id="chk-rubric-bounded-scope" type="checkbox" checked onchange="toggleHudCriterion('bounded-scope')" class="mt-0.5 rounded text-orange-press focus:ring-orange-press">
+                <div class="text-xs">
+                  <span class="font-mono font-medium text-ink">Bounded write scope verified with zero wildcards (+5 pts)</span>
+                  <p class="text-stone">Confines modifications strictly to declared route paths with no unconstrained globs.</p>
+                </div>
+              </label>
+
+              <label class="flex items-start space-x-3 p-3 rounded-xl border border-brandborder bg-white cursor-pointer hover:bg-canvas/50">
+                <input id="chk-rubric-validator-gate" type="checkbox" checked onchange="toggleHudCriterion('validator-gate')" class="mt-0.5 rounded text-orange-press focus:ring-orange-press">
+                <div class="text-xs">
+                  <span class="font-mono font-medium text-ink">Independent Skeptic Validator approval (&le; 0.2 skepticism) (+10 pts)</span>
+                  <p class="text-stone">Dispatches independent provider validation gate before merge eligibility.</p>
+                </div>
+              </label>
+            </div>
+
+            <div class="pt-2 flex items-center justify-between">
+              <button type="button" onclick="setHudStep(2)" class="text-xs font-mono px-3 py-2 min-h-[44px] rounded-xl text-stone hover:text-ink">
+                &larr; Back to Step 2
+              </button>
+              <button type="button" onclick="showToast('Verification Tuner synchronized with spec queue!')" class="text-xs font-mono px-4 py-2 min-h-[44px] rounded-xl bg-emerald-700 text-white hover:bg-emerald-600 transition">
+                ✓ Sync to Spec Drawer
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- CONCEPT 3: Topological Route Canvas (#view-canvas)                        -->
+    <!-- ========================================================================= -->
+    <section id="view-canvas" class="hidden space-y-6">
+      <div class="bg-white border border-brandborder rounded-2xl p-6 sm:p-8 shadow-subtle">
+        <div class="border-b border-brandborder pb-5 mb-6">
+          <div class="flex items-center space-x-2 mb-1">
+            <span class="label-caps px-2 py-0.5 rounded bg-tint text-orange-press font-mono">PARADIGM 03</span>
+            <h1 class="text-xl sm:text-2xl font-bold text-ink">Topological Route Canvas</h1>
+          </div>
+          <p class="text-sm text-body">
+            Directly select repository topology on the left to generate zero-wildcard write scopes. Use the confidence slider on the right to auto-synthesize missing criteria and simulate the worktree sandbox.
+          </p>
+        </div>
+
+        <!-- Dual-Pane Workspace Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT PANE: Interactive File Tree (5 cols) -->
+          <div class="lg:col-span-5 bg-neutral border border-brandborder rounded-xl p-5 space-y-4">
+            <div class="flex items-center justify-between border-b border-brandborder pb-3">
+              <span class="label-caps text-stone font-semibold">Repository File Topology</span>
+              <span class="text-xs font-mono text-orange-press">RL22/minimal-demo-site</span>
+            </div>
+
+            <div class="font-mono text-xs space-y-1.5">
+              <!-- Folder: pages/ -->
+              <div class="tree-folder">
+                <div class="flex items-center space-x-1.5 text-stone font-semibold py-1">
+                  <span>📁</span>
+                  <span>pages/</span>
+                </div>
+                <div class="pl-5 space-y-1 border-l border-brandborder/70 ml-2">
+                  <div onclick="selectCanvasFile('pages/index.html')" id="file-pages-index" class="cursor-pointer flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-canvas transition border border-orange-press bg-tint text-orange-press">
+                    <span class="flex items-center space-x-1.5">
+                      <span>📄</span>
+                      <span class="font-medium">index.html</span>
+                    </span>
+                    <span class="check-icon text-xs">✓</span>
+                  </div>
+                  <div onclick="selectCanvasFile('pages/pricing.html')" id="file-pages-pricing" class="cursor-pointer flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-canvas transition text-ink">
+                    <span class="flex items-center space-x-1.5">
+                      <span>📄</span>
+                      <span>pricing.html</span>
+                    </span>
+                    <span class="check-icon text-xs opacity-0">✓</span>
+                  </div>
+                  <div onclick="selectCanvasFile('pages/overview.html')" id="file-pages-overview" class="cursor-pointer flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-canvas transition text-ink">
+                    <span class="flex items-center space-x-1.5">
+                      <span>📄</span>
+                      <span>overview.html</span>
+                    </span>
+                    <span class="check-icon text-xs opacity-0">✓</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Folder: styles/ -->
+              <div class="tree-folder pt-1">
+                <div class="flex items-center space-x-1.5 text-stone font-semibold py-1">
+                  <span>📁</span>
+                  <span>styles/</span>
+                </div>
+                <div class="pl-5 space-y-1 border-l border-brandborder/70 ml-2">
+                  <div onclick="selectCanvasFile('styles/theme.css')" id="file-styles-theme" class="cursor-pointer flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-canvas transition text-ink">
+                    <span class="flex items-center space-x-1.5">
+                      <span>🎨</span>
+                      <span>theme.css</span>
+                    </span>
+                    <span class="check-icon text-xs opacity-0">✓</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Folder: contracts/ (Protected) -->
+              <div class="tree-folder pt-1">
+                <div class="flex items-center space-x-1.5 text-stone font-semibold py-1">
+                  <span>📁</span>
+                  <span>contracts/</span>
+                  <span class="text-[10px] px-1 py-0.2 rounded bg-red-100 text-red-700 font-mono">LOCKED</span>
+                </div>
+                <div class="pl-5 space-y-1 border-l border-brandborder/70 ml-2">
+                  <div onclick="selectCanvasFile('contracts/brand.md', true)" id="file-contracts-brand" class="cursor-pointer flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-red-50 text-stone">
+                    <span class="flex items-center space-x-1.5">
+                      <span>🔒</span>
+                      <span>brand.md</span>
+                    </span>
+                    <span class="text-[10px] text-red-600 font-mono">PROTECTED</span>
+                  </div>
+                  <div onclick="selectCanvasFile('contracts/site.md', true)" id="file-contracts-site" class="cursor-pointer flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-red-50 text-stone">
+                    <span class="flex items-center space-x-1.5">
+                      <span>🔒</span>
+                      <span>site.md</span>
+                    </span>
+                    <span class="text-[10px] text-red-600 font-mono">PROTECTED</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Zero-Wildcard Output Display -->
+            <div class="pt-3 border-t border-brandborder">
+              <span class="label-caps text-stone block mb-1">Generated Allowed Write Scope:</span>
+              <pre id="canvas-scope-output" class="text-xs font-mono bg-white p-2.5 rounded-lg border border-brandborder text-ink overflow-x-auto">["pages/index.html"]</pre>
+              <div id="canvas-scope-warning" class="hidden mt-2 p-2 rounded-lg bg-red-50 border border-red-200 text-xs text-red-700 font-mono flex items-center space-x-1.5">
+                <span>⚠️ Protected Contract Path selected! Darkside strict validator will reject wildcard scope.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT PANE: Confidence Target Slider & Synthesizer (7 cols) -->
+          <div class="lg:col-span-7 space-y-5">
+            <!-- Confidence Slider -->
+            <div class="bg-neutral border border-brandborder rounded-xl p-5 space-y-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="label-caps text-stone font-semibold">Confidence Target Slider</span>
+                  <p class="text-xs text-body mt-0.5">Drag target score to trigger automated requirement synthesis.</p>
+                </div>
+                <span id="canvas-target-score-badge" class="font-mono text-sm px-2.5 py-1 rounded bg-tint text-orange-press font-bold border border-orange/20">Target: 80</span>
+              </div>
+
+              <div>
+                <input
+                  id="canvas-confidence-slider"
+                  type="range"
+                  min="50"
+                  max="100"
+                  value="80"
+                  step="5"
+                  class="w-full accent-orange-press cursor-pointer"
+                  oninput="handleCanvasSliderChange(this.value)"
+                />
+                <div class="flex justify-between text-[11px] font-mono text-stone mt-1">
+                  <span>50 (Draft)</span>
+                  <span class="text-orange-press font-bold">80 (Dispatch Ready Gate)</span>
+                  <span>100 (Max Verifiable)</span>
+                </div>
+              </div>
+
+              <!-- Automated Synthesis Triggers -->
+              <div class="pt-3 border-t border-brandborder space-y-2.5">
+                <span class="label-caps text-stone block">One-Click Synthesizers</span>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                  <button type="button" onclick="synthesizeHypothesis()" class="text-xs font-mono font-medium p-2.5 min-h-[44px] rounded-lg bg-white hover:bg-canvas border border-brandborder hover:border-orange-press text-ink transition text-left flex flex-col justify-between">
+                    <span class="text-orange-press font-semibold">+ Synthesize</span>
+                    <span>Hypothesis</span>
+                  </button>
+                  <button type="button" onclick="synthesizeCriteria()" class="text-xs font-mono font-medium p-2.5 min-h-[44px] rounded-lg bg-white hover:bg-canvas border border-brandborder hover:border-orange-press text-ink transition text-left flex flex-col justify-between">
+                    <span class="text-orange-press font-semibold">+ Generate</span>
+                    <span>3 Criteria</span>
+                  </button>
+                  <button type="button" onclick="synthesizeVerification()" class="text-xs font-mono font-medium p-2.5 min-h-[44px] rounded-lg bg-white hover:bg-canvas border border-brandborder hover:border-orange-press text-ink transition text-left flex flex-col justify-between">
+                    <span class="text-orange-press font-semibold">+ Detect</span>
+                    <span>Holdout Checks</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Worktree Sandbox Simulator -->
+            <div class="bg-black text-ondark rounded-xl p-5 font-mono text-xs border border-darktheme space-y-2.5 shadow-card">
+              <div class="flex items-center justify-between border-b border-white/10 pb-2">
+                <div class="flex items-center space-x-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span>
+                  <span class="text-white font-semibold">WORKTREE SANDBOX SIMULATOR</span>
+                </div>
+                <span class="text-[10px] text-stone">Node N2 Runner</span>
+              </div>
+              <pre id="canvas-sandbox-terminal" class="text-[11px] leading-relaxed text-ondark overflow-x-auto whitespace-pre">$ git worktree add -b darkside/cro-hero-elevation .worktrees/wt-cro-hero origin/main
+Preparing worktree (new branch 'darkside/cro-hero-elevation')
+HEAD is now at a91b2c4 chore: pin runtime dependencies
+
+$ darkside-sandbox-verify --scope "pages/index.html"
+Scope Boundary Check: PASS (1 isolated file locked)
+Protected Path Immunity: VERIFIED (0 contract touches)
+Pre-flight Holdout: PASS (npm test: 255 pass, 0 fail)</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- PERSISTENT SPEC CONFIDENCE BAR & EXPANDABLE DRAWER                        -->
+  <!-- ========================================================================= -->
+  <aside class="fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur border-t border-brandborder z-40 shadow-card">
+    
+    <!-- Collapsible Spec Preview Drawer Content -->
+    <div id="spec-drawer" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300 overflow-hidden" style="max-height: 0px;">
+      <div class="py-4 border-b border-brandborder">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center space-x-2">
+            <button id="tab-drawer-md" type="button" onclick="setDrawerTab('md')" class="text-xs px-3 py-1.5 min-h-[40px] rounded-lg bg-tint text-orange-press font-mono font-medium border border-orange/20">
+              Markdown Issue Spec
+            </button>
+            <button id="tab-drawer-json" type="button" onclick="setDrawerTab('json')" class="text-xs px-3 py-1.5 min-h-[40px] rounded-lg bg-canvas text-stone hover:text-ink font-mono font-medium border border-brandborder">
+              Darkside Contract JSON
+            </button>
+          </div>
+          <div class="flex items-center space-x-2">
+            <button type="button" onclick="copyCurrentSpec()" class="text-xs font-mono px-3 py-1.5 min-h-[40px] rounded-lg bg-neutral hover:bg-muted text-ink border border-brandborder">
+              Copy Current Tab
+            </button>
+          </div>
+        </div>
+        <pre id="drawer-code-preview" class="bg-black text-ondark p-4 rounded-xl font-mono text-xs max-h-64 overflow-y-auto border border-darktheme leading-relaxed"></pre>
+      </div>
+    </div>
+
+    <!-- Persistent Bottom Bar -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3 min-h-16">
+      <!-- Left: Score and Status -->
+      <div class="flex items-center space-x-4 min-w-0">
+        <div class="flex items-center space-x-2.5">
+          <span class="label-caps text-stone hidden sm:inline">Spec Confidence:</span>
+          <div class="flex items-center space-x-1.5">
+            <span id="score-counter" class="text-2xl sm:text-3xl font-bold font-mono text-emerald-600">88</span>
+            <span class="text-xs font-mono text-stone">/ 100</span>
+          </div>
+        </div>
+
+        <div class="hidden sm:block w-32 h-2.5 rounded-full bg-muted overflow-hidden">
+          <div id="score-progress-bar" class="h-full bg-emerald-600 transition-all duration-300" style="width: 88%;"></div>
+        </div>
+
+        <span id="score-status-badge" class="label-caps px-2.5 py-1 rounded-full font-mono text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+          DISPATCH READY (&ge; 80)
+        </span>
+      </div>
+
+      <!-- Center & Right: Actions & Drawer Toggle -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <button id="toggle-spec-drawer" type="button" onclick="toggleDrawer()" class="text-xs font-mono px-3 py-2 min-h-[44px] rounded-xl bg-canvas hover:bg-muted text-ink border border-brandborder transition flex items-center space-x-1.5">
+          <span id="drawer-toggle-icon">▲</span>
+          <span id="drawer-toggle-text">Inspect Live Spec</span>
+        </button>
+        <button id="btn-copy-md" type="button" onclick="copyMarkdown()" class="text-xs font-mono px-3 py-2 min-h-[44px] rounded-xl bg-white hover:bg-muted text-ink border border-brandborder transition">
+          Copy Markdown
+        </button>
+        <button id="btn-copy-json" type="button" onclick="copyJSON()" class="text-xs font-mono px-3 py-2 min-h-[44px] rounded-xl bg-white hover:bg-muted text-ink border border-brandborder transition hidden md:inline">
+          Copy JSON
+        </button>
+        <button id="btn-reset-draft" type="button" onclick="resetSpecDraft()" class="text-xs font-mono px-3 py-2 min-h-[44px] rounded-xl bg-muted hover:bg-brandborder text-stone hover:text-ink transition">
+          Reset
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- COMMAND HUD MODAL DIALOG (Triggered via ⌘K or Button)                     -->
+  <!-- ========================================================================= -->
+  <div id="command-hud-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-white border border-brandborder rounded-2xl max-w-2xl w-full shadow-elevated overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+      <!-- Modal Header -->
+      <div class="bg-neutral px-5 py-3.5 border-b border-brandborder flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <span class="w-3 h-3 rounded-full bg-orange-press"></span>
+          <span class="font-mono text-xs font-bold text-ink">SPRINTZ COMMAND HUD (RAYCAST MODE)</span>
+        </div>
+        <button type="button" onclick="closeCommandHud()" class="text-stone hover:text-ink font-mono text-xs p-1">
+          [ESC]
+        </button>
+      </div>
+      <!-- Modal Body -->
+      <div class="p-6 space-y-4">
+        <div class="relative">
+          <input
+            id="hud-modal-search"
+            type="text"
+            placeholder="Type a command or jump to step... (@minimal, CRO, CWV, SEO)"
+            class="w-full text-base font-sans text-ink bg-neutral border border-brandborder rounded-xl px-4 py-3 min-h-[44px] outline-none focus:border-orange-press"
+            oninput="filterHudCommands(this.value)"
+          />
+        </div>
+        <div class="space-y-2 font-mono text-xs" id="hud-modal-command-list">
+          <div onclick="selectHudPack('cro'); closeCommandHud();" class="cursor-pointer p-3 rounded-xl border border-brandborder hover:border-orange-press hover:bg-tint/40 flex items-center justify-between">
+            <span class="text-ink font-medium">1. Apply CRO Hero Elevation Pack (+40 pts)</span>
+            <span class="text-stone">↵ Enter</span>
+          </div>
+          <div onclick="selectHudPack('performance'); closeCommandHud();" class="cursor-pointer p-3 rounded-xl border border-brandborder hover:border-orange-press hover:bg-tint/40 flex items-center justify-between">
+            <span class="text-ink font-medium">2. Apply CWV LCP Optimization Pack (+40 pts)</span>
+            <span class="text-stone">↵ Enter</span>
+          </div>
+          <div onclick="selectHudPack('seo'); closeCommandHud();" class="cursor-pointer p-3 rounded-xl border border-brandborder hover:border-orange-press hover:bg-tint/40 flex items-center justify-between">
+            <span class="text-ink font-medium">3. Apply SEO Schema & AEO Inject (+40 pts)</span>
+            <span class="text-stone">↵ Enter</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="fixed top-20 right-6 z-50 font-mono text-xs px-4 py-3 rounded-xl bg-ink text-neutral shadow-card border border-darktheme transition-all duration-300 opacity-0 pointer-events-none translate-y-2">
+    Spec updated
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- APPLICATION CORE LOGIC (VANILLA JS)                                       -->
+  <!-- ========================================================================= -->
+  <script>
+    // Global Spec State Model
+    const state = {
+      activeConcept: 'compiler',
+      drawerOpen: false,
+      drawerTab: 'md',
+      spec: {
+        target: 'minimal',
+        workType: 'page',
+        domain: 'cro',
+        objective: 'Redesign hero headline and primary CTA on minimal demo site to increase signup conversion',
+        allowedWriteScope: ['pages/index.html'],
+        targetRoute: 'pages/index.html',
+        icpPersona: 'B2B Engineering VP and Founder seeking autonomous marketing site operations',
+        baselineConversionRate: '1.8% visitor-to-pilot signup rate',
+        hypothesis: 'If we replace generic feature bullets with outcome-driven proof points, visitor-to-pilot conversion will increase by >= 20%.',
+        ctaAnchor: 'Start Free Pilot (/signup)',
+        acceptanceCriteria: [
+          'Hero headline is outcome-oriented and constrained within 10 words.',
+          'Primary CTA links directly to /signup flow.',
+          'Pass all existing repository holdout tests without regression.'
+        ],
+        deterministicCommands: 'npm test && npm run validate',
+        constraints: 'Preserve existing branding tokens. Zero external runtime JS dependencies.',
+        dependencies: 'none',
+        riskLevel: 'low',
+        riskRationale: 'Static copy and CTA updates to hero section with zero breaking schema changes.'
+      },
+      acceptedGhosts: {
+        baseline: true,
+        hypo: true,
+        criteria: true
+      },
+      hudToggles: {
+        zeroRegression: true,
+        boundedScope: true,
+        validatorGate: true
+      }
+    };
+
+    // CONCEPT SWITCHING & ROUTING
+    function switchConcept(conceptId) {
+      state.activeConcept = conceptId;
+      window.location.hash = '#' + conceptId;
+
+      // Update Nav tab classes
+      const tabs = {
+        compiler: document.getElementById('nav-compiler'),
+        hud: document.getElementById('nav-hud'),
+        canvas: document.getElementById('nav-canvas')
+      };
+
+      Object.keys(tabs).forEach(k => {
+        if (k === conceptId) {
+          tabs[k].className = 'concept-nav-tab active text-xs sm:text-sm font-medium px-3.5 py-2 min-h-[44px] rounded-lg border border-orange-press bg-tint text-orange-press transition flex items-center space-x-2 whitespace-nowrap';
+        } else {
+          tabs[k].className = 'concept-nav-tab text-xs sm:text-sm font-medium px-3.5 py-2 min-h-[44px] rounded-lg text-stone hover:text-ink border border-transparent transition flex items-center space-x-2 whitespace-nowrap';
+        }
+      });
+
+      // Show/Hide views
+      document.getElementById('view-compiler').classList.toggle('hidden', conceptId !== 'compiler');
+      document.getElementById('view-hud').classList.toggle('hidden', conceptId !== 'hud');
+      document.getElementById('view-canvas').classList.toggle('hidden', conceptId !== 'canvas');
+
+      updateUI();
+    }
+
+    // CONCEPT 1: SPEC COMPILER LOGIC
+    function loadCompilerExample() {
+      const prompt = "Redesign hero headline and primary CTA on minimal demo site to increase signup conversion, running npm test without touching schemas.";
+      const input = document.getElementById('compiler-intent-input');
+      input.value = prompt;
+      handleCompilerInput(prompt);
+      showToast('Loaded example operational intent');
+    }
+
+    function handleCompilerInput(val) {
+      document.getElementById('compiler-char-count').innerText = `${val.length} chars`;
+      const tokensContainer = document.getElementById('compiler-tokens');
+      const tokensStatus = document.getElementById('tokens-status');
+
+      if (!val.trim()) {
+        tokensContainer.innerHTML = '<div class="text-xs text-taupe italic font-sans py-1">Type in the prompt above or click "Try Example Prompt" to see real-time parsing.</div>';
+        tokensStatus.innerText = 'Awaiting prompt stream...';
+        state.spec.objective = '';
+        updateUI();
+        return;
+      }
+
+      state.spec.objective = val.trim();
+
+      // Deterministic Entity Extraction
+      const lower = val.toLowerCase();
+      const tokens = [];
+
+      // Target
+      if (lower.includes('minimal')) {
+        tokens.push({ label: 'Target', val: 'minimal', note: 'Minimal Demo Site' });
+        state.spec.target = 'minimal';
+      } else if (lower.includes('everlaw')) {
+        tokens.push({ label: 'Target', val: 'everlaw', note: 'Enterprise Audit' });
+        state.spec.target = 'everlaw';
+      }
+
+      // Domain
+      if (lower.includes('conversion') || lower.includes('signup') || lower.includes('cta') || lower.includes('headline')) {
+        tokens.push({ label: 'Domain', val: 'cro', note: 'CRO & Copy' });
+        state.spec.domain = 'cro';
+      } else if (lower.includes('performance') || lower.includes('lcp') || lower.includes('cwv')) {
+        tokens.push({ label: 'Domain', val: 'performance', note: 'Performance' });
+        state.spec.domain = 'performance';
+      } else if (lower.includes('seo') || lower.includes('schema') || lower.includes('aeo')) {
+        tokens.push({ label: 'Domain', val: 'seo', note: 'SEO & AEO' });
+        state.spec.domain = 'seo';
+      }
+
+      // Route & Scope
+      if (lower.includes('hero') || lower.includes('headline') || lower.includes('cta')) {
+        tokens.push({ label: 'Scope', val: 'pages/index.html', note: 'Isolated Route' });
+        state.spec.allowedWriteScope = ['pages/index.html'];
+        state.spec.targetRoute = 'pages/index.html';
+      }
+
+      // Work Type
+      tokens.push({ label: 'Work Type', val: 'page', note: 'Isolated Landing Page' });
+
+      // Commands
+      if (lower.includes('npm test')) {
+        tokens.push({ label: 'Commands', val: 'npm test', note: 'Holdout Test' });
+        state.spec.deterministicCommands = 'npm test';
+      }
+
+      tokensStatus.innerText = `${tokens.length} entities resolved`;
+
+      // Render tokens
+      tokensContainer.innerHTML = tokens.map(t => `
+        <div class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-neutral border border-brandborder font-mono text-xs text-ink shadow-subtle animate-in fade-in">
+          <span class="text-orange-press font-semibold">${t.label}:</span>
+          <span class="font-bold">${t.val}</span>
+          <span class="text-[10px] text-stone">(${t.note})</span>
+        </div>
+      `).join('');
+
+      updateUI();
+    }
+
+    function acceptGhostCard(cardKey) {
+      state.acceptedGhosts[cardKey] = !state.acceptedGhosts[cardKey];
+      const accepted = state.acceptedGhosts[cardKey];
+
+      const cardMap = {
+        baseline: document.getElementById('ghost-card-baseline'),
+        hypo: document.getElementById('ghost-card-hypo'),
+        criteria: document.getElementById('ghost-card-criteria')
+      };
+
+      const card = cardMap[cardKey];
+      if (accepted) {
+        card.classList.add('accepted');
+        card.querySelector('.action-label').innerHTML = '✓ Incorporated in spec';
+        showToast(`Incorporated ${cardKey} criteria into spec (+pts)`);
+      } else {
+        card.classList.remove('accepted');
+        card.querySelector('.action-label').innerHTML = 'Click to incorporate &rarr;';
+        showToast(`Removed ${cardKey} criteria`);
+      }
+
+      updateUI();
+    }
+
+    // CONCEPT 2: COMMAND HUD LOGIC
+    function openCommandHud() {
+      const modal = document.getElementById('command-hud-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.getElementById('hud-modal-search').focus();
+    }
+
+    function closeCommandHud() {
+      const modal = document.getElementById('command-hud-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function setHudStep(step) {
+      [1, 2, 3].forEach(s => {
+        const stepEl = document.getElementById(`hud-step-${s}`);
+        const tabEl = document.getElementById(`hud-step-tab-${s}`);
+        if (s === step) {
+          stepEl.classList.remove('hidden');
+          tabEl.className = 'hud-step-tab text-xs font-mono font-medium px-3 py-1.5 rounded-lg border border-orange-press bg-tint text-orange-press';
+        } else {
+          stepEl.classList.add('hidden');
+          tabEl.className = 'hud-step-tab text-xs font-mono font-medium px-3 py-1.5 rounded-lg border border-transparent text-stone hover:text-ink';
+        }
+      });
+    }
+
+    function handleHudTargetChange(val) {
+      if (val.includes('everlaw')) {
+        state.spec.target = 'everlaw';
+      } else {
+        state.spec.target = 'minimal';
+      }
+      updateUI();
+    }
+
+    function handleHudRouteChange(val) {
+      state.spec.targetRoute = val;
+      state.spec.allowedWriteScope = [val];
+      updateUI();
+    }
+
+    function selectHudPack(packType) {
+      state.spec.domain = packType;
+
+      const packCards = {
+        cro: document.getElementById('pack-card-cro'),
+        performance: document.getElementById('pack-card-cwv'),
+        seo: document.getElementById('pack-card-seo')
+      };
+
+      Object.keys(packCards).forEach(k => {
+        if (packCards[k]) {
+          const isSelected = k === packType;
+          packCards[k].className = isSelected
+            ? 'cursor-pointer p-4 rounded-xl border border-orange-press bg-tint/30 transition flex flex-col justify-between'
+            : 'cursor-pointer p-4 rounded-xl border border-brandborder bg-white hover:border-orange-press transition flex flex-col justify-between';
+          packCards[k].querySelector('.pack-badge').innerText = isSelected ? 'Active Pack' : 'Select';
+          packCards[k].querySelector('.pack-badge').className = isSelected ? 'pack-badge text-orange-press font-semibold' : 'pack-badge text-stone';
+        }
+      });
+
+      if (packType === 'cro') {
+        state.spec.objective = 'Elevate hero headline and proof points for trial signup lift';
+        state.spec.targetRoute = 'pages/index.html';
+        state.spec.allowedWriteScope = ['pages/index.html'];
+        state.spec.baselineConversionRate = '1.8% visitor-to-pilot signup rate';
+        state.spec.hypothesis = 'Outcome-oriented headline with proof metrics increases conversion by >= 20%';
+        state.spec.ctaAnchor = 'Start Free Pilot';
+      } else if (packType === 'performance') {
+        state.spec.objective = 'Optimize hero Largest Contentful Paint and Cumulative Layout Shift';
+        state.spec.targetRoute = 'pages/index.html';
+        state.spec.allowedWriteScope = ['pages/index.html', 'styles/main.css'];
+        state.spec.hypothesis = 'Preloading hero typography and LCP image cuts mobile load time under 2.0s';
+      } else if (packType === 'seo') {
+        state.spec.objective = 'Inject SoftwareApplication structured data and canonical answer tags';
+        state.spec.targetRoute = 'pages/overview.html';
+        state.spec.allowedWriteScope = ['pages/overview.html'];
+        state.spec.hypothesis = 'Semantic microdata and AEO query alignment enables direct AI quotation in search';
+      }
+
+      updateUI();
+      showToast(`Applied ${packType.toUpperCase()} Objective Pack`);
+    }
+
+    function toggleHudCriterion(key) {
+      if (key === 'zero-regression') state.hudToggles.zeroRegression = !state.hudToggles.zeroRegression;
+      if (key === 'bounded-scope') state.hudToggles.boundedScope = !state.hudToggles.boundedScope;
+      if (key === 'validator-gate') state.hudToggles.validatorGate = !state.hudToggles.validatorGate;
+      updateUI();
+    }
+
+    function filterHudCommands(query) {
+      const q = query.toLowerCase();
+      const list = document.getElementById('hud-modal-command-list');
+    }
+
+    // CONCEPT 3: TOPOLOGICAL ROUTE CANVAS LOGIC
+    function selectCanvasFile(filePath, isProtected = false) {
+      const warningEl = document.getElementById('canvas-scope-warning');
+      const scopeOutput = document.getElementById('canvas-scope-output');
+
+      if (isProtected) {
+        warningEl.classList.remove('hidden');
+        showToast('Protected path: Governance override required!');
+        return;
+      }
+
+      warningEl.classList.add('hidden');
+      state.spec.allowedWriteScope = [filePath];
+      state.spec.targetRoute = filePath;
+      scopeOutput.innerText = JSON.stringify([filePath], null, 2);
+
+      // Visual checkmarks in tree
+      ['pages/index.html', 'pages/pricing.html', 'pages/overview.html', 'styles/theme.css'].forEach(f => {
+        const id = 'file-' + f.replace('/', '-').replace('.', '-');
+        const el = document.getElementById(id);
+        if (el) {
+          const isCurrent = f === filePath;
+          el.className = isCurrent
+            ? 'cursor-pointer flex items-center justify-between px-2 py-1.5 rounded-lg transition border border-orange-press bg-tint text-orange-press font-medium'
+            : 'cursor-pointer flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-canvas transition text-ink';
+          el.querySelector('.check-icon').className = isCurrent ? 'check-icon text-xs' : 'check-icon text-xs opacity-0';
+        }
+      });
+
+      // Update simulator terminal
+      document.getElementById('canvas-sandbox-terminal').innerText = `$ git worktree add -b darkside/branch .worktrees/wt origin/main
+Preparing worktree (new branch 'darkside/branch')
+HEAD is now at a91b2c4 chore: pin runtime dependencies
+
+$ darkside-sandbox-verify --scope "${filePath}"
+Scope Boundary Check: PASS (1 isolated file locked)
+Protected Path Immunity: VERIFIED (0 contract touches)
+Pre-flight Holdout: PASS (npm test: 255 pass, 0 fail)`;
+
+      updateUI();
+      showToast(`Selected route: ${filePath}`);
+    }
+
+    function handleCanvasSliderChange(val) {
+      document.getElementById('canvas-target-score-badge').innerText = `Target: ${val}`;
+      if (val >= 80) {
+        state.acceptedGhosts.baseline = true;
+        state.acceptedGhosts.hypo = true;
+        state.acceptedGhosts.criteria = true;
+      }
+      updateUI();
+    }
+
+    function synthesizeHypothesis() {
+      state.spec.hypothesis = "If outcome-oriented proof metrics replace generic feature bullets on the hero, signup rate will lift by 22%.";
+      state.acceptedGhosts.hypo = true;
+      updateUI();
+      showToast('Synthesized CRO Hypothesis (+8 pts)');
+    }
+
+    function synthesizeCriteria() {
+      state.spec.acceptanceCriteria = [
+        "1. Value proposition in hero reflects outcome-driven proof points.",
+        "2. CTA anchor leads directly to signup flow without intermediate modals.",
+        "3. Pass all repository validation checks with zero regression."
+      ];
+      state.acceptedGhosts.criteria = true;
+      updateUI();
+      showToast('Synthesized 3 Binary Acceptance Criteria (+10 pts)');
+    }
+
+    function synthesizeVerification() {
+      state.spec.deterministicCommands = "npm test && npm run validate";
+      updateUI();
+      showToast('Detected target verification commands (+5 pts)');
+    }
+
+    // RUBRIC CALCULATION & SPEC GENERATION
+    function calculateScore() {
+      let score = 0;
+      const s = state.spec;
+
+      // 1. Universal Foundation (40 pts)
+      if (s.target && s.target.length > 0) score += 8;
+      if (s.objective && s.objective.length >= 15) score += 10;
+      if (s.workType) score += 6;
+      if (s.allowedWriteScope && s.allowedWriteScope.length > 0) score += 8;
+      if (s.riskLevel && s.riskRationale && s.riskRationale.length >= 10) score += 8;
+
+      // 2. Domain Depth (40 pts)
+      if (s.targetRoute) score += 8;
+      if (s.icpPersona && s.icpPersona.length >= 10) score += 8;
+      if (state.acceptedGhosts.baseline && s.baselineConversionRate) score += 8;
+      if (state.acceptedGhosts.hypo && s.hypothesis && s.hypothesis.length >= 15) score += 8;
+      if (s.ctaAnchor) score += 8;
+
+      // 3. Deterministic Verifiability (20 pts)
+      if (state.acceptedGhosts.criteria && s.acceptanceCriteria.length >= 2) score += 10;
+      if (s.deterministicCommands && s.deterministicCommands.length >= 4) score += 5;
+      if (s.constraints && s.dependencies) score += 5;
+
+      return Math.min(100, Math.max(0, score));
+    }
+
+    function updateUI() {
+      const score = calculateScore();
+      const scoreCounter = document.getElementById('score-counter');
+      const progressBar = document.getElementById('score-progress-bar');
+      const statusBadge = document.getElementById('score-status-badge');
+
+      scoreCounter.innerText = score;
+      progressBar.style.width = `${score}%`;
+
+      if (score >= 80) {
+        scoreCounter.className = 'text-2xl sm:text-3xl font-bold font-mono text-emerald-600';
+        progressBar.className = 'h-full bg-emerald-600 transition-all duration-300';
+        statusBadge.className = 'label-caps px-2.5 py-1 rounded-full font-mono text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200';
+        statusBadge.innerText = 'DISPATCH READY (≥ 80)';
+      } else if (score >= 60) {
+        scoreCounter.className = 'text-2xl sm:text-3xl font-bold font-mono text-amber-600';
+        progressBar.className = 'h-full bg-amber-500 transition-all duration-300';
+        statusBadge.className = 'label-caps px-2.5 py-1 rounded-full font-mono text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200';
+        statusBadge.innerText = 'MODERATE (60-79)';
+      } else {
+        scoreCounter.className = 'text-2xl sm:text-3xl font-bold font-mono text-red-600';
+        progressBar.className = 'h-full bg-red-500 transition-all duration-300';
+        statusBadge.className = 'label-caps px-2.5 py-1 rounded-full font-mono text-xs font-semibold bg-red-50 text-red-700 border border-red-200';
+        statusBadge.innerText = 'LOW CONFIDENCE (< 60)';
+      }
+
+      // Sync ghost cards visual state
+      const ghostCards = [
+        { key: 'baseline', id: 'ghost-card-baseline' },
+        { key: 'hypo', id: 'ghost-card-hypo' },
+        { key: 'criteria', id: 'ghost-card-criteria' }
+      ];
+      ghostCards.forEach(g => {
+        const el = document.getElementById(g.id);
+        if (el) {
+          if (state.acceptedGhosts[g.key]) {
+            el.classList.add('accepted');
+            el.querySelector('.action-label').innerHTML = '✓ Incorporated in spec';
+          } else {
+            el.classList.remove('accepted');
+            el.querySelector('.action-label').innerHTML = 'Click to incorporate &rarr;';
+          }
+        }
+      });
+
+      renderSpecPreview();
+    }
+
+    function generateMarkdownSpec() {
+      const s = state.spec;
+      const criteriaMd = s.acceptanceCriteria.map((c, i) => `${i + 1}. ${c}`).join('\n');
+      const scopeMd = s.allowedWriteScope.map(sc => `- ${sc}`).join('\n');
+
+      return `## Objective
+${s.objective}
+
+## Target
+${s.target}
+
+## Work type
+${s.workType}
+
+## Team hints
+- Experimentation & CRO
+- Copywriting
+
+## Allowed write scope
+${scopeMd}
+
+## Acceptance criteria
+${criteriaMd}
+
+## Sources
+- AGENTS.md
+- brand.md
+- site.md
+
+## Constraints
+${s.constraints}
+
+## Dependencies
+${s.dependencies}
+
+## Human decisions
+none
+
+## Risk
+${s.riskLevel}
+${s.riskRationale}
+
+### Target Route
+${s.targetRoute}
+
+### ICP Persona
+${s.icpPersona}
+
+### Baseline Conversion Rate
+${s.baselineConversionRate}
+
+### Hypothesis
+${s.hypothesis}
+
+### CTA Anchor
+${s.ctaAnchor}
+`;
+    }
+
+    function generateJSONSpec() {
+      return JSON.stringify(state.spec, null, 2);
+    }
+
+    function renderSpecPreview() {
+      const preview = document.getElementById('drawer-code-preview');
+      if (!preview) return;
+      if (state.drawerTab === 'md') {
+        preview.innerText = generateMarkdownSpec();
+      } else {
+        preview.innerText = generateJSONSpec();
+      }
+    }
+
+    function setDrawerTab(tab) {
+      state.drawerTab = tab;
+      const tabMd = document.getElementById('tab-drawer-md');
+      const tabJson = document.getElementById('tab-drawer-json');
+
+      if (tab === 'md') {
+        tabMd.className = 'text-xs px-3 py-1.5 min-h-[40px] rounded-lg bg-tint text-orange-press font-mono font-medium border border-orange/20';
+        tabJson.className = 'text-xs px-3 py-1.5 min-h-[40px] rounded-lg bg-canvas text-stone hover:text-ink font-mono font-medium border border-brandborder';
+      } else {
+        tabJson.className = 'text-xs px-3 py-1.5 min-h-[40px] rounded-lg bg-tint text-orange-press font-mono font-medium border border-orange/20';
+        tabMd.className = 'text-xs px-3 py-1.5 min-h-[40px] rounded-lg bg-canvas text-stone hover:text-ink font-mono font-medium border border-brandborder';
+      }
+
+      renderSpecPreview();
+    }
+
+    function toggleDrawer() {
+      state.drawerOpen = !state.drawerOpen;
+      const drawer = document.getElementById('spec-drawer');
+      const icon = document.getElementById('drawer-toggle-icon');
+      const text = document.getElementById('drawer-toggle-text');
+
+      if (state.drawerOpen) {
+        drawer.style.maxHeight = '420px';
+        icon.innerText = '▼';
+        text.innerText = 'Collapse Spec Drawer';
+      } else {
+        drawer.style.maxHeight = '0px';
+        icon.innerText = '▲';
+        text.innerText = 'Inspect Live Spec';
+      }
+    }
+
+    function copyMarkdown() {
+      const md = generateMarkdownSpec();
+      navigator.clipboard.writeText(md).then(() => {
+        showToast('✓ Markdown Spec copied to clipboard');
+      }).catch(() => {
+        showToast('Spec ready (clipboard access denied)');
+      });
+    }
+
+    function copyJSON() {
+      const json = generateJSONSpec();
+      navigator.clipboard.writeText(json).then(() => {
+        showToast('✓ JSON Spec copied to clipboard');
+      }).catch(() => {
+        showToast('Spec ready (clipboard access denied)');
+      });
+    }
+
+    function copyCurrentSpec() {
+      if (state.drawerTab === 'md') copyMarkdown();
+      else copyJSON();
+    }
+
+    function resetSpecDraft() {
+      state.spec.objective = '';
+      state.acceptedGhosts = { baseline: false, hypo: false, criteria: false };
+      const input = document.getElementById('compiler-intent-input');
+      if (input) input.value = '';
+      handleCompilerInput('');
+      showToast('Spec draft reset to baseline');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.innerText = msg;
+      toast.classList.remove('opacity-0', 'translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 2500);
+    }
+
+    // KEYBOARD SHORTCUTS (⌘K, 1, 2, 3, ESC)
+    window.addEventListener('keydown', (e) => {
+      // ⌘K or Ctrl+K
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        openCommandHud();
+      }
+      // ESC
+      if (e.key === 'Escape') {
+        closeCommandHud();
+      }
+      // Number keys inside HUD view when not typing in an input
+      if (!['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+        if (e.key === '1') {
+          if (state.activeConcept === 'hud') setHudStep(1);
+        } else if (e.key === '2') {
+          if (state.activeConcept === 'hud') setHudStep(2);
+        } else if (e.key === '3') {
+          if (state.activeConcept === 'hud') setHudStep(3);
+        }
+      }
+    });
+
+    // HASH ROUTER SYNC
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (['compiler', 'hud', 'canvas'].includes(hash)) {
+        switchConcept(hash);
+      }
+    });
+
+    // INITIALIZATION
+    document.addEventListener('DOMContentLoaded', () => {
+      const initialHash = window.location.hash.replace('#', '');
+      if (['compiler', 'hud', 'canvas'].includes(initialHash)) {
+        switchConcept(initialHash);
+      } else {
+        switchConcept('compiler');
+      }
+
+      // Initial mock input populate
+      const intentInput = document.getElementById('compiler-intent-input');
+      if (intentInput) {
+        intentInput.value = state.spec.objective;
+        handleCompilerInput(state.spec.objective);
+      }
+
+      updateUI();
+    });
+  </script>
+</body>
+</html>
