@@ -43,7 +43,7 @@ These are hands-on IC roles: own the marketing site (CMS, components, performanc
 2. **Hands-on Senior IC & Technical Operator.** Owns marketing-site *lifecycles* end-to-end — architecture, performance, components, publishing workflows, automated CI/CD release gates.
 3. **Headless CMS at Scale.** Headless WordPress in production at Pendo and Revel (post-migration). Sanity in production at Sprintz. Decoupled component systems enabling rapid marketing content velocity.
 4. **Core Web Vitals + Technical SEO & AI Discoverability (GEO).** CWV ownership at Carrot Fertility. Lighthouse-driven refactors. JSON-LD schema governance and AI-search optimization (ensuring LLMs like ChatGPT Search and Perplexity cite product claims accurately).
-5. **Reusable Component Systems That Ship Business Outcomes.** Modular templates at Carrot reduced marketing dev requests by **30%** — self-reported, not on either resume of record, confined to one field on the live site (`carrot-cms-architecture`'s `outcome`) rather than repeated. Standardized phrasing where it does appear — *"30% fewer marketing dev requests at Carrot,"* never "faster delivery" — but it is not the lead proof point. Durability claims a stranger can verify without trusting Rodney carry more weight: a Mednition landing page built in a five-month contract still live and unchanged years later, Pendo's `/{family}/{use-case}/` URL architecture still in production, Carrot's careers page still rendering live from the Greenhouse API.
+5. **Reusable Component Systems That Ship Business Outcomes.** Modular templates at Carrot reduced marketing dev requests by **30%** — self-reported, not on either resume of record, but owner-confirmed as accurate (2026-09). No longer confined to one field: it now appears across `carrot-cms-architecture`'s blurb, body, and outcome. Two more owner-confirmed figures joined it: Pendo's product-page launch time cut from **72 to 24 hours**, and Pendo's demand-gen system supporting **40+ conversion paths**. Standardized phrasing for the Carrot figure — *"30% fewer marketing dev requests at Carrot,"* never "faster delivery." Durability claims a stranger can verify without trusting Rodney remain the strongest class of proof and should still lead where they fit — a Mednition landing page built in a five-month contract still live and unchanged years later, Pendo's `/{family}/{use-case}/` URL architecture still in production, Carrot's careers page still rendering live from the Greenhouse API — but the confirmed percentages are no longer held back from leading.
 6. **Migration Leadership.** WordPress → headless WP migrations and Marketo → HubSpot mar-tech migrations at Andersen, for enterprise clients (Rancher IO, Revel Systems).
 7. **AI-Native Operator.** Runs Sprintz on Next.js 16 + Sanity + Supabase + Tailwind v4, with automated Playwright testing, AI-assisted development, and automated release gates (e.g. validating marketing claims against verified source docs).
 8. **Builder AND Strategist.** Solo studio founder who sells, designs, engineers, and ships.
@@ -67,7 +67,7 @@ These are hands-on IC roles: own the marketing site (CMS, components, performanc
 - **Plain text** = directly verifiable in the Resume (`Rodney Lewis Resume 2025.pdf.md`).
 - **Italics** = not verbatim on the resume — drawn from positioning research, GitHub profile, the user's stated facts, or prior site content. Must be flagged for user review before publishing.
 - **Never** fabricate numbers, testimonials, or company names.
-- The only specific revenue/outcome number we can claim publicly is the **30% fewer marketing dev requests** reduction at Carrot Fertility — **user-asserted, not on either resume of record**, confirmed by Rodney as accurate to memory but not something to lead with. Standardized phrasing where used — never say "30% faster delivery"; that variant was wrong and should not reappear anywhere. It stays confined to one field, one case study (`carrot-cms-architecture`'s `outcome`); every other quantified claim (`N%`, `Nx`) is barred from case-study prose, enforced by `app/work/content.test.ts`.
+- Three specific outcome numbers are now confirmed and claimable publicly (2026-09), none on either resume of record but each confirmed by Rodney as accurate: **30% fewer marketing dev requests** at Carrot Fertility, **72-to-24-hour** product-page launch time reduction at Pendo, and **40+ conversion paths** on Pendo's demand-gen system. Standardized phrasing for the Carrot figure — never say "30% faster delivery." These three may appear across case-study prose and hero/about copy on any surface. `app/work/content.test.ts` still bars every *other*, unconfirmed quantified claim (`N%`, `Nx`) from case-study prose, and still checks that the 30% figure appears as exactly `30%` everywhere it's used.
 
 ---
 
@@ -77,7 +77,9 @@ These are hands-on IC roles: own the marketing site (CMS, components, performanc
 |---|---|---|
 | 9 years senior web & marketing platform roles | Resume | ✅ Verified |
 | 5 companies: Pendo · Carrot · Kiddom · Andersen · Revel | Resume | ✅ Verified |
-| 30% fewer marketing dev requests at Carrot (never "faster delivery") | User-asserted | ⚡ Italic — not on either resume of record; confined to one field, not the lead proof |
+| 30% fewer marketing dev requests at Carrot (never "faster delivery") | Owner-confirmed (2026-09) | ⚡ Italic — not on either resume of record; no longer confined to one field |
+| Pendo product-page launch time cut from 72 to 24 hours | Owner-confirmed (2026-09) | ⚡ Italic — not on either resume of record |
+| Pendo demand-gen system supports 40+ conversion paths | Owner-confirmed (2026-09) | ⚡ Italic — not on either resume of record |
 | Mednition landing page built in a 5-month contract, still live unchanged ~5 years later | Wayback Machine | ✅ Verified — externally checkable, no trust required |
 | Pendo's `/{family}/{use-case}/` product URL architecture still in production | Owner-confirmed, live site | ✅ Verified — externally checkable |
 | Carrot careers page still rendering live listings from the Greenhouse API | Owner-confirmed, live site | ✅ Verified — externally checkable |
@@ -123,9 +125,9 @@ These are hands-on IC roles: own the marketing site (CMS, components, performanc
 
 ## 9. Related Files
 
-- Everlaw Application Dossier: `job-search/applications/everlaw-senior-manager-marketing-web-development.md`
-- Implementation Plan: `.agents/implementation_plan.md`
-- Everlaw Presentation Blueprint: `.agents/everlaw_presentation_blueprint.md`
 - Canonical copy document: `SITE_COPY.md`
 - Everlaw App Directory: `/Users/rodneylewis/Sprintz/jobs/everlaw`
 - Sprintz workspace: `~/Sprintz/brands/sprintz/`
+- Everlaw campaign planning docs (dossier, implementation plan, presentation
+  blueprint): moved to `~/job-search/everlaw/` (2026-08) — job-search
+  material, not part of this public repo.

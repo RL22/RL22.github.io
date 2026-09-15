@@ -1,0 +1,52 @@
+<svg viewBox="0 0 960 600" role="img" aria-labelledby="matt-pocock-vs-obra-superpowers-hero-title matt-pocock-vs-obra-superpowers-hero-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="matt-pocock-vs-obra-superpowers-hero-title">Two ways to structure agent work</title>
+  <desc id="matt-pocock-vs-obra-superpowers-hero-desc">One shared diagnosis branches into an operator-led approach offering focused composable controls and a process-led approach installing a development process the agent follows end to end.</desc>
+  <defs>
+    <marker id="matt-pocock-vs-obra-superpowers-hero-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#374151"/>
+    </marker>
+    <marker id="matt-pocock-vs-obra-superpowers-hero-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#A5523D"/>
+    </marker>
+    <marker id="matt-pocock-vs-obra-superpowers-hero-arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#8A4433"/>
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#F5EFE6"/>
+
+  <path d="M440 128 V160 Q440 168 432 168 H268 Q260 168 260 176 V200" fill="none" stroke="#374151" stroke-width="1" marker-end="url(#matt-pocock-vs-obra-superpowers-hero-arrow)"/>
+  <path d="M520 128 V160 Q520 168 528 168 H692 Q700 168 700 176 V200" fill="none" stroke="#374151" stroke-width="1" marker-end="url(#matt-pocock-vs-obra-superpowers-hero-arrow)"/>
+  <path d="M220 264 V288 Q220 296 212 296 H172 Q164 296 164 304 V336" fill="none" stroke="#374151" stroke-width="1" marker-end="url(#matt-pocock-vs-obra-superpowers-hero-arrow)"/>
+  <path d="M300 264 V288 Q300 296 308 296 H348 Q356 296 356 304 V336" fill="none" stroke="#374151" stroke-width="1" marker-end="url(#matt-pocock-vs-obra-superpowers-hero-arrow)"/>
+  <path d="M660 264 V288 Q660 296 652 296 H612 Q604 296 604 304 V336" fill="none" stroke="#374151" stroke-width="1" marker-end="url(#matt-pocock-vs-obra-superpowers-hero-arrow)"/>
+  <path d="M740 264 V288 Q740 296 748 296 H788 Q796 296 796 304 V336" fill="none" stroke="#374151" stroke-width="1" marker-end="url(#matt-pocock-vs-obra-superpowers-hero-arrow)"/>
+
+  <rect x="360" y="64" width="240" height="64" rx="6" fill="#F5EFE6"/>
+  <rect x="360" y="64" width="240" height="64" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+  <text x="480" y="100" fill="#111827" font-size="12" font-weight="600" font-family="'Figtree', sans-serif" text-anchor="middle">Coding agents need engineering discipline</text>
+
+  <rect x="140" y="200" width="240" height="64" rx="6" fill="#F5EFE6"/>
+  <rect x="140" y="200" width="240" height="64" rx="6" fill="rgba(192,97,74,0.10)" stroke="#A5523D" stroke-width="1"/>
+  <text x="260" y="236" fill="#111827" font-size="12" font-weight="600" font-family="'Figtree', sans-serif" text-anchor="middle">Operator-led</text>
+
+  <rect x="580" y="200" width="240" height="64" rx="6" fill="#F5EFE6"/>
+  <rect x="580" y="200" width="240" height="64" rx="6" fill="rgba(192,97,74,0.10)" stroke="#A5523D" stroke-width="1"/>
+  <text x="700" y="236" fill="#111827" font-size="12" font-weight="600" font-family="'Figtree', sans-serif" text-anchor="middle">Process-led</text>
+
+  <rect x="84" y="336" width="160" height="80" rx="6" fill="#F5EFE6"/>
+  <rect x="84" y="336" width="160" height="80" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+  <text x="164" y="380" fill="#111827" font-size="12" font-weight="600" font-family="'Figtree', sans-serif" text-anchor="middle">Focused controls</text>
+
+  <rect x="276" y="336" width="160" height="80" rx="6" fill="#F5EFE6"/>
+  <rect x="276" y="336" width="160" height="80" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+  <text x="356" y="380" fill="#111827" font-size="12" font-weight="600" font-family="'Figtree', sans-serif" text-anchor="middle">Composable skills</text>
+
+  <rect x="524" y="336" width="160" height="80" rx="6" fill="#F5EFE6"/>
+  <rect x="524" y="336" width="160" height="80" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+  <text x="604" y="380" fill="#111827" font-size="12" font-weight="600" font-family="'Figtree', sans-serif" text-anchor="middle">Discovery → review</text>
+
+  <rect x="716" y="336" width="160" height="80" rx="6" fill="#F5EFE6"/>
+  <rect x="716" y="336" width="160" height="80" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+  <text x="796" y="372" fill="#111827" font-size="12" font-weight="600" font-family="'Figtree', sans-serif" text-anchor="middle">Agent-followed</text>
+  <text x="796" y="392" fill="#374151" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">END TO END</text>
+</svg>

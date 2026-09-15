@@ -99,22 +99,26 @@ Deferred on purpose, not forgotten. No urgency signal from the owner yet.
 8. The pillar row (`ENGINEERING · PRODUCT · MARKETING · ANALYTICS`) on the
    `/work` index is static text, not a functioning filter. Make it real or
    demote it to plain unlabeled text.
-9. 4 of 7 case studies have no bespoke diagram component: `pendo-core-web-platform`,
-   `mednition-landing-page-templates`, `kiddom-component-architecture`,
-   `appzen-campaign-templates`. 3/7 do (`app/work/diagrams/`).
+9. Diagram coverage across case studies: 4 of 7 now have bespoke diagrams
+   (`app/work/diagrams/`), including `pendo-core-web-platform` (`SuiteHierarchy.tsx`).
+   3 remain backlogged: `mednition-landing-page-templates`,
+   `kiddom-component-architecture`, `appzen-campaign-templates`.
 
 ## Test suite
 
-10. **18 pre-existing failures in `tests/work.spec.ts`**, unrelated to any
-    recent change:
-    - 16 failures from a stale `getByRole("term")` selector — the case-study
-      Brief section was converted from `<dl>/<dt>` to `<div>/<h2>` in an
-      earlier session, the Playwright spec was never updated to match.
-    - 1 failure expects "Four builds" in the `/work` H1; the page correctly
-      says "Seven builds" (stale from before Mednition/Kiddom/AppZen shipped).
-    - 1 **real** finding: an axe-core contrast violation on the inline
-      "Experience" link in `/work`'s "Not the full work history" paragraph
-      (1.12:1 measured, needs 3:1, and no non-color styling to compensate).
+10. ~~**18 pre-existing failures in `tests/work.spec.ts`**~~ — **resolved**,
+    all 24 chromium / 24 mobile tests passing:
+    - Updated case-study Brief selector from stale `getByRole("term")` to
+      `getByRole("heading", { level: 2, name: term })` to match the
+      `<div>/<h2>` migration in `WorkLayout.tsx`.
+    - Updated `/work` H1 expectation from "Four builds" to "Seven builds,
+      from the platform side." matching the current 7 case studies.
+    - Resolved the axe-core inline contrast issue on the "Experience" link in
+      `app/work/page.tsx` by changing `hover:underline` to
+      `underline hover:no-underline`.
+    - Configured `reducedMotion: "reduce"` and visibility guards in
+      `tests/work.spec.ts` so axe-core evaluates settled element contrast
+      rather than measuring mid-fade-in opacity transitions.
 
 ## Resume page
 

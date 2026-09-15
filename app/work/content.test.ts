@@ -94,27 +94,29 @@ describe("claim policy", () => {
     }
   });
 
-  // The 30% Carrot figure is self-reported and unverifiable by a reader, so
-  // per SITE_COPY.md's 2026-08-06 note it stays confined to exactly one
-  // field on exactly one study rather than repeated as a sitewide claim, and
-  // no other percent/multiplier claim is allowed into case-study prose at
-  // all. This is the enforcement that note describes.
-  it("confines quantified claims (N%, Nx) to one field on one study", () => {
-    const QUANTIFIED = /\b\d+(\.\d+)?%|\b\d+(\.\d+)?\s+percent\b|\b\d+x\b/i;
-    const NON_OUTCOME_FIELDS = ["title", "blurb", "challenge", "solution"] as const;
+  // 2026-09 policy update: the 30% Carrot figure is now owner-confirmed and
+  // no longer confined to a single field — it appears in carrot-cms-architecture's
+  // blurb, body, and outcome. The rule this test enforces shifted from "one
+  // field only" to "no *unconfirmed* percent/multiplier claim enters
+  // case-study prose" — every other study must still carry none, and the one
+  // study that does carry one must carry exactly the confirmed figure, not a
+  // different or mistyped number.
+  it("allows only the confirmed 30% figure, and only in carrot-cms-architecture", () => {
+    const QUANTIFIED = /\b\d+(\.\d+)?%|\b\d+(\.\d+)?\s+percent\b|\b\d+x\b/gi;
+    const CONFIRMED_SLUG = "carrot-cms-architecture";
+    const CONFIRMED_VALUE = "30%";
 
     for (const c of caseStudies) {
-      for (const field of NON_OUTCOME_FIELDS) {
-        expect(c[field]).not.toMatch(QUANTIFIED);
-      }
-      for (const line of c.body) expect(line).not.toMatch(QUANTIFIED);
-      for (const img of c.images) {
-        expect(img.alt).not.toMatch(QUANTIFIED);
-        expect(img.caption ?? "").not.toMatch(QUANTIFIED);
+      const matches = [
+        ...proseOf(c).matchAll(QUANTIFIED),
+      ].map((m) => m[0]);
+
+      if (c.slug !== CONFIRMED_SLUG) {
+        expect(matches).toEqual([]);
+      } else {
+        expect(matches.length).toBeGreaterThan(0);
+        for (const m of matches) expect(m).toBe(CONFIRMED_VALUE);
       }
     }
-
-    const studiesWithQuantifiedOutcome = caseStudies.filter((c) => QUANTIFIED.test(c.outcome));
-    expect(studiesWithQuantifiedOutcome.map((c) => c.slug)).toEqual(["carrot-cms-architecture"]);
   });
 });

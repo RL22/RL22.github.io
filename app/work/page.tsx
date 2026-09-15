@@ -83,7 +83,7 @@ export default function WorkPage() {
             marketing could do afterward.
           </p>
           <p className="text-gray-500 text-sm leading-relaxed max-w-[62ch] mt-3">
-            Not the full work history. That&apos;s the <a href="/#experience" className="text-brand-dark hover:underline">Experience</a> section.
+            Not the full work history. That&apos;s the <a href="/#experience" className="text-brand-dark underline hover:no-underline">Experience</a> section.
             These are the write-ups for the roles worth walking through in detail.
           </p>
         </Reveal>
