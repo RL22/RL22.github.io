@@ -1,0 +1,6 @@
+Created and validated exactly the two requested SVG fragments:
+
+- [matt-pocock-vs-obra-superpowers-hero.svg](/Users/rodneylewis/Sprintz/Internal/rl22.github.io/content-strategy/.diagram-fragments/matt-pocock-vs-obra-superpowers-hero.svg)
+- [typeui-repo-review-hero.svg](/Users/rodneylewis/Sprintz/Internal/rl22.github.io/content-strategy/.diagram-fragments/typeui-repo-review-hero.svg)
+
+Both pass XML, geometry, accessibility, connector, grid, and content-contract checks.

@@ -3,240 +3,560 @@
     "title": "Headless WordPress: stripping the REST API payload for Next.js",
     "category": "Code",
     "angle": "WordPress sends too much data by default. This covers how to intercept and strip the REST API response down to only the fields a Next.js frontend actually consumes, paired with an edge caching middleware pattern to fix TTFB.",
-    "whyItFits": "Shows he knows how to take a notoriously heavy CMS and force it to perform at enterprise standards."
+    "whyItFits": "Shows he knows how to take a notoriously heavy CMS and force it to perform at enterprise standards.",
+    "sourceUrl": "https://developer.wordpress.org/rest-api/"
   },
   {
     "title": "HubSpot Themes: building components that marketers cannot break",
     "category": "Marketing",
     "angle": "A component architecture approach to HubSpot that limits style overrides while preserving layout flexibility. Explains how to use custom modules and strict field definitions to enforce brand guidelines automatically.",
-    "whyItFits": "Proves he builds for the actual end users while maintaining strict engineering rigor."
+    "whyItFits": "Proves he builds for the actual end users while maintaining strict engineering rigor.",
+    "sourceUrl": "https://developers.hubspot.com/docs/cms/building-blocks/themes"
   },
   {
     "title": "Model Routing: dynamically selecting LLMs in a Next.js marketing stack",
     "category": "AI",
     "angle": "Relying on a single LLM provider for all features is a failure point. A technical look at how to route tasks dynamically between Claude, OpenAI, and local models based on latency requirements and token costs.",
-    "whyItFits": "Demonstrates deep practical experience with AI integration beyond basic API wrappers."
+    "whyItFits": "Demonstrates deep practical experience with AI integration beyond basic API wrappers.",
+    "sourceUrl": "https://sdk.vercel.ai/docs/concepts/model-providers"
   },
   {
     "title": "Vercel AI SDK Core: how tool calling and streaming actually work",
     "category": "Repo Review",
     "angle": "A technical breakdown of how the AI SDK handles streaming responses and tool calling under the hood. Focuses on the adapter pattern they use to normalize different provider APIs into a single interface.",
-    "whyItFits": "Positions him as an engineer who reads the source code of the tools he uses and understands their architectural decisions."
+    "whyItFits": "Positions him as an engineer who reads the source code of the tools he uses and understands their architectural decisions.",
+    "sourceUrl": "https://github.com/vercel/ai"
   },
   {
     "title": "Sanity Schema Patterns: building page builders without the maintenance debt",
     "category": "Code",
     "angle": "How to structure Sanity schemas using polymorphic arrays for a flexible page builder that avoids becoming a maintenance nightmare. Covers validation rules and preview configurations for complex layouts.",
-    "whyItFits": "Highlights his ability to architect CMS solutions that balance content flexibility with structured data."
+    "whyItFits": "Highlights his ability to architect CMS solutions that balance content flexibility with structured data.",
+    "sourceUrl": "https://www.sanity.io/docs/schema-types"
   },
   {
     "title": "Microinteractions: measuring the actual engineering cost of animation",
     "category": "Design",
     "angle": "A framework for evaluating when a complex animation is worth the bundle size and main thread blocking time. Details specific profiling techniques in Chrome DevTools to measure the exact performance impact on Core Web Vitals.",
-    "whyItFits": "Shows he cares about design but grounds his decisions in measurable performance metrics and user experience."
+    "whyItFits": "Shows he cares about design but grounds his decisions in measurable performance metrics and user experience.",
+    "sourceUrl": "https://developer.chrome.com/docs/devtools/performance"
   },
   {
     "title": "Visual Builders: the false economy of no code workarounds",
     "category": "Thoughts",
     "angle": "Trying to force Webflow to handle complex conditional logic always costs more engineering time than building a custom React application. A technical guide on when to eject from visual builders and own the stack.",
-    "whyItFits": "Proves he can make strategic technical decisions and knows the hard limits of different platform types."
+    "whyItFits": "Proves he can make strategic technical decisions and knows the hard limits of different platform types.",
+    "sourceUrl": "https://developers.webflow.com/"
   },
   {
     "title": "Core Web Vitals: treating LCP as a demand generation metric",
     "category": "Marketing",
     "angle": "The direct correlation between LCP improvements and form submission rates on B2B landing pages. Shares a case study of optimizing a Next.js site to drop render blocking resources and the resulting conversion lift.",
-    "whyItFits": "Connects engineering outcomes directly to business metrics that matter to marketing leadership."
+    "whyItFits": "Connects engineering outcomes directly to business metrics that matter to marketing leadership.",
+    "sourceUrl": "https://web.dev/explore/learn-core-web-vitals"
   },
   {
     "title": "Webflow Client API: the undocumented endpoints for programmatic updates",
     "category": "Bookmarks",
     "angle": "A practical look at the undocumented endpoints in the Webflow API that allow for programmatic site updates. Explains how to use them for automated content syncing from external databases.",
-    "whyItFits": "Shows he digs deep into platform capabilities to build integrations that most people assume are impossible."
+    "whyItFits": "Shows he digs deep into platform capabilities to build integrations that most people assume are impossible.",
+    "sourceUrl": "https://developers.webflow.com/reference/rest-introduction"
   },
   {
     "title": "Content Migration: multi agent orchestration for unstructured data",
     "category": "AI",
     "angle": "How to use a network of Claude Code agents to parse, structure, and migrate thousands of unstructured blog posts into a new headless CMS format. Covers the prompt architecture and validation steps.",
-    "whyItFits": "Demonstrates advanced AI workflow automation for a painful and common marketing engineering task."
+    "whyItFits": "Demonstrates advanced AI workflow automation for a painful and common marketing engineering task.",
+    "sourceUrl": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview"
   },
   {
     "title": "Marketo Forms: decoupling submission logic from the client library",
     "category": "Code",
     "angle": "How to build custom React forms that post directly to the Marketo background endpoint. Eliminates the need to load the heavy Marketo JavaScript library on the client entirely.",
-    "whyItFits": "Addresses a specific and universal pain point for marketing engineers with a clean technical solution."
+    "whyItFits": "Addresses a specific and universal pain point for marketing engineers with a clean technical solution.",
+    "sourceUrl": "https://developers.marketo.com/javascript-api/forms/"
   },
   {
     "title": "Tailwind CSS v4: analyzing the new CSS variable engine architecture",
     "category": "Repo Review",
     "angle": "An analysis of the new engine architecture in Tailwind v4. Focuses on the CSS variable approach and what it actually means for design system implementations in enterprise codebases.",
-    "whyItFits": "Shows he stays ahead of core tooling changes and evaluates them based on architectural impact."
+    "whyItFits": "Shows he stays ahead of core tooling changes and evaluates them based on architectural impact.",
+    "sourceUrl": "https://tailwindcss.com/blog/tailwindcss-v4-alpha"
   },
   {
     "title": "Component APIs: designing React props for marketing teams",
     "category": "Design",
     "angle": "How to structure React component props so that non technical users can assemble pages in a visual editor without creating broken layouts. Covers default values, prop validation, and error boundaries.",
-    "whyItFits": "Highlights his expertise in bridging the gap between engineering systems and marketing workflows."
+    "whyItFits": "Highlights his expertise in bridging the gap between engineering systems and marketing workflows.",
+    "sourceUrl": "https://react.dev/learn/passing-props-to-a-component"
   },
   {
     "title": "Sanity vs Webflow: a technical rubric for platform selection",
     "category": "Thoughts",
     "angle": "A technical rubric for deciding between a headless CMS and a visual builder based on content relationships, localization requirements, and available engineering resources.",
-    "whyItFits": "Positions him as a strategic partner who can guide platform selection instead of just executing tickets."
+    "whyItFits": "Positions him as a strategic partner who can guide platform selection instead of just executing tickets.",
+    "sourceUrl": "https://www.sanity.io/compare/sanity-vs-webflow"
   },
   {
     "title": "AI Native Workflows: delegating boilerplate to Codex and architecture to Claude",
     "category": "AI",
     "angle": "A breakdown of a daily workflow using multiple AI assistants for different tasks. Explains the reasoning behind using Codex for boilerplate generation and Claude for architectural refactoring.",
-    "whyItFits": "Shows he is an efficient and modern engineer who uses AI to accelerate output without compromising quality."
+    "whyItFits": "Shows he is an efficient and modern engineer who uses AI to accelerate output without compromising quality.",
+    "sourceUrl": "https://docs.anthropic.com/"
   },
   {
     "title": "Next.js App Router: overriding default caching semantics for marketing content",
     "category": "Bookmarks",
     "angle": "A clear explanation of how the App Router handles caching by default and how to override it for dynamic marketing content. A necessary reference for anyone building headless architectures.",
-    "whyItFits": "Proves his mastery of a complex and critical tool in the modern frontend stack."
+    "whyItFits": "Proves his mastery of a complex and critical tool in the modern frontend stack.",
+    "sourceUrl": "https://nextjs.org/docs/app/building-your-application/caching"
   },
   {
     "title": "Localization Workflows: syncing headless CMS content with translation APIs",
     "category": "Marketing",
     "angle": "How to connect a headless CMS to a translation API and a Git based approval process. Details the webhooks and edge functions required to keep multiple regions in sync without manual data entry.",
-    "whyItFits": "Demonstrates experience building enterprise scale marketing infrastructure."
+    "whyItFits": "Demonstrates experience building enterprise scale marketing infrastructure.",
+    "sourceUrl": "https://www.sanity.io/docs/localization"
   },
   {
     "title": "Edge Functions: personalizing static pages without layout shift",
     "category": "Code",
     "angle": "A technical deep dive into using Vercel Edge Middleware to inject localized pricing and user context into statically generated Next.js pages before they hit the browser.",
-    "whyItFits": "Solves a classic marketing web problem of balancing static site performance with dynamic personalization."
+    "whyItFits": "Solves a classic marketing web problem of balancing static site performance with dynamic personalization.",
+    "sourceUrl": "https://vercel.com/docs/functions/edge-middleware"
   },
   {
     "title": "Figma Variables: automating design token synchronization",
     "category": "Design",
     "angle": "How to set up a GitHub Action that pulls updated color and typography variables directly from the Figma API and compiles them into CSS custom properties.",
-    "whyItFits": "Proves he can build internal tooling that aligns engineering and design teams."
+    "whyItFits": "Proves he can build internal tooling that aligns engineering and design teams.",
+    "sourceUrl": "https://www.figma.com/developers/api#variables-endpoints"
   },
   {
     "title": "Claude Code: building a local plugin for marketing operations",
     "category": "AI",
     "angle": "An overview of writing a custom Claude Code plugin that can directly query a Marketo instance and draft landing page copy based on past successful campaigns.",
-    "whyItFits": "Positions him at the frontier of AI tooling for practical marketing workflows."
+    "whyItFits": "Positions him at the frontier of AI tooling for practical marketing workflows.",
+    "sourceUrl": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview"
   },
   {
     "title": "Your Pipeline Has Six Gates. None of Them Check Your Brand.",
     "category": "Design Systems",
     "angle": "Every pull request runs lint, tests, and builds, but no one checks if the UI still matches the design system. How to integrate automated brand and token validation into your CI/CD pipeline for marketing sites.",
-    "whyItFits": "Demonstrates platform ownership by bringing engineering rigor (CI/CD) to brand consistency and UI quality."
+    "whyItFits": "Demonstrates platform ownership by bringing engineering rigor (CI/CD) to brand consistency and UI quality.",
+    "sourceUrl": "https://www.dembrandt.com/brand-gate"
   },
   {
     "title": "Intent vs Reality: What Your Design System Tool Cannot See",
     "category": "Design",
     "angle": "Figma shows what you intended, but the shipped React components show what you actually built. A deep dive into closing the gap between design tokens and production Tailwind configurations.",
-    "whyItFits": "Shows a senior understanding of the gap between design theory and production reality."
+    "whyItFits": "Shows a senior understanding of the gap between design theory and production reality.",
+    "sourceUrl": "https://www.dembrandt.com/intent-vs-reality"
   },
   {
     "title": "The Agentic Pipeline: From Ticket to Production in 2026",
     "category": "AI",
     "angle": "How AI agents fit into the modern web development lifecycle, from planning and scoping to code generation and QA. A practical look at an agentic pipeline for a marketing engineering team.",
-    "whyItFits": "Positions him as forward-thinking and highly productive, mastering the latest AI workflow trends."
+    "whyItFits": "Positions him as forward-thinking and highly productive, mastering the latest AI workflow trends.",
+    "sourceUrl": "https://www.dembrandt.com/agentic-pipelines"
   },
   {
     "title": "Token Drift Is Silent. Here Is How to Catch It.",
     "category": "Code",
     "angle": "Design tokens drift quietly between releases\u2014a color shifts, a padding value disappears. How to set up automated CSS baseline tracking to catch UI regressions before they hit production.",
-    "whyItFits": "Highlights meticulous attention to detail (craft) and proactive problem-solving."
+    "whyItFits": "Highlights meticulous attention to detail (craft) and proactive problem-solving.",
+    "sourceUrl": "https://www.dembrandt.com/token-drift"
   },
   {
     "title": "Building a Marketing Design System That Actually Scales",
     "category": "Design Systems",
     "angle": "Inheriting legacy marketing sites and a messy brand guide. A practical walkthrough on distilling core brand colors, modular typography, and spacing into a scalable React component library.",
-    "whyItFits": "Proves the ability to lead major architectural initiatives and clean up technical debt."
+    "whyItFits": "Proves the ability to lead major architectural initiatives and clean up technical debt.",
+    "sourceUrl": "https://www.dembrandt.com/building-your-first-design-system"
   },
   {
     "title": "DESIGN.md Is a Good Idea with a Low Ceiling",
     "category": "Thoughts",
     "angle": "Static markdown documentation for design systems fails at scale. Why marketing engineering teams need machine-readable token schemas that survive across tools and platforms.",
-    "whyItFits": "Shows a preference for robust, programmatic solutions over manual, fragile documentation."
+    "whyItFits": "Shows a preference for robust, programmatic solutions over manual, fragile documentation.",
+    "sourceUrl": "https://www.dembrandt.com/design-md"
   },
   {
     "title": "Brand, Design System, Component Library: Aligning Three Hierarchies",
     "category": "Thoughts",
     "angle": "A consultant, a developer, and a marketing lead all view the design system differently. How a Senior Web Developer can bridge these perspectives to build a unified frontend architecture.",
-    "whyItFits": "Demonstrates strong cross-functional communication and leadership skills."
+    "whyItFits": "Demonstrates strong cross-functional communication and leadership skills.",
+    "sourceUrl": "https://www.dembrandt.com/brand-to-design-system"
   },
   {
     "title": "Design-Dev Workflows That Actually Pay Off",
     "category": "Process",
     "angle": "Stop chasing the fanciest handoff tools. The workflows that actually accelerate marketing campaigns rely on shared constraints, strict component APIs, and a unified end goal.",
-    "whyItFits": "Focuses on pragmatic outcomes and business value over shiny new tools."
+    "whyItFits": "Focuses on pragmatic outcomes and business value over shiny new tools.",
+    "sourceUrl": "https://www.dembrandt.com/design-dev-workflows"
   },
   {
     "title": "Three Mindsets, One Product: Bridging Marketing, Design, and Engineering",
     "category": "Process",
     "angle": "Why the gap between marketing requests, design intent, and engineering execution persists, and how a token-first architectural approach helps close it permanently.",
-    "whyItFits": "Shows mature product thinking and the ability to act as the technical lynchpin for a marketing org."
+    "whyItFits": "Shows mature product thinking and the ability to act as the technical lynchpin for a marketing org.",
+    "sourceUrl": "https://www.dembrandt.com/why-it-matters"
   },
   {
     "title": "Automating UI Audits: Extracting Design Tokens Programmatically",
     "category": "Code",
     "angle": "How to use headless browser automation and CLI tools to extract and validate design tokens from public marketing sites, turning manual QA into a single automated script.",
-    "whyItFits": "Highlights advanced automation skills and the ability to build custom internal tooling."
+    "whyItFits": "Highlights advanced automation skills and the ability to build custom internal tooling.",
+    "sourceUrl": "https://www.dembrandt.com/getting-started"
   },
   {
     "title": "Building Custom CLI Tools for Marketing Operations",
     "category": "Repo Review",
     "angle": "A technical deep dive into architecting a CLI tool that automates tedious marketing web tasks, focusing on developer experience and CI/CD integration.",
-    "whyItFits": "Proves high-level software engineering capabilities (building tools for other developers/marketers)."
+    "whyItFits": "Proves high-level software engineering capabilities (building tools for other developers/marketers).",
+    "sourceUrl": "https://www.dembrandt.com/blackpaper"
   },
   {
     "title": "Automated WCAG Audits: Enforcing Accessibility in the Pipeline",
     "category": "Code",
     "angle": "How to integrate Axe-core and Playwright into your marketing site's deployment pipeline to guarantee WCAG AA compliance on every pull request.",
-    "whyItFits": "Directly addresses the \"practice what you preach\" accessibility requirement from his PRODUCT.md."
+    "whyItFits": "Directly addresses the \"practice what you preach\" accessibility requirement from his PRODUCT.md.",
+    "sourceUrl": "https://www.dembrandt.com/recipes"
   },
   {
     "title": "Visually Testing Marketing Sites with AI Agents",
     "category": "AI",
     "angle": "Moving beyond pixel-matching. How to use visual AI agents alongside Playwright to intelligently catch layout breaks and responsive design failures across complex marketing pages.",
-    "whyItFits": "Combines QA rigor with cutting-edge AI techniques."
+    "whyItFits": "Combines QA rigor with cutting-edge AI techniques.",
+    "sourceUrl": "https://www.dembrandt.com/recipes"
   },
   {
     "title": "Syncing Figma Variables Directly to Tailwind Configs",
     "category": "Design Systems",
     "angle": "Eliminating the manual handoff by setting up a GitHub Action that pulls updated color and typography variables directly from the Figma API into your Tailwind configuration.",
-    "whyItFits": "Demonstrates mastery of the modern design-to-code pipeline."
+    "whyItFits": "Demonstrates mastery of the modern design-to-code pipeline.",
+    "sourceUrl": "https://www.dembrandt.com/articles"
   },
   {
     "title": "The True Cost of CSS Inconsistency on B2B Sites",
     "category": "Marketing",
     "angle": "Token drift doesn't just look bad\u2014it bloats your CSS bundle and hurts Core Web Vitals. The performance impact of design inconsistency and how to fix it.",
-    "whyItFits": "Connects technical craft (CSS architecture) directly to performance metrics (CWV) that impact marketing."
+    "whyItFits": "Connects technical craft (CSS architecture) directly to performance metrics (CWV) that impact marketing.",
+    "sourceUrl": "https://www.dembrandt.com/token-drift"
   },
   {
     "title": "Why Your Next.js Marketing Site Needs a Headless Design System",
     "category": "Architecture",
     "angle": "Decoupling design decisions from component implementation. How using headless UI libraries like Radix combined with strict design tokens creates a bulletproof marketing frontend.",
-    "whyItFits": "Shows deep architectural knowledge of the React/Next.js ecosystem."
+    "whyItFits": "Shows deep architectural knowledge of the React/Next.js ecosystem.",
+    "sourceUrl": "https://www.dembrandt.com/brand-to-design-system"
   },
   {
     "title": "Version Controlling Your Brand Guidelines",
     "category": "Code",
     "angle": "Treating design tokens as code. How storing your brand's source of truth in a version-controlled JSON schema enables rollback, audit trails, and multi-platform distribution.",
-    "whyItFits": "Applies software engineering best practices to marketing and design assets."
+    "whyItFits": "Applies software engineering best practices to marketing and design assets.",
+    "sourceUrl": "https://www.dembrandt.com/design-md"
   },
   {
     "title": "Building a Component Library That Marketers Can't Break",
     "category": "Architecture",
     "angle": "How to use strict TypeScript props, restricted variants, and layout constraints to empower marketers in a headless CMS while preventing them from destroying the design system.",
-    "whyItFits": "Directly addresses the core challenge of balancing CMS flexibility with design integrity."
+    "whyItFits": "Directly addresses the core challenge of balancing CMS flexibility with design integrity.",
+    "sourceUrl": "https://www.dembrandt.com/brand-gate"
   },
   {
     "title": "The Rise of the Platform Engineer in Marketing",
     "category": "Thoughts",
     "angle": "Marketing web development has evolved. Why B2B companies no longer need \"growth hackers\" tweaking HTML, but Platform Engineers who build scalable, secure, and performant content delivery systems.",
-    "whyItFits": "Perfectly aligns with his brand personality: confident craftsman, platform owner, anti-hype."
+    "whyItFits": "Perfectly aligns with his brand personality: confident craftsman, platform owner, anti-hype.",
+    "sourceUrl": "https://www.dembrandt.com/agentic-pipelines"
   },
   {
     "title": "Preventing Layout Shift (CLS) When Injecting Dynamic Marketing Content",
     "category": "Performance",
     "angle": "A deep dive into reserving space for dynamic content (A/B tests, personalization scripts) to prevent Cumulative Layout Shift and maintain perfect Core Web Vitals scores.",
-    "whyItFits": "Shows meticulous attention to frontend performance optimization."
+    "whyItFits": "Shows meticulous attention to frontend performance optimization.",
+    "sourceUrl": "https://www.dembrandt.com/intent-vs-reality"
+  },
+  {
+    "title": "Adversarial Code Review: Breaking Your Own Marketing Platform",
+    "category": "Security",
+    "angle": "How to adopt an adversarial mindset during code reviews for marketing infrastructure. Using AI agents to purposefully hunt for prompt injections, layout breaking inputs, and security flaws before they hit production.",
+    "whyItFits": "Showcases advanced security posture and defensive architecture, rare in marketing engineering.",
+    "sourceUrl": "https://www.augmentcode.com/guides/adversarial-code-review"
+  },
+  {
+    "title": "The Marketing Software Factory: From Artisanal Pages to Scalable Pipelines",
+    "category": "Architecture",
+    "angle": "Stop hand-crafting bespoke landing pages. How to transition your marketing web team to a 'Software Factory' model where design tokens, headless CMS schemas, and AI agents generate predictable outputs at scale.",
+    "whyItFits": "Demonstrates platform ownership and ability to scale engineering processes.",
+    "sourceUrl": "https://www.augmentcode.com/guides/software-factory-maturity-model"
+  },
+  {
+    "title": "Agentic WebOps vs Traditional DevOps for Marketing",
+    "category": "WebOps",
+    "angle": "DevOps automated our deployments; Agentic WebOps automates our logic. How I'm integrating AI agents into our CI/CD pipelines to automatically resolve CMS merge conflicts and linting errors.",
+    "whyItFits": "Highlights forward-thinking automation skills that accelerate time-to-market.",
+    "sourceUrl": "https://www.augmentcode.com/guides/software-factory-vs-devops"
+  },
+  {
+    "title": "Closing the Governance Gap in AI-Generated Marketing Code",
+    "category": "Security",
+    "angle": "When marketing teams start using AI to write HTML/CSS, who audits the code? Setting up strict governance, sandboxing, and automated reviews for LLM-generated snippets in headless CMS environments.",
+    "whyItFits": "Positions him as a senior safeguard for the brand's technical integrity.",
+    "sourceUrl": "https://www.augmentcode.com/guides/ai-generated-code-security-governance"
+  },
+  {
+    "title": "Engineering Capacity Planning When AI Agents Do the Heavy Lifting",
+    "category": "Leadership",
+    "angle": "How AI code assistants change sprint planning for marketing web teams. Moving focus from 'how long to code this layout' to 'how long to architect the data model and let agents scaffold the UI'.",
+    "whyItFits": "Shows he thinks about team velocity, resource allocation, and strategic leadership.",
+    "sourceUrl": "https://www.augmentcode.com/guides/engineering-capacity-planning-with-ai-agents"
+  },
+  {
+    "title": "Securing the SDLC for Headless Commerce and Marketing",
+    "category": "Security",
+    "angle": "Marketing sites are prime targets for supply chain attacks via third-party tracking scripts. How to implement strict Content Security Policies (CSP) and secure the SDLC alongside AI agents.",
+    "whyItFits": "Proves deep technical understanding of frontend security (CSP, third-party risk).",
+    "sourceUrl": "https://www.augmentcode.com/guides/secure-sdlc-agent-authored-code"
+  },
+  {
+    "title": "Automated Security Remediation: Fixing Vulnerabilities Before Human Review",
+    "category": "Security",
+    "angle": "How to wire up Dependabot alerts to an AI agent that not only bumps the version but runs regression tests on your Next.js marketing site and opens a pre-validated PR.",
+    "whyItFits": "Combines DevSecOps with modern AI workflows to reduce maintenance overhead.",
+    "sourceUrl": "https://www.augmentcode.com/guides/ai-governance-tools-agent-written-code"
+  },
+  {
+    "title": "Ticket-to-PR: Automating the Boilerplate in MarTech Integrations",
+    "category": "Automation",
+    "angle": "Why you shouldn't write API wrappers by hand. My workflow for taking a Jira ticket for a new MarTech integration and using agents to output the initial PR with type definitions and mock tests.",
+    "whyItFits": "Shows extreme efficiency and focus on high-value architecture over rote typing.",
+    "sourceUrl": "https://www.augmentcode.com/guides/what-is-a-software-factory"
+  },
+  {
+    "title": "How Supply Chain Attacks Reach Your Next.js Codebase",
+    "category": "Security",
+    "angle": "A technical breakdown of how compromised npm packages or third-party marketing tags can extract data. Why Senior Web Developers must audit the entire dependency tree.",
+    "whyItFits": "Demonstrates a no-compromise approach to platform safety.",
+    "sourceUrl": "https://www.augmentcode.com/guides/supply-chain-attacks-reach-codebase"
+  },
+  {
+    "title": "AI Governance Tools for the Modern Web Developer",
+    "category": "WebOps",
+    "angle": "An evaluation of the tooling required to safely deploy agent-written code in enterprise marketing environments. What belongs in the CI/CD pipeline vs what requires manual sign-off.",
+    "whyItFits": "Shows he can evaluate and implement enterprise-grade tooling.",
+    "sourceUrl": "https://www.augmentcode.com/guides/ai-governance-tools-agent-written-code"
+  },
+  {
+    "title": "Test Coverage That Climbs: Using Agents to Backfill Missing Tests",
+    "category": "Testing",
+    "angle": "Marketing sites famously lack unit tests. How I use AI agents to systematically backfill Jest and Playwright tests for legacy React components to ensure stable migrations.",
+    "whyItFits": "Addresses a common technical debt issue with a scalable, modern solution.",
+    "sourceUrl": "https://www.augmentcode.com/guides/secure-sdlc-agent-authored-code"
+  },
+  {
+    "title": "Incident Management: When the Headless CMS Goes Down",
+    "category": "Architecture",
+    "angle": "How to architect fallback states and static caching layers in Next.js so your marketing site survives a headless CMS outage. Using agents to analyze logs and alert the team.",
+    "whyItFits": "Proves he builds resilient, enterprise-grade platforms, not just pretty websites.",
+    "sourceUrl": "https://www.augmentcode.com/guides/software-factory-vs-devops"
+  },
+  {
+    "title": "Migrating Legacy Marketing Sites: Modernization as a Program",
+    "category": "Architecture",
+    "angle": "Replatforming from WordPress to Next.js isn't a project, it's a program. How to use AI to safely migrate unstructured content and refactor legacy CSS into Tailwind.",
+    "whyItFits": "Shows experience handling large-scale, high-stakes architectural migrations.",
+    "sourceUrl": "https://www.augmentcode.com/guides/software-factory-maturity-model"
+  },
+  {
+    "title": "Zero-Trust Architecture for Marketing Technology Stacks",
+    "category": "Security",
+    "angle": "Why the 'marketing site' shouldn't have unrestricted access to your user database. Implementing Zero-Trust principles and edge middleware authentication for B2B portals.",
+    "whyItFits": "Positions him as a senior engineer who deeply understands backend/frontend security boundaries.",
+    "sourceUrl": "https://www.augmentcode.com/guides/ai-generated-code-security-governance"
+  },
+  {
+    "title": "Team Standards at Scale: Enforcing Your Best Workflow",
+    "category": "Process",
+    "angle": "How to encode your team's best practices (accessibility, performance budgets, naming conventions) into ESLint rules and AI agent prompts so they become the default.",
+    "whyItFits": "Demonstrates team leadership and process standardization.",
+    "sourceUrl": "https://www.augmentcode.com/guides/what-is-a-software-factory"
+  },
+  {
+    "title": "Ramping Up New Engineers on Complex Marketing Platforms",
+    "category": "Leadership",
+    "angle": "How to use interactive documentation and AI context engines to reduce developer onboarding time from weeks to days on complex Headless CMS + Next.js stacks.",
+    "whyItFits": "Highlights mentorship and the ability to scale a team efficiently.",
+    "sourceUrl": "https://www.augmentcode.com/guides/engineering-capacity-planning-with-ai-agents"
+  },
+  {
+    "title": "From Design Doc to Shipped Feature: Managing Large MarTech Projects",
+    "category": "Process",
+    "angle": "My framework for writing technical design documents (TDDs) for marketing infrastructure changes, and using agents to trace requirements through to the final PR.",
+    "whyItFits": "Proves he can handle the full lifecycle of major technical initiatives.",
+    "sourceUrl": "https://www.augmentcode.com/guides/what-is-a-software-factory"
+  },
+  {
+    "title": "Reviewing Every PR with AI: A Senior Developer's Copilot",
+    "category": "Process",
+    "angle": "How I use custom agentic workflows to perform the first pass on all pull requests\u2014checking for SEO regressions, missing alt tags, and bundle size bloat before I even look at the code.",
+    "whyItFits": "Combines engineering productivity with strict quality control.",
+    "sourceUrl": "https://www.augmentcode.com/guides/adversarial-code-review"
+  },
+  {
+    "title": "The False Economy of Skipping Code Review on Marketing Sites",
+    "category": "Culture",
+    "angle": "Why treating marketing websites as 'lower tier' code is a costly mistake. The business impact of unchecked regressions, and how to build a culture of craft and peer review.",
+    "whyItFits": "Perfectly aligns with his 'confident craftsman' and 'platform owner' brand.",
+    "sourceUrl": "https://www.augmentcode.com/guides/adversarial-code-review"
+  },
+  {
+    "title": "Threat Modeling the Modern Headless Frontend",
+    "category": "Security",
+    "angle": "A practical guide to threat modeling a Next.js/Sanity stack. Identifying attack vectors in preview environments, API routes, and webhook endpoints.",
+    "whyItFits": "Demonstrates advanced architectural and security expertise.",
+    "sourceUrl": "https://www.augmentcode.com/guides/supply-chain-attacks-reach-codebase"
+  },
+  {
+    "title": "Agent-to-Agent Commerce: Architecting Web Platforms for Machine Payments",
+    "category": "Architecture",
+    "angle": "As Stripe launches machine payment protocols and agent wallets, B2B websites will soon transact with AI buyers directly. How web engineers must adapt checkout flows, auth, and API rate limits for non-human customers.",
+    "whyItFits": "Positions him as an ahead-of-the-curve platform engineer thinking beyond traditional human-centric UX.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/ai-agent-to-agent-payments-infrastructure"
+  },
+  {
+    "title": "The VAULT Framework: Implementing Enterprise AI Governance on Marketing Sites",
+    "category": "Security",
+    "angle": "Adapting Goldman Sachs' VAULT framework (Verify, Augment, Understand, Loop humans in, Transparency) to safeguard public-facing generative AI tools and lead calculators against hallucinations and data leakage.",
+    "whyItFits": "Demonstrates enterprise-grade compliance and risk-mitigation thinking.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/goldman-sachs-vault-ai-framework"
+  },
+  {
+    "title": "Model Routing Economics: Why Multi-Provider Fallbacks Are Essential in Production",
+    "category": "AI",
+    "angle": "With major acquisitions like Stripe/OpenRouter and shifting API token costs, hardcoding a single AI vendor into your Next.js app is technical debt. A blueprint for building dynamic model routers with automatic latency and cost failovers.",
+    "whyItFits": "Proves architectural maturity and cost-conscious engineering leadership.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/stripe-openrouter-acquisition"
+  },
+  {
+    "title": "OCR-Free Document Retrieval: Ingesting Complex B2B Whitepapers for Marketing AI",
+    "category": "AI",
+    "angle": "Traditional text OCR scrambles tables and graphs in enterprise whitepapers. How visual document retrievers (like EVE Preview) allow AI search assistants on B2B sites to accurately parse technical collateral.",
+    "whyItFits": "Solves a nuanced, high-impact data retrieval problem common in B2B marketing tech.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/evie-visual-document-retriever"
+  },
+  {
+    "title": "Open Design to Production Code: Evaluating AI-Driven UI Generators",
+    "category": "Design",
+    "angle": "Moving past sloppy AI mockups. A technical evaluation of newer stealth models (like Ox Alpha) and open design engines for generating clean, accessible HTML/Tailwind components without bloated DOM hierarchies.",
+    "whyItFits": "Shows discernment in tooling and an unyielding commitment to frontend code craft.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/how-to-use-ox-alpha-open-design"
+  },
+  {
+    "title": "Local Open-Weight Models for Internal MarTech: Cutting API Bills with FreeToken",
+    "category": "WebOps",
+    "angle": "How to offload batch marketing data processing, translation, and SEO tag generation to locally served quantized open-weight models (Qwen, DeepSeek) on single workstation GPUs, saving thousands in API overhead.",
+    "whyItFits": "Demonstrates pragmatic cost optimization and hands-on infrastructure chops.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/freetoken-run-large-moe-models-locally"
+  },
+  {
+    "title": "Benchmarking Frontier Flash Models: Balancing TTFB and Quality in Generative Web Apps",
+    "category": "Performance",
+    "angle": "A performance breakdown comparing sub-second models like Gemini 3.7 Flash against legacy frontier models. How to optimize Time to First Byte (TTFB) and streaming UX on interactive web pages.",
+    "whyItFits": "Connects AI model capabilities directly to Core Web Vitals and user experience metrics.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/gemini-3-7-flash-benchmarks"
+  },
+  {
+    "title": "Decoupling AI Coding Agents: Avoiding Vendor Lock-In with Local Proxies",
+    "category": "Repo Review",
+    "angle": "An architectural teardown of proxy layers (like Free Claude Code) that route agent requests across multiple backends, and how to structure your team's developer tooling to remain model-agnostic.",
+    "whyItFits": "Highlights deep systems knowledge and independent engineering judgment.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/free-claude-code-fcc-proxy"
+  },
+  {
+    "title": "Threat Modeling AI Exploits on Critical Web Infrastructure",
+    "category": "Security",
+    "angle": "In light of multi-agency advisories on AI-generated cyberattacks, how Senior Web Developers must harden public API endpoints, webhooks, and headless CMS integrations against automated vulnerability discovery.",
+    "whyItFits": "Reenforces strong DevSecOps credentials and platform reliability.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/ai-generated-cyberattacks-critical-infrastructure"
+  },
+  {
+    "title": "Automating the MarTech Handoff with OpenAI Codex Workflows",
+    "category": "Automation",
+    "angle": "A practical look at using Codex agents to automate repetitive operations: parsing webhook payloads, generating API mock suites, and syncing CRM field mappings across staging and production.",
+    "whyItFits": "Shows how senior engineers leverage automation to eliminate friction between marketing and engineering.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/codex-for-business-full-course"
+  },
+  {
+    "title": "Managing Rate Limits and Token Budgets in High-Traffic Marketing Applications",
+    "category": "WebOps",
+    "angle": "What happens when a viral marketing launch hammers your generative AI features? Implementing sliding-window rate limiters, token budgets, and edge caching in Vercel/Next.js.",
+    "whyItFits": "Addresses real-world scaling challenges under enterprise traffic spikes.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/claude-code-pricing-limits-workarounds"
+  },
+  {
+    "title": "2-Bit Quantization on the Edge: The Future of Embedded Web Intelligence",
+    "category": "Code",
+    "angle": "Exploring extreme quantization techniques (like Escha-W2) and what ultra-compact model weights mean for running client-side or edge-computed personalization without cloud roundtrips.",
+    "whyItFits": "Highlights forward-looking technical curiosity grounded in computer science fundamentals.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/qwen3-8-27b-escha-w2-2bit-quant"
+  },
+  {
+    "title": "Building Resilient Visual RAG Pipelines for Product Documentation",
+    "category": "Architecture",
+    "angle": "How to construct a complete visual RAG pipeline for interactive product documentation and marketing resource centers, bypassing traditional text-only embedding bottlenecks.",
+    "whyItFits": "Demonstrates the ability to build advanced end-to-end knowledge architectures.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/run-evie-locally-document-rag"
+  },
+  {
+    "title": "Uncensored vs Governed Models: Defining the Boundary for Internal Tooling",
+    "category": "Thoughts",
+    "angle": "When building internal content refactoring and competitive research agents, over-aligned models often refuse benign marketing tasks. A nuanced discussion on safety boundaries and model selection.",
+    "whyItFits": "Shows mature, pragmatic engineering philosophy without dogmatism.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/qwen3-8-27b-obliterated-uncensored"
+  },
+  {
+    "title": "Multi-Modal Frontend Scaffolding: From Screenshot to Semantic Next.js",
+    "category": "Frontend",
+    "angle": "How vision-capable coding models (Ox Alpha / Claude) interpret complex Figma screenshots, where their semantic HTML generation falls short, and the post-processing pipeline needed for production cleanliness.",
+    "whyItFits": "Reasserts high standards for clean markup, accessibility, and engineering craft.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/ox-alpha-stealth-model-frontend"
+  },
+  {
+    "title": "Serving High-Throughput Inference with SGLang for Marketing Personalization",
+    "category": "Performance",
+    "angle": "A guide to benchmarking and tuning inference runtimes like SGLang for high-throughput batch generation of localized landing page variants and dynamic email copy.",
+    "whyItFits": "Demonstrates mastery of performance tuning across both backend and frontend layers.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/run-escha-w2-sglang-consumer-gpu"
+  },
+  {
+    "title": "The Convergence of Coding Assistants and Search: What It Means for Web Dev",
+    "category": "Thoughts",
+    "angle": "As conversational AI and code engines merge into personal agents, how developers' relationship with documentation, syntax memorization, and architectural planning is shifting.",
+    "whyItFits": "Reflective, senior-level commentary on developer experience and industry evolution.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/openai-tibo-interview-agi-vision"
+  },
+  {
+    "title": "Optimizing VRAM Allocation for Local AI Agent Clusters",
+    "category": "WebOps",
+    "angle": "How to configure and balance local GPU memory across multi-agent development stacks when running local LLMs, embedding servers, and Playwright browser instances concurrently.",
+    "whyItFits": "Displays deep workstation mastery and practical engineering self-sufficiency.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/freetoken-install-guide-qwen3-6"
+  },
+  {
+    "title": "Flash Inference in Serverless Edge Environments",
+    "category": "Code",
+    "angle": "How to integrate ultra-low-latency flash models directly into Vercel Edge Middleware or Cloudflare Workers to render personalized dynamic headlines without Cumulative Layout Shift (CLS).",
+    "whyItFits": "Directly bridges AI capabilities with Core Web Vitals and frontend performance.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/gemini-3-7-flash-pricing-free-access"
+  },
+  {
+    "title": "Abliteration, Guardrails, and Filter Tuning in Developer Workflows",
+    "category": "Security",
+    "angle": "Understanding the mechanics of model weight modification, refusal suppression, and why enterprise web teams must enforce guardrails at the API gateway layer rather than relying solely on base model weights.",
+    "whyItFits": "Proves a deep, layered security mindset applicable to modern web architectures.",
+    "sourceUrl": "https://www.mindstudio.ai/blog/qwen38-27b-obliterated-uncensored-model"
   }
 ]

@@ -1,0 +1,65 @@
+<svg viewBox="0 0 960 600" role="img" aria-labelledby="agnostic-ai-stack-fallback-title agnostic-ai-stack-fallback-desc" xmlns="http://www.w3.org/2000/svg">
+  <title id="agnostic-ai-stack-fallback-title">Fallback policy across two providers</title>
+  <desc id="agnostic-ai-stack-fallback-desc">A failed provider call is classified, retried within a budget, then either routed to an evaluated fallback provider or stopped for human review when the task does not allow degradation.</desc>
+  <defs>
+    <marker id="agnostic-ai-stack-fallback-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#374151"/>
+    </marker>
+    <marker id="agnostic-ai-stack-fallback-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#A5523D"/>
+    </marker>
+    <marker id="agnostic-ai-stack-fallback-arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#8A4433"/>
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#F5EFE6"/>
+
+  <line x1="480" y1="104" x2="480" y2="128" stroke="#374151" stroke-width="1.2" marker-end="url(#agnostic-ai-stack-fallback-arrow)"/>
+  <rect x="488" y="108" width="48" height="12" rx="4" fill="#F5EFE6"/>
+  <text x="512" y="116" fill="#6B7280" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">FAILURE</text>
+
+  <line x1="480" y1="240" x2="480" y2="276" stroke="#374151" stroke-width="1.2" marker-end="url(#agnostic-ai-stack-fallback-arrow)"/>
+  <rect x="488" y="248" width="56" height="12" rx="4" fill="#F5EFE6"/>
+  <text x="516" y="256" fill="#6B7280" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">RETRYABLE</text>
+
+  <line x1="584" y1="184" x2="680" y2="184" stroke="#A5523D" stroke-width="1.2" marker-end="url(#agnostic-ai-stack-fallback-arrow-accent)"/>
+  <rect x="612" y="164" width="40" height="12" rx="4" fill="#F5EFE6"/>
+  <text x="632" y="172" fill="#6B7280" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">STOP</text>
+
+  <line x1="480" y1="340" x2="480" y2="380" stroke="#374151" stroke-width="1.2" marker-end="url(#agnostic-ai-stack-fallback-arrow)"/>
+  <rect x="488" y="348" width="56" height="12" rx="4" fill="#F5EFE6"/>
+  <text x="516" y="356" fill="#6B7280" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">EXHAUSTED</text>
+
+  <line x1="480" y1="444" x2="480" y2="500" stroke="#374151" stroke-width="1.2" marker-end="url(#agnostic-ai-stack-fallback-arrow)"/>
+  <rect x="488" y="456" width="56" height="12" rx="4" fill="#F5EFE6"/>
+  <text x="516" y="464" fill="#6B7280" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">NORMALIZE</text>
+
+  <path d="M 380 308 H 328 Q 320 308 320 300 V 80 Q 320 72 328 72 H 380" fill="none" stroke="#374151" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#agnostic-ai-stack-fallback-arrow)"/>
+  <rect x="328" y="188" width="40" height="12" rx="4" fill="#F5EFE6"/>
+  <text x="348" y="196" fill="#6B7280" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">RETRY</text>
+
+  <rect x="380" y="40" width="200" height="64" rx="20" fill="#F5EFE6"/>
+  <rect x="380" y="40" width="200" height="64" rx="20" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+  <text x="480" y="76" fill="#111827" font-size="12" font-weight="600" font-family="'Figtree', sans-serif" text-anchor="middle">Primary provider</text>
+
+  <polygon points="480,128 584,184 480,240 376,184" fill="#F5EFE6"/>
+  <polygon points="480,128 584,184 480,240 376,184" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+  <text x="480" y="180" fill="#111827" font-size="12" font-weight="600" font-family="'Figtree', sans-serif" text-anchor="middle">Failure class?</text>
+  <text x="480" y="200" fill="#374151" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle">TIMEOUT · RATE LIMIT · INVALID</text>
+
+  <rect x="380" y="276" width="200" height="64" rx="6" fill="#F5EFE6"/>
+  <rect x="380" y="276" width="200" height="64" rx="6" fill="rgba(17,24,39,0.05)" stroke="#374151" stroke-width="1"/>
+  <text x="480" y="312" fill="#111827" font-size="12" font-weight="600" font-family="'Figtree', sans-serif" text-anchor="middle">Retry budget</text>
+
+  <rect x="380" y="380" width="200" height="64" rx="6" fill="#F5EFE6"/>
+  <rect x="380" y="380" width="200" height="64" rx="6" fill="rgba(17,24,39,0.03)" stroke="rgba(17,24,39,0.30)" stroke-width="1"/>
+  <text x="480" y="416" fill="#111827" font-size="12" font-weight="600" font-family="'Figtree', sans-serif" text-anchor="middle">Fallback provider</text>
+
+  <rect x="380" y="500" width="200" height="64" rx="20" fill="#F5EFE6"/>
+  <rect x="380" y="500" width="200" height="64" rx="20" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+  <text x="480" y="536" fill="#111827" font-size="12" font-weight="600" font-family="'Figtree', sans-serif" text-anchor="middle">Normalized response</text>
+
+  <rect x="680" y="152" width="200" height="64" rx="6" fill="#F5EFE6"/>
+  <rect x="680" y="152" width="200" height="64" rx="6" fill="rgba(192,97,74,0.10)" stroke="#A5523D" stroke-width="1.2"/>
+  <text x="780" y="188" fill="#111827" font-size="12" font-weight="600" font-family="'Figtree', sans-serif" text-anchor="middle">Stop · request review</text>
+</svg>

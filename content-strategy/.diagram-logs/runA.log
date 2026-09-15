@@ -1,0 +1,3 @@
+The design is fully bounded: a 960×600 left-to-right routing architecture and a top-down fallback flowchart, using only the specified nodes, focal choices, cuts, exact accessibility text, tokens, 4px grid, and six connector rules. I’ll write only the two requested SVG files, then run structural and geometry validation.
+
+Reply “yes” to approve implementation.

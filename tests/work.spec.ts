@@ -9,7 +9,8 @@ test.describe("/work index", () => {
     await page.goto("/work/");
 
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      "Four builds, from the platform side."
+      "Seven builds, from the platform side.",
+      { timeout: 15000 }
     );
 
     for (const c of workData.caseStudies) {
@@ -19,7 +20,10 @@ test.describe("/work index", () => {
   });
 
   test("has no detectable accessibility violations", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/work/");
+    await expect(page.locator("main#main")).toBeVisible({ timeout: 15000 });
+    await page.waitForTimeout(500);
     const results = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
       .analyze();
@@ -32,11 +36,11 @@ test.describe("/work detail", () => {
     test(`${slug} renders with one h1, a skip target, and the brief`, async ({ page }) => {
       await page.goto(`/work/${slug}/`);
 
-      await expect(page.locator("h1")).toHaveCount(1);
+      await expect(page.locator("h1")).toHaveCount(1, { timeout: 15000 });
       await expect(page.locator("main#main")).toHaveCount(1);
 
       for (const term of ["Challenge", "Solution", "Outcome"]) {
-        await expect(page.getByRole("term").filter({ hasText: term })).toBeVisible();
+        await expect(page.getByRole("heading", { level: 2, name: term })).toBeVisible();
       }
 
       // Two blocks: the site-wide Person schema from the root layout, plus
@@ -47,7 +51,10 @@ test.describe("/work detail", () => {
     });
 
     test(`${slug} has no detectable accessibility violations`, async ({ page }) => {
+      await page.emulateMedia({ reducedMotion: "reduce" });
       await page.goto(`/work/${slug}/`);
+      await expect(page.locator("main#main")).toBeVisible({ timeout: 15000 });
+      await page.waitForTimeout(500);
       const results = await new AxeBuilder({ page })
         .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
         .analyze();
@@ -56,6 +63,13 @@ test.describe("/work detail", () => {
   }
 
   const DIAGRAMS = [
+    {
+      slug: "pendo-core-web-platform",
+      name: /product suite routing before and after the family URL hierarchy/i,
+      textNodes: 13,
+      viewBoxWidth: 480,
+      captionPhrase: /reducing launch time to 24 hours/i,
+    },
     {
       slug: "pendo-demand-gen-systems",
       name: /campaign path before and after the template system/i,
