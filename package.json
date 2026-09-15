@@ -26,6 +26,10 @@
     "react-markdown": "^10.1.0",
     "tech-stack-icons": "^3.7.1"
   },
+  "overrides": {
+    "tar": "^7.5.19",
+    "form-data": "^2.5.4"
+  },
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",
     "@playwright/test": "^1.62.1",
