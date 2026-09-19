@@ -19,6 +19,19 @@
     {
       "type": "thoughts",
       "layout": "article",
+      "slug": "the-router-i-actually-run",
+      "category": ["AI", "ENGINEERING"],
+      "status": "published",
+      "title": "The Router I Actually Run",
+      "blurb": "A companion to the illustrative pitch: the real routing table, fallback policy, and JSON envelope in delegate.sh v1.3.0 — verified against the code and an adversarial review.",
+      "url": null,
+      "meta": "Thoughts · AI · Sep 2026",
+      "publishedAt": "2026-09-01",
+      "bodyFile": "content-strategy/posts/the-router-i-actually-run.md"
+    },
+    {
+      "type": "thoughts",
+      "layout": "article",
       "slug": "agnostic-ai-stack",
       "category": ["AI", "ENGINEERING", "PRODUCT"],
       "status": "published",

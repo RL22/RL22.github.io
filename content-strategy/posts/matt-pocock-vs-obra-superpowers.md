@@ -1,4 +1,4 @@
-<!-- asset: matt-pocock-vs-obra-superpowers-hero | brief: two contrasting agent-workflow systems branching from the same engineering problem, one modular and operator-led, the other sequential and process-led | alt: Two agentic software-development workflows, one modular and one sequential, compared side by side -->
+![Pocock's operator-led controls beside Superpowers' approved, process-led workflow from discovery through review](/blog-assets/matt-pocock-vs-obra-superpowers/matt-pocock-vs-obra-superpowers-hero.png)
 
 Matt Pocock and Jesse Vincent (Obra) start from the same diagnosis: coding agents need engineering discipline. Without clear requirements and feedback loops, an agent can drift from the request, ignore the architecture around it, or produce code it has not verified. Both repositories package repeatable practices as agent skills, but they put the human operator in different positions. Pocock gives the operator a set of focused controls. Superpowers installs a development process that the agent follows from discovery through review.
 

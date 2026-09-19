@@ -1,4 +1,4 @@
-<!-- asset: typeui-repo-review-hero | brief: generic agent-generated interface becoming coherent as version-controlled typography, spacing, color, and interaction constraints are applied | alt: Split view of generic and constrained agent-generated interfaces -->
+![Generic agent UI contrasted with UI generated from version-controlled design constraints](/blog-assets/typeui-repo-review/typeui-repo-review-hero.png)
 
 ## The generic-UI failure mode
 
