@@ -1,4 +1,4 @@
-<!-- asset: marketingskills-repo-review-hero | brief: a product-marketing context file at the root feeding copywriting, SEO, analytics, and growth workflow branches | alt: Shared product context branching into coordinated marketing workflows -->
+![Shared product context branching into coordinated marketing workflows](/blog-assets/marketingskills-repo-review/marketingskills-repo-review-hero.png)
 
 ## Why marketing workflows need shared context
 

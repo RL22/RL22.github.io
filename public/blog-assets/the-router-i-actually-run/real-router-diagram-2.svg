@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="real-router-diagram-2-title real-router-diagram-2-desc">
+  <title id="real-router-diagram-2-title">Fail once, tell the truth once.</title>
+  <desc id="real-router-diagram-2-desc">delegate.sh's fallback policy — a hard failure passes through three eligibility guards before one retry, and every outcome converges on the same normalized envelope.</desc>
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&amp;family=Figtree:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap');</style>
+    <marker id="real-router-diagram-2-arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0 0, 8 4, 0 8" fill="#374151"/>
+    </marker>
+    <marker id="real-router-diagram-2-arrow-accent" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0 0, 8 4, 0 8" fill="#A5523D"/>
+    </marker>
+    <marker id="real-router-diagram-2-arrow-link" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0 0, 8 4, 0 8" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <rect width="1800" height="600" fill="#F5EFE6"/>
+
+  <!-- The eligibility boundary is one routed node: one external entry and one external exit. -->
+  <rect x="456" y="208" width="600" height="184" rx="8" fill="#EDE4D8" fill-opacity="0.36" stroke="rgba(17,24,39,0.24)" stroke-width="1" stroke-dasharray="4 4"/>
+  <rect x="660" y="196" width="192" height="24" rx="4" fill="#F5EFE6"/>
+  <text x="756" y="212" fill="#6B7280" font-family="'Geist Mono', ui-monospace, monospace" font-size="8" font-weight="500" letter-spacing="0.12em" text-anchor="middle">FALLBACK ELIGIBILITY</text>
+
+  <!-- Connectors are painted before nodes so every node remains visually intact. -->
+  <g fill="none" stroke="#374151" stroke-width="1.2" marker-end="url(#real-router-diagram-2-arrow)">
+    <path d="M208 300 H236"/>
+    <path d="M428 300 H456"/>
+    <path d="M1056 300 H1080"/>
+    <path d="M332 236 V132 Q332 124 340 124 H1652 Q1660 124 1660 132 V260"/>
+    <path d="M1172 364 V468 Q1172 476 1180 476 H1652 Q1660 476 1660 468 V340"/>
+    <path d="M1492 300 H1544"/>
+  </g>
+  <g fill="none" stroke="#374151" stroke-width="1" marker-end="url(#real-router-diagram-2-arrow)">
+    <path d="M648 300 H664"/>
+    <path d="M840 300 H856"/>
+  </g>
+  <path d="M1264 300 H1292" fill="none" stroke="#A5523D" stroke-width="1.2" marker-end="url(#real-router-diagram-2-arrow-accent)"/>
+
+  <!-- Branch labels use opaque masks with an 8px gap above their connector strokes. -->
+  <rect x="388" y="104" width="32" height="12" rx="4" fill="#F5EFE6"/>
+  <text x="404" y="112" fill="#374151" font-family="'Geist Mono', ui-monospace, monospace" font-size="8" font-weight="500" letter-spacing="0.08em" text-anchor="middle">NO</text>
+  <rect x="428" y="280" width="24" height="12" rx="4" fill="#F5EFE6"/>
+  <text x="440" y="288" fill="#374151" font-family="'Geist Mono', ui-monospace, monospace" font-size="8" font-weight="500" letter-spacing="0.08em" text-anchor="middle">YES</text>
+  <rect x="1296" y="456" width="32" height="12" rx="4" fill="#F5EFE6"/>
+  <text x="1312" y="464" fill="#374151" font-family="'Geist Mono', ui-monospace, monospace" font-size="8" font-weight="500" letter-spacing="0.08em" text-anchor="middle">NO</text>
+  <rect x="1268" y="280" width="24" height="12" rx="4" fill="#F5EFE6"/>
+  <text x="1280" y="288" fill="#374151" font-family="'Geist Mono', ui-monospace, monospace" font-size="8" font-weight="500" letter-spacing="0.08em" text-anchor="middle">YES</text>
+
+  <!-- Start. -->
+  <ellipse cx="120" cy="300" rx="88" ry="40" fill="#FFFFFF" stroke="#111827" stroke-width="1.2"/>
+  <text x="120" y="304" fill="#111827" font-family="'Figtree', system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="0" text-anchor="middle">Primary attempt</text>
+
+  <!-- Hard-failure decision. -->
+  <polygon points="332 236, 428 300, 332 364, 236 300" fill="#FFFFFF" stroke="#111827" stroke-width="1.2"/>
+  <text x="332" y="296" fill="#111827" font-family="'Figtree', system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="0" text-anchor="middle">Hard failure?</text>
+  <text x="332" y="316" fill="#6B7280" font-family="'Geist Mono', ui-monospace, monospace" font-size="8" font-weight="400" letter-spacing="0" text-anchor="middle">empty output or timeout</text>
+
+  <!-- Three checks inside the single fallback-eligibility zone. -->
+  <rect x="472" y="248" width="176" height="104" rx="8" fill="#FFFFFF" stroke="#111827" stroke-width="1"/>
+  <rect x="484" y="260" width="48" height="16" rx="4" fill="none" stroke="rgba(17,24,39,0.40)" stroke-width="0.8"/>
+  <text x="508" y="272" fill="#374151" font-family="'Geist Mono', ui-monospace, monospace" font-size="8" font-weight="500" letter-spacing="0.08em" text-anchor="middle">SCOPE</text>
+  <text x="560" y="296" fill="#111827" font-family="'Figtree', system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="0" text-anchor="middle">
+    <tspan x="560" dy="0">Task has a declared</tspan>
+    <tspan x="560" dy="16">fallback?</tspan>
+  </text>
+  <text x="560" y="336" fill="#6B7280" font-family="'Geist Mono', ui-monospace, monospace" font-size="8" font-weight="400" letter-spacing="0" text-anchor="middle">only bulk / cheap do</text>
+
+  <rect x="664" y="248" width="176" height="104" rx="8" fill="#FFFFFF" stroke="#111827" stroke-width="1"/>
+  <rect x="676" y="260" width="48" height="16" rx="4" fill="none" stroke="rgba(17,24,39,0.40)" stroke-width="0.8"/>
+  <text x="700" y="272" fill="#374151" font-family="'Geist Mono', ui-monospace, monospace" font-size="8" font-weight="500" letter-spacing="0.08em" text-anchor="middle">GUARD</text>
+  <text x="752" y="304" fill="#111827" font-family="'Figtree', system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="0" text-anchor="middle">Fallback ≠ current driver?</text>
+  <text x="752" y="328" fill="#6B7280" font-family="'Geist Mono', ui-monospace, monospace" font-size="8" font-weight="400" letter-spacing="0" text-anchor="middle">self-delegation guard</text>
+
+  <rect x="856" y="248" width="184" height="104" rx="8" fill="#FFFFFF" stroke="#111827" stroke-width="1"/>
+  <rect x="868" y="260" width="48" height="16" rx="4" fill="none" stroke="rgba(17,24,39,0.40)" stroke-width="0.8"/>
+  <text x="892" y="272" fill="#374151" font-family="'Geist Mono', ui-monospace, monospace" font-size="8" font-weight="500" letter-spacing="0.08em" text-anchor="middle">DEDUP</text>
+  <text x="948" y="296" fill="#111827" font-family="'Figtree', system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="0" text-anchor="middle">
+    <tspan x="948" dy="0">Fallback ≠ primary's own</tspan>
+    <tspan x="948" dy="16">executor+model?</tspan>
+  </text>
+
+  <!-- Aggregate decision. -->
+  <polygon points="1172 236, 1264 300, 1172 364, 1080 300" fill="#FFFFFF" stroke="#111827" stroke-width="1.2"/>
+  <text x="1172" y="304" fill="#111827" font-family="'Figtree', system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="0" text-anchor="middle">All three pass?</text>
+
+  <!-- The one focal node. -->
+  <rect x="1292" y="256" width="200" height="88" rx="8" fill="rgba(192,97,74,0.10)" stroke="#A5523D" stroke-width="1.2"/>
+  <rect x="1304" y="268" width="48" height="16" rx="4" fill="none" stroke="rgba(17,24,39,0.40)" stroke-width="0.8"/>
+  <text x="1328" y="280" fill="#374151" font-family="'Geist Mono', ui-monospace, monospace" font-size="8" font-weight="500" letter-spacing="0.08em" text-anchor="middle">RETRY</text>
+  <text x="1392" y="304" fill="#111827" font-family="'Figtree', system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="0" text-anchor="middle">Fallback attempt</text>
+  <text x="1392" y="328" fill="#6B7280" font-family="'Geist Mono', ui-monospace, monospace" font-size="8" font-weight="400" letter-spacing="0" text-anchor="middle">claude:claude-haiku · one retry</text>
+
+  <!-- Shared terminus: every outcome returns the same contract. -->
+  <ellipse cx="1660" cy="300" rx="116" ry="40" fill="#FFFFFF" stroke="#111827" stroke-width="1.2"/>
+  <text x="1660" y="296" fill="#111827" font-family="'Figtree', system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="0" text-anchor="middle">Normalized envelope</text>
+  <text x="1660" y="320" fill="#6B7280" font-family="'Geist Mono', ui-monospace, monospace" font-size="8" font-weight="400" letter-spacing="0" text-anchor="middle">success: true · success: false</text>
+</svg>
