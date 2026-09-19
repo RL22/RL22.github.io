@@ -15,7 +15,16 @@ export default function FeaturedHero() {
           className="group flex flex-col bg-cream rounded-2xl border border-cream-dark p-6"
         >
           <div className="relative aspect-video rounded-xl bg-brand/10 flex items-center justify-center overflow-hidden mb-5">
-            <span className="w-14 h-14 rounded-full bg-brand flex items-center justify-center transition-transform group-hover:scale-110">
+            {video.videoId && (
+              <img
+                src={`https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg`}
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+            )}
+            <span className="absolute inset-0 bg-black/20" />
+            <span className="relative w-14 h-14 rounded-full bg-brand flex items-center justify-center transition-transform group-hover:scale-110">
               <Play className="w-6 h-6 text-white translate-x-0.5" aria-hidden="true" />
             </span>
           </div>
@@ -37,6 +46,14 @@ export default function FeaturedHero() {
               href={`/blog/${item.slug}/`}
               className="group flex-1 flex flex-col bg-cream rounded-2xl border border-cream-dark p-6"
             >
+              <div className="relative aspect-[1200/630] rounded-xl overflow-hidden mb-4 bg-brand/10">
+                <img
+                  src={`/blog/${item.slug}/opengraph-image`}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
               <p className="text-xs font-semibold uppercase tracking-widest text-brand-dark mb-2">
                 {typeLabel[item.type]}
               </p>

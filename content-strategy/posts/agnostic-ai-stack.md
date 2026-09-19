@@ -17,7 +17,7 @@ An illustrative routing policy could stay compact:
 
 The last row matters. Provider independence does not mean every failure should silently fall through to another model. Some tasks can degrade safely; others should stop. Routing needs an explicit failure policy alongside the model choice.
 
-<!-- asset: agnostic-ai-stack-routing | brief: workflow → task requirements → provider adapter → selected model | alt: Diagram of a provider-agnostic model-routing layer -->
+![Provider-agnostic routing by task requirements, including evaluated fallback and stop policies](/blog-assets/agnostic-ai-stack/agnostic-ai-stack-routing.png)
 
 ## Lock-in is an operational risk
 
@@ -69,7 +69,7 @@ Configuration could then map task types to evaluated model tiers rather than sca
 
 The same boundary could also make tests more useful. A workflow could run against a fake adapter in unit tests, while provider contract tests could verify request translation and response normalization. Model evaluations would then answer a separate question: does this candidate model perform the task well enough to enter the routing table?
 
-<!-- asset: agnostic-ai-stack-fallback | brief: primary model failure → fallback provider → normalized response | alt: Fallback flow across two model providers -->
+![Conditional fallback between evaluated providers through one normalized adapter contract](/blog-assets/agnostic-ai-stack/agnostic-ai-stack-fallback.png)
 
 ## What not to abstract
 
