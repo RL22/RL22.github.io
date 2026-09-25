@@ -93,10 +93,10 @@
         {
           "src": "/work/pendo-demo-analytics-lp.png",
           "webp": "/work/pendo-demo-analytics-lp.webp",
-          "alt": "Archived screenshot of an earlier, teal-accented Pendo demo-request landing page: a heading and paragraph on the left, a five-field form card headed \"Get started today!\" on the right, and below them a two-column section pairing a diagram with a heading and paragraph.",
-          "caption": "The prior-generation template, December 2022, shown for contrast. Two landing page systems running side by side is the condition the module set was built to consolidate.",
+          "alt": "Screenshot of the Pendo Customer Support ROI Calculator landing page: a centered purple hero banner with uppercase eyebrow and headline \"How much customer support time could you be saving?\", an interactive two-column calculator card with sliders and dynamic metric outputs ($31,500 cost savings, 18,000 annual tickets), and an active popup modal form card overlaying the inputs with four required fields and a vibrant pink submit button.",
+          "caption": "Customer Support ROI Calculator on go.pendo.io. The centered text hero and interactive popup modal form are modular Marketo template components, enabling campaign-specific lead capture flows without engineering overhead.",
           "width": 1600,
-          "height": 1340
+          "height": 2523
         }
       ]
     },
@@ -132,18 +132,18 @@
       ],
       "images": [
         {
-          "src": "/work/carrot-resource-center.png",
-          "webp": "/work/carrot-resource-center.webp",
-          "alt": "Archived screenshot of the Carrot Resource Center: a sage-green hero with a filter row reading All, Blog, Webinars, eBooks & Guides, Case studies and Podcast, then one section per content collection, each with a heading, a View all button and a three-card grid.",
-          "caption": "The Resource Center, September 2021. Every section below the filter row is a separate Webflow CMS collection rendered through the same template.",
+          "src": "/work/carrot-ebooks-guides-v2.png",
+          "webp": "/work/carrot-ebooks-guides-v2.webp",
+          "alt": "Archived screenshot of the Carrot eBooks & Guides collection page from August 2021: the sage-green hero with the intact Carrot brand mark, active collection filter, and three-column grid of publication report cards.",
+          "caption": "Carrot eBooks & Guides collection page, August 2021. Hub and collection share one component set, with the Carrot brand mark and typography fully intact.",
           "width": 1600,
           "height": 2000
         },
         {
-          "src": "/work/carrot-ebooks-guides.png",
-          "webp": "/work/carrot-ebooks-guides.webp",
-          "alt": "Archived screenshot of the Carrot eBooks & Guides collection page: the same hero and filter row as the Resource Center with eBooks & Guides active, above a three-column grid of eight cards, each showing a printed-report mock-up and a linked title.",
-          "caption": "The same template at collection scope, October 2021. Hub and collection are one component set, which is what made a new collection an entry rather than a build.",
+          "src": "/work/carrot-resource-center.png",
+          "webp": "/work/carrot-resource-center.webp",
+          "alt": "Archived screenshot of the Carrot Resource Center: a sage-green hero with a filter row reading All, Blog, Webinars, eBooks & Guides, Case studies and Podcast, then one section per content collection, each with a heading, a View all button and a three-card grid.",
+          "caption": "The Resource Center, September 2021. Every section below the filter row is a separate Webflow CMS collection rendered through the same template.",
           "width": 1600,
           "height": 2000
         }
@@ -179,18 +179,18 @@
       ],
       "images": [
         {
-          "src": "/work/carrot-for-employers.png",
-          "webp": "/work/carrot-for-employers.webp",
-          "alt": "Archived screenshot of the Carrot \"For employers\" page: a sage-green hero with a heading, a Request a demo button and a flat vector illustration, above a four-column section of icons with labels and short paragraphs.",
-          "caption": "An employer-facing page on the main domain, September 2021. Conversion happens here rather than on a separate landing page subdomain.",
+          "src": "/work/carrot-for-employers-v2.png",
+          "webp": "/work/carrot-for-employers-v2.webp",
+          "alt": "Archived screenshot of the Carrot 'For employers' marketing page from August 2021: sage-green hero with intact Carrot wordmark and vector illustration, above four benefit columns with all icons including the Carrot Care Team fully rendered.",
+          "caption": "An employer-facing page on the main domain, August 2021, with all benefit illustrations and Carrot Care Team icons fully rendered.",
           "width": 1600,
           "height": 2000
         },
         {
-          "src": "/work/carrot-careers.png",
-          "webp": "/work/carrot-careers.webp",
-          "alt": "Archived screenshot of the Carrot open-roles page: a pale-blue hero headed \"Open Roles\" above a two-column layout with a Departments filter rail on the left and a job list grouped under department headings on the right, each listing showing a role title and a Learn More link.",
-          "caption": "The careers section, May 2022. Every role on this page renders from the Greenhouse API, so there is no step where the site can drift from the ATS.",
+          "src": "/work/carrot-careers-v2.png",
+          "webp": "/work/carrot-careers-v2.webp",
+          "alt": "Archived screenshot of the Carrot careers open roles page: intact Carrot brand mark above a two-column layout with a live Greenhouse ATS department filter rail and role listings.",
+          "caption": "The careers section, May 2022. Every role on this page renders from the Greenhouse API with real-time department filtering, removing manual syncs.",
           "width": 1600,
           "height": 2000
         }
@@ -227,20 +227,12 @@
       ],
       "images": [
         {
-          "src": "/work/kiddom-start.png",
-          "webp": "/work/kiddom-start.webp",
-          "alt": "Archived screenshot of the Kiddom marketing website homepage as it looked in March 2021, before the engagement began, showing the pre-tenure hero section and navigation.",
-          "caption": "The homepage at the start of the six-month engagement, March 2021.",
+          "src": "/work/kiddom-component-transformation.png",
+          "webp": "/work/kiddom-component-transformation.webp",
+          "alt": "Before and after component transformation comparison of Kiddom's marketing site architecture: March 2021 before the engagement showing an ad-hoc single-column dropdown list with zero icons, unstandardized coral buttons, and fragmented tokens, versus September 2021 after the component overhaul showing a unified 40+ React component library, a 3-column mega-menu with fully intact platform category icons (Curriculum, Instruction, Assessment, Communication), Customer Stories module, State of Digital Curriculum report card, and standardized cobalt blue design system tokens.",
+          "caption": "Component transformation: March 2021 ad-hoc dropdown layout with zero icons and fragmented tokens versus September 2021 unified 40+ React component library, featuring a 3-column mega-menu with complete intact category iconography, Customer Stories lead-gen modules, and standardized UI kit tokens.",
           "width": 1600,
-          "height": 2000
-        },
-        {
-          "src": "/work/kiddom-end.png",
-          "webp": "/work/kiddom-end.webp",
-          "alt": "Archived screenshot of the Kiddom marketing website homepage from September 2021, at the end of the engagement, showing the front-end structure and visual presentation after the component rebuild.",
-          "caption": "The same homepage at the end of the engagement, September 2021 — one of 54 pages on the site by then, all built from the same component library.",
-          "width": 1600,
-          "height": 2000
+          "height": 1280
         }
       ]
     },
@@ -275,20 +267,12 @@
       ],
       "images": [
         {
-          "src": "/work/mednition-early.png",
-          "webp": "/work/mednition-early.webp",
-          "alt": "Archived screenshot of Mednition's KATE for ESI Acuity Assignment landing page as first captured in February 2021: a clinical hero heading, a supporting paragraph, and a HubSpot-built demo request form, styled in a restrained, clinical visual register.",
-          "caption": "The KATE triage landing page as it looked when it first went live, February 2021 — built inside the modular HubSpot template system.",
+          "src": "/work/mednition-clinical-ai.png",
+          "webp": "/work/mednition-clinical-ai.webp",
+          "alt": "Archived screenshot of Mednition's KATE clinical triage landing page rendered at native 1600px desktop resolution: clinical AI triage nurse notification card, headline, and three quantitative outcome metrics.",
+          "caption": "The KATE triage landing page, February 2021, rendered at native 1600px desktop resolution with clinical notification card and quantitative outcome metrics.",
           "width": 1600,
-          "height": 1829
-        },
-        {
-          "src": "/work/mednition-aha-event.png",
-          "webp": "/work/mednition-aha-event.webp",
-          "alt": "Archived screenshot of the American Heart Association Innovation Event landing page, showing the same modular template system applied to an industry event: an event-specific hero, an agenda section, and a registration form.",
-          "caption": "An event landing page built from the same template shell, February 2021 — different content, same underlying components.",
-          "width": 1600,
-          "height": 2000
+          "height": 1800
         },
         {
           "src": "/work/mednition-recent.png",
@@ -331,20 +315,12 @@
       ],
       "images": [
         {
-          "src": "/work/appzen-mastermindsummit.png",
-          "webp": "/work/appzen-mastermindsummit.webp",
-          "alt": "Screenshot of AppZen's Mastermind Summit event landing page on info.appzen.com, showing event branding, an agenda section, and a registration form built from the same modular template system used across AppZen's other campaign pages.",
-          "caption": "An event landing page on the same subdomain, captured December 2020 — a different template shell than the calculator, same underlying system.",
+          "src": "/work/appzen-roi-calculator.png",
+          "webp": "/work/appzen-roi-calculator.webp",
+          "alt": "Archived screenshot of AppZen's interactive Expense Audit ROI calculator on info.appzen.com: input sliders for enterprise spend parameters and live dynamic calculation cards reporting $14,613 spend eliminated and $2,760,000 value of hours saved.",
+          "caption": "Interactive ROI calculator template on info.appzen.com, dynamically computing spend elimination and hours saved from input sliders.",
           "width": 1600,
-          "height": 1300
-        },
-        {
-          "src": "/work/appzen-roi-calculator-live.png",
-          "webp": "/work/appzen-roi-calculator-live.webp",
-          "alt": "Screenshot of AppZen's ROI calculator landing page on info.appzen.com, showing an interactive slider-based tool with input fields on one side and a live-calculated output panel on the other.",
-          "caption": "The calculator template as it exists on the live subdomain today. The original 2020 instance never rendered in the Wayback archive because its scripts weren't preserved, so this is a current capture of the same template pattern, not a historical snapshot.",
-          "width": 1600,
-          "height": 2000
+          "height": 1550
         }
       ]
     }

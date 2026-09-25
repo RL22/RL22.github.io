@@ -41,6 +41,26 @@ export const caseStudies = data.caseStudies;
 // on every page regardless of which studies happen to be present.
 export const PILLARS: Pillar[] = ["Engineering", "Product", "Marketing", "Analytics"];
 
+export const CASE_STUDY_METRICS: Record<string, { badge: string; label: string }> = {
+  "pendo-core-web-platform": { badge: "72h → 24h launch", label: "Headless CMS component assembly" },
+  "pendo-demand-gen-systems": { badge: "40+ conversion paths", label: "Modular Marketo & GTM data layer" },
+  "carrot-cms-architecture": { badge: "~30% dev reduction", label: "Webflow templates & Greenhouse API" },
+  "carrot-integrated-marketing-systems": { badge: "1-domain funnel", label: "Embedded Marketo, zero handoff" },
+  "kiddom-component-architecture": { badge: "40+ React components", label: "51 → 54 URLs with zero crawl loss" },
+  "mednition-landing-page-templates": { badge: "~5 years in prod", label: "Restrained HubSpot triage templates" },
+  "appzen-campaign-templates": { badge: "0-rebuild reuse", label: "Parameterized ROI calculator" },
+};
+
+export function getPillarCounts(): Record<"All" | Pillar, number> {
+  return {
+    All: caseStudies.length,
+    Engineering: caseStudies.filter((c) => c.pillars.includes("Engineering")).length,
+    Product: caseStudies.filter((c) => c.pillars.includes("Product")).length,
+    Marketing: caseStudies.filter((c) => c.pillars.includes("Marketing")).length,
+    Analytics: caseStudies.filter((c) => c.pillars.includes("Analytics")).length,
+  };
+}
+
 export function getAllSlugs(): string[] {
   return caseStudies.map((c) => c.slug);
 }
