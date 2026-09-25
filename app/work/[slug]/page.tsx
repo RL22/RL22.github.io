@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import { WorkNavbar } from "../WorkChrome";
+import Navbar from "../../components/Navbar";
 import Contact from "../../components/Contact";
 import Footer from "../../components/Footer";
 import WorkLayout from "../WorkLayout";
@@ -74,7 +74,7 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <WorkNavbar />
+      <Navbar />
       <main id="main" className="bg-white">
         <div className="max-w-6xl mx-auto px-6 pt-10 -mb-10">
           <a
