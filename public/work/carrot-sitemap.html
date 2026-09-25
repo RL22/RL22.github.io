@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrot Fertility — UX Information Architecture Sitemap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --carrot-orange: #E06B43;
+      --carrot-dark: #C0614A;
+      --carrot-sage: #EBF0EC;
+      --carrot-sage-dark: #D8E2DA;
+      --navy: #152C3D;
+      --navy-dark: #0F1E29;
+      --slate-50: #F8FAFC;
+      --slate-100: #F1F5F9;
+      --slate-200: #E2E8F0;
+      --slate-400: #94A3B8;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1E293B;
+      --teal: #0D9488;
+      --teal-light: #CCFBF1;
+      --purple: #7C3AED;
+      --purple-light: #F3E8FF;
+      --blue: #2563EB;
+      --blue-light: #DBEAFE;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #F8FAF8;
+      color: var(--slate-800);
+      min-width: 1600px;
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+
+    /* --- CARROT 2021 TOP NAV --- */
+    .carrot-nav {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--slate-200);
+      padding: 0 48px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    .carrot-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .carrot-logo-circle {
+      width: 44px;
+      height: 44px;
+      background: #E86328;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(232, 99, 40, 0.3);
+    }
+    .carrot-logo-circle svg {
+      width: 32px;
+      height: 32px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-link {
+      color: var(--slate-700);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-link:hover {
+      color: var(--carrot-orange);
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .sign-in-btn {
+      color: var(--slate-700);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      border: 1px solid var(--slate-200);
+      background: #FFFFFF;
+      transition: all 0.15s ease;
+    }
+    .sign-in-btn:hover {
+      border-color: var(--slate-400);
+    }
+    .demo-btn {
+      background: #E86328;
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 9999px;
+      box-shadow: 0 2px 8px rgba(232, 99, 40, 0.25);
+      transition: background 0.15s ease;
+    }
+    .demo-btn:hover {
+      background: var(--carrot-dark);
+    }
+
+    /* --- HERO & SITEMAP BANNER --- */
+    .hero-banner {
+      background: linear-gradient(180deg, #FFFFFF 0%, var(--carrot-sage) 100%);
+      padding: 40px 48px 32px;
+      border-bottom: 1px solid var(--carrot-sage-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .hero-text h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .hero-text p {
+      font-size: 15px;
+      color: var(--slate-600);
+      max-width: 780px;
+    }
+    .badge-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(224, 107, 67, 0.1);
+      color: var(--carrot-dark);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    /* --- FILTER BAR & LEGEND --- */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      padding: 6px;
+      border-radius: 9999px;
+      border: 1px solid var(--slate-200);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .filter-pill {
+      border: none;
+      background: transparent;
+      padding: 8px 16px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--slate-600);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .filter-pill:hover {
+      background: var(--slate-100);
+      color: var(--slate-800);
+    }
+    .filter-pill.active {
+      background: var(--navy);
+      color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(21, 44, 61, 0.2);
+    }
+    .filter-count {
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 9999px;
+      background: rgba(255,255,255,0.25);
+    }
+    .filter-pill:not(.active) .filter-count {
+      background: var(--slate-200);
+      color: var(--slate-700);
+    }
+
+    /* --- CANVAS CONTAINER & SVG TREE --- */
+    .sitemap-canvas {
+      position: relative;
+      width: 1600px;
+      margin: 0 auto;
+      height: 1080px;
+      padding: 40px 24px;
+    }
+
+    .sitemap-svg-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1600px;
+      height: 1080px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .tree-connector {
+      fill: none;
+      stroke: #94A3B8;
+      stroke-width: 2px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.25s ease, stroke-width 0.25s ease;
+    }
+
+    .tree-connector.active {
+      stroke: var(--carrot-orange);
+      stroke-width: 3.5px;
+      stroke-dasharray: 8 4;
+      animation: dashPulse 1.2s linear infinite;
+    }
+
+    @keyframes dashPulse {
+      from { stroke-dashoffset: 24; }
+      to { stroke-dashoffset: 0; }
+    }
+
+    /* --- CARD ANATOMY (MATCHING UX COLLECTIVE REFERENCE) --- */
+    .sitemap-card {
+      position: absolute;
+      width: 170px;
+      background: #FFFFFF;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 10;
+      user-select: none;
+      overflow: visible;
+    }
+
+    .sitemap-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 35px rgba(224, 107, 67, 0.18), 0 4px 10px rgba(0, 0, 0, 0.04);
+      border-color: var(--carrot-orange);
+      z-index: 25;
+    }
+
+    .sitemap-card.active-path {
+      border-color: var(--carrot-orange);
+      box-shadow: 0 0 0 2px var(--carrot-orange), 0 16px 36px rgba(224, 107, 67, 0.25);
+    }
+
+    .sitemap-card.dimmed {
+      opacity: 0.2;
+      transform: scale(0.96);
+      filter: grayscale(90%);
+    }
+
+    .card-header {
+      padding: 6px 10px;
+      border-top-left-radius: 11px;
+      border-top-right-radius: 11px;
+      background: linear-gradient(135deg, #FCE7F3 0%, #EDE9FE 50%, #E0E7FF 100%);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      height: 28px;
+    }
+
+    .ref-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #475569;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 1px 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .card-body {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 4px;
+    }
+
+    .card-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--slate-800);
+      letter-spacing: -0.01em;
+    }
+
+    .card-slug {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--slate-400);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 160px;
+    }
+
+    .card-footer {
+      padding: 0 12px 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .type-pill {
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    .type-webflow { background: var(--teal-light); color: var(--teal); }
+    .type-marketo { background: #FFEDD5; color: #C2410C; }
+    .type-greenhouse { background: var(--blue-light); color: var(--blue); }
+    .type-static { background: var(--slate-100); color: var(--slate-600); }
+
+    /* --- ROOT CARD 0.0 HOMEPAGE (MATCHING HERO ROOT IN REF) --- */
+    .card-root {
+      width: 220px;
+      border: 2px solid #8B5CF6;
+      box-shadow: 0 14px 35px rgba(139, 92, 246, 0.25);
+    }
+    .card-root .card-header {
+      background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 50%, #38BDF8 100%);
+      height: 32px;
+    }
+    .card-root .ref-badge {
+      background: rgba(255,255,255,0.3);
+      color: #FFFFFF;
+      border: none;
+    }
+    .card-root .card-title {
+      font-size: 16px;
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    /* --- STACKED CARD VISUAL EFFECT (MATCHING 4.1 IN USER REF) --- */
+    .stacked-card::before,
+    .stacked-card::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      background: #FFFFFF;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: -1;
+      box-sizing: border-box;
+    }
+
+    .stacked-card::before {
+      top: -5px;
+      left: 5px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+      background: linear-gradient(180deg, #F1F5F9 0%, #FFFFFF 30%);
+      opacity: 0.9;
+    }
+
+    .stacked-card::after {
+      top: -10px;
+      left: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      background: linear-gradient(180deg, #E2E8F0 0%, #FFFFFF 30%);
+      opacity: 0.7;
+    }
+
+    .stacked-card:hover::before {
+      transform: translate(6px, -4px) rotate(1.5deg);
+      border-color: rgba(224, 107, 67, 0.4);
+    }
+    .stacked-card:hover::after {
+      transform: translate(12px, -8px) rotate(3deg);
+      border-color: rgba(224, 107, 67, 0.2);
+    }
+
+    /* --- ROUTE INSPECTOR DRAWER --- */
+    .inspector-drawer {
+      position: fixed;
+      bottom: 24px;
+      right: 32px;
+      width: 380px;
+      background: #FFFFFF;
+      border: 1px solid var(--slate-200);
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.05);
+      padding: 20px;
+      z-index: 100;
+      transform: translateY(120%);
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .inspector-drawer.open {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .inspector-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .inspector-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .inspector-close {
+      background: transparent;
+      border: none;
+      color: var(--slate-400);
+      font-size: 18px;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .inspector-close:hover { color: var(--slate-700); }
+    .inspector-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--slate-100);
+    }
+    .inspector-label { color: var(--slate-400); font-weight: 500; }
+    .inspector-val { font-family: 'JetBrains Mono', monospace; color: var(--slate-800); font-weight: 600; }
+
+    /* --- CARROT 2021 FOOTER --- */
+    .carrot-footer {
+      background: var(--navy);
+      color: #FFFFFF;
+      padding: 64px 48px 40px;
+      margin-top: 40px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-brand p {
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+      margin-top: 12px;
+      max-width: 280px;
+    }
+    .footer-office-grid {
+      display: flex;
+      gap: 32px;
+    }
+    .office-city {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .footer-cols {
+      display: flex;
+      gap: 64px;
+    }
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #FFFFFF;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col a {
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .footer-col a:hover {
+      color: var(--carrot-orange);
+    }
+    .footer-bottom {
+      padding-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CARROT 2021 NAVIGATION -->
+  <nav class="carrot-nav">
+    <div class="nav-left">
+      <a href="https://www.get-carrot.com/" class="carrot-brand">
+        <div class="carrot-logo-circle">
+          <!-- Authentic Carrot Wordmark SVG -->
+          <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" fill="white" font-family="'Inter', sans-serif" font-weight="800" font-size="7.5" letter-spacing="0.5">CARROT</text>
+          </svg>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#node-why" class="nav-link">Why Carrot?</a></li>
+        <li><a href="#node-solutions" class="nav-link">For employers</a></li>
+        <li><a href="#node-solutions" class="nav-link">For consultants</a></li>
+        <li><a href="#node-solutions" class="nav-link">For health plans</a></li>
+        <li><a href="#node-company" class="nav-link">Company <span style="font-size:10px;">▾</span></a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="sign-in-btn">Sign in</a>
+      <a href="#node-contact" class="demo-btn">Request a demo</a>
+    </div>
+  </nav>
+
+  <!-- HERO & SITEMAP BANNER -->
+  <header class="hero-banner">
+    <div class="hero-text">
+      <span class="badge-chip">Information Architecture · 26-Route UX Sitemap</span>
+      <h1>Carrot Fertility CMS Taxonomy & Tree Hierarchy</h1>
+      <p>Hierarchical UX sitemap illustrating how 26 web routes map into Webflow CMS collection templates, native Marketo embedded funnels, and real-time Greenhouse ATS API endpoints.</p>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-pill active" data-filter="all">All Routes <span class="filter-count">26</span></button>
+      <button class="filter-pill" data-filter="webflow">Webflow CMS <span class="filter-count">5</span></button>
+      <button class="filter-pill" data-filter="marketo">Marketo Funnels <span class="filter-count">6</span></button>
+      <button class="filter-pill" data-filter="greenhouse">Greenhouse API <span class="filter-count">3</span></button>
+      <button class="filter-pill" data-filter="static">Core & Legal <span class="filter-count">12</span></button>
+    </div>
+  </header>
+
+  <!-- UX SITEMAP CANVAS -->
+  <main class="sitemap-canvas" id="canvas">
+    <!-- SVG CONNECTORS LAYER -->
+    <svg class="sitemap-svg-layer" id="svg-layer">
+      <!-- Root 0.0 to Primary Tiers -->
+      <path id="conn-0-1" class="tree-connector" d="M 790 125 V 175 H 125 V 230" />
+      <path id="conn-0-2" class="tree-connector" d="M 790 125 V 175 H 400 V 230" />
+      <path id="conn-0-3" class="tree-connector" d="M 790 125 V 230" />
+      <path id="conn-0-4" class="tree-connector" d="M 790 125 V 175 H 1075 V 230" />
+      <path id="conn-0-5" class="tree-connector" d="M 790 125 V 175 H 1270 V 230" />
+      <path id="conn-0-6" class="tree-connector" d="M 790 125 V 175 H 1465 V 230" />
+
+      <!-- 2.0 Solutions to Children -->
+      <path id="conn-2-21" class="tree-connector" d="M 400 315 V 350 H 310 V 390" />
+      <path id="conn-2-22" class="tree-connector" d="M 400 315 V 350 H 490 V 390" />
+      <path id="conn-2-23" class="tree-connector" d="M 310 475 V 535" />
+
+      <!-- 3.0 Resources to Stacked CMS Collections -->
+      <path id="conn-3-31" class="tree-connector" d="M 790 315 V 350 H 685 V 390" />
+      <path id="conn-3-32" class="tree-connector" d="M 790 315 V 350 H 875 V 390" />
+      <path id="conn-3-33" class="tree-connector" d="M 685 475 V 535" />
+      <path id="conn-3-34" class="tree-connector" d="M 875 475 V 535" />
+      <path id="conn-3-35" class="tree-connector" d="M 685 620 V 645 H 780 V 675" />
+
+      <!-- 4.0 Careers to Children -->
+      <path id="conn-4-41" class="tree-connector" d="M 1075 315 V 390" />
+      <path id="conn-4-42" class="tree-connector" d="M 1075 475 V 535" />
+
+      <!-- 6.0 Company to Children -->
+      <path id="conn-6-61" class="tree-connector" d="M 1465 315 V 390" />
+      <path id="conn-6-62" class="tree-connector" d="M 1465 475 V 535" />
+    </svg>
+
+    <!-- LEVEL 0: ROOT -->
+    <div class="sitemap-card card-root" id="node-0" style="top: 40px; left: 680px;" data-id="0.0" data-type="static" data-slug="/" data-template="pages/home.html" data-parent="">
+      <div class="card-header">
+        <span class="ref-badge">0.0</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Homepage</div>
+        <div class="card-slug">/</div>
+      </div>
+      <div class="card-footer">
+        <span class="type-pill type-static">Global Shell</span>
+      </div>
+    </div>
+
+    <!-- LEVEL 1: PRIMARY TIERS -->
+    <div class="sitemap-card" id="node-1" style="top: 230px; left: 40px;" data-id="1.0" data-type="marketo" data-slug="/why-carrot" data-template="pages/why-carrot.html" data-parent="0.0">
+      <div class="card-header">
+        <span class="ref-badge">1.0</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Why Carrot?</div>
+        <div class="card-slug">/why-carrot</div>
+      </div>
+      <div class="card-footer">
+        <span class="type-pill type-marketo">Marketo Funnel</span>
+      </div>
+    </div>
+
+    <div class="sitemap-card" id="node-2" style="top: 230px; left: 315px;" data-id="2.0" data-type="static" data-slug="/for-employers" data-template="symbols/solutions-nav.html" data-parent="0.0">
+      <div class="card-header">
+        <span class="ref-badge">2.0</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Solutions Hub</div>
+        <div class="card-slug">/solutions</div>
+      </div>
+      <div class="card-footer">
+        <span class="type-pill type-static">Category Hub</span>
+      </div>
+    </div>
+
+    <div class="sitemap-card" id="node-3" style="top: 230px; left: 705px;" data-id="3.0" data-type="webflow" data-slug="/resource-center" data-template="collections/resource-center.html" data-parent="0.0">
+      <div class="card-header">
+        <span class="ref-badge">3.0</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Resource Center</div>
+        <div class="card-slug">/resource-center</div>
+      </div>
+      <div class="card-footer">
+        <span class="type-pill type-webflow">Webflow Hub</span>
+      </div>
+    </div>
+
+    <div class="sitemap-card" id="node-4" style="top: 230px; left: 990px;" data-id="4.0" data-type="greenhouse" data-slug="/carrot-careers" data-template="pages/careers.html" data-parent="0.0">
+      <div class="card-header">
+        <span class="ref-badge">4.0</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Careers Portal</div>
+        <div class="card-slug">/carrot-careers</div>
+      </div>
+      <div class="card-footer">
+        <span class="type-pill type-greenhouse">Greenhouse API</span>
+      </div>
+    </div>
+
+    <div class="sitemap-card" id="node-5" style="top: 230px; left: 1185px;" data-id="5.0" data-type="static" data-slug="/pricing" data-template="pages/pricing.html" data-parent="0.0">
+      <div class="card-header">
+        <span class="ref-badge">5.0</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Pricing & ROI</div>
+        <div class="card-slug">/pricing</div>
+      </div>
+      <div class="card-footer">
+        <span class="type-pill type-static">Static Symbol</span>
+      </div>
+    </div>
+
+    <div class="sitemap-card" id="node-6" style="top: 230px; left: 1380px;" data-id="6.0" data-type="static" data-slug="/about" data-template="pages/about.html" data-parent="0.0">
+      <div class="card-header">
+        <span class="ref-badge">6.0</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Company Hub</div>
+        <div class="card-slug">/about</div>
+      </div>
+      <div class="card-footer">
+        <span class="type-pill type-static">Corporate</span>
+      </div>
+    </div>
+
+    <!-- LEVEL 2 & 3: SECONDARY TIERS & STACKED CMS COLLECTIONS -->
+    <!-- Under 2.0 Solutions -->
+    <div class="sitemap-card" id="node-21" style="top: 390px; left: 225px;" data-id="2.1" data-type="marketo" data-slug="/for-employers" data-template="pages/for-employers.html" data-parent="2.0">
+      <div class="card-header"><span class="ref-badge">2.1</span></div>
+      <div class="card-body">
+        <div class="card-title">For Employers</div>
+        <div class="card-slug">/for-employers</div>
+      </div>
+      <div class="card-footer"><span class="type-pill type-marketo">Marketo Form 1058</span></div>
+    </div>
+
+    <div class="sitemap-card" id="node-22" style="top: 390px; left: 405px;" data-id="2.2" data-type="marketo" data-slug="/for-consultants" data-template="pages/for-consultants.html" data-parent="2.0">
+      <div class="card-header"><span class="ref-badge">2.2</span></div>
+      <div class="card-body">
+        <div class="card-title">For Consultants</div>
+        <div class="card-slug">/for-consultants</div>
+      </div>
+      <div class="card-footer"><span class="type-pill type-marketo">Marketo Lead Gen</span></div>
+    </div>
+
+    <div class="sitemap-card" id="node-23" style="top: 535px; left: 225px;" data-id="2.3" data-type="marketo" data-slug="/for-health-plans" data-template="pages/for-health-plans.html" data-parent="2.1">
+      <div class="card-header"><span class="ref-badge">2.3</span></div>
+      <div class="card-body">
+        <div class="card-title">For Health Plans</div>
+        <div class="card-slug">/for-health-plans</div>
+      </div>
+      <div class="card-footer"><span class="type-pill type-marketo">Payer Conversion</span></div>
+    </div>
+
+    <!-- Under 3.0 Resources (Stacked Collection Cards matching UX Collective ref) -->
+    <div class="sitemap-card stacked-card" id="node-31" style="top: 390px; left: 600px;" data-id="3.1" data-type="webflow" data-slug="/blog" data-template="collections/blog-post.html" data-parent="3.0">
+      <div class="card-header"><span class="ref-badge">3.1</span></div>
+      <div class="card-body">
+        <div class="card-title">Carrot Blog ▤</div>
+        <div class="card-slug">/blog/:slug</div>
+      </div>
+      <div class="card-footer"><span class="type-pill type-webflow">Webflow Collection</span></div>
+    </div>
+
+    <div class="sitemap-card stacked-card" id="node-32" style="top: 390px; left: 790px;" data-id="3.2" data-type="webflow" data-slug="/ebooks-guides" data-template="collections/ebooks-guides.html" data-parent="3.0">
+      <div class="card-header"><span class="ref-badge">3.2</span></div>
+      <div class="card-body">
+        <div class="card-title">eBooks & Guides ▤</div>
+        <div class="card-slug">/ebooks-guides</div>
+      </div>
+      <div class="card-footer"><span class="type-pill type-webflow">Marketo + CMS</span></div>
+    </div>
+
+    <div class="sitemap-card stacked-card" id="node-33" style="top: 535px; left: 600px;" data-id="3.3" data-type="webflow" data-slug="/webinars" data-template="collections/webinar-item.html" data-parent="3.1">
+      <div class="card-header"><span class="ref-badge">3.3</span></div>
+      <div class="card-body">
+        <div class="card-title">Live Webinars ▤</div>
+        <div class="card-slug">/webinars/:slug</div>
+      </div>
+      <div class="card-footer"><span class="type-pill type-webflow">On-Demand Video</span></div>
+    </div>
+
+    <div class="sitemap-card stacked-card" id="node-34" style="top: 535px; left: 790px;" data-id="3.4" data-type="webflow" data-slug="/case-studies" data-template="collections/case-study.html" data-parent="3.2">
+      <div class="card-header"><span class="ref-badge">3.4</span></div>
+      <div class="card-body">
+        <div class="card-title">Case Studies ▤</div>
+        <div class="card-slug">/case-studies/:slug</div>
+      </div>
+      <div class="card-footer"><span class="type-pill type-webflow">Customer Proof</span></div>
+    </div>
+
+    <div class="sitemap-card stacked-card" id="node-35" style="top: 675px; left: 695px;" data-id="3.5" data-type="webflow" data-slug="/podcast" data-template="collections/podcast-episode.html" data-parent="3.3">
+      <div class="card-header"><span class="ref-badge">3.5</span></div>
+      <div class="card-body">
+        <div class="card-title">Carrot Podcast ▤</div>
+        <div class="card-slug">/podcast/:episode</div>
+      </div>
+      <div class="card-footer"><span class="type-pill type-webflow">Audio Media</span></div>
+    </div>
+
+    <!-- Under 4.0 Careers -->
+    <div class="sitemap-card" id="node-41" style="top: 390px; left: 990px;" data-id="4.1" data-type="greenhouse" data-slug="/carrot-careers/open-roles" data-template="integrations/greenhouse-board.js" data-parent="4.0">
+      <div class="card-header"><span class="ref-badge">4.1</span></div>
+      <div class="card-body">
+        <div class="card-title">Open Roles API</div>
+        <div class="card-slug">/open-roles</div>
+      </div>
+      <div class="card-footer"><span class="type-pill type-greenhouse">Zero Manual Sync</span></div>
+    </div>
+
+    <div class="sitemap-card" id="node-42" style="top: 535px; left: 990px;" data-id="4.2" data-type="static" data-slug="/carrot-careers/life-at-carrot" data-template="pages/life-at-carrot.html" data-parent="4.1">
+      <div class="card-header"><span class="ref-badge">4.2</span></div>
+      <div class="card-body">
+        <div class="card-title">Life at Carrot</div>
+        <div class="card-slug">/life-at-carrot</div>
+      </div>
+      <div class="card-footer"><span class="type-pill type-static">Culture & DEI</span></div>
+    </div>
+
+    <!-- Under 6.0 Company -->
+    <div class="sitemap-card" id="node-61" style="top: 390px; left: 1380px;" data-id="6.1" data-type="static" data-slug="/press" data-template="pages/press.html" data-parent="6.0">
+      <div class="card-header"><span class="ref-badge">6.1</span></div>
+      <div class="card-body">
+        <div class="card-title">Press & News</div>
+        <div class="card-slug">/press</div>
+      </div>
+      <div class="card-footer"><span class="type-pill type-static">PR Releases</span></div>
+    </div>
+
+    <div class="sitemap-card" id="node-62" style="top: 535px; left: 1380px;" data-id="6.2" data-type="marketo" data-slug="/contact-us" data-template="pages/contact.html" data-parent="6.1">
+      <div class="card-header"><span class="ref-badge">6.2</span></div>
+      <div class="card-body">
+        <div class="card-title">Contact Us</div>
+        <div class="card-slug">/contact-us</div>
+      </div>
+      <div class="card-footer"><span class="type-pill type-marketo">Marketo Form</span></div>
+    </div>
+  </main>
+
+  <!-- ROUTE INSPECTOR DRAWER -->
+  <aside class="inspector-drawer" id="drawer">
+    <div class="inspector-header">
+      <div>
+        <span class="ref-badge" id="d-ref" style="background:#EBF0EC; color:var(--carrot-orange);">3.2</span>
+        <div class="inspector-title" id="d-title" style="margin-top:4px;">eBooks & Guides</div>
+      </div>
+      <button class="inspector-close" id="d-close">×</button>
+    </div>
+    <div class="inspector-row">
+      <span class="inspector-label">URL Path:</span>
+      <span class="inspector-val" id="d-slug">/ebooks-guides</span>
+    </div>
+    <div class="inspector-row">
+      <span class="inspector-label">CMS Model:</span>
+      <span class="inspector-val" id="d-model">Webflow Multi-Reference</span>
+    </div>
+    <div class="inspector-row">
+      <span class="inspector-label">Template Source:</span>
+      <span class="inspector-val" id="d-template">collections/ebooks-guides.html</span>
+    </div>
+    <div class="inspector-row">
+      <span class="inspector-label">Integration:</span>
+      <span class="inspector-val" id="d-integration">Marketo Form 1058 (Native)</span>
+    </div>
+    <div class="inspector-row">
+      <span class="inspector-label">Dev Dependency:</span>
+      <span class="inspector-val" id="d-dep" style="color:#059669;">-30% (Standardized Template)</span>
+    </div>
+  </aside>
+
+  <!-- CARROT 2021 FOOTER -->
+  <footer class="carrot-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="carrot-logo-circle" style="background:#FFFFFF;">
+          <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" fill="#E86328" font-family="'Inter', sans-serif" font-weight="800" font-size="7.5" letter-spacing="0.5">CARROT</text>
+          </svg>
+        </div>
+        <p>A customizable fertility and family-forming benefit for employers, health plans, and global teams.</p>
+      </div>
+
+      <div class="footer-office-grid">
+        <span class="office-city">San Francisco</span>
+        <span class="office-city">Chicago</span>
+        <span class="office-city">New York</span>
+        <span class="office-city">Dublin</span>
+        <span class="office-city">Geneva</span>
+        <span class="office-city">Tokyo</span>
+        <span class="office-city">Seoul</span>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Why Carrot?</h4>
+          <ul>
+            <li><a href="#node-21">For employers</a></li>
+            <li><a href="#node-22">For consultants</a></li>
+            <li><a href="#node-23">For health plans</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#node-31">Blog</a></li>
+            <li><a href="#node-32">eBooks & Guides</a></li>
+            <li><a href="#node-33">Webinars</a></li>
+            <li><a href="#node-34">Case studies</a></li>
+            <li><a href="#node-35">Podcast</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#node-6">About us</a></li>
+            <li><a href="#node-4">Careers</a></li>
+            <li><a href="#node-61">Press</a></li>
+            <li><a href="#node-62">Security</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2021 Carrot Fertility Inc. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service · Business Associate Agreement</span>
+    </div>
+  </footer>
+
+  <!-- MICROINTERACTIONS JAVASCRIPT ENGINE -->
+  <script>
+    // Path Lineage Map (Child ID -> [Parent Node IDs, Connector IDs])
+    const lineageMap = {
+      '0.0': { parents: [], connectors: [] },
+      '1.0': { parents: ['0.0'], connectors: ['conn-0-1'] },
+      '2.0': { parents: ['0.0'], connectors: ['conn-0-2'] },
+      '3.0': { parents: ['0.0'], connectors: ['conn-0-3'] },
+      '4.0': { parents: ['0.0'], connectors: ['conn-0-4'] },
+      '5.0': { parents: ['0.0'], connectors: ['conn-0-5'] },
+      '6.0': { parents: ['0.0'], connectors: ['conn-0-6'] },
+      '2.1': { parents: ['2.0', '0.0'], connectors: ['conn-2-21', 'conn-0-2'] },
+      '2.2': { parents: ['2.0', '0.0'], connectors: ['conn-2-22', 'conn-0-2'] },
+      '2.3': { parents: ['2.1', '2.0', '0.0'], connectors: ['conn-2-23', 'conn-2-21', 'conn-0-2'] },
+      '3.1': { parents: ['3.0', '0.0'], connectors: ['conn-3-31', 'conn-0-3'] },
+      '3.2': { parents: ['3.0', '0.0'], connectors: ['conn-3-32', 'conn-0-3'] },
+      '3.3': { parents: ['3.1', '3.0', '0.0'], connectors: ['conn-3-33', 'conn-3-31', 'conn-0-3'] },
+      '3.4': { parents: ['3.2', '3.0', '0.0'], connectors: ['conn-3-34', 'conn-3-32', 'conn-0-3'] },
+      '3.5': { parents: ['3.3', '3.1', '3.0', '0.0'], connectors: ['conn-3-35', 'conn-3-33', 'conn-3-31', 'conn-0-3'] },
+      '4.1': { parents: ['4.0', '0.0'], connectors: ['conn-4-41', 'conn-0-4'] },
+      '4.2': { parents: ['4.1', '4.0', '0.0'], connectors: ['conn-4-42', 'conn-4-41', 'conn-0-4'] },
+      '6.1': { parents: ['6.0', '0.0'], connectors: ['conn-6-61', 'conn-0-6'] },
+      '6.2': { parents: ['6.1', '6.0', '0.0'], connectors: ['conn-6-62', 'conn-6-61', 'conn-0-6'] }
+    };
+
+    const cards = document.querySelectorAll('.sitemap-card');
+    const connectors = document.querySelectorAll('.tree-connector');
+    const drawer = document.getElementById('drawer');
+    const closeBtn = document.getElementById('d-close');
+
+    // 1. Hover Path Tracing
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const id = card.getAttribute('data-id');
+        const info = lineageMap[id];
+        if (!info) return;
+
+        // Reset all
+        connectors.forEach(c => c.classList.remove('active'));
+        cards.forEach(c => c.classList.remove('active-path'));
+
+        // Highlight this card and its lineage
+        card.classList.add('active-path');
+        info.parents.forEach(pId => {
+          const pCard = document.querySelector(`.sitemap-card[data-id="${pId}"]`);
+          if (pCard) pCard.classList.add('active-path');
+        });
+        info.connectors.forEach(cId => {
+          const conn = document.getElementById(cId);
+          if (conn) conn.classList.add('active');
+        });
+      });
+
+      card.addEventListener('mouseleave', () => {
+        connectors.forEach(c => c.classList.remove('active'));
+        cards.forEach(c => c.classList.remove('active-path'));
+      });
+
+      // 2. Click to Inspect Node
+      card.addEventListener('click', () => {
+        const id = card.getAttribute('data-id');
+        const title = card.querySelector('.card-title').innerText;
+        const slug = card.getAttribute('data-slug');
+        const type = card.getAttribute('data-type');
+        const template = card.getAttribute('data-template');
+
+        document.getElementById('d-ref').innerText = id;
+        document.getElementById('d-title').innerText = title;
+        document.getElementById('d-slug').innerText = slug;
+        document.getElementById('d-template').innerText = template;
+
+        let model = 'Static Symbol Component';
+        let integration = 'None (Standard Webflow)';
+        if (type === 'webflow') {
+          model = 'Webflow CMS Multi-Reference Collection';
+          integration = 'Dynamic Collection List Wrapper';
+        } else if (type === 'marketo') {
+          model = 'Embedded Marketo Form Symbol';
+          integration = 'Marketo Form 1058 (Native DOM)';
+        } else if (type === 'greenhouse') {
+          model = 'Greenhouse ATS API Endpoint';
+          integration = 'REST JSON Ingestion (Real-Time)';
+        }
+
+        document.getElementById('d-model').innerText = model;
+        document.getElementById('d-integration').innerText = integration;
+
+        drawer.classList.add('open');
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      drawer.classList.remove('open');
+    });
+
+    // 3. Category Filter Buttons
+    const filterButtons = document.querySelectorAll('.filter-pill');
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+        cards.forEach(card => {
+          const cardType = card.getAttribute('data-type');
+          if (filter === 'all' || cardType === filter) {
+            card.classList.remove('dimmed');
+          } else {
+            card.classList.add('dimmed');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

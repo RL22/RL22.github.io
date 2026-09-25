@@ -34,6 +34,46 @@ h1, h2, h3, h4, .font-display {
   .tag { @apply inline-block bg-cream-dark text-gray-700 text-xs font-medium px-3 py-1 rounded-full; }
   .section-badge { @apply inline-block border border-gray-300 text-gray-600 text-sm px-4 py-1 rounded-full mb-4; }
   .card { @apply bg-white rounded-2xl p-6 shadow-sm; }
+  .card-showcase { @apply bg-white rounded-2xl border border-cream-dark shadow-sm hover:shadow-md transition-all duration-300; }
+  .metric-pill { @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand/10 text-brand-dark border border-brand/20; }
+  .filter-pill { @apply px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-200; }
+  .filter-pill-active { @apply bg-brand-dark text-white shadow-sm; }
+  .filter-pill-inactive { @apply bg-white text-gray-700 hover:bg-cream-dark hover:text-brand-dark border border-cream-dark; }
+  
+  /* macOS/browser mock window header */
+  .browser-frame {
+    @apply flex items-center px-4 py-2.5 bg-cream-light border border-cream-dark rounded-t-xl relative;
+  }
+  .browser-frame::before {
+    content: "";
+    display: inline-block;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 9999px;
+    background-color: #FF5F56;
+    box-shadow: 1rem 0 0 #FFBD2E, 2rem 0 0 #27C93F;
+    margin-right: 2.75rem;
+    flex-shrink: 0;
+  }
+  .browser-frame-muted::before {
+    background-color: #9CA3AF;
+    box-shadow: 1rem 0 0 #9CA3AF, 2rem 0 0 #9CA3AF;
+  }
+  .browser-frame:has(.browser-dots)::before,
+  .browser-frame:has(.browser-dot)::before {
+    display: none;
+  }
+  .browser-dots {
+    @apply flex items-center gap-1.5;
+  }
+  .browser-dot {
+    @apply w-2.5 h-2.5 rounded-full inline-block;
+  }
+  .browser-dot-red { @apply bg-[#FF5F56]; }
+  .browser-dot-yellow { @apply bg-[#FFBD2E]; }
+  .browser-dot-green { @apply bg-[#27C93F]; }
+  .browser-dot-muted { @apply bg-gray-400; }
+
   .float-card { animation: float 4s ease-in-out infinite 1.8s; }
   .float-card--delay-1 { animation: float-b 4.5s ease-in-out infinite 2.1s; }
   .float-card--delay-2 { animation: float 5s ease-in-out infinite 2.4s; }
@@ -62,6 +102,7 @@ h1, h2, h3, h4, .font-display {
 /* Visible keyboard focus states (WCAG 2.4.7) */
 .btn-primary:focus-visible,
 .btn-outline:focus-visible,
+.filter-pill:focus-visible,
 .tag:focus-visible,
 a:focus-visible {
   outline: 2px solid #A5523D;
