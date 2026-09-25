@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { WorkNavbar } from "./WorkChrome";
+import Navbar from "../components/Navbar";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import WorkPageClient from "./WorkPageClient";
@@ -42,7 +42,7 @@ const itemListJsonLd = {
 export default function WorkPage() {
   return (
     <>
-      <WorkNavbar />
+      <Navbar />
       <main id="main" className="bg-white">
         <script
           type="application/ld+json"
