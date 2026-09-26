@@ -46,7 +46,6 @@ export function WorkHero({
   title = "Seven builds, from the platform side.",
   lead = "Case studies from nine years owning marketing-site lifecycles. Each one starts the same way: an inherited site, a team blocked behind engineering, and a platform that had to be rebuilt while it stayed live. What follows is the architecture underneath, and what marketing could do afterward.",
   sublead,
-  facts = PROOF_FACTS,
   className = "",
 }: WorkHeroProps) {
   return (
@@ -88,33 +87,6 @@ export function WorkHero({
             </>
           )}
         </p>
-      </Reveal>
-
-      {/* Scan-first Proof Ticker / Strip */}
-      <Reveal delay={0.15} className="mt-10 sm:mt-12">
-        <dl
-          aria-label="Platform proof metrics and durability"
-          className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5"
-        >
-          {facts.map((fact) => (
-            <div
-              key={fact.label}
-              className="bg-white/90 p-4 sm:p-5 rounded-xl border border-gray-200/90 shadow-xs flex flex-col justify-between"
-            >
-              <dt className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 tracking-tight">
-                {fact.metric}
-              </dt>
-              <dd className="mt-1.5">
-                <div className="text-xs sm:text-sm font-bold text-gray-900">
-                  {fact.label}
-                </div>
-                <div className="text-[11px] sm:text-xs text-gray-600 mt-0.5 leading-snug">
-                  {fact.detail}
-                </div>
-              </dd>
-            </div>
-          ))}
-        </dl>
       </Reveal>
     </section>
   );

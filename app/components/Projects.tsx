@@ -202,12 +202,6 @@ export default function Projects() {
           <p className="text-gray-600 text-lg leading-relaxed">
             Every role has followed the same arc: an inherited marketing site, a platform reset, and a team that ships without me afterward.
           </p>
-          {SHOW_WORK && (
-            <p className="text-gray-500 text-sm leading-relaxed mt-3">
-              <a href="/work/" className="text-brand-dark hover:underline">Work</a> is a showcase
-              of the projects I completed in previous roles.
-            </p>
-          )}
         </Reveal>
 
         {/* Featured tier */}

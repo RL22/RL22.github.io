@@ -30,7 +30,7 @@ export function CaseStudyCard({
   className = "",
 }: CaseStudyCardProps) {
   const resolvedImpact = impactBadge ?? IMPACT_BADGES[item.slug] ?? "Verified Impact";
-  const primaryImage = item.images && item.images.length > 0 ? item.images[0] : undefined;
+  const primaryImage = item.thumbnail ?? (item.images && item.images.length > 0 ? item.images[0] : undefined);
   const hasDiagram = Boolean(getDiagram(item.slug));
 
   return (
@@ -41,6 +41,7 @@ export function CaseStudyCard({
         {/* Visual Browser Preview */}
         <div className="p-4 sm:p-5 pb-0">
           <WorkMediaPreview
+            item={item}
             image={primaryImage}
             company={item.company}
             slug={item.slug}

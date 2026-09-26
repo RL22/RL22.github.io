@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { SHOW_BUILDING_IN_PUBLIC, SHOW_WORK } from "../config";
+import { SHOW_BUILDING_IN_PUBLIC } from "../config";
 
 // Absolute "/#..." paths, not bare "#...": Navbar renders on /work and
 // /work/[slug] too, where a bare hash would resolve against that route
@@ -9,7 +9,6 @@ import { SHOW_BUILDING_IN_PUBLIC, SHOW_WORK } from "../config";
 const links = [
   { label: "About", href: "/#about" },
   { label: "Experience", href: "/#experience" },
-  ...(SHOW_WORK ? [{ label: "Work", href: "/work/" }] : []),
   ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Building", href: "/building" }] : []),
   { label: "Skills", href: "/#skills" },
   { label: "Resume", href: "/resume" },

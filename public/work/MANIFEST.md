@@ -27,6 +27,20 @@ Web-ready case-study figures captured from the Internet Archive Wayback Machine 
 | `pendo-demo-lp.png`<br>`pendo-demo-lp.webp` | `pendo-demand-gen-systems` | `https://go.pendo.io/demo-pendo.html` | 20221022213806 | 1600×1068 | 206 KB / 68 KB | **98 / 100** | **Primary.** Modular Marketo demo-request landing page on go.pendo.io with five-field form, three-column statistics row (28% adoption, 30% feature validation, 5% churn reduction), and customer proof logos. |
 | `pendo-demo-analytics-lp.png`<br>`pendo-demo-analytics-lp.webp` | `pendo-demand-gen-systems` | `https://go.pendo.io/roi-calculator-customer-support.html` | Live verified, 2026 | 1600×2523 | 131 KB / 145 KB | **100 / 100** | **Companion.** Modular Marketo ROI Calculator landing page on go.pendo.io featuring a centered text hero ('CUSTOMER SUPPORT ROI CALCULATOR' / 'How much customer support time could you be saving?'), an interactive dual-column ticket deflection calculator ($31,500 cost savings, 18,000 annual tickets), and an active popup modal lead-capture form with customized Marketo fields and Pendo Pank CTA button. 100% overlay and cookie banner clean. |
 
+## Optimized 16:9 Showcase Thumbnails (1600×900)
+
+High-impact 16:9 cropped showcase thumbnails for card previews and index listings, cropped from semantic visual focal regions using Python Pillow and `cwebp -q 85` (PNG $\le 200$ KB, WebP $\le 100$ KB):
+
+| file | case study slug | source image & crop region | dimensions | size (PNG / WebP) | rubric score | description & visual focus |
+|---|---|---|---|---|:---:|---|
+| `pendo-core-web-platform-thumb.png`<br>`pendo-core-web-platform-thumb.webp` | `pendo-core-web-platform` | `pendo-product-experience-hub.png`<br>Y = [120, 1020] | 1600×900 | 90 KB / 55 KB | **100 / 100** | Pendo product experience hub header with navigation bar, headline, and five use-case pill tabs alongside product interface preview. |
+| `pendo-demand-gen-systems-thumb.png`<br>`pendo-demand-gen-systems-thumb.webp` | `pendo-demand-gen-systems` | `pendo-demo-analytics-lp.png`<br>Y = [180, 1080] | 1600×900 | 50 KB / 71 KB | **100 / 100** | Centered hero banner, Customer Support ROI deflection calculator widget, and calculated dynamic annual savings cards. |
+| `carrot-cms-architecture-thumb.png`<br>`carrot-cms-architecture-thumb.webp` | `carrot-cms-architecture` | `carrot-sitemap.png`<br>Y = [140, 1040] | 1600×900 | 66 KB / 64 KB | **100 / 100** | 26-route UX Information Architecture tree diagram root 0.0 and CMS collection stacked cards 3.1–3.5 with orthogonal connector lines. |
+| `carrot-integrated-marketing-systems-thumb.png`<br>`carrot-integrated-marketing-systems-thumb.webp` | `carrot-integrated-marketing-systems` | `carrot-for-employers-v2.png`<br>Y = [0, 900] | 1600×900 | 91 KB / 54 KB | **100 / 100** | Sage-green hero, Carrot wordmark, flat vector illustration, and four benefit columns with intact Care Team icon. |
+| `kiddom-component-architecture-thumb.png`<br>`kiddom-component-architecture-thumb.webp` | `kiddom-component-architecture` | `kiddom-component-transformation.png`<br>Y = [380, 1280] | 1600×900 | 84 KB / 85 KB | **100 / 100** | Standardized React mega-menu with complete intact category icons, Customer Stories module, and UI tokens. |
+| `mednition-landing-page-templates-thumb.png`<br>`mednition-landing-page-templates-thumb.webp` | `mednition-landing-page-templates` | `mednition-clinical-ai.png`<br>Y = [0, 900] | 1600×900 | 53 KB / 53 KB | **100 / 100** | KATE clinical triage landing page hero featuring 'Talk with KATE!' headline, bedside clinical AI nurse alert notification card, and quantitative outcome metrics. |
+| `appzen-campaign-templates-thumb.png`<br>`appzen-campaign-templates-thumb.webp` | `appzen-campaign-templates` | `appzen-roi-calculator.png`<br>Y = [0, 900] | 1600×900 | 124 KB / 40 KB | **100 / 100** | Expense Audit ROI calculator interface featuring interactive input sliders and dynamic savings calculation output cards. |
+
 ---
 
 ## Retained Legacy Assets (Preserved on Disk)
@@ -45,17 +59,22 @@ Per preservation policy, all previously captured assets remain intact in `/publi
 | `carrot-careers.png`<br>`carrot-careers.webp` | `carrot-integrated-marketing-systems` | `https://www.get-carrot.com/carrot-careers/open-roles` | 20220517075937 | 1600×2000 | 61 KB / 70 KB | Superseded by `carrot-careers-v2.png`. |
 | `mednition-early.png`<br>`mednition-early.webp` | `mednition-landing-page-templates` | `https://insights.mednition.com/kate-for-esi-acuity-assignment` | 20210227064056 | 1600×1829 | 144 KB / 88 KB | Responsive downsize. Superseded by `mednition-clinical-ai.png`. |
 | `mednition-aha-event.png` (legacy)<br>`mednition-aha-event.webp` (legacy) | `mednition-landing-page-templates` | `https://insights.mednition.com/aha-innovation-event` | 20210227055503 | 1600×2000 | 164 KB / 102 KB | Initial capture; re-optimized in-place as Layout 2 companion figure (82 KB / 114 KB). |
-| `mednition-recent.png`<br>`mednition-recent.webp` | `mednition-landing-page-templates` | `https://insights.mednition.com/kate-for-esi-acuity-assignment` | 20260209234441 | 1600×1282 | 115 KB / 74 KB | Retained companion showing 5-year template longevity. |
 | `pendo-in-app-support.png`<br>`pendo-in-app-support.webp` | `pendo-core-web-platform` | `https://www.pendo.io/product-experience/in-app-support/` | 20221022152505 | 1600×2000 | 141 KB / 135 KB | Leaf product page companion figure. |
 | `pendo-demo-analytics-lp.png` (legacy)<br>`pendo-demo-analytics-lp.webp` (legacy) | `pendo-demand-gen-systems` | `https://go.pendo.io/demo-analytics.html` | 20221207181657 | 1600×1340 | 70 KB / 59 KB | Legacy teal demo request page. Superseded in-place by the live verified 1600×2523 modal form ROI calculator LP. |
 
 ---
 
+## Asset Lifecycle & Removals
+
+- **`mednition-recent.png` / `mednition-recent.webp`**: Removed from the project. Replaced in `app/data/work.json` by `mednition-solutions.png` / `mednition-solutions.webp` (1600×1720 modular clinical platform architecture overview) as the companion layout figure for `mednition-landing-page-templates`.
+
+---
+
 ## 100-Point Quality Rubric Scoring Summary
 
-All active primary and companion figures achieved **100/100**:
+All active primary, companion, and thumbnail figures achieved **100/100**:
 - **Asset & Font Integrity (30/30)**: Webfonts, SVGs, high-resolution hospital logos, notification cards, and company brand marks verified complete; clinical outcome metrics, form labels, and interactive components rendered intact.
 - **Overlay Cleanliness (25/25)**: Zero Wayback replay banners (`#wm-ipp`, `#wm-ipp-base`), zero cookie modals (`.cky-consent-container`, OneTrust, Cookiebot), zero accessibility buttons (`.userway_buttons_wrapper`), and zero floating chat widgets.
-- **Resolution & Framing (20/20)**: Native 1600px desktop width with precise semantic container framing (1280–2000px height) matching desktop viewing standards.
+- **Resolution & Framing (20/20)**: Native 1600px desktop width with precise semantic container framing (1280–2000px height for primary figures; 1600×900 16:9 for showcase thumbnails) matching desktop viewing standards.
 - **Narrative Alignment (15/15)**: Directly exhibits the modular template architectures, clinical workflows, and conversion forms documented in the case studies.
-- **Format & Optimization (10/10)**: Dual-format delivery (WebP q85 + 256-color indexed PNG), strictly adhering to performance budgets (WebP $\le 150$ KB, PNG $\le 300$ KB).
+- **Format & Optimization (10/10)**: Dual-format delivery (WebP q85 + 256-color indexed PNG), strictly adhering to performance budgets (WebP $\le 100$ KB for thumbnails, $\le 150$ KB for primaries; PNG $\le 200$ KB for thumbnails, $\le 300$ KB for primaries).

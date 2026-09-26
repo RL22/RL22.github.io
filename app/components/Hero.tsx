@@ -2,7 +2,6 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import StackIcon, { type IconName } from "tech-stack-icons";
-import { SHOW_WORK } from "../config";
 import Reveal from "./Reveal";
 
 const techIcons: { name: IconName; alt: string }[] = [
@@ -71,7 +70,7 @@ export default function Hero() {
               Nine years owning marketing-site lifecycles: architecture, component systems, and the publishing workflows that let marketing ship without opening a ticket. I work across design, engineering, and marketing, with an AI-native workflow underneath.
             </p>
             <div className="flex items-center gap-4 mb-10">
-              <a href={SHOW_WORK ? "/work/" : "#experience"} className="btn-primary inline-flex items-center gap-2">
+              <a href="#experience" className="btn-primary inline-flex items-center gap-2">
                 See the work <ArrowRight className="w-4 h-4" />
               </a>
               <a href="#contact" className="text-gray-600 hover:text-brand-dark text-sm font-semibold transition-colors">

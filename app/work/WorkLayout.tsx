@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getDiagram } from "./diagrams";
 import { getAdjacentCaseStudies, preventWidow, type CaseStudy } from "./content";
 import Reveal from "../components/Reveal";
+import { WorkMediaPreview } from "./components/WorkMediaPreview";
 
 // The brief is a labelled definition list rather than three equal cards:
 // PRODUCT.md rules out the icon-heading-text grid, and challenge/solution/
@@ -97,6 +98,20 @@ export default function WorkLayout({ item }: { item: CaseStudy }) {
         <Rail item={item} hasDiagram={!!diagram} />
 
         <div className="min-w-0">
+          {item.thumbnail && (
+            <Reveal className="mb-8">
+              <WorkMediaPreview
+                item={item}
+                image={item.thumbnail}
+                tag={`${item.company} / architecture`}
+                priority
+                aspectRatio="auto"
+                showCaption
+                className="max-w-[62ch] shadow-sm"
+              />
+            </Reveal>
+          )}
+
           <Reveal>
             <h1 className="text-4xl md:text-5xl font-extrabold mb-6 max-w-prose">
               {preventWidow(item.title)}

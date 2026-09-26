@@ -19,6 +19,7 @@ function proseOf(c: CaseStudy): string {
     ...PROSE_FIELDS.map((f) => c[f]),
     ...c.body,
     ...c.images.flatMap((i) => [i.alt, i.caption ?? ""]),
+    ...(c.thumbnail ? [c.thumbnail.alt] : []),
   ].join("\n");
 }
 
@@ -73,6 +74,17 @@ describe("work content shape", () => {
         expect(img.src).toMatch(/^\/work\//);
         expect(img.alt.trim().length).toBeGreaterThan(10);
       }
+    }
+  });
+
+  it("requires a 16:9 thumbnail on every case study", () => {
+    for (const c of caseStudies) {
+      expect(c.thumbnail).toBeDefined();
+      expect(c.thumbnail?.src).toMatch(/^\/work\/[a-z0-9-]+-thumb\.png$/);
+      expect(c.thumbnail?.webp).toMatch(/^\/work\/[a-z0-9-]+-thumb\.webp$/);
+      expect(c.thumbnail?.width).toBe(1600);
+      expect(c.thumbnail?.height).toBe(900);
+      expect(c.thumbnail?.alt.trim().length).toBeGreaterThan(10);
     }
   });
 });

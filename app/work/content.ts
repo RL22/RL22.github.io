@@ -14,7 +14,9 @@ export type WorkImage = {
   height: number;
 };
 
-export type CaseStudy = {
+export type CaseStudyImage = WorkImage;
+
+export interface CaseStudy {
   slug: string;
   company: string;
   role: string;
@@ -29,7 +31,8 @@ export type CaseStudy = {
   outcome: string;
   body: string[];
   images: WorkImage[];
-};
+  thumbnail?: CaseStudyImage;
+}
 
 // JSON is untyped at rest, so the double cast is required under `strict`.
 // Same pattern as app/blog/content.ts.

@@ -1,13 +1,20 @@
 "use client";
 
-import type { WorkImage } from "../content";
+import type { CaseStudy, WorkImage } from "../content";
 import { slugifyCompany } from "../content";
 
 export interface WorkMediaPreviewProps {
   image?: WorkImage;
+  item?: Partial<CaseStudy> | {
+    thumbnail?: WorkImage;
+    images?: WorkImage[];
+    company?: string;
+    slug?: string;
+  };
   company?: string;
   url?: string;
   slug?: string;
+  tag?: string;
   priority?: boolean;
   aspectRatio?: "16/10" | "4/3" | "16/9" | "auto";
   showCaption?: boolean;
@@ -45,15 +52,20 @@ function resolveDisplayUrl(url?: string, company?: string, slug?: string): strin
 
 export function WorkMediaPreview({
   image,
+  item,
   company,
   url,
   slug,
+  tag,
   priority = false,
   aspectRatio = "16/10",
   showCaption = false,
   className = "",
 }: WorkMediaPreviewProps) {
-  const displayUrl = resolveDisplayUrl(url, company, slug);
+  const resolvedImage = item?.thumbnail ?? (item?.images && item.images.length > 0 ? item.images[0] : image);
+  const resolvedCompany = item?.company ?? company;
+  const resolvedSlug = item?.slug ?? slug;
+  const displayUrl = resolveDisplayUrl(url, resolvedCompany, resolvedSlug);
 
   const aspectClass =
     aspectRatio === "16/10"
@@ -77,15 +89,21 @@ export function WorkMediaPreview({
           <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F] border border-[#1AAB29]/40" />
         </div>
 
-        {/* Faux browser URL / domain bar */}
+        {/* Faux browser URL / domain bar or company / architecture tag */}
         <div
-          className="flex-1 max-w-[220px] sm:max-w-xs mx-auto flex items-center justify-center px-2.5 py-0.5 rounded-md bg-white border border-gray-200/70 text-[11px] font-mono text-gray-700 truncate shadow-[0_1px_2px_rgba(0,0,0,0.02)]"
-          title={displayUrl}
+          className="flex-1 max-w-[260px] sm:max-w-sm mx-auto flex items-center justify-center px-2.5 py-0.5 rounded-md bg-white border border-gray-200/70 text-[11px] font-mono text-gray-700 truncate shadow-[0_1px_2px_rgba(0,0,0,0.02)]"
+          title={tag || displayUrl}
         >
-          <span className="text-gray-600 mr-1 select-none" aria-hidden="true">
-            https://
-          </span>
-          <span className="truncate font-semibold text-gray-900">{displayUrl}</span>
+          {tag ? (
+            <span className="truncate font-semibold text-gray-900">{tag}</span>
+          ) : (
+            <>
+              <span className="text-gray-600 mr-1 select-none" aria-hidden="true">
+                https://
+              </span>
+              <span className="truncate font-semibold text-gray-900">{displayUrl}</span>
+            </>
+          )}
         </div>
 
         {/* Right balance spacer */}
@@ -96,17 +114,19 @@ export function WorkMediaPreview({
 
       {/* Viewport content area */}
       <div className={`relative w-full overflow-hidden bg-gray-100 ${aspectClass}`}>
-        {image ? (
+        {resolvedImage ? (
           <picture className="block w-full h-full">
-            {image.webp && <source srcSet={image.webp} type="image/webp" />}
+            {resolvedImage.webp && <source srcSet={resolvedImage.webp} type="image/webp" />}
             <img
-              src={image.src}
-              alt={image.alt}
-              width={image.width}
-              height={image.height}
+              src={resolvedImage.src}
+              alt={resolvedImage.alt}
+              width={resolvedImage.width}
+              height={resolvedImage.height}
               loading={priority ? "eager" : "lazy"}
               decoding="async"
-              className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+              className={`w-full ${
+                aspectRatio === "auto" ? "h-auto" : "h-full"
+              } object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100`}
             />
           </picture>
         ) : (
@@ -117,9 +137,9 @@ export function WorkMediaPreview({
       </div>
 
       {/* Optional visible caption */}
-      {showCaption && image?.caption && (
+      {showCaption && resolvedImage?.caption && (
         <figcaption className="p-3 bg-white border-t border-gray-100 text-xs text-gray-600 leading-relaxed">
-          {image.caption}
+          {resolvedImage.caption}
         </figcaption>
       )}
     </figure>

@@ -49,7 +49,14 @@
           "width": 1600,
           "height": 2000
         }
-      ]
+      ],
+      "thumbnail": {
+        "src": "/work/pendo-core-web-platform-thumb.png",
+        "webp": "/work/pendo-core-web-platform-thumb.webp",
+        "alt": "Pendo product experience hub header with navigation bar, headline, and five pill tabs for use-case exploration alongside product interface preview.",
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "slug": "pendo-demand-gen-systems",
@@ -98,7 +105,14 @@
           "width": 1600,
           "height": 2523
         }
-      ]
+      ],
+      "thumbnail": {
+        "src": "/work/pendo-demand-gen-systems-thumb.png",
+        "webp": "/work/pendo-demand-gen-systems-thumb.webp",
+        "alt": "Customer Support ROI calculator header with centered hero banner, deflection calculator controls, and dynamic annual savings output cards.",
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "slug": "carrot-cms-architecture",
@@ -147,7 +161,14 @@
           "width": 1600,
           "height": 2000
         }
-      ]
+      ],
+      "thumbnail": {
+        "src": "/work/carrot-cms-architecture-thumb.png",
+        "webp": "/work/carrot-cms-architecture-thumb.webp",
+        "alt": "Information architecture tree diagram showing root navigation and stacked CMS collection cards with orthogonal connector lines for Webflow templates.",
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "slug": "carrot-integrated-marketing-systems",
@@ -194,7 +215,14 @@
           "width": 1600,
           "height": 2000
         }
-      ]
+      ],
+      "thumbnail": {
+        "src": "/work/carrot-integrated-marketing-systems-thumb.png",
+        "webp": "/work/carrot-integrated-marketing-systems-thumb.webp",
+        "alt": "Carrot employer marketing page hero showing brand wordmark, vector illustration, and four benefit columns with intact Care Team icon.",
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "slug": "kiddom-component-architecture",
@@ -234,7 +262,14 @@
           "width": 1600,
           "height": 1280
         }
-      ]
+      ],
+      "thumbnail": {
+        "src": "/work/kiddom-component-architecture-thumb.png",
+        "webp": "/work/kiddom-component-architecture-thumb.webp",
+        "alt": "Kiddom component library navigation showing standardized React mega-menu with complete category icons, Customer Stories module, and UI kit tokens.",
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "slug": "mednition-landing-page-templates",
@@ -275,14 +310,21 @@
           "height": 1800
         },
         {
-          "src": "/work/mednition-recent.png",
-          "webp": "/work/mednition-recent.webp",
-          "alt": "Archived screenshot of the same KATE for ESI Acuity Assignment landing page captured years later, showing the same structure, form, and layout still in production on Mednition's insights subdomain.",
-          "caption": "The same page, captured again years later: same structure, same form, unchanged since the original build.",
+          "src": "/work/mednition-solutions.png",
+          "webp": "/work/mednition-solutions.webp",
+          "alt": "Clinical AI platform architecture overview on Mednition's insights subdomain: modular clinical capability blocks for sepsis detection and emergency department length-of-stay reduction, alongside a consultation inquiry card and clinical leadership endorsement.",
+          "caption": "Modular clinical platform architecture overview, showing emergency department decision support blocks, consultation request workflow, and clinical leadership endorsement.",
           "width": 1600,
-          "height": 1282
+          "height": 1720
         }
-      ]
+      ],
+      "thumbnail": {
+        "src": "/work/mednition-landing-page-templates-thumb.png",
+        "webp": "/work/mednition-landing-page-templates-thumb.webp",
+        "alt": "KATE clinical triage landing page hero featuring Talk with KATE headline, bedside clinical nurse alert notification card, and quantitative outcome metrics.",
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "slug": "appzen-campaign-templates",
@@ -322,7 +364,14 @@
           "width": 1600,
           "height": 1550
         }
-      ]
+      ],
+      "thumbnail": {
+        "src": "/work/appzen-campaign-templates-thumb.png",
+        "webp": "/work/appzen-campaign-templates-thumb.webp",
+        "alt": "AppZen Expense Audit ROI calculator interface featuring interactive input sliders and dynamic annual savings calculation output cards.",
+        "width": 1600,
+        "height": 900
+      }
     }
   ]
 }

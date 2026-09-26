@@ -8,10 +8,11 @@ import {
   CaseStudyCompactRow,
   WorkViewToggle,
 } from "./index";
+import WorkLayout from "../WorkLayout";
 import { caseStudies } from "../content";
 
 describe("WorkHero", () => {
-  it("renders the eyebrow, h1, lead paragraph, and 4 proof facts", () => {
+  it("renders the eyebrow, h1, and lead paragraph", () => {
     render(<WorkHero />);
 
     expect(screen.getByText("Work · Platform Case Studies")).toBeInTheDocument();
@@ -21,20 +22,6 @@ describe("WorkHero", () => {
     expect(
       screen.getByText(/Case studies from nine years owning marketing-site lifecycles/i)
     ).toBeInTheDocument();
-
-    // 4 Key proof facts
-    expect(screen.getByText("7")).toBeInTheDocument();
-    expect(screen.getByText("Case Studies")).toBeInTheDocument();
-
-    expect(screen.getByText("4")).toBeInTheDocument();
-    expect(screen.getByText("Architecture Diagrams")).toBeInTheDocument();
-
-    expect(screen.getByText("3")).toBeInTheDocument();
-    expect(screen.getByText("Verified Business Metrics")).toBeInTheDocument();
-    expect(screen.getByText(/Carrot 30%, Pendo 72h→24h, 40\+ paths/i)).toBeInTheDocument();
-
-    expect(screen.getByText("~5 Years")).toBeInTheDocument();
-    expect(screen.getByText("Production Durability")).toBeInTheDocument();
   });
 });
 
@@ -78,6 +65,47 @@ describe("WorkMediaPreview", () => {
       />
     );
     expect(screen.getByText(sampleImage.caption)).toBeInTheDocument();
+  });
+
+  it("uses item.thumbnail when present, falling back to item.images[0]", () => {
+    const thumb = {
+      src: "/work/thumb.png",
+      webp: "/work/thumb.webp",
+      alt: "Custom Thumbnail",
+      width: 1200,
+      height: 800,
+    };
+    const { rerender } = render(
+      <WorkMediaPreview
+        item={{
+          thumbnail: thumb,
+          images: [sampleImage],
+          company: "Pendo.io",
+        }}
+      />
+    );
+    expect(screen.getByRole("img", { name: "Custom Thumbnail" })).toBeInTheDocument();
+
+    // Fallback to images[0] when thumbnail is undefined
+    rerender(
+      <WorkMediaPreview
+        item={{
+          images: [sampleImage],
+          company: "Pendo.io",
+        }}
+      />
+    );
+    expect(screen.getByRole("img", { name: sampleImage.alt })).toBeInTheDocument();
+  });
+
+  it("renders custom tag in browser header when tag is provided", () => {
+    render(
+      <WorkMediaPreview
+        image={sampleImage}
+        tag="Pendo.io / architecture"
+      />
+    );
+    expect(screen.getByText("Pendo.io / architecture")).toBeInTheDocument();
   });
 });
 
@@ -190,3 +218,25 @@ describe("CaseStudyCompactRow", () => {
     expect(exploreLink).toHaveAttribute("href", `/work/${study.slug}/`);
   });
 });
+
+describe("WorkLayout", () => {
+  it("renders dedicated hero presentation when item.thumbnail is present", () => {
+    const studyWithThumb = {
+      ...caseStudies[0],
+      thumbnail: {
+        src: "/work/hero-thumb.png",
+        webp: "/work/hero-thumb.webp",
+        alt: "Hero Presentation Mockup",
+        caption: "Architecture overview hero",
+        width: 1400,
+        height: 900,
+      },
+    };
+
+    render(<WorkLayout item={studyWithThumb} />);
+    expect(screen.getByRole("img", { name: "Hero Presentation Mockup" })).toBeInTheDocument();
+    expect(screen.getByText("Pendo.io / architecture")).toBeInTheDocument();
+    expect(screen.getByText("Architecture overview hero")).toBeInTheDocument();
+  });
+});
+

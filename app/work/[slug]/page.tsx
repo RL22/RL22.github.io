@@ -64,7 +64,9 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
     author: AUTHOR,
     publisher: AUTHOR,
     url: canonical,
-    ...(item.images[0] ? { image: `${SITE_URL}${item.images[0].src}` } : {}),
+    ...(item.thumbnail || item.images[0]
+      ? { image: `${SITE_URL}${(item.thumbnail || item.images[0])!.src}` }
+      : {}),
     about: { "@type": "Organization", name: item.company },
   };
 
