@@ -8,7 +8,7 @@ I used a workplace-management brand whose site had relied on illustrations for y
 
 The first batch asked for an HR team collaborating at a whiteboard in a tech office. I generated 12 options because a larger batch gives me more faces and compositions to evaluate before refining one. From there, I tested variations, reused selected characters, and changed the setting. I also briefly compared the results with DALL-E in ChatGPT.
 
-![HR team collaborating around a table in a tech office, generated live during the talk](/blog-assets/on-brand-stock-photos/hr-team-collaboration.png)
+![HR team collaborating around a table in a tech office, generated live during the talk](/media/blog/on-brand-stock-photos/hr-team-collaboration.png)
 
 *One of the generations from the talk — the composition that shaped the multiethnic-range fix below.*
 

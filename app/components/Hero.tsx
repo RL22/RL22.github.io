@@ -86,7 +86,7 @@ export default function Hero() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <div className="absolute bottom-0 right-0 w-[84%] h-[90%] bg-brand rounded-3xl overflow-hidden">
             <img
-              src="/img/portfolio-hero-chmd-lifestyle-gen.webp"
+              src="/media/shared/portfolio-hero-chmd-lifestyle-gen.webp"
               alt="Rodney L. Lewis, Senior Web Platform Engineer"
               width={1065}
               height={1600}

@@ -10,7 +10,7 @@
 export const SHOW_BUILDING_IN_PUBLIC = true;
 
 // The /work case studies are built, routable, and linked from the navbar,
-// footer, hero, and Experience section role cards. See public/work/MANIFEST.md.
+// footer, hero, and Experience section role cards. See public/media/work/MANIFEST.md.
 //
 // Flipping this to false hides, in one step: the navbar, footer and blog
 // footer links, the /work URLs in sitemap.xml, and indexing on the /work pages.

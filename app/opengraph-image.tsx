@@ -48,7 +48,7 @@ async function loadFonts() {
 }
 
 // Satori/resvg in this pipeline can't decode WebP (throws mid-render), so the
-// portrait is a PNG derivative of public/img/portfolio-hero-chmd-lifestyle-gen.webp
+// portrait is a PNG derivative of public/media/shared/portfolio-hero-chmd-lifestyle-gen.webp
 // pre-cropped/resized to 2x the card's 420x630 display box — see
 // app/og/portrait.png. Regenerate that file if the source photo changes.
 async function loadPortraitDataUri() {

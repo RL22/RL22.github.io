@@ -1,4 +1,4 @@
-![Generic agent UI contrasted with UI generated from version-controlled design constraints](/blog-assets/typeui-repo-review/typeui-repo-review-hero.png)
+![Generic agent UI contrasted with UI generated from version-controlled design constraints](/media/blog/typeui-repo-review/typeui-repo-review-hero.png)
 
 ## The generic-UI failure mode
 

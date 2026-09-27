@@ -26,7 +26,7 @@ Work can move from left to right. The first occurrence of a bug may require inve
 
 If a rule depends on audience, risk, or context, forcing it into a binary check creates busywork. “This page must have one H1” is testable. “This introduction must earn the reader's attention” is not. One measures structure; the other requires editorial judgment.
 
-![Boundary between contextual judgment and repeatable enforcement, with learned rules moving right](/blog-assets/code-over-willpower/code-over-willpower-boundary.png)
+![Boundary between contextual judgment and repeatable enforcement, with learned rules moving right](/media/blog/code-over-willpower/code-over-willpower-boundary.png)
 
 ## Turn every repeated correction into a gate
 
@@ -52,7 +52,7 @@ Failure messages are part of the interface. “Validation failed” sends the ag
 
 This loop lets human reviewers focus on architecture, product consequences, unusual risk, and the quality of the tradeoff. Automation does not remove review. It changes what review is for.
 
-![Required CI loop: failures drive revision; only passing changes become eligible to merge](/blog-assets/code-over-willpower/code-over-willpower-ci-loop.png)
+![Required CI loop: failures drive revision; only passing changes become eligible to merge](/media/blog/code-over-willpower/code-over-willpower-ci-loop.png)
 
 ## Keep humans on judgment
 

@@ -16,13 +16,13 @@ export const metadata: Metadata = {
 // hand-duplicated copy would. Only the avatar source differs: the real
 // generators load a base64 data URI via app/lib/og-assets.ts (Satori can't
 // fetch a relative browser path at build time), this page uses the plain
-// "/img/..." site path since it's rendered live in a browser.
+// "/media/shared/..." site path since it's rendered live in a browser.
 //
 // Cards 1–2 (sitewide default/alt) have no per-page generator — the site
 // still uses a static /public/og-default.png for the homepage, /resume, and
 // the /blog and /work index pages — so they stay hand-coded illustrations,
 // not tied to any real route.
-const avatarSrc = "/img/rod-transparent.png";
+const avatarSrc = "/media/shared/rod-transparent.png";
 
 const brand = ogTokens.brand;
 const brandDark = ogTokens.brandDark;

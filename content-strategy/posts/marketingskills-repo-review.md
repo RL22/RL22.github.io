@@ -1,4 +1,4 @@
-![Shared product context branching into coordinated marketing workflows](/blog-assets/marketingskills-repo-review/marketingskills-repo-review-hero.png)
+![Shared product context branching into coordinated marketing workflows](/media/blog/marketingskills-repo-review/marketingskills-repo-review-hero.png)
 
 ## Why marketing workflows need shared context
 

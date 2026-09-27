@@ -27,8 +27,8 @@ describe("WorkHero", () => {
 
 describe("WorkMediaPreview", () => {
   const sampleImage = {
-    src: "/work/pendo-product-experience-hub.png",
-    webp: "/work/pendo-product-experience-hub.webp",
+    src: "/media/work/pendo/product-experience-hub.png",
+    webp: "/media/work/pendo/product-experience-hub.webp",
     alt: "Archived screenshot of the Pendo product-experience hub",
     caption: "The product-family hub, October 2022.",
     width: 1600,

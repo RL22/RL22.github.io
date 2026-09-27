@@ -28,7 +28,7 @@ The one hard rule the router enforces: never delegate a task back to the CLI tha
 
 Task comes in, hits the routing table, passes the self-delegation check, and only then does a command get built and executed.
 
-![Flowchart of delegate.sh resolving a task to an executor: routing table lookup, self-delegation guard with a reroute branch, then building the sandboxed command](/blog-assets/the-router-i-actually-run/real-router-diagram-1.svg)
+![Flowchart of delegate.sh resolving a task to an executor: routing table lookup, self-delegation guard with a reroute branch, then building the sandboxed command](/media/blog/the-router-i-actually-run/real-router-diagram-1.svg)
 
 ## A narrow fallback policy, and an envelope that always tells you why
 
@@ -44,7 +44,7 @@ The `--json` flag, new in v1.3.0, is the other half of this. Every execution —
 
 Primary attempt runs, a failure gets classified, it passes through the three guard checks — stop-only, self-delegation, same-executor dedup — and either way, success or fallback or final failure, the same envelope comes out the other side.
 
-![Flowchart of the fallback decision: a hard failure passes through three eligibility guards before one retry, and every outcome converges on the same normalized envelope](/blog-assets/the-router-i-actually-run/real-router-diagram-2.svg)
+![Flowchart of the fallback decision: a hard failure passes through three eligibility guards before one retry, and every outcome converges on the same normalized envelope](/media/blog/the-router-i-actually-run/real-router-diagram-2.svg)
 
 ## What an adversarial review actually caught
 

@@ -5,11 +5,11 @@ export type Pillar = "Engineering" | "Product" | "Marketing" | "Analytics";
 export type WorkImage = {
   /** PNG fallback. */
   src: string;
-  /** Preferred source; see public/work/MANIFEST.md. */
+  /** Preferred source; see public/media/work/MANIFEST.md. */
   webp?: string;
   alt: string;
   caption?: string;
-  /** Intrinsic dimensions; see public/work/MANIFEST.md. Reserves layout space to prevent CLS. */
+  /** Intrinsic dimensions; see public/media/work/MANIFEST.md. Reserves layout space to prevent CLS. */
   width: number;
   height: number;
 };

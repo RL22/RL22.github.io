@@ -1,4 +1,4 @@
-![Diagram showing the 80/20 rule of AI coding agents: low-fidelity alignment, context-sized tickets, deterministic resets, and prompt pruning](/blog-assets/eighty-twenty-coding-agents/eighty-twenty-coding-agents-hero.png)
+![Diagram showing the 80/20 rule of AI coding agents: low-fidelity alignment, context-sized tickets, deterministic resets, and prompt pruning](/media/blog/eighty-twenty-coding-agents/eighty-twenty-coding-agents-hero.png)
 
 Most developers using AI coding agents are caught in the high-fidelity trap. They type a two-sentence feature request into Claude Code, Cursor, or Codex, and the model immediately responds by dumping 500 lines of unvetted code across six files. It feels like magic for thirty seconds—until you open the pull request. You find subtle architectural mismatches, hallucinated dependencies, and broken conventions that take two hours to unravel.
 

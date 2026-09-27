@@ -71,7 +71,7 @@ describe("work content shape", () => {
   it("requires alt text on every image", () => {
     for (const c of caseStudies) {
       for (const img of c.images) {
-        expect(img.src).toMatch(/^\/work\//);
+        expect(img.src).toMatch(/^\/media\/work\//);
         expect(img.alt.trim().length).toBeGreaterThan(10);
       }
     }
@@ -80,8 +80,8 @@ describe("work content shape", () => {
   it("requires a 16:9 thumbnail on every case study", () => {
     for (const c of caseStudies) {
       expect(c.thumbnail).toBeDefined();
-      expect(c.thumbnail?.src).toMatch(/^\/work\/[a-z0-9-]+-thumb\.png$/);
-      expect(c.thumbnail?.webp).toMatch(/^\/work\/[a-z0-9-]+-thumb\.webp$/);
+      expect(c.thumbnail?.src).toMatch(/^\/media\/work\/[a-z0-9-]+\/[a-z0-9-]+-thumb\.png$/);
+      expect(c.thumbnail?.webp).toMatch(/^\/media\/work\/[a-z0-9-]+\/[a-z0-9-]+-thumb\.webp$/);
       expect(c.thumbnail?.width).toBe(1600);
       expect(c.thumbnail?.height).toBe(900);
       expect(c.thumbnail?.alt.trim().length).toBeGreaterThan(10);
