@@ -2,7 +2,7 @@ import type { ComponentType } from "react";
 import CampaignLoop from "./CampaignLoop";
 import OneDomainFunnel from "./OneDomainFunnel";
 import SuiteHierarchy from "./SuiteHierarchy";
-import TemplateOverlap from "./TemplateOverlap";
+import WebflowCmsSchema from "./WebflowCmsSchema";
 
 export type Diagram = {
   Component: ComponentType;
@@ -24,9 +24,9 @@ export const diagrams: Record<string, Diagram> = {
       "Above, every campaign asset passes through engineering, and instrumentation is added page by page, so it is only as complete as whoever remembered it. Below, marketing ops composes from template modules and the tracking comes with the template, which is what makes the return arrow worth having: a hypothesis can be formed, shipped, and read against a clean baseline without a ticket.",
   },
   "carrot-cms-architecture": {
-    Component: TemplateOverlap,
+    Component: WebflowCmsSchema,
     caption:
-      "Schema, tokens, and the rendered page overlap rather than sit in a row: each one picks up where the last leaves off. The tokens in the middle are the constraint every page is assembled against, not a checklist reviewed afterward, which is why the page's layout lines up with the tokens panel's grid rather than being checked against it later.",
+      "Webflow CMS collection schemas bind structured content fields to modular component templates: eBooks & Guides map to gated Marketo form symbols, while Open Roles bind directly to the Greenhouse ATS API, enforcing design system constraints by construction and reducing dev requests by ~30%.",
   },
   "carrot-integrated-marketing-systems": {
     Component: OneDomainFunnel,

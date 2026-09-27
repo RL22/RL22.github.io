@@ -93,34 +93,50 @@ export default function WorkLayout({ item }: { item: CaseStudy }) {
   const { prev, next } = getAdjacentCaseStudies(item.slug);
 
   return (
-    <article className="py-20">
-      <div className="max-w-6xl mx-auto px-6 lg:grid lg:grid-cols-[200px_1fr] lg:gap-16">
-        <Rail item={item} hasDiagram={!!diagram} />
-
-        <div className="min-w-0">
-          {item.thumbnail && (
-            <Reveal className="mb-8">
-              <WorkMediaPreview
-                item={item}
-                image={item.thumbnail}
-                tag={`${item.company} / architecture`}
-                priority
-                aspectRatio="auto"
-                showCaption
-                className="max-w-[62ch] shadow-sm"
-              />
-            </Reveal>
-          )}
-
+    <article className="pt-8 pb-20">
+      {/* Full-width Hero Visual (fw 6xl+) */}
+      {item.thumbnail && (
+        <section aria-label="Case study hero preview" className="max-w-6xl mx-auto px-6 mb-10">
           <Reveal>
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-6 max-w-prose">
-              {preventWidow(item.title)}
-            </h1>
-
-            <div className="max-w-[62ch]">
-              {lead && <p className="text-lg text-gray-600 leading-relaxed">{lead}</p>}
-            </div>
+            <WorkMediaPreview
+              item={item}
+              image={item.thumbnail}
+              tag={`${item.company} / architecture`}
+              priority
+              aspectRatio="auto"
+              showCaption
+              className="w-full shadow-md rounded-2xl"
+            />
           </Reveal>
+        </section>
+      )}
+
+      {/* Row under hero img containing breadcrumbs + 2 columns */}
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Breadcrumb Navigation */}
+        <nav aria-label="Breadcrumb" className="mb-8">
+          <a
+            href="/work/"
+            className="text-gray-600 hover:text-brand-dark text-sm font-semibold inline-flex items-center gap-1.5 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" aria-hidden="true" /> All case studies
+          </a>
+        </nav>
+
+        {/* 2-Column Grid */}
+        <div className="lg:grid lg:grid-cols-[200px_1fr] lg:gap-16">
+          <Rail item={item} hasDiagram={!!diagram} />
+
+          <div className="min-w-0">
+            <Reveal>
+              <h1 className="text-4xl md:text-5xl font-extrabold mb-6 max-w-prose">
+                {preventWidow(item.title)}
+              </h1>
+
+              <div className="max-w-[62ch]">
+                {lead && <p className="text-lg text-gray-600 leading-relaxed">{lead}</p>}
+              </div>
+            </Reveal>
 
           <Reveal delay={0.1}>
             <Brief item={item} />
@@ -222,6 +238,7 @@ export default function WorkLayout({ item }: { item: CaseStudy }) {
               )}
             </nav>
           )}
+          </div>
         </div>
       </div>
     </article>

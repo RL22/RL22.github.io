@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import Contact from "../../components/Contact";
 import Footer from "../../components/Footer";
@@ -78,14 +77,6 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
       />
       <Navbar />
       <main id="main" className="bg-white">
-        <div className="max-w-6xl mx-auto px-6 pt-10 -mb-10">
-          <a
-            href="/work/"
-            className="text-gray-600 hover:text-brand-dark text-sm font-semibold inline-flex items-center gap-1.5 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" aria-hidden="true" /> All case studies
-          </a>
-        </div>
         <WorkLayout item={item} />
         <Contact />
       </main>

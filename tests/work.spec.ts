@@ -86,10 +86,10 @@ test.describe("/work detail", () => {
     },
     {
       slug: "carrot-cms-architecture",
-      name: /schema record becoming a page/i,
-      textNodes: 11,
-      viewBoxWidth: 460,
-      captionPhrase: /constraint every page is assembled against/i,
+      name: /webflow cms collection schema and modular template architecture/i,
+      textNodes: 22,
+      viewBoxWidth: 480,
+      captionPhrase: /webflow cms collection schemas bind structured content fields/i,
     },
   ];
 
