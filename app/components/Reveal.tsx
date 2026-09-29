@@ -1,5 +1,5 @@
 "use client";
-import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import type { ReactNode } from "react";
 
 type Props = {
@@ -10,32 +10,52 @@ type Props = {
   duration?: number;
 };
 
-export default function Reveal({ children, className, delay = 0, y = 40, duration = 0.8 }: Props) {
-  const prefersReducedMotion = useReducedMotion();
+export default function Reveal({ children, className, delay = 0, y = 40, duration = 0.5 }: Props) {
+  const ref = useRef<HTMLDivElement>(null);
 
-  if (prefersReducedMotion) {
-    return (
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.01 }}
-        className={className}
-      >
-        {children}
-      </motion.div>
+  useEffect(() => {
+    const element = ref.current;
+    if (
+      !element ||
+      typeof window.matchMedia !== "function" ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      typeof IntersectionObserver === "undefined" ||
+      element.getBoundingClientRect().top <= window.innerHeight
+    ) {
+      return;
+    }
+
+    const transitionDuration = Math.min(0.6, Math.max(0.4, duration));
+    element.style.setProperty("--reveal-delay", `${Math.max(0, delay)}s`);
+    element.style.setProperty("--reveal-duration", `${transitionDuration}s`);
+    element.style.setProperty("--reveal-y", `${y}px`);
+    element.classList.add("reveal", "reveal-preparing", "reveal-hidden");
+    element.getBoundingClientRect();
+    element.classList.remove("reveal-preparing");
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        element.classList.remove("reveal-hidden");
+        observer.disconnect();
+      },
+      { rootMargin: "0px 0px -60px" }
     );
-  }
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+      element.classList.remove("reveal", "reveal-preparing", "reveal-hidden");
+      element.style.removeProperty("--reveal-delay");
+      element.style.removeProperty("--reveal-duration");
+      element.style.removeProperty("--reveal-y");
+    };
+  }, [delay, duration, y]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration, ease: [0.16, 1, 0.3, 1], delay }}
-      className={className}
-    >
+    <div ref={ref} className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }

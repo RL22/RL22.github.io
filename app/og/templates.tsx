@@ -1,10 +1,8 @@
 // Satori-safe JSX for the sitewide OG image cards, rendered through
 // `next/og`'s ImageResponse in ../opengraph-image.tsx.
 //
-// Ported from app/og-preview/page.tsx cards #og-card-default and
-// #og-card-alt. Kept in lockstep with that page manually — og-preview is
-// the browser-viewable design reference; this file is the Satori-rendered
-// production source. If you change one, update the other.
+// These templates are the single source for the Satori-rendered sitewide
+// OG cards.
 //
 // Satori portability rules followed here: inline styles only, flexbox-only
 // layout (every element with children declares display: flex), solid
@@ -104,7 +102,7 @@ export function DefaultOgCard({ portraitSrc }: { portraitSrc: string }) {
               lineHeight: 1.08,
             }}
           >
-            Build platforms.
+            I run marketing websites
           </div>
           <div
             style={{
@@ -117,7 +115,7 @@ export function DefaultOgCard({ portraitSrc }: { portraitSrc: string }) {
               lineHeight: 1.08,
             }}
           >
-            Scale marketing impact.
+            like products.
           </div>
         </div>
 
@@ -129,12 +127,11 @@ export function DefaultOgCard({ portraitSrc }: { portraitSrc: string }) {
             paddingTop: 24,
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <div style={{ display: "flex", fontSize: 28, fontWeight: 600, color: ink }}>
-              Senior Web Platform Engineer
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            <div style={{ display: "flex", fontSize: 27, fontWeight: 600, color: ink }}>
+              Senior Web Developer · Platform Lead
             </div>
-            <div style={{ display: "flex", fontSize: 28, fontWeight: 600, color: sub }}>·</div>
-            <div style={{ display: "flex", fontSize: 26, fontWeight: 500, color: sub }}>
+            <div style={{ display: "flex", fontSize: 24, fontWeight: 500, color: sub }}>
               rl22.github.io
             </div>
           </div>
@@ -209,7 +206,7 @@ export function AltOgCard() {
             lineHeight: 1.1,
           }}
         >
-          Build platforms.
+          I run marketing websites
         </div>
         <div
           style={{
@@ -222,7 +219,7 @@ export function AltOgCard() {
             lineHeight: 1.1,
           }}
         >
-          Scale marketing impact.
+          like products.
         </div>
       </div>
 
@@ -237,7 +234,7 @@ export function AltOgCard() {
       >
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <div style={{ display: "flex", fontSize: 30, fontWeight: 600, color: cream }}>
-            Senior Web Platform Engineer
+            Senior Web Developer · Platform Lead
           </div>
           <div style={{ display: "flex", fontSize: 30, fontWeight: 600, color: creamTintDim }}>
             ·

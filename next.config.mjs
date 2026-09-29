@@ -5,6 +5,8 @@ const nextConfig = {
   trailingSlash: true,
   images: { unoptimized: true },
   turbopack: { root: process.cwd() },
+  // Tailwind output is ~7 KB: inlining removes the one render-blocking request.
+  experimental: { inlineCss: true },
 };
 
 export default nextConfig;

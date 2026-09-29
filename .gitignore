@@ -11,3 +11,6 @@ playwright-report/
 test-results/
 .wayback-staging/
 scratch/
+
+# Agent/run logs stay local
+*.log

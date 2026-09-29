@@ -1,5 +1,4 @@
 import { BottomCta } from "./BlogChrome";
-import PlaceholderChip from "../components/building/PlaceholderChip";
 import MarkdownBody from "./MarkdownBody";
 import { formatDate, getBody, readingTime, type BuildingItem } from "./content";
 
@@ -21,14 +20,6 @@ export default function RepoReviewLayout({ item }: { item: BuildingItem }) {
           {" · "}
           {readingTime(body)}
         </p>
-
-        <div
-          className="w-full aspect-[2/1] rounded-2xl bg-brand/10 flex items-center justify-center mb-10"
-          role="img"
-          aria-label="Repo review hero image placeholder"
-        >
-          <PlaceholderChip />
-        </div>
 
         <MarkdownBody body={body} />
 

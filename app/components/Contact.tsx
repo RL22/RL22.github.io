@@ -1,10 +1,10 @@
-"use client";
 import { Mail, MapPin, Github, Linkedin } from "lucide-react";
 import Reveal from "./Reveal";
 import BookACallButton from "./BookACallButton";
 import ContactForm from "./ContactForm";
 
-// Sprintz references belong in About and Experience only, not here.
+// Sprintz appears here only as the closing contract line; the pitch lives in
+// About and Experience.
 const info = [
   { Icon: MapPin, label: "Location", value: "Oakland, CA (Bay Area)", href: null as string | null },
   { Icon: Mail, label: "Email", value: "lewis.rodneyl@gmail.com", href: "mailto:lewis.rodneyl@gmail.com" },
@@ -19,11 +19,12 @@ export default function Contact() {
         <Reveal className="max-w-3xl mb-16">
           <span className="section-badge">Contact</span>
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-            If you&apos;re hiring a platform owner, let&apos;s talk.
+            Hiring for a web platform role? Let&apos;s talk.
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed">
-            Currently open to senior roles owning marketing web platforms, Bay Area or remote. I reply within one business day.
+            Open to senior web developer and platform lead roles, Bay Area hybrid or remote. I reply within one business day.
           </p>
+          <p className="text-gray-700 leading-relaxed mt-3">Also taking select contract work through Sprintz.</p>
         </Reveal>
 
         <div className="grid md:grid-cols-[minmax(0,26rem)_280px] gap-12 lg:gap-16">

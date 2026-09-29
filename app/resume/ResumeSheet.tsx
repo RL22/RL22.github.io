@@ -43,7 +43,11 @@ export default function ResumeSheet() {
             <div className="resume-entry" key={e.org}>
               <div className="resume-entry-head">
                 <h3>
-                  {e.org} <span className="resume-entry-role">| {e.role}</span>
+                  {e.org}{" "}
+                  <span className="resume-entry-role">
+                    <span className="resume-role-sep">| </span>
+                    {e.role}
+                  </span>
                 </h3>
                 <span className="resume-entry-dates">{e.dates}</span>
               </div>

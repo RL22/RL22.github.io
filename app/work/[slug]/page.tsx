@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Navbar from "../../components/Navbar";
+import SiteHeader from "../../components/SiteHeader";
 import Contact from "../../components/Contact";
 import Footer from "../../components/Footer";
 import WorkLayout from "../WorkLayout";
@@ -75,7 +75,7 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ slu
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Navbar />
+      <SiteHeader />
       <main id="main" className="bg-white">
         <WorkLayout item={item} />
         <Contact />

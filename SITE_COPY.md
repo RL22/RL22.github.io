@@ -407,12 +407,12 @@ I build marketing platforms that scale by working across design, dev, and market
 
 - The 2026-07-21 removal of the "30% fewer dev requests" metric is **partially
   superseded**. The owner has confirmed the figure is real and defensible in an
-  interview, so it has been reinstated in the Everlaw-tailored materials only,
+  interview, so it has been reinstated in company-tailored application materials only,
   in the canonical phrasing: *"Architected modular Webflow templates that
   reduced marketing dev requests by 30% and returned roadmap capacity to
   engineering."*
-- Scope of the reinstatement is `Sprintz/jobs/everlaw` (the noindexed, tailored
-  resume at that repo's `/resume` route and its outreach drafts). **This public
+- Scope of the reinstatement was a noindexed, company-tailored resume and its
+  outreach drafts, kept outside this repo. **This public
   site remains metric-free** — no hero card, Experience entry, or resume variant
   here was changed. If the metric is ever added back to this site, update the
   2026-07-21 note above rather than leaving the two in conflict.
@@ -448,8 +448,8 @@ I build marketing platforms that scale by working across design, dev, and market
   marketing-web ownership, the figure becomes ten, not nine.** The two counts
   are not interchangeable; changing one without the other is what produced the
   earlier drift.
-- Related: the Everlaw-tailored resume states nine in its summary
-  (`RL22/everlaw#2`). `rodney-profile.md` line 17 also states nine.
+- Related: the company-tailored resume states nine in its summary.
+  `rodney-profile.md` line 17 also states nine.
 
 ---
 

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Figtree, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { LenisProvider } from "./providers/LenisProvider";
-import { PageLoader } from "./components/PageLoader";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -24,13 +22,16 @@ const figtree = Figtree({
 // brand profile (~/.diagram-design/profiles/rl22-portfolio.md) actually specifies.
 const geistMono = Geist_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
   variable: "--font-mono",
   display: "swap",
+  // Only blog code spans and case-study diagrams use mono; preloading it on
+  // every route competed with the display face that paints the hero H1.
+  preload: false,
 });
 
-const siteTitle = "Rodney L. Lewis | Senior Web Platform Engineer";
-const siteDescription = "Nine years owning marketing-site lifecycles for Pendo, Carrot Fertility, Kiddom, Andersen, and Revel Systems: architecture, component systems, and the publishing workflows that let marketing ship without opening a ticket.";
+const siteTitle = "Rodney L. Lewis | Senior Web Developer · Platform Lead";
+const siteDescription = "Nine years owning marketing websites for Pendo, Carrot Fertility, Kiddom, Andersen Digital, and Revel Systems: component systems, CMS architecture, and self-serve publishing that lets marketing ship without an engineering ticket.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rl22.github.io"),
@@ -56,7 +57,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Rodney L. Lewis",
-  jobTitle: "Senior Web Platform Engineer",
+  jobTitle: "Senior Web Developer · Platform Lead",
   url: "https://rl22.github.io",
   sameAs: [
     "https://github.com/RL22",
@@ -82,10 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
-        <PageLoader />
-        <LenisProvider>
-          {children}
-        </LenisProvider>
+        {children}
       </body>
     </html>
   );

@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html { scroll-behavior: smooth; }
 body {
   background-color: #F5EFE6;
   color: #1a1a1a;
@@ -13,18 +12,31 @@ h1, h2, h3, h4, .font-display {
   font-family: var(--font-display), system-ui, sans-serif;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-7px); }
-}
-@keyframes float-b {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+
+  .reveal {
+    transition-property: opacity, transform;
+    transition-duration: var(--reveal-duration, 0.5s);
+    transition-delay: var(--reveal-delay, 0s);
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.reveal-preparing { transition: none; }
+  .reveal.reveal-hidden {
+    opacity: 0;
+    transform: translateY(var(--reveal-y, 40px));
+  }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .float-card, .float-card--delay-1, .float-card--delay-2 { animation: none; }
+/* Inline blog diagrams (MarkdownBody). next/font renames families at build
+   time and SVG presentation attributes cannot read var(), so diagram text
+   takes the site fonts through these classes instead of font-family. */
+.dg-mono { font-family: var(--font-mono), ui-monospace, monospace; }
+.dg-sans { font-family: var(--font-body), system-ui, sans-serif; }
+
+/* Print never scrolls, so the observer never fires: show everything. */
+@media print {
+  .reveal.reveal-hidden { opacity: 1; transform: none; }
 }
 
 @layer components {
@@ -74,9 +86,6 @@ h1, h2, h3, h4, .font-display {
   .browser-dot-green { @apply bg-[#27C93F]; }
   .browser-dot-muted { @apply bg-gray-400; }
 
-  .float-card { animation: float 4s ease-in-out infinite 1.8s; }
-  .float-card--delay-1 { animation: float-b 4.5s ease-in-out infinite 2.1s; }
-  .float-card--delay-2 { animation: float 5s ease-in-out infinite 2.4s; }
 }
 
 /* Skip-to-content link (visually hidden until focused) */

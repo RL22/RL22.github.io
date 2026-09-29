@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Navbar from "../components/Navbar";
+import SiteHeader from "../components/SiteHeader";
 import Footer from "../components/Footer";
 import FeaturedHero from "../components/building/FeaturedHero";
 import BuildingList from "./BuildingList";
@@ -33,15 +33,16 @@ export default function BuildingPage() {
 
   return (
     <>
-      <Navbar />
+      <SiteHeader />
       <main id="main" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl mb-14">
-            <span className="section-badge">Building in Public</span>
+            <span className="section-badge">Writing</span>
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Watch the work happen.</h1>
             <p className="text-gray-600 text-lg leading-relaxed">{DESCRIPTION}</p>
           </div>
 
+          <h2 className="sr-only">Writing library</h2>
           <FeaturedHero />
 
           <BuildingList items={rest} />

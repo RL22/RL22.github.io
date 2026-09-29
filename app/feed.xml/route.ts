@@ -49,7 +49,7 @@ export async function GET() {
 <rss version="2.0">
   <channel>
     <title>${escapeXml(FEED_TITLE)}</title>
-    <link>${SITE_URL}/blog/</link>
+    <link>${SITE_URL}/building/</link>
     <description>${escapeXml(FEED_DESCRIPTION)}</description>
     <language>en-us</language>
 ${itemsXml}

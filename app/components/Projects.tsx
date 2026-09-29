@@ -1,5 +1,3 @@
-"use client";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Reveal from "./Reveal";
 import { getCaseStudyBySlug } from "../work/content";
@@ -8,10 +6,8 @@ import { SHOW_WORK } from "../config";
 type Role = {
   title: string;
   role: string;
-  category: string;
-  desc: string;
-  outcome: string;
-  tags: string[];
+  points: string[];
+  focus: string[];
   caseStudySlugs?: string[];
 };
 
@@ -19,27 +15,32 @@ const featured: Role[] = [
   {
     title: "Sprintz",
     role: "Founder · 2023–present",
-    category: "Client Strategy & AI Adoption",
-    desc: "Partner to founders and small marketing teams: audit what is blocking conversion, name the highest-leverage fix, then build it. Engagements now start with AI adoption, sorting what to automate from what stays human. The same workflow runs my own delivery, so I stay in production every week.",
-    outcome: "Clients keep shipping after handoff, with AI in the loop.",
-    tags: ["AI Adoption", "Conversion Strategy", "Design + Build", "Marketing Ops"],
+    points: [
+      "Audit marketing bottlenecks for founders and growth teams, then build the fix: Sanity Studio workspaces with previews, validation and role permissions.",
+      "Wire landing pages, paid acquisition and CRM into one funnel.",
+    ],
+    focus: ["Sanity Studio", "Next.js", "Marketing Ops", "AI Workflows"],
   },
   {
     title: "Pendo.io",
-    role: "Sr. Marketing Engineer · 2022–2023",
-    category: "Campaign Systems",
-    desc: "Inherited a marketing site where every campaign needed engineering time. Rebuilt the landing-page and email template system into modules the marketing team could assemble themselves, then worked with marketing ops to wire in personalization and progressive profiling for enterprise prospects.",
-    outcome: "Campaigns stopped being engineering tickets.",
-    tags: ["Landing Page Systems", "Personalization", "Demand Gen Partnership"],
+    role: "Senior Marketing Engineer · 2022–2023",
+    points: [
+      "Rebuilt Marketo and WordPress templates into modular blocks; marketing launched 30+ campaign pages without filing an engineering ticket.",
+      "Maintained 75 solution and adoption pages across 3 page families with authoring guardrails.",
+      "Built consent-aware measurement across Segment, OneTrust and Salesforce.",
+    ],
+    focus: ["Campaign Systems", "Marketo", "Segment"],
     caseStudySlugs: ["pendo-core-web-platform", "pendo-demand-gen-systems"],
   },
   {
     title: "Carrot Fertility",
-    role: "Sr. Web Developer · 2021–2022",
-    category: "Site Ownership",
-    desc: "Owned the corporate site end to end: look and feel, growth strategy, and conversion. Standardized how web work got scoped and shipped, and partnered with teams across the company to turn new page and campaign needs into a modular template system.",
-    outcome: "Left a site the marketing team ran without a developer in the loop.",
-    tags: ["Site Ownership", "Template Systems", "Conversion"],
+    role: "Senior Web Developer · 2021–2022",
+    points: [
+      "Owned the corporate site end to end: architecture, performance, accessibility.",
+      "Built modular Webflow templates that cut routine dev requests by about 30% within 90 days.",
+      "Ran consent and tracking governance (OneTrust, GTM, Salesforce) across 20+ launches.",
+    ],
+    focus: ["Site Ownership", "Modular Templates", "Consent & Tracking"],
     caseStudySlugs: ["carrot-cms-architecture", "carrot-integrated-marketing-systems"],
   },
 ];
@@ -54,26 +55,26 @@ type EarlierRole = {
 const earlier: EarlierRole[] = [
   {
     title: "Kiddom",
-    role: "Sr. Web Developer · 2021",
-    outcome: "Streamlined the marketing component library and audited the site against funnel data and heatmaps, leaving the team a base they could iterate on without starting over.",
+    role: "2021",
+    outcome: "40+ React components on headless WordPress; the performance work earned a contract renewal.",
     caseStudySlugs: ["kiddom-component-architecture"],
   },
   {
     title: "Mednition",
-    role: "HubSpot Developer / Designer · Feb–Jul 2021 · Contract",
-    outcome: "Designed and built modular HubSpot landing page templates for KATE, an emergency-department triage AI, that stayed in production unchanged for years after the five-month contract ended.",
+    role: "2021 · Contract",
+    outcome: "HubSpot landing templates still live, unchanged, years later.",
     caseStudySlugs: ["mednition-landing-page-templates"],
   },
   {
     title: "Andersen Digital",
-    role: "Sr. Web Developer · 2020–2021",
-    outcome: "Ran CMS and marketing-automation migrations for enterprise clients including Rancher IO, AppZen, and Illumio, connecting their campaign tooling to the platforms their sales teams already worked in.",
+    role: "2020–2021",
+    outcome: "Ran migrations for Rancher Labs (87 landing pages), AppZen and Illumio.",
     caseStudySlugs: ["appzen-campaign-templates"],
   },
   {
     title: "Revel Systems",
-    role: "Web Developer to Sr. Web Developer · 2016–2020",
-    outcome: "Spent four years rebuilding the company's web properties around SEO and growth priorities, then helped build an on-demand product training platform that gave customers a reason to stay after the sale.",
+    role: "2016–2020",
+    outcome: "Owned marketing web properties; hired and led two developers.",
   },
 ];
 
@@ -85,32 +86,26 @@ function RoleCard({ p, delay }: { p: Role; delay: number }) {
     : [];
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay }}
-      className="bg-white rounded-2xl border border-cream-dark p-8 md:p-10 grid md:grid-cols-[240px_1fr] gap-8"
-    >
+    <Reveal delay={delay}>
+    <article className="bg-white rounded-2xl border border-cream-dark p-8 md:p-10 grid md:grid-cols-[240px_1fr] gap-8">
       {/* Org identity block */}
       <div className="flex flex-col justify-between bg-brand/10 rounded-xl p-6">
         <span className="text-2xl md:text-3xl font-extrabold text-brand-dark tracking-tight">
           {p.title}
         </span>
-        <div className="mt-6">
-          <p className="text-xs font-semibold uppercase tracking-widest text-brand-dark mb-1">
-            {p.category}
-          </p>
-          <p className="text-gray-500 text-sm">{p.role}</p>
-        </div>
+        <p className="mt-6 text-gray-700 text-sm font-medium">{p.role}</p>
       </div>
 
       {/* Content */}
       <div className="flex flex-col">
-        <p className="text-gray-600 leading-relaxed mb-4">{p.desc}</p>
-        <p className="text-lg font-bold text-brand mb-5">{p.outcome}</p>
+        <ul className="list-disc marker:text-brand-dark pl-5 space-y-2 text-gray-700 leading-relaxed mb-5">
+          {p.points.map((pt) => (
+            <li key={pt}>{pt}</li>
+          ))}
+        </ul>
         <p className="text-sm font-medium text-gray-700">
-          {p.tags.map((t, ti) => (
+          <span className="font-semibold text-gray-900">Focus:</span>{" "}
+          {p.focus.map((t, ti) => (
             <span key={t}>
               {ti > 0 && (
                 <>
@@ -142,7 +137,8 @@ function RoleCard({ p, delay }: { p: Role; delay: number }) {
           </ul>
         )}
       </div>
-    </motion.article>
+    </article>
+    </Reveal>
   );
 }
 
@@ -154,19 +150,13 @@ function EarlierRoleRow({ p, delay }: { p: EarlierRole; delay: number }) {
     : [];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay }}
-      className="border-t border-gray-200 py-6 grid md:grid-cols-[200px_1fr] gap-x-8 gap-y-2 items-baseline"
-    >
+    <Reveal delay={delay} className="border-t border-gray-200 py-6 grid md:grid-cols-[200px_1fr] gap-x-8 gap-y-2 items-baseline">
       <div>
         <h4 className="font-semibold text-lg">{p.title}</h4>
-        <p className="text-gray-500 text-xs">{p.role}</p>
+        <p className="text-gray-600 text-sm">{p.role}</p>
       </div>
       <div>
-        <p className="text-gray-500 text-sm leading-relaxed">{p.outcome}</p>
+        <p className="text-gray-700 leading-relaxed">{p.outcome}</p>
         {studies.length > 0 && (
           <ul className="flex flex-col gap-y-1 mt-2">
             {studies.map((c) => (
@@ -186,7 +176,7 @@ function EarlierRoleRow({ p, delay }: { p: EarlierRole; delay: number }) {
           </ul>
         )}
       </div>
-    </motion.div>
+    </Reveal>
   );
 }
 
@@ -202,6 +192,12 @@ export default function Projects() {
           <p className="text-gray-600 text-lg leading-relaxed">
             Every role has followed the same arc: an inherited marketing site, a platform reset, and a team that ships without me afterward.
           </p>
+          {SHOW_WORK && (
+            <p className="text-gray-700 text-sm leading-relaxed mt-3">
+              Five of these roles have full case studies on the{" "}
+              <a href="/work/" className="text-brand-dark font-semibold underline underline-offset-4 hover:no-underline">Work</a> page.
+            </p>
+          )}
         </Reveal>
 
         {/* Featured tier */}

@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { AltOgCard, DefaultOgCard } from "./og/templates";
 
-export const alt = "Rodney L. Lewis, Senior Web Platform Engineer";
+export const alt = "Rodney L. Lewis, Senior Web Developer · Platform Lead";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -11,10 +11,10 @@ const fontsDir = path.join(process.cwd(), "app/og/fonts");
 
 const cards = {
   default: {
-    alt: "Rodney L. Lewis, Senior Web Platform Engineer. Build platforms. Scale marketing impact.",
+    alt: "Rodney L. Lewis, Senior Web Developer · Platform Lead. I run marketing websites like products.",
   },
   alt: {
-    alt: "Rodney L. Lewis, Senior Web Platform Engineer. Build platforms. Scale marketing impact. (Alternate design)",
+    alt: "Rodney L. Lewis, Senior Web Developer · Platform Lead. I run marketing websites like products. (Alternate design)",
   },
 } as const;
 

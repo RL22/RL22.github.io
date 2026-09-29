@@ -1,16 +1,15 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import { SHOW_BUILDING_IN_PUBLIC, SHOW_WORK } from "../config";
+import Monogram from "./Monogram";
 
-// Absolute "/#..." paths, not bare "#...": Footer renders on /work and
-// /work/[slug] too, where a bare hash would resolve against that route
-// instead of jumping back to the homepage section.
+// Absolute "/#..." paths, not bare "#...": Footer renders away from the
+// homepage too, where a bare hash would resolve against the current route.
 const navLinks = [
-  { label: "About", href: "/#about" },
-  { label: "Experience", href: "/#experience" },
   ...(SHOW_WORK ? [{ label: "Work", href: "/work/" }] : []),
-  ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Building", href: "/building" }] : []),
-  { label: "Skills", href: "/#skills" },
-  { label: "Resume", href: "/resume" },
+  ...(SHOW_BUILDING_IN_PUBLIC ? [{ label: "Writing", href: "/building/" }] : []),
+  { label: "Resume", href: "/resume/" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const socialLinks = [
@@ -24,28 +23,23 @@ export default function Footer() {
     <footer className="bg-cream border-t border-cream-dark py-10">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Logo */}
           <a href="/" className="flex items-center gap-2 font-bold text-lg">
-            <span className="w-9 h-9 bg-brand-dark rounded-lg flex items-center justify-center text-white font-bold text-sm tracking-tight">
-              RL
-            </span>
+            <Monogram />
             Rodney L. Lewis
           </a>
 
-          {/* Nav links */}
-          <nav className="flex gap-6 flex-wrap justify-center">
+          <nav aria-label="Footer" className="flex gap-x-6 gap-y-2 flex-wrap justify-center">
             {navLinks.map(l => (
               <a
                 key={l.label}
                 href={l.href}
-                className="text-gray-600 hover:text-brand-dark text-sm transition-colors"
+                className="text-gray-600 hover:text-brand-dark text-sm transition-colors min-h-11 inline-flex items-center"
               >
                 {l.label}
               </a>
             ))}
           </nav>
 
-          {/* Social icons */}
           <div className="flex gap-3">
             {socialLinks.map(({ Icon, href, label }) => (
               <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer"

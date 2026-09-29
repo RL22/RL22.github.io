@@ -107,7 +107,7 @@ Every role follows a clear arc: inherit a fragile site, rebuild it into a modula
 ### Experience Cards
 
 #### Sprintz
-**Principal Marketing Engineer & Founder** · 2023-Present  
+**Founder** · 2023-Present  
 *Venture Lab & Platform Engineering*  
 - Partner with founders and growth teams to audit marketing bottlenecks, design custom web platforms, and implement AI-assisted development workflows.
 - Architect custom Sanity Studio workspaces with visual previews, validation guardrails, and role-based permissions, giving teams full self-service publishing.

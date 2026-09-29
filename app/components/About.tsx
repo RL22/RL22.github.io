@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import Reveal from "./Reveal";
 
 const principles = [
@@ -44,7 +43,7 @@ export default function About() {
               href="https://sprintz.agency"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-brand-dark hover:underline"
+              className="text-brand-dark font-semibold underline underline-offset-4 hover:no-underline"
             >
               Sprintz
             </a>
@@ -62,12 +61,11 @@ export default function About() {
           </Reveal>
           <div className="grid md:grid-cols-2 gap-x-14 gap-y-12">
             {principles.map((p, i) => (
-              <motion.div
+              <Reveal
                 key={p.axiom}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: (i % 2) * 0.1 }}
+                delay={(i % 2) * 0.1}
+                y={24}
+                duration={0.6}
                 className="flex gap-5"
               >
                 <span
@@ -80,7 +78,7 @@ export default function About() {
                   <p className="font-bold text-xl mb-2">{p.axiom}</p>
                   <p className="text-gray-500 leading-relaxed">{p.detail}</p>
                 </div>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>

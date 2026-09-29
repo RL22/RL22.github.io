@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
-import { BlogHeader, BlogFooter } from "../BlogChrome";
+import { ArrowLeft } from "lucide-react";
+import Footer from "../../components/Footer";
+import SiteHeader from "../../components/SiteHeader";
 import VideoLayout from "../VideoLayout";
 import ArticleLayout from "../ArticleLayout";
 import RepoReviewLayout from "../RepoReviewLayout";
@@ -17,7 +20,7 @@ function breadcrumbJsonLd(title: string, canonical: string) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog/` },
+      { "@type": "ListItem", position: 2, name: "Writing", item: `${SITE_URL}/building/` },
       { "@type": "ListItem", position: 3, name: title, item: canonical },
     ],
   };
@@ -63,8 +66,11 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
   const item = getItemBySlug(slug);
   if (!item) notFound();
 
+  let content: ReactNode;
+  let jsonLd: Record<string, unknown>;
+
   if (item.type === "video") {
-    const jsonLd = {
+    jsonLd = {
       "@context": "https://schema.org",
       "@type": "VideoObject",
       name: item.title,
@@ -80,25 +86,10 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
         : {}),
       ...(item.duration ? { duration: item.duration } : {}),
     };
-    return (
-      <>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(item.title, canonical)) }}
-        />
-        <BlogHeader />
-        <main id="main" className="bg-white">
-          <VideoLayout item={item} />
-        </main>
-        <BlogFooter />
-      </>
-    );
-  }
-
-  if (item.type === "product") {
+    content = <VideoLayout item={item} />;
+  } else if (item.type === "product") {
     const meta = item.repo ? getRepoMeta(item.repo) : undefined;
-    const jsonLd = {
+    jsonLd = {
       "@context": "https://schema.org",
       "@type": "SoftwareSourceCode",
       name: item.title,
@@ -109,37 +100,25 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
       url: canonical,
       mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
     };
-    return (
-      <>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(item.title, canonical)) }}
-        />
-        <BlogHeader />
-        <main id="main" className="bg-white">
-          <AnnouncementLayout item={item} />
-        </main>
-        <BlogFooter />
-      </>
-    );
+    content = <AnnouncementLayout item={item} />;
+  } else {
+    jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: item.title,
+      description: item.blurb,
+      datePublished: item.publishedAt,
+      dateModified: item.publishedAt,
+      articleSection: item.category[0],
+      wordCount: wordCount(getBody(item)),
+      author: AUTHOR,
+      publisher: AUTHOR,
+      url: canonical,
+      mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+    };
+    content = item.type === "repo review" ? <RepoReviewLayout item={item} /> : <ArticleLayout item={item} />;
   }
 
-  // "thoughts" and "repo review"
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: item.title,
-    description: item.blurb,
-    datePublished: item.publishedAt,
-    dateModified: item.publishedAt,
-    articleSection: item.category[0],
-    wordCount: wordCount(getBody(item)),
-    author: AUTHOR,
-    publisher: AUTHOR,
-    url: canonical,
-    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
-  };
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -147,11 +126,19 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(item.title, canonical)) }}
       />
-      <BlogHeader />
+      <SiteHeader />
       <main id="main" className="bg-white">
-        {item.type === "repo review" ? <RepoReviewLayout item={item} /> : <ArticleLayout item={item} />}
+        <div className="max-w-3xl mx-auto px-6 pt-10 -mb-10">
+          <a
+            href="/building/"
+            className="text-gray-600 hover:text-brand-dark text-sm font-semibold inline-flex items-center gap-1.5 transition-colors min-h-11"
+          >
+            <ArrowLeft className="w-4 h-4" aria-hidden="true" /> All writing
+          </a>
+        </div>
+        {content}
       </main>
-      <BlogFooter />
+      <Footer />
     </>
   );
 }

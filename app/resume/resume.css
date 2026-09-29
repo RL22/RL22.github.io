@@ -1,8 +1,7 @@
 /* Resume route: screen preview as a paper sheet, print-optimized for PDF export. */
 
-/* Letter geometry, locked in px: 8.5in x 11in at 96dpi = 816px x 1056px.
-   Padding 58px = 0.6in. The sheet never reflows below its paper width;
-   small screens scroll it horizontally instead. */
+/* Letter geometry for the desktop preview: 8.5in x 11in at 96dpi = 816px x 1056px.
+   Below 900px, the screen-only rules reflow the sheet for reading. */
 
 .resume-page {
   min-height: 100vh;
@@ -61,7 +60,7 @@
   font-family: var(--font-display), Georgia, serif;
   font-weight: 600;
   font-size: 16px;
-  color: #a5423d;
+  color: #A5523D;
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
 }
@@ -91,8 +90,8 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #a5423d;
-  border-top: 2px solid #a5423d;
+  color: #A5523D;
+  border-top: 2px solid #A5523D;
   padding-top: 4px;
   margin-bottom: 6px;
   print-color-adjust: exact;
@@ -213,6 +212,110 @@
 
 .resume-skills-tags {
   color: #4a4744;
+}
+
+@media screen and (max-width: 899px) {
+  .resume-page {
+    padding: 1rem 0 3rem;
+    overflow-x: visible;
+  }
+
+  .resume-actions {
+    width: auto;
+    padding: 0 16px;
+  }
+
+  .resume-sheet {
+    box-sizing: border-box;
+    width: auto;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 20px 16px;
+    border-radius: 0;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .resume-sheet h1 {
+    font-size: 26px;
+  }
+
+  .resume-name-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .resume-title,
+  .resume-contact,
+  .resume-entry-role,
+  .resume-entry-dates,
+  .resume-edu-credential,
+  .resume-oss-url,
+  .resume-oss-desc,
+  .resume-skills-line {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .resume-contact {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+  }
+
+  .resume-sep {
+    display: none;
+  }
+
+  .resume-sheet section {
+    margin-top: 18px;
+  }
+
+  .resume-sheet section h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .resume-entry,
+  .resume-edu {
+    margin-bottom: 14px;
+  }
+
+  .resume-entry-head,
+  .resume-edu-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .resume-entry-head h3,
+  .resume-edu-head h3 {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  .resume-entry-role {
+    display: block;
+    margin-top: 2px;
+  }
+
+  .resume-entry-role .resume-role-sep {
+    display: none;
+  }
+
+  .resume-entry-text {
+    margin-top: 6px;
+  }
+
+  .resume-oss-name {
+    font-size: 17px;
+  }
+
+  .resume-skills-line {
+    margin-bottom: 10px;
+  }
 }
 
 @media print {

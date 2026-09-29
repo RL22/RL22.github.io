@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Navbar from "./components/Navbar";
+import SiteHeader from "./components/SiteHeader";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <Navbar />
+      <SiteHeader />
       <main id="main">
         <Hero />
         <About />

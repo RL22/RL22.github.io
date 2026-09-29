@@ -1,174 +1,76 @@
-"use client";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
-import StackIcon, { type IconName } from "tech-stack-icons";
-import Reveal from "./Reveal";
+import { SHOW_WORK } from "../config";
 
-const techIcons: { name: IconName; alt: string }[] = [
-  { name: "typescript", alt: "TypeScript" },
-  { name: "react", alt: "React" },
-  { name: "tailwindcss", alt: "Tailwind CSS" },
-  { name: "wordpress", alt: "WordPress" },
-  { name: "vercel", alt: "Vercel" },
-  { name: "figma", alt: "Figma" },
-  { name: "anthropic", alt: "Anthropic" },
-  { name: "openai", alt: "OpenAI" },
-];
-
-const cardVariant = (delay: number) => ({
-  initial: { opacity: 0, y: 28, scale: 0.94 },
-  animate: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.9,
-      ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
-      delay,
-    },
-  },
-});
-
+// Server component with no entrance motion: everything in the first viewport
+// is in the static HTML and visible before any JS loads. The hero states the
+// one claim, then backs it with one fact a stranger can check (PRODUCT.md,
+// principle 3) instead of self-reported metric cards.
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex flex-col overflow-hidden bg-cream">
+    <section id="home" className="relative min-h-[calc(100vh-4rem)] flex flex-col bg-cream">
       <div className="max-w-6xl mx-auto px-6 py-20 md:py-24 grid md:grid-cols-2 gap-12 items-center my-auto w-full">
 
         {/* Left: copy */}
         <div>
-          <Reveal>
-            <span className="inline-block bg-brand/10 text-brand-darker text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
-              Senior Web Platform Engineer
-            </span>
-          </Reveal>
+          <span className="inline-block bg-brand/10 text-brand-darker text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+            Senior Web Developer · Platform Lead
+          </span>
 
-          {/* Heading — single h1, line-by-line clip reveal */}
-          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-            {[
-              { text: "Build platforms.", delay: 0.05 },
-              { text: "Scale marketing impact.", delay: 0.15 },
-            ].map((line, i) => (
-              <span key={i} className="block" style={{ overflow: "hidden" }}>
-                <motion.span
-                  className="block"
-                  initial={{ y: "110%" }}
-                  animate={{ y: "0%" }}
-                  transition={{
-                    duration: 0.9,
-                    ease: [0.16, 1, 0.3, 1],
-                    delay: line.delay,
-                  }}
-                >
-                  {line.text}
-                </motion.span>
-              </span>
-            ))}
+          <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.05] mb-6">
+            I run marketing websites like products.
           </h1>
 
-          <Reveal delay={0.35}>
-            <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-lg">
-              Nine years owning marketing-site lifecycles: architecture, component systems, and the publishing workflows that let marketing ship without opening a ticket. I work across design, engineering, and marketing, with an AI-native workflow underneath.
-            </p>
-            <div className="flex items-center gap-4 mb-10">
-              <a href="#experience" className="btn-primary inline-flex items-center gap-2">
-                See the work <ArrowRight className="w-4 h-4" />
-              </a>
-              <a href="#contact" className="text-gray-600 hover:text-brand-dark text-sm font-semibold transition-colors">
-                Let's talk →
-              </a>
-            </div>
-          </Reveal>
+          <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-[34rem]">
+            Nine years owning the marketing site end to end: the architecture, the component system, and the publishing workflow that lets marketing launch pages without waiting on engineering.
+          </p>
+
+          <div className="flex items-center gap-6 mb-10">
+            <a href={SHOW_WORK ? "/work/" : "#experience"} className="btn-primary inline-flex items-center gap-2">
+              See the work <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </a>
+            <a href="#contact" className="text-gray-700 hover:text-brand-dark text-sm font-semibold underline underline-offset-4 decoration-gray-300 hover:decoration-brand-dark transition-colors">
+              Let&apos;s talk
+            </a>
+          </div>
+
+          {/* One verifiable proof point */}
+          <p className="text-sm text-gray-700 leading-relaxed max-w-[34rem] border-t border-cream-dark pt-5">
+            <span className="font-semibold text-gray-900">Proof you can check:</span>{" "}
+            a Mednition landing page I built early in a five-month contract was still live, unchanged in structure, years later.
+            {SHOW_WORK && (
+              <>
+                {" "}
+                <a
+                  href="/work/mednition-landing-page-templates/"
+                  className="text-brand-dark font-semibold underline underline-offset-4 hover:no-underline whitespace-nowrap"
+                >
+                  See the before and after
+                </a>
+              </>
+            )}
+          </p>
         </div>
 
-        {/* Right: photo + floating stat cards */}
+        {/* Right: photo on the terracotta block */}
         <div className="relative h-[520px] md:h-[600px] hidden md:block">
-          {/* Brand background block — contains + clips the photo */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <div className="absolute bottom-0 right-0 w-[84%] h-[90%] bg-brand rounded-3xl overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/media/shared/portfolio-hero-chmd-lifestyle-gen.webp"
-              alt="Rodney L. Lewis, Senior Web Platform Engineer"
+              alt="Rodney L. Lewis working at a laptop"
               width={1065}
               height={1600}
+              // Lazy on purpose: the photo only shows at md+, and Chrome never
+              // fetches a lazy image inside a display:none container, so phones
+              // skip these 132 KB entirely.
+              loading="lazy"
+              decoding="async"
               className="absolute bottom-0 right-0 h-full w-full object-cover object-top select-none pointer-events-none"
               draggable={false}
             />
           </div>
-
-          {/* Card 1 — top left — Years */}
-          <motion.div
-            {...cardVariant(0.55)}
-            className="absolute top-6 -left-4 z-20 card shadow-lg w-40 lg:w-52"
-          >
-            <div className="float-card">
-              <p className="text-3xl font-bold">9+</p>
-              <p className="text-gray-600 font-medium">Years</p>
-              <p className="text-gray-600 text-sm font-normal mt-1">Owning marketing-site lifecycles</p>
-            </div>
-          </motion.div>
-
-          {/* Card 2 — top right — Organizations */}
-          <motion.div
-            {...cardVariant(0.7)}
-            className="absolute top-4 -right-4 z-20 card shadow-lg w-40 lg:w-56"
-          >
-            <div className="float-card float-card--delay-1">
-              <p className="text-gray-500 text-sm font-semibold mb-1">Organizations</p>
-              <p className="text-3xl font-bold">6</p>
-              <p className="text-gray-600 text-sm font-normal">Pendo · Carrot · Kiddom · Mednition · Andersen · Revel</p>
-            </div>
-          </motion.div>
-
-          {/* Card 3 — bottom left — self-serve thesis */}
-          <motion.div
-            {...cardVariant(0.85)}
-            className="absolute bottom-8 -left-4 z-20 card shadow-lg w-52"
-          >
-            <div className="float-card float-card--delay-2">
-              <p className="text-2xl font-bold text-brand">Self-Serve</p>
-              <p className="text-gray-600 font-medium">Marketing ships without me</p>
-              <p className="text-gray-600 text-sm font-normal mt-1">The measure I build for</p>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Mobile stat cards (stacked, no photo) */}
-        <div className="md:hidden flex flex-col gap-4">
-          <div className="card">
-            <p className="text-3xl font-bold">9+</p>
-            <p className="text-gray-600 font-medium">Years</p>
-            <p className="text-gray-600 text-sm mt-1">Owning marketing-site lifecycles</p>
-          </div>
-          <div className="card">
-            <p className="text-3xl font-bold">6</p>
-            <p className="text-gray-600 font-medium">Organizations</p>
-            <p className="text-gray-600 text-sm mt-1">Pendo · Carrot · Kiddom · Mednition · Andersen · Revel</p>
-          </div>
-          <div className="card">
-            <p className="text-2xl font-bold text-brand">Self-Serve</p>
-            <p className="text-gray-600 font-medium">Marketing ships without me</p>
-            <p className="text-gray-600 text-sm mt-1">The measure I build for</p>
-          </div>
         </div>
       </div>
-
-      {/* Tech ticker — anchored to bottom */}
-      <Reveal delay={0.4} className="bg-cream-dark py-6">
-        <p className="text-center text-gray-500 text-sm font-medium mb-4">Stack I work in</p>
-        <div className="flex justify-center items-center gap-8 flex-wrap px-6">
-          {techIcons.map(t => (
-            <span
-              key={t.alt}
-              role="img"
-              aria-label={t.alt}
-              title={t.alt}
-              className="w-10 h-10 grayscale"
-            >
-              <StackIcon name={t.name} />
-            </span>
-          ))}
-        </div>
-      </Reveal>
     </section>
   );
 }

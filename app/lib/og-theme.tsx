@@ -1,7 +1,5 @@
-// Shared between the real Satori generators (app/blog/[slug]/opengraph-image.tsx,
-// app/work/[slug]/opengraph-image.tsx) and the browser-viewable reference at
-// /og-preview. Importing the same atoms in both places is what keeps the
-// preview from silently drifting out of sync with what actually ships.
+// Shared by the Satori generators in app/blog/[slug]/opengraph-image.tsx and
+// app/work/[slug]/opengraph-image.tsx. These atoms are their single source.
 export const ogTokens = {
   brand: "#C0614A",
   brandDark: "#A5423D",

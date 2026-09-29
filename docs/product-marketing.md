@@ -10,7 +10,7 @@ The portfolio is also a Sprintz studio business card. Prospective clients should
 
 ## Audiences
 
-- Senior IC marketing-web roles: [company], [company], [company], [company], and similar SaaS, fintech, or AI companies.
+- Senior IC marketing-web roles at SaaS, fintech, and AI companies.
 - Recruiters, hiring managers, marketing leaders, and engineering leaders evaluating platform ownership.
 - Prospective Sprintz clients evaluating strategic judgment and craft.
 
@@ -82,4 +82,4 @@ The portfolio is also a Sprintz studio business card. Prospective clients should
 
 - `PRODUCT.md` — product, audience, and visual-brand constraints.
 - `SITE_COPY.md` — canonical site copy and claim history.
-- Everlaw-specific campaign context moved to `~/job-search/everlaw/` (2026-08) — job-search material, not part of this public repo.
+- Company-specific campaign context lives in the private job-search folder, not in this public repo.

@@ -1,11 +1,28 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+// Our own diagrams under public/media/blog are inlined at build time so they
+// render in the site's self-hosted fonts (via .dg-mono / .dg-sans in
+// globals.css) instead of pulling Google Fonts through an <img>. Only local
+// .svg paths match; everything else stays a lazy <img>.
+const LOCAL_SVG = /^\/media\/blog\/[\w/-]+\.svg$/;
+
+function inlineSvg(src: string): string | null {
+  if (!LOCAL_SVG.test(src) || src.includes("..")) return null;
+  try {
+    return readFileSync(path.join(process.cwd(), "public", src), "utf8").replace(/^<\?xml[^>]*\?>\s*/, "");
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Renders a piece's Markdown body: H2s, paragraphs, links, tables, code, and
- * images get the site's prose styling. Images are lazy-loaded by default
- * (`loading="lazy"`) since a long-form post can carry several inline diagrams
- * below the fold.
+ * images get the site's prose styling. Local /media/blog SVG diagrams are
+ * inlined (see inlineSvg); other images are lazy-loaded (`loading="lazy"`)
+ * since a long-form post can carry several below the fold.
  */
 export default function MarkdownBody({ body }: { body: string }) {
   return (
@@ -22,15 +39,29 @@ export default function MarkdownBody({ body }: { body: string }) {
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
-          img: ({ src, alt }) => (
-            <img
-              src={typeof src === "string" ? src : undefined}
-              alt={alt ?? ""}
-              loading="lazy"
-              decoding="async"
-              className="w-full h-auto rounded-xl my-6"
-            />
-          ),
+          img: ({ src, alt }) => {
+            const svg = typeof src === "string" ? inlineSvg(src) : null;
+            if (svg) {
+              // A block <span>, not <figure>: Markdown wraps images in <p>, and a
+              // <figure> inside <p> is invalid HTML that the parser splits. The
+              // SVG carries its own <title>/<desc> via aria-labelledby.
+              return (
+                <span
+                  className="block w-full h-auto rounded-xl my-6 [&>svg]:w-full [&>svg]:h-auto"
+                  dangerouslySetInnerHTML={{ __html: svg }}
+                />
+              );
+            }
+            return (
+              <img
+                src={typeof src === "string" ? src : undefined}
+                alt={alt ?? ""}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-auto rounded-xl my-6"
+              />
+            );
+          },
         }}
       >
         {body}

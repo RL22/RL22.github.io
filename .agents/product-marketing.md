@@ -2,7 +2,7 @@
 
 This file is the canonical product/audience/positioning context for the portfolio at `rl22.github.io`. The `copywriting`, `copy-editing`, `cro`, `popups`, `cold-email`, and `emails` skills all read it before asking the user clarifying questions.
 
-The "product" being marketed is **Rodney L. Lewis as a Senior IC Web Platform Engineer & Marketing Web Platform Leader.** The "page" is his personal portfolio (and associated company-specific case studies such as `rl22.github.io/everlaw`). Every copy decision should ladder up to one objective.
+The "product" being marketed is **Rodney L. Lewis as a Senior IC Web Platform Engineer & Marketing Web Platform Leader.** The "page" is his personal portfolio (company-tailored case studies are kept out of this repo). Every copy decision should ladder up to one objective.
 
 ---
 
@@ -18,18 +18,11 @@ Conversion event: form submission OR a "book a 20-min intro" / intro call click.
 
 ## 2. Target Audiences (in priority order)
 
-### Active Tier 1 Target — Everlaw Custom Campaign
-- **Everlaw — "Senior Manager, Marketing Web Development"** (Top Active Target)
-  - **Context:** Dedicated audit & pitch campaign at `rl22.github.io/everlaw` (500 pages audited).
-  - **Hiring Manager & Key Stakeholders:** [name] (Direct Manager / Marketing Leader), [name] (CMO), [name], [name], [name].
-  - **Positioning Bar:** Modeled after predecessor [name] (now Principal, Web Platform & Strategy at Chime) — positioning the website as an end-to-end "Growth Product" and "Pipeline Engine".
-  - **Management Nuance:** Framed primarily as a high-leverage Senior IC / Platform Architect who bridges marketing, product, and engineering, with verified people-management experience (managed 2 junior developers at Revel Systems from Sept 2019 to Feb 2020).
+### Tier 1 — company-tailored campaigns
+- Tailored audit-and-pitch campaigns for specific roles. Target companies, stakeholders, and dossiers live in the private job-search folder, never in this public repo.
 
-### Active Tier 2 Targets — Senior IC marketing-web roles
-- **[company] — "Senior Web Developer"**
-- **[company] — "Web Engineer"**
-- **[company] — "Senior Web Developer"**
-- **[company] — "Front-End Web Developer, B2B MarTech"**
+### Tier 2 — Senior IC marketing-web roles
+- Hands-on IC reqs titled Senior Web Developer, Web Engineer, or Front-End Web Developer on B2B marketing-technology teams at SaaS, fintech, and AI companies.
 
 These are hands-on IC roles: own the marketing site (CMS, components, performance, experimentation), no direct reports. Positioning speaks directly to a builder who owns the lifecycle personally.
 
@@ -39,7 +32,7 @@ These are hands-on IC roles: own the marketing site (CMS, components, performanc
 
 ## 3. Positioning Pillars (what every page must convey)
 
-1. **The Website as an End-to-End "Growth Product."** Not a digital brochure or ticket-taking service, but a high-velocity pipeline engine bridging marketing, product, engineering, and analytics (The [name] Bar).
+1. **The Website as an End-to-End "Growth Product."** Not a digital brochure or ticket-taking service, but a high-velocity pipeline engine bridging marketing, product, engineering, and analytics.
 2. **Hands-on Senior IC & Technical Operator.** Owns marketing-site *lifecycles* end-to-end — architecture, performance, components, publishing workflows, automated CI/CD release gates.
 3. **Headless CMS at Scale.** Headless WordPress in production at Pendo and Revel (post-migration). Sanity in production at Sprintz. Decoupled component systems enabling rapid marketing content velocity.
 4. **Core Web Vitals + Technical SEO & AI Discoverability (GEO).** CWV ownership at Carrot Fertility. Lighthouse-driven refactors. JSON-LD schema governance and AI-search optimization (ensuring LLMs like ChatGPT Search and Perplexity cite product claims accurately).
@@ -83,7 +76,6 @@ These are hands-on IC roles: own the marketing site (CMS, components, performanc
 | Mednition landing page built in a 5-month contract, still live unchanged ~5 years later | Wayback Machine | ✅ Verified — externally checkable, no trust required |
 | Pendo's `/{family}/{use-case}/` product URL architecture still in production | Owner-confirmed, live site | ✅ Verified — externally checkable |
 | Carrot careers page still rendering live listings from the Greenhouse API | Owner-confirmed, live site | ✅ Verified — externally checkable |
-| Everlaw 500-page audit & live case study (`rl22.github.io/everlaw`) | Active Project | ✅ Live Asset |
 | Lighthouse & LCP score improvements at Kiddom & Carrot | Resume | ✅ Verified |
 | WordPress + Webflow CMS ownership | Resume | ✅ Verified |
 | Mar-tech fluency: Marketo, HubSpot, Mutiny, SFMC, Mailchimp, Salesforce | Resume | ✅ Verified |
@@ -117,7 +109,6 @@ These are hands-on IC roles: own the marketing site (CMS, components, performanc
 - "Start a conversation"
 
 **Secondary** (browsing intent):
-- "Explore the Everlaw Case Study" → `rl22.github.io/everlaw`
 - "See the case studies" → projects section
 - "View on GitHub" → github.com/RL22
 
@@ -126,8 +117,6 @@ These are hands-on IC roles: own the marketing site (CMS, components, performanc
 ## 9. Related Files
 
 - Canonical copy document: `SITE_COPY.md`
-- Everlaw App Directory: `/Users/rodneylewis/Sprintz/jobs/everlaw`
 - Sprintz workspace: `~/Sprintz/brands/sprintz/`
-- Everlaw campaign planning docs (dossier, implementation plan, presentation
-  blueprint): moved to `~/job-search/everlaw/` (2026-08) — job-search
-  material, not part of this public repo.
+- Company-tailored campaign material (dossiers, plans, tailored resumes) lives
+  in the private job-search folder, not in this public repo.

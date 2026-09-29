@@ -3,7 +3,7 @@ import ResumeSheet from "./ResumeSheet";
 
 const title = "Rodney L. Lewis | Resume";
 const description =
-  "Resume of Rodney L. Lewis, Web Developer, Marketing Site, in Oakland, CA. Nine years owning marketing-site lifecycles.";
+  "Resume of Rodney L. Lewis, Senior Web Developer · Platform Lead, in Oakland, CA. Nine years owning marketing-site lifecycles.";
 
 export const metadata: Metadata = {
   title,
